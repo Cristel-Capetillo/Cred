@@ -10,10 +10,12 @@ namespace Cred
         /*Type of Club. Name added by designer in the Inspector*/
         public string nameOfClub;
 
-        /*Category of Clothing*/
+        /*Categories of Clothing*/
         public bool categoryJeans => name.Contains("Jeans");
         public bool categoryHat => name.Contains("Hat");
         public bool categoryShirt => name.Contains("Shirt");
+
+        /*TODO: More Categories*/
 
         /*Clothing styles*/
         public bool raverStyle => name.Contains("Raver");

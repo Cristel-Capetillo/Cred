@@ -7,7 +7,9 @@ namespace Cred
     public class TypeOfClothing : MonoBehaviour
     {
         public Clothing typeOfClothing;
+        public ClothingAmount clothingAmount;
 
+        public bool spawned;
 
         private void Start()
         {
@@ -26,6 +28,8 @@ namespace Cred
             Debug.Log("Deluxe clothing: " + typeOfClothing.deluxeClothing);
             Debug.Log("Standard clothing: " + typeOfClothing.standardClothing);
 
+          clothingAmount.clothings.Add(gameObject);
         }
+     
     }
 }
