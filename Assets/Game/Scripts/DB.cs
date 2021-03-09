@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Cred
+namespace Cred.Scripts
 {
-    public class LoginScript : IDataBase
+    public class DB : MonoBehaviour, IDataBase
     {
         public void Login(string username, string password) 
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"{username} and {password}");
         }
 
-        public void CreateAccount(string username, string password) {
+        public void SignUp(string username, string password) {
             throw new System.NotImplementedException();
         }
     }
