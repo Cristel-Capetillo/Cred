@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871214098215488, guid: 392ed58a37652e64e8e4276fe9f07911, type: 3}
       propertyPath: m_Name
-      value: Shirt
+      value: Shirts
       objectReference: {fileID: 0}
     - target: {fileID: 7871214098215518, guid: 392ed58a37652e64e8e4276fe9f07911, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -580,6 +580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928367967207944403, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
+        type: 3}
+      propertyPath: m_Name
+      value: LeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113203536599960628, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
+        type: 3}
+      propertyPath: m_Name
+      value: RightArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43c83bc0edfe6f14a98630a7fd9986c9, type: 3}

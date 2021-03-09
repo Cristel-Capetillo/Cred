@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7871213506554837}
   - component: {fileID: 7871213506554836}
   m_Layer: 5
-  m_Name: CanvasTest
+  m_Name: CanvasSelectClothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 7871214098215519}
   - component: {fileID: 7871214098215518}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Shirts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
