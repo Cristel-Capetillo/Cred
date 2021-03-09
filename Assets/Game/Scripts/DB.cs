@@ -13,7 +13,7 @@ namespace Cred.Scripts
         }
 
         public void SignUp(string username, string password) {
-            throw new System.NotImplementedException();
+            Debug.Log($"{username} and {password} signup");
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Cred
     {
         public GameObject UsernameText;
         public GameObject PasswordText;
+        public GameObject SubmitButton;
         // Start is called before the first frame update
         public void LoginClick() 
         {
@@ -33,7 +34,16 @@ namespace Cred
                 return;
             }
             GetComponent<DB>().SignUp(username,password);
+        }
+
+        public void LoginToggleButton() {
+            SubmitButton.transform.Find("Text").GetComponent<Text>().text = "Login";
+            SubmitButton.GetComponent<Button>().onClick.AddListener(LoginClick);
             
+        }
+        public void SignUpToggleButton() {
+            SubmitButton.transform.Find("Text").GetComponent<Text>().text = "SignUp";
+            SubmitButton.GetComponent<Button>().onClick.AddListener(SignUpClick);
         }
         
     }
