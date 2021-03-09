@@ -20,7 +20,7 @@ namespace Cred.Scripts.Clothing {
             rightMesh.material.color = Color.blue;
         }
 
-        public void SelectShirts() {
+        public void SelectShirt() {
             Debug.Log("Shirts selected!");
             var torsoMesh = torso.GetComponent<MeshRenderer>();
             torsoMesh.material.color = Color.green;
