@@ -38,11 +38,13 @@ namespace Cred
 
         public void LoginToggleButton() {
             SubmitButton.transform.Find("Text").GetComponent<Text>().text = "Login";
+            SubmitButton.GetComponent<Button>().onClick.RemoveAllListeners();
             SubmitButton.GetComponent<Button>().onClick.AddListener(LoginClick);
             
         }
         public void SignUpToggleButton() {
             SubmitButton.transform.Find("Text").GetComponent<Text>().text = "SignUp";
+            SubmitButton.GetComponent<Button>().onClick.RemoveAllListeners();
             SubmitButton.GetComponent<Button>().onClick.AddListener(SignUpClick);
         }
         
