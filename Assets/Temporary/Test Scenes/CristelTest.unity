@@ -206,6 +206,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &839014349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8115777214975625632, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4661518193706318364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &864010338
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +278,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1123776226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 381253686840727629, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4661518193706318364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1135736505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4011626582358981678, guid: 480fb4736b2b83f49a1a9dc410d61e7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6429196754937922513}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092bd33318146814fba1d5f3d9b36a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2007811152
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +389,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &2113638344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4661518191998612948, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4661518193706318364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7871213873723886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +494,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shirt
       objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: 392ed58a37652e64e8e4276fe9f07911, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1135736505}
+    - target: {fileID: 7871214098215518, guid: 392ed58a37652e64e8e4276fe9f07911, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectShirts
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: 392ed58a37652e64e8e4276fe9f07911,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1135736505}
+    - target: {fileID: 2327226258217606600, guid: 392ed58a37652e64e8e4276fe9f07911,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectPants
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392ed58a37652e64e8e4276fe9f07911, type: 3}
 --- !u!1001 &4661518193706318364
@@ -547,6 +595,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClothingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4011626582358981678, guid: 480fb4736b2b83f49a1a9dc410d61e7f,
+        type: 3}
+      propertyPath: torso
+      value: 
+      objectReference: {fileID: 2113638344}
+    - target: {fileID: 4011626582358981678, guid: 480fb4736b2b83f49a1a9dc410d61e7f,
+        type: 3}
+      propertyPath: leftLeg
+      value: 
+      objectReference: {fileID: 839014349}
+    - target: {fileID: 4011626582358981678, guid: 480fb4736b2b83f49a1a9dc410d61e7f,
+        type: 3}
+      propertyPath: rightLeg
+      value: 
+      objectReference: {fileID: 1123776226}
     - target: {fileID: 7415486890582487492, guid: 480fb4736b2b83f49a1a9dc410d61e7f,
         type: 3}
       propertyPath: m_RootOrder
