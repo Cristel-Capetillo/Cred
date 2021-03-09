@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098205fab48f70d479f8dd1e9a7dc425, type: 3}
   m_Name: RaverStandardJeans
   m_EditorClassIdentifier: 
-  categoryClothing1: 1
-  categoryClothing2: 0
-  categoryClothing3: 0
   nameOfClub: The Hole

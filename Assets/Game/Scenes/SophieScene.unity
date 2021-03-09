@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &839639785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfClothing: {fileID: 11400000, guid: 00905bb873824464eb8b19d73308cdd3, type: 2}
   clothingAmount: {fileID: 1951825435}
-  spawned: 0
 --- !u!65 &839639786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -517,7 +516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfClothing: {fileID: 11400000, guid: 540593dd78e422e4db53f7684c770619, type: 2}
   clothingAmount: {fileID: 1951825435}
-  spawned: 0
 --- !u!135 &1175498291
 SphereCollider:
   m_ObjectHideFlags: 0

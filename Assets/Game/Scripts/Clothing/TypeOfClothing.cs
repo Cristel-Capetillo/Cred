@@ -8,9 +8,6 @@ namespace Cred
     {
         public Clothing typeOfClothing;
         public ClothingAmount clothingAmount;
-
-        public bool spawned;
-
         private void Start()
         {
             Debug.Log("Hipster preference: " + typeOfClothing.hipsterStyle);
