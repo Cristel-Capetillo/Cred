@@ -1,7 +1,9 @@
-﻿namespace Cred.Scripts.SaveSystem {
+﻿using System.Threading.Tasks;
+
+namespace Cred.Scripts.SaveSystem {
     public interface ISaveHandler {
         public void Authenticate();
-        public void Save(string ID, object toSave);
-        public object Load();
+        public void Save(string saveID, object saveObj);
+        public Task<object> Load(string loadID);
     }
 }

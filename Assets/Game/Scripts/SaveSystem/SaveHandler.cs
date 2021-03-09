@@ -1,15 +1,25 @@
-﻿namespace Cred.Scripts.SaveSystem {
+﻿using UnityEngine;
+
+namespace Cred.Scripts.SaveSystem {
     public class SaveHandler {
 
+        string objectID;
         ISaveHandler backEndSaveSystem;
 
-        public SaveHandler(ISaveHandler backEndSaveSystem) {
-            this.backEndSaveSystem = backEndSaveSystem;
+        public SaveHandler(string objectID) {
+            this.objectID = objectID;
+            backEndSaveSystem = new PlayerPrefsLocalSave(objectID);
             this.backEndSaveSystem.Authenticate();
         }
 
-        public void Save(string ID, ISavable savable) {
-            backEndSaveSystem.Save(ID, savable.ToBeSaved());
+        public void Save(ISavable savable) {
+            backEndSaveSystem.Save(objectID, savable.ToBeSaved());
+        }
+
+        public void Load(ISavable savable) {
+            var tmp = backEndSaveSystem.Load(objectID);
+            savable.OnLoad(tmp);
+            Debug.Log("Object loaded from backEndSaveSystem: "+objectID);
         }
     }
 }
