@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
+namespace Cred {
+    public class Clothing : MonoBehaviour {
+        // Start is called before the first frame update
+        void Start() {
+        }
+
+        // Update is called once per frame
+        void Update() {
+        }
+=======
 namespace Cred
 {
     [CreateAssetMenu]
@@ -32,5 +43,6 @@ namespace Cred
         /*Standard Clothing*/
         public bool standardClothing => name.Contains("Standard");
 
+>>>>>>> main
     }
 }
