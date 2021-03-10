@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "917950269994",
+    "firebase_url": "https://cred-2528e-default-rtdb.firebaseio.com",
+    "project_id": "cred-2528e",
+    "storage_bucket": "cred-2528e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917950269994:android:1be82a78470d8e2b8e5153",
+        "android_client_info": {
+          "package_name": "se.credible.cred"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917950269994-f0lrq5gmmom4ivmipdmr19o6n4eamh4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1GkqcebO9ke2DbB0Hp-_L9uGLg0_9kpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917950269994-f0lrq5gmmom4ivmipdmr19o6n4eamh4l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "917950269994-u19ip7faqe0v256921pk15c4095a1dpo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.credible.cred"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
