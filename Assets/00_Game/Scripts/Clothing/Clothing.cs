@@ -1,5 +1,6 @@
 using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Cred
 {
@@ -7,8 +8,8 @@ namespace Cred
     public class Clothing : ScriptableObject {
         public int cost;
         public TempCoin tempCoin;
-        public bool affordable => tempCoin.coin < cost;
-        
+        public bool affordable;
+
         /*Type of Club. Name added by designer in the Inspector*/
         public string nameOfClub;
 
@@ -33,5 +34,9 @@ namespace Cred
 
         /*Standard Clothing*/
         public bool standardClothing => name.Contains("Standard");
+
+        public void isAffordable() {
+            affordable = true;
+        }
     }
 }

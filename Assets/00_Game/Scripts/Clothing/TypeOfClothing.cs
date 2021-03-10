@@ -1,5 +1,7 @@
+using System;
 using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Cred
 {
@@ -8,7 +10,8 @@ namespace Cred
         public Clothing clothing;
         public ClothingAmount clothingAmount;
         public TempCoin tempCoin;
-        
+        public Text Coins;
+        public GameObject buyButton;
         private void Start()
         {
             /*Debug.Log("Hipster preference: " + typeOfClothing.hipsterStyle);
@@ -26,13 +29,22 @@ namespace Cred
             Debug.Log("Standard clothing: " + typeOfClothing.standardClothing);*/
 
           clothingAmount.clothings.Add(gameObject);
+          buyButton.SetActive(false);
         }
 
         public void Update() {
-            Debug.Log("isAffordable "+clothing.affordable);
-            if (clothing.cost < tempCoin.coin) {
-                Debug.Log("isAffordable2 "+clothing.affordable);
+            if (tempCoin.coin >= clothing.cost) {
+                clothing.isAffordable();
+                buyButton.SetActive(true);
+                Debug.Log("isAffordable " + clothing.affordable);
             }
+            else {
+                clothing.affordable = false;
+                buyButton.SetActive(false);
+                Debug.Log("NOTAffordable " + clothing.affordable);
+            }
+            Coins.text = tempCoin.coin.ToString();
+            
         }
     }
 }
