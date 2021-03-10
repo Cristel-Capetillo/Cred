@@ -9,8 +9,8 @@ namespace Cred
 {
     public class ClickEvents : MonoBehaviour
     {
-        public GameObject UsernameText;
-        public GameObject PasswordText;
+        public InputField UsernameText;
+        public InputField PasswordText;
         public GameObject SubmitButton;
         // Start is called before the first frame update
         void Start() {
@@ -19,8 +19,8 @@ namespace Cred
 
         public void LoginClick() 
         {
-            var username = UsernameText.GetComponent<Text>().text;
-            var password = PasswordText.GetComponent<Text>().text;
+            var username = UsernameText.text;
+            var password = PasswordText.text;
             if (username == "" || password == "")
             {
                 Debug.Log("Please enter both username and password");
