@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cred.Scripts;
@@ -8,20 +9,24 @@ namespace Cred
 {
     public class ClickEvents : MonoBehaviour
     {
-        public GameObject UsernameText;
-        public GameObject PasswordText;
+        public InputField UsernameText;
+        public InputField PasswordText;
         public GameObject SubmitButton;
         // Start is called before the first frame update
+        void Start() {
+            SubmitButton.GetComponent<Button>().onClick.AddListener(LoginClick);
+        }
+
         public void LoginClick() 
         {
-            var username = UsernameText.GetComponent<Text>().text;
-            var password = PasswordText.GetComponent<Text>().text;
+            var username = UsernameText.text;
+            var password = PasswordText.text;
             if (username == "" || password == "")
             {
                 Debug.Log("Please enter both username and password");
                 return;
             }
-            GetComponent<DB>().Login(username,password);
+            StartCoroutine(GetComponent<DB>().Login(username,password));
         }
 
         public void SignUpClick() 
@@ -33,7 +38,7 @@ namespace Cred
                 Debug.Log("Please enter both username and password");
                 return;
             }
-            GetComponent<DB>().SignUp(username,password);
+            //StartCoroutine(GetComponent<DB>().SignUp(username,password));
         }
 
         public void LoginToggleButton() {
