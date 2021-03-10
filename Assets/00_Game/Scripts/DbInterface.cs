@@ -8,7 +8,7 @@ namespace Cred.Scripts
     {
         void Login(string username, string password);
         
-        void SignUp(string username, string password);
+        IEnumerator SignUp(string username, string password);
 
         
         
