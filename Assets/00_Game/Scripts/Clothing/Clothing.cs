@@ -20,13 +20,13 @@ namespace Cred
         /*TODO: More Categories*/
 
         /*Clothing styles*/
-        public bool raverStyle => name.Contains("Raver");
-        public bool hipsterStyle => name.Contains("Hipster");
-        public bool influencerStyle => name.Contains("Influencer");
+        //public bool raverStyle => name.Contains("Raver");
+        //public bool hipsterStyle => name.Contains("Hipster");
+        //public bool influencerStyle => name.Contains("Influencer");
 
-        public bool raverClub => nameOfClub.Contains("Hole");
-        public bool hipsterClub => nameOfClub.Contains("Niche");
-        public bool yardClub => nameOfClub.Contains("Yard");
+        //public bool raverClub => nameOfClub.Contains("Hole");
+        //public bool hipsterClub => nameOfClub.Contains("Niche");
+        //public bool yardClub => nameOfClub.Contains("Yard");
 
         /*Deluxe Clothing*/
         public bool deluxeClothing => name.Contains("Deluxe");
