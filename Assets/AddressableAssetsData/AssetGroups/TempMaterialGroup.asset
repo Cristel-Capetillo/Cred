@@ -20,27 +20,31 @@ MonoBehaviour:
   - m_GUID: 806805af17fd33e4d95c1645e65ff88b
     m_Address: Assets/Temporary/Materials/Red.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 2100000, guid: 806805af17fd33e4d95c1645e65ff88b, type: 2}
+    m_TargetAsset: {fileID: 2100000, guid: 806805af17fd33e4d95c1645e65ff88b, type: 2}
   - m_GUID: a6d59777e5801154aa3d3008b1dc736f
     m_Address: Assets/Temporary/Materials/Blue.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Pants
     m_MainAsset: {fileID: 2100000, guid: a6d59777e5801154aa3d3008b1dc736f, type: 2}
     m_TargetAsset: {fileID: 2100000, guid: a6d59777e5801154aa3d3008b1dc736f, type: 2}
   - m_GUID: a72930f5f5a4423458b595b55c0991ef
     m_Address: Assets/Temporary/Materials/Green.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_SerializedLabels:
+    - Hats
+    m_MainAsset: {fileID: 2100000, guid: a72930f5f5a4423458b595b55c0991ef, type: 2}
+    m_TargetAsset: {fileID: 2100000, guid: a72930f5f5a4423458b595b55c0991ef, type: 2}
   - m_GUID: ca9663d488ea2c645a92d8262c88fa3a
     m_Address: Assets/Temporary/Materials/TestColor.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_SerializedLabels:
+    - Hats
+    m_MainAsset: {fileID: 2100000, guid: ca9663d488ea2c645a92d8262c88fa3a, type: 2}
+    m_TargetAsset: {fileID: 2100000, guid: ca9663d488ea2c645a92d8262c88fa3a, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:

@@ -1,18 +1,31 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using Object = System.Object;
 
 namespace Cred.AddressableLoadSystem{
     public class AddressableManager : MonoBehaviour
     {
-        //TODO: Change to asset label ref
-        [SerializeField]List<AssetReference> assetReferences = new List<AssetReference>();
-        public int AssetGroupReferencesCount => assetReferences.Count;//TODO: For testing remove this!
+        [SerializeField]List<Material> materialList = new List<Material>();
+        AsyncOperationHandle callBack;
+        public bool IsLoaded => callBack.IsDone;
+        public List<Material> MaterialList => materialList;
+
+        public int AssetGroupReferencesCount => materialList.Count;//TODO: For testing remove this!
         
-        public void LoadAddressableDataBase(){
-            throw new Exception("Not implemented yet!");
+        public void LoadAssetPackageAsync(string reference){
+            callBack = Addressables.LoadAssetsAsync<Material>(reference, op => {
+                var asset = op;
+                if (asset != null){
+                    materialList.Add(asset);
+                }
+            });
         }
+        
     }
 
 }
