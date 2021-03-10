@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
 
 namespace Cred
 {
     [CreateAssetMenu]
-    public class Clothing : ScriptableObject
-    {
+    public class Clothing : ScriptableObject {
+        public int cost;
+        public TempCoin tempCoin;
+        public bool affordable => tempCoin.coin < cost;
+        
         /*Type of Club. Name added by designer in the Inspector*/
         public string nameOfClub;
 
@@ -31,6 +33,5 @@ namespace Cred
 
         /*Standard Clothing*/
         public bool standardClothing => name.Contains("Standard");
-
     }
 }
