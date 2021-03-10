@@ -272,7 +272,6 @@ RectTransform:
   - {fileID: 451786177}
   - {fileID: 1872287647}
   - {fileID: 1583382263}
-  - {fileID: 1405159523}
   - {fileID: 1063259386}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -408,7 +407,7 @@ RectTransform:
   m_GameObject: {fileID: 543518420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.3, z: 0.5982905}
+  m_LocalScale: {x: 0.2, y: 0.39, z: 0.5982905}
   m_Children:
   - {fileID: 739728516}
   m_Father: {fileID: 451786177}
@@ -462,7 +461,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 543518423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1405159524}
+        m_TargetAssemblyTypeName: Cred.ClickEvents, Assembly-CSharp
+        m_MethodName: LoginToggleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &543518423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9607844, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -978,7 +989,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058430351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1405159524}
+        m_TargetAssemblyTypeName: Cred.ClickEvents, Assembly-CSharp
+        m_MethodName: SignUpToggleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1058430351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +1015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.15566039, g: 0.7061416, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1049,7 +1072,7 @@ RectTransform:
   m_Children:
   - {fileID: 2015783229}
   m_Father: {fileID: 228013423}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1100,13 +1123,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1405159521}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1405159524}
+        m_TargetAssemblyTypeName: Cred.ClickEvents, Assembly-CSharp
+        m_MethodName: LoginClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1125,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.0126776695, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1322,8 +1345,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1405159523}
   - component: {fileID: 1405159522}
+  - component: {fileID: 1405159524}
   m_Layer: 0
-  m_Name: Database
+  m_Name: UIHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1349,12 +1373,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405159521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 95.11916, z: 0}
-  m_LocalScale: {x: 2.3729095, y: 2.3729095, z: 2.3729095}
+  m_LocalPosition: {x: 0, y: 41.085457, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 228013423}
+  m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405159524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405159521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6791b38793b78574c90650bff047ac11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsernameText: {fileID: 666229869}
+  PasswordText: {fileID: 1139767321}
+  SubmitButton: {fileID: 1063259385}
 --- !u!1 &1406032403
 GameObject:
   m_ObjectHideFlags: 0
