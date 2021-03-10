@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Game.Scripts.AddressableLoadSystem{
+namespace Cred.AddressableLoadSystem{
     public class AddressableManager : MonoBehaviour
     {
         //TODO: Change to asset label ref

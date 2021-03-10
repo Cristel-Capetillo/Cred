@@ -1,5 +1,5 @@
 using System.Collections;
-using Game.Scripts.AddressableLoadSystem;
+using Cred.AddressableLoadSystem;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
