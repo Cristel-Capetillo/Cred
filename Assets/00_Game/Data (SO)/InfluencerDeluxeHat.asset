@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: InfluencerDeluxeHat
   m_EditorClassIdentifier: 
   cost: 20
-  tempCoin: {fileID: 6121195464547149306, guid: 900d393bc109b734aa59030e76bfc43e,
-    type: 3}
+  temp: {fileID: 6121195464547149306, guid: 900d393bc109b734aa59030e76bfc43e, type: 3}
+  affordable: 1
   nameOfClub: The Yard

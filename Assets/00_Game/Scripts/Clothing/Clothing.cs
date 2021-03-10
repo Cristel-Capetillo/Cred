@@ -7,9 +7,8 @@ namespace Cred
     [CreateAssetMenu]
     public class Clothing : ScriptableObject {
         public int cost;
-        public TempCoin tempCoin;
+        public TempCoin temp;
         public bool affordable;
-
         /*Type of Club. Name added by designer in the Inspector*/
         public string nameOfClub;
 
@@ -35,8 +34,7 @@ namespace Cred
         /*Standard Clothing*/
         public bool standardClothing => name.Contains("Standard");
 
-        public void isAffordable() {
-            affordable = true;
-        }
+        //public bool afford => ? temp.coin > cost;
+     
     }
 }

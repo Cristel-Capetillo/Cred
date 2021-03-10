@@ -8,7 +8,7 @@ namespace Cred
     public class TypeOfClothing : MonoBehaviour
     {
         public Clothing clothing;
-        public ClothingAmount clothingAmount;
+        public PlayerClothingAmount clothingAmount;
         public TempCoin tempCoin;
         public Text Coins;
         public GameObject buyButton;
@@ -28,21 +28,23 @@ namespace Cred
             Debug.Log("Deluxe clothing: " + typeOfClothing.deluxeClothing);
             Debug.Log("Standard clothing: " + typeOfClothing.standardClothing);*/
 
-          clothingAmount.clothings.Add(gameObject);
+          clothingAmount.playerClothings.Add(gameObject);
           buyButton.SetActive(false);
         }
 
         public void Update() {
-            if (tempCoin.coin >= clothing.cost) {
-                clothing.isAffordable();
-                buyButton.SetActive(true);
-                Debug.Log("isAffordable " + clothing.affordable);
-            }
-            else {
-                clothing.affordable = false;
-                buyButton.SetActive(false);
-                Debug.Log("NOTAffordable " + clothing.affordable);
-            }
+            //if (tempCoin.coin >= clothing.cost) {
+            //    clothing.affordable = true;
+            //    buyButton.SetActive(true);
+            //    Debug.Log("isAffordable " + clothing.affordable);
+            //}
+            //else {
+            //    clothing.affordable = false;
+            //    buyButton.SetActive(false);
+            //    Debug.Log("isAffordable " + clothing.affordable);
+            //}
+
+           // Debug.Log("isAffordable: " + clothing.afford);
             Coins.text = tempCoin.coin.ToString();
             
         }
