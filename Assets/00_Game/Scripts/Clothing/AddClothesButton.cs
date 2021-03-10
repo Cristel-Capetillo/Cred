@@ -7,11 +7,11 @@ namespace Cred
     public class AddClothesButton : MonoBehaviour
     {
         public GameObject clothing;
-        public ClothingAmount clothingAmount;
+        public PlayerClothingAmount clothingAmount;
         public void onClickAddClothing()
         {
             GameObject go = Instantiate(clothing, clothing.transform.position, clothing.transform.rotation);
-            clothingAmount.clothings.Add(go);
+            clothingAmount.playerClothings.Add(go);
         }
     }
 }
