@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "AddressableAssembly",
-        "Unity.ResourceManager"
+        "Unity.ResourceManager",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

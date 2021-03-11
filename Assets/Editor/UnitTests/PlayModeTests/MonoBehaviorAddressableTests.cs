@@ -5,26 +5,23 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
-using UnityEngine.ResourceManagement;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AddressableAssets;
 
 namespace Editor.UnitTests.PlayModeTests{
     public class MonoBehaviorAddressableTests
     {
-        //For multiple tests setup use [OneTimeSetUp]
+        //For multiple tests setup [OneTimeSetUp]
         [Test]
         public void MonoBehaviorAddressableSimpleTest()
         {
             var gameObject = new GameObject("GameObject");
             var addressableHandler = gameObject.AddComponent<AddressableManager>();
-            Debug.Log(addressableHandler.AssetGroupReferencesCount);
             Assert.AreEqual(typeof(AddressableManager), addressableHandler.GetType());
         }
         [Test]
         public void MonoBehaviorAddressableTestWithResourceLoadPrefabInstantiate(){
             var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager") as GameObject);
             var addressableHandler = gameObject.GetComponent<AddressableManager>();
-            Debug.Log(addressableHandler.AssetGroupReferencesCount);
             Assert.AreEqual(typeof(AddressableManager),addressableHandler.GetType());
         }
         [UnityTest]
@@ -33,21 +30,27 @@ namespace Editor.UnitTests.PlayModeTests{
             yield return new WaitUntil(()=>loadSceneAsync.isDone);
             
             var addressableHandler = GameObject.FindObjectOfType<AddressableManager>();
-            Debug.Log(addressableHandler.AssetGroupReferencesCount);
             Assert.AreEqual(typeof(AddressableManager),addressableHandler.GetType());
             yield return null;
         }
-
         [UnityTest]
-        public IEnumerator AsyncLoadAddressableLabelPackage(){
+        public IEnumerator MonoBehaviorLoadAddressableAssetsWithLabelReference(){
             var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager") as GameObject);
             var addressableManager = gameObject.GetComponent<AddressableManager>();
-            addressableManager.LoadAssetPackageAsync("Pants");
-            Debug.Log("start: "+addressableManager.MaterialList.Count);
-            yield return new WaitUntil(()=>addressableManager.IsLoaded);
-            Debug.Log("After wait: "+addressableManager.MaterialList.Count);
-            Assert.AreEqual(typeof(AddressableManager),addressableManager.GetType());
-            // Assert.AreEqual(typeof(Material), addressableManager.MaterialList[0].GetType());
+            addressableManager.LoadAssetGroup(addressableManager.AssetLabelReferences[0]);
+            yield return new WaitForSeconds(0.5f);
+            Debug.Log(addressableManager.ListCount);
+            Assert.Less(0, addressableManager.ListCount);
+            yield return null;
+        }
+        [UnityTest]
+        public IEnumerator MonoBehaviorLoadAddressableAssetsWithMultipleLabelReference(){
+            var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager") as GameObject);
+            var addressableManager = gameObject.GetComponent<AddressableManager>();
+            addressableManager.PrepareLoadingMultipleAssetGroups(addressableManager.AssetLabelReferences);
+            yield return new WaitForSeconds(0.5f);
+            Debug.Log(addressableManager.ListCount);
+            Assert.Less(2, addressableManager.ListCount);
             yield return null;
         }
     }
