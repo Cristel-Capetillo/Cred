@@ -1,8 +1,8 @@
 ﻿namespace Cred.Scripts {
     public class EventCoinChanged {
-        public readonly int Coins;
+        public readonly long Coins;
 
-        public EventCoinChanged(int coins) {
+        public EventCoinChanged(long coins) {
             Coins = coins;
         }
     }

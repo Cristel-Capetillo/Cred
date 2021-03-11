@@ -1,6 +1,6 @@
 ﻿namespace Cred.Scripts.SaveSystem {
-    public interface ISavable {
-        public object ToBeSaved();
-        public void OnLoad(object value);
+    public interface ISavable <T> {
+        public T ToBeSaved();
+        public void OnLoad(T value);
     }
 }

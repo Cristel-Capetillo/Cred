@@ -6,7 +6,8 @@
         "UnityEditor.TestRunner",
         "AddressableAssembly",
         "Unity.ResourceManager",
-        "Unity.Addressables"
+        "Unity.Addressables",
+        "CoinDef"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

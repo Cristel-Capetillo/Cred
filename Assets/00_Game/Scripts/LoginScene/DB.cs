@@ -7,6 +7,7 @@ using Firebase;
 using Firebase.Auth;
 using UnityEngine.SceneManagement;
 
+
 namespace Cred.Scripts {
     public class DB : MonoBehaviour, IDataBase {
         public FirebaseAuth auth;
@@ -59,6 +60,11 @@ namespace Cred.Scripts {
                 SceneManager.LoadScene("MainScene");
 
             }
+        }
+
+        public string GetFacebookToken() {
+            
+            return "ewjk";
         }
 
         public IEnumerator SignUp(string email, string password) {

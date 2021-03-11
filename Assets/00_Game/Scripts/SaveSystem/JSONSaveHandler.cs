@@ -24,6 +24,10 @@ namespace Cred.Scripts.SaveSystem {
             }
         }
 
+        public Task<T> Load<T>(string loadID) {
+            return default;
+        }
+
         public Task<object> Load(string loadID) {
             using (streamReader = new StreamReader(SaveFileName)) {
                 return new Task<object>(() => streamReader.ReadLine());
