@@ -61,6 +61,11 @@ namespace Cred.Scripts {
             }
         }
 
+        public string GetFacebookToken() {
+            
+            return "ewjk";
+        }
+
         public IEnumerator SignUp(string email, string password) {
             var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(email, password);
 
