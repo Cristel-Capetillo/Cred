@@ -10,7 +10,7 @@ using UnityEngine.AddressableAssets;
 namespace Editor.UnitTests.PlayModeTests{
     public class MonoBehaviorAddressableTests
     {
-        [Test]
+       [Test]
         public void MonoBehaviorAddressableSimpleTest()
         {
             var gameObject = new GameObject("GameObject");
