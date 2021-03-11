@@ -11,13 +11,14 @@ namespace Cred.Scripts {
     public class DB : MonoBehaviour, IDataBase {
         public FirebaseAuth auth;
         public FirebaseUser User;
+        public string UserId;
 
         void Start() {
             auth = FirebaseAuth.DefaultInstance;
         }
 
         public IEnumerator Login(string email, string password) {
-            Debug.Log($"{email} and {password}");
+            //Debug.Log($"{email} and {password}");
             var LoginTask = auth.SignInWithEmailAndPasswordAsync(email, password);
             //Wait until the task completes
             yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
@@ -59,6 +60,7 @@ namespace Cred.Scripts {
                 //Now get the result
                 User = LoginTask.Result;
                 Debug.Log(User.Email);
+                UserData.UserID = User.UserId;
                 SceneManager.LoadScene("MainScene");
 
             }
