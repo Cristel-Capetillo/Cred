@@ -10,7 +10,7 @@ namespace Cred
         public Clothing clothing;
         public PlayerClothingAmount clothingAmount;
         public TempCoin tempCoin;
-        public Text Coins;
+        public Text CoinsText;
         public GameObject buyButton;
         private void Start()
         {
@@ -33,19 +33,15 @@ namespace Cred
         }
 
         public void Update() {
-            //if (tempCoin.coin >= clothing.cost) {
-            //    clothing.affordable = true;
-            //    buyButton.SetActive(true);
-            //    Debug.Log("isAffordable " + clothing.affordable);
-            //}
-            //else {
-            //    clothing.affordable = false;
-            //    buyButton.SetActive(false);
-            //    Debug.Log("isAffordable " + clothing.affordable);
-            //}
-
-           // Debug.Log("isAffordable: " + clothing.afford);
-            Coins.text = tempCoin.coin.ToString();
+            if (tempCoin.coin >= clothing.cost) {
+                clothing.affordable = true;
+                buyButton.SetActive(true);
+            }
+            else {
+                clothing.affordable = false;
+                buyButton.SetActive(false);
+            }
+            CoinsText.text = tempCoin.coin.ToString();
             
         }
     }
