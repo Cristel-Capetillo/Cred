@@ -48,7 +48,7 @@ namespace Cred
             
         }
         public void SignUpToggleButton() {
-            SubmitButton.transform.Find("Text").GetComponent<Text>().text = "SignUp";
+            SubmitButton.transform.Find("Text").GetComponent<Text>().text = "Sign Up";
             SubmitButton.GetComponent<Button>().onClick.RemoveAllListeners();
             SubmitButton.GetComponent<Button>().onClick.AddListener(SignUpClick);
         }

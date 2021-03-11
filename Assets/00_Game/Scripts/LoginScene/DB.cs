@@ -51,9 +51,6 @@ namespace Cred.Scripts {
                         Debug.Log(message);
                         break;
                 }
-
-                
-
             }
             else {
                 //User is now logged in
@@ -65,6 +62,12 @@ namespace Cred.Scripts {
 
             }
         }
+
+        /*public IEnumerator SignUp {
+            
+        }*/
+            
+        
 
     }
 }
