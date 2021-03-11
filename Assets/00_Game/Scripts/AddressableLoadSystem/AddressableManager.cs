@@ -6,6 +6,9 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
+using Cred._00_Game.Scripts.Clothing;
+using Cred.Scripts.Clothing;
+using EventBrokerFolder;
 using UnityEditor;
 using Object = System.Object;
 
@@ -18,30 +21,32 @@ namespace Cred.AddressableLoadSystem{
         //TODO: List of assetReferences to levels that holds ScriptableObjects...
         //TODO: Derive this lists from ScriptableObjects:
         [SerializeField]List<AssetLabelReference> assetLabelReferences = new List<AssetLabelReference>();
-        [SerializeField]List<Material> loadedAssets = new List<Material>();//TODO:Change dataType
+        [SerializeField]List<Wearable> loadedAssets = new List<Wearable>();//TODO:Change dataType
         int _activeAsyncOperations;
         public List<AssetLabelReference> AssetLabelReferences => assetLabelReferences;
         public int ListCount => loadedAssets.Count;
 
-        //TODO:Implement a start method...
-        public void PrepareLoadingMultipleAssetGroups(IEnumerable<AssetLabelReference> labelReferences){
+        void Start(){
+            PrepareLoadingMultipleAssetGroups(assetLabelReferences);
+        }
+        void PrepareLoadingMultipleAssetGroups(IEnumerable<AssetLabelReference> labelReferences){
             foreach (var labelReference in labelReferences){ 
                 LoadAssetGroup(labelReference);
             }
         }
-        //TODO: Change DataType
-        public void LoadAssetGroup(AssetLabelReference assetLabelReference){
-            Addressables.LoadAssetsAsync<Material>(assetLabelReference, asset => {
+        void LoadAssetGroup(AssetLabelReference assetLabelReference){
+            Addressables.LoadAssetsAsync<Wearable>(assetLabelReference, asset => {
                 if (asset == null) return;
                 loadedAssets.Add(asset);
-                Debug.Log($"Adding: {asset.name}");
+                Debug.Log($"Adding: {asset}");
             }).Completed += OnComplete;
             _activeAsyncOperations++;
         }
-        //TODO: Change DataType, Send data to broker>Inventory!
-        void OnComplete(AsyncOperationHandle<IList<Material>> obj){
+        void OnComplete(AsyncOperationHandle<IList<Wearable>> obj){
             if(_activeAsyncOperations > 0)
                 _activeAsyncOperations--;
+            var temp = (List<Wearable>)obj.Result;
+            EventBroker.Instance().SendMessage(new WearableListMessage(temp));
             Debug.Log(_activeAsyncOperations <= 0 ? $"Send Loaded assets: full list {loadedAssets.Count} or latest list {obj.Result.Count}" : $"Active async operations: {_activeAsyncOperations}");
         }
     }
