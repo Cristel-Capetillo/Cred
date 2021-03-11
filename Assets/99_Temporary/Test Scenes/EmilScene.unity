@@ -1641,7 +1641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: C R E D
+  m_Text: 'C R E D '
 --- !u!222 &1617614081
 CanvasRenderer:
   m_ObjectHideFlags: 0
