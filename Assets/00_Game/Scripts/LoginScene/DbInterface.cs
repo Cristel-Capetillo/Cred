@@ -7,7 +7,7 @@ namespace Cred.Scripts
     public interface IDataBase
     {
         IEnumerator Login(string username, string password);
-        //IEnumerator SignUp(string username, string password);
+        IEnumerator SignUp(string username, string password);
 
         
         

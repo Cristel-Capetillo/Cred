@@ -31,14 +31,14 @@ namespace Cred
 
         public void SignUpClick() 
         {
-            var username = UsernameText.GetComponent<Text>().text;
-            var password = PasswordText.GetComponent<Text>().text;
+            var username = UsernameText.text;
+            var password = PasswordText.text;
             if (username == "" || password == "")
             {
                 Debug.Log("Please enter both username and password");
                 return;
             }
-            //StartCoroutine(GetComponent<DB>().SignUp(username,password));
+            StartCoroutine(GetComponent<DB>().SignUp(username,password));
         }
 
         public void LoginToggleButton() {
