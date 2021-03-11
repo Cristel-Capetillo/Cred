@@ -8,9 +8,9 @@ namespace Cred.Scripts.Clothing {
         //TODO: Instead of colour, change the mesh or sprite or textures
         //TODO: Add a reset button to go back to default
 
-        [SerializeField] Transform torso;
-        [SerializeField] Transform leftLeg;
-        [SerializeField] Transform rightLeg;
+        [SerializeField] GameObject torso;
+        [SerializeField] GameObject leftLeg;
+        [SerializeField] GameObject rightLeg;
 
         public void SelectPants() {
             Debug.Log("Pants selected!");
