@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47222746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2523425679559904654, guid: c57333bf67f3f154b815fa6fa2b7897f,
+    type: 3}
+  m_PrefabInstance: {fileID: 501860399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &47222751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47222746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bf2297ccfe30340ab78f8d924c9319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wearable: {fileID: 11400000, guid: 4389fda830a5f467bb04348f0dc18558, type: 2}
 --- !u!1001 &111382933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,14 +873,77 @@ PrefabInstance:
       value: DressUpCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 166355989}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1138453688}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeClothes
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Cred.SendClothesMessage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871214098215518, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 166355989}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 47222751}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeClothes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Cred.SendClothesMessage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327226258217606600, guid: c57333bf67f3f154b815fa6fa2b7897f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57333bf67f3f154b815fa6fa2b7897f, type: 3}
 --- !u!1 &572433877
@@ -1490,7 +1572,7 @@ PrefabInstance:
     - target: {fileID: 4661518191892586392, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 4661518191892586392, guid: 43c83bc0edfe6f14a98630a7fd9986c9,
         type: 3}
@@ -1697,6 +1779,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 791797357}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &986592002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7595069259025721788, guid: 1e02bad12ebe93847ab0a7367cbb484a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679438182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1138453683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7871214098215488, guid: c57333bf67f3f154b815fa6fa2b7897f,
+    type: 3}
+  m_PrefabInstance: {fileID: 501860399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1138453688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138453683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bf2297ccfe30340ab78f8d924c9319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wearable: {fileID: 11400000, guid: dc122460f91a24857b5948a4149e5b8f, type: 2}
 --- !u!1 &1244510989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5592945824094440015, guid: 9673ce21aea494df49fbfb549709923a,
@@ -1838,6 +1945,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c7e050f33374061ab3ec401ddf36ee, type: 3}
+--- !u!1 &1364118718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5562554766342848627, guid: 1e02bad12ebe93847ab0a7367cbb484a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679438182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1608904681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1998,7 +2111,7 @@ PrefabInstance:
     - target: {fileID: 6535966611668304912, guid: 1e02bad12ebe93847ab0a7367cbb484a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.84
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 6535966611668304912, guid: 1e02bad12ebe93847ab0a7367cbb484a,
         type: 3}
@@ -2079,6 +2192,16 @@ PrefabInstance:
       propertyPath: rightLeg
       value: 
       objectReference: {fileID: 448729170}
+    - target: {fileID: 4011626582358981678, guid: 661431c79b411954ba7e1481b538bbbc,
+        type: 3}
+      propertyPath: AlexPants
+      value: 
+      objectReference: {fileID: 1364118718}
+    - target: {fileID: 4011626582358981678, guid: 661431c79b411954ba7e1481b538bbbc,
+        type: 3}
+      propertyPath: AlexTorso
+      value: 
+      objectReference: {fileID: 986592002}
     - target: {fileID: 7415486890582487492, guid: 661431c79b411954ba7e1481b538bbbc,
         type: 3}
       propertyPath: m_RootOrder
