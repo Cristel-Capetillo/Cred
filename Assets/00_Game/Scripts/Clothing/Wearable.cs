@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Cred.Scripts {
+namespace Cred.Scripts.Clothing {
     [CreateAssetMenu]
     public class Wearable : ScriptableObject {
     }

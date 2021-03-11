@@ -19,7 +19,7 @@ namespace Cred.Scripts
         }
         void Start() {
             saveHandler = new SaveHandler(this.name);
-            // saveHandler.Load(this);
+            saveHandler.Load(this);
         }
 
         public object ToBeSaved() {
@@ -28,14 +28,6 @@ namespace Cred.Scripts
 
         public void OnLoad(object value) {
             Coins = (int) value;
-        }
-    }
-
-    public class EventCoinChanged {
-        public readonly int Coins;
-
-        public EventCoinChanged(int coins) {
-            Coins = coins;
         }
     }
 }
