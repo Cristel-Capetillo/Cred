@@ -7,6 +7,7 @@ using Firebase;
 using Firebase.Auth;
 using UnityEngine.SceneManagement;
 
+
 namespace Cred.Scripts {
     public class DB : MonoBehaviour, IDataBase {
         public FirebaseAuth auth;
