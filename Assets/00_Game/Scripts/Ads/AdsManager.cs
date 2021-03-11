@@ -37,7 +37,6 @@ namespace Cred._00_Game.Scripts.Ads {
         }
         public void OnUnityAdsReady(string placementId) {
             // Make a button/text display that an ad is ready?
-            Debug.Log("Ad is ready");
         }
         public void OnUnityAdsDidError(string message) {
             Debug.Log("Ad got an error");

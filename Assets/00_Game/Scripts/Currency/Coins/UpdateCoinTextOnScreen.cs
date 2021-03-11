@@ -1,4 +1,5 @@
-﻿using EventBrokerFolder;
+﻿using Cred._00_Game.Scripts.Currency.Coins;
+using EventBrokerFolder;
 using UnityEngine;
 using UnityEngine.UI;
 

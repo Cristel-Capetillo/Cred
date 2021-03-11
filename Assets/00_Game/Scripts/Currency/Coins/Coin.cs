@@ -1,3 +1,4 @@
+using Cred._00_Game.Scripts.Currency.Coins;
 using Cred.Scripts.SaveSystem;
 using EventBrokerFolder;
 using UnityEngine;
