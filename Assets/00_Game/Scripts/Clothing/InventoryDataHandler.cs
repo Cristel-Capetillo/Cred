@@ -8,7 +8,7 @@ namespace Cred._00_Game.Scripts.Clothing
 {
     public class InventoryDataHandler : MonoBehaviour
     {
-        [SerializeField]List<Wearable> wearableList = new List<Wearable>();
+        public Dictionary<ClothingType, List<Wearable>> WearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
 
         void Start(){
             EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
@@ -18,10 +18,14 @@ namespace Cred._00_Game.Scripts.Clothing
         }
         void OnLoadWearablesAssets(WearableListMessage wearableListMessage){
             print("Test");
-            //if dictionary.contains[test] only add the wearable
-            wearableList = wearableListMessage.Wearables;
-            //Sort them into preferably a dictionary 
-            //Amount of a specific item should come from the database server.
+            var temp = wearableListMessage.Wearables;
+            if (!WearableDictionary.ContainsKey(temp[0].ClothingType)) {
+                WearableDictionary.Add(temp[0].ClothingType, temp);
+            }
+            else {
+                WearableDictionary[temp[0].ClothingType].AddRange(temp);
+            }
+            Debug.Log(WearableDictionary.Count + " WearableDictonaryCount");
         }
         void OnLoadWearableData(){
             throw new Exception("Not implemented yet!");

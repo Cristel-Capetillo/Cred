@@ -5,7 +5,7 @@ namespace Cred.Scripts.Clothing {
     public class Wearable : ScriptableObject{
         [SerializeField] Rarity rarity;
         [SerializeField] ClothingType clothingType;
-        [SerializeField] Texture texture;//TODO: Inventory icon
+        [SerializeField] Texture texture; //TODO: Inventory icon
 
         public Texture Texture => texture;
         public Rarity Rarity => rarity;

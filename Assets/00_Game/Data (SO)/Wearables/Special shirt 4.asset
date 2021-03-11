@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Special shirt
+  m_Name: Special shirt 4
   m_EditorClassIdentifier: 
   rarity: {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
   clothingType: {fileID: 11400000, guid: 0749319de8169dd478b81d0e0e884e25, type: 2}
-  texture: {fileID: 2800000, guid: c88aa57c583af4f7d81c5711dde56f71, type: 3}
+  texture: {fileID: 2800000, guid: e7e8504a16c5c4f9c8682731d2886773, type: 3}

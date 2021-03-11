@@ -22,15 +22,64 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Pants
-    m_MainAsset: {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: e91cdfcea96fdd64bb35aaf49c40629f
     m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Shirt
-    m_MainAsset: {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: dc122460f91a24857b5948a4149e5b8f
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shirt
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 12c0a3b6e37784e039280bee848f5e97
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shirt
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 14ef74b834c57437288b579ed87914d6
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shirt
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4a6a37b90a3d04036ac8bff3aa55cdf4
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt 4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shirt
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4389fda830a5f467bb04348f0dc18558
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 3d24f0c35e4754762a02f7ab3e9d910e
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ac545987fc62a4cd7b1ab1f880be6ed6
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:
