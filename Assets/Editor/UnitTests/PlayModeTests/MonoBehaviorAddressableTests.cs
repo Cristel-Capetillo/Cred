@@ -10,7 +10,6 @@ using UnityEngine.AddressableAssets;
 namespace Editor.UnitTests.PlayModeTests{
     public class MonoBehaviorAddressableTests
     {
-        //For multiple tests setup [OneTimeSetUp]
         [Test]
         public void MonoBehaviorAddressableSimpleTest()
         {
@@ -23,15 +22,6 @@ namespace Editor.UnitTests.PlayModeTests{
             var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager") as GameObject);
             var addressableHandler = gameObject.GetComponent<AddressableManager>();
             Assert.AreEqual(typeof(AddressableManager),addressableHandler.GetType());
-        }
-        [UnityTest]
-        public IEnumerator MonoBehaviorAddressableTestWithSceneLoading(){
-            var loadSceneAsync = SceneManager.LoadSceneAsync("AddressableTestScene");
-            yield return new WaitUntil(()=>loadSceneAsync.isDone);
-            
-            var addressableHandler = GameObject.FindObjectOfType<AddressableManager>();
-            Assert.AreEqual(typeof(AddressableManager),addressableHandler.GetType());
-            yield return null;
         }
         [UnityTest]
         public IEnumerator MonoBehaviorLoadAddressableAssetsWithLabelReference(){
