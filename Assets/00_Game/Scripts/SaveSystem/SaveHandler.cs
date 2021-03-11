@@ -8,12 +8,12 @@ namespace Cred.Scripts.SaveSystem {
 
         public SaveHandler(string objectID) {
             this.objectID = objectID;
-            backEndSaveSystem = new PlayerPrefsLocalSave(objectID);
-            this.backEndSaveSystem.Authenticate("test");
+            backEndSaveSystem = new FireBaseSaveHandler();
+            this.backEndSaveSystem.Authenticate(this.objectID);
         }
 
         public void Save(ISavable savable) {
-            backEndSaveSystem.Save(objectID, savable.ToBeSaved());
+            backEndSaveSystem.Save(savable.ToBeSaved());
         }
 
         public async void Load(ISavable savable) {

@@ -18,7 +18,7 @@ namespace Cred.Scripts.SaveSystem {
             
         }
 
-        public void Save(string saveID, object saveObj) {
+        public void Save(object saveObj) {
             using (streamWriter = new StreamWriter(SaveFileName)) {
                 streamWriter.Write(saveObj.ToString());
             }
