@@ -45,5 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assetLabelReferences:
   - m_LabelString: Pants
-  - m_LabelString: Hats
-  loadedAssets: []
+  - m_LabelString: Shirt
