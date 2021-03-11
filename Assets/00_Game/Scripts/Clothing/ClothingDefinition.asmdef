@@ -2,7 +2,8 @@
     "name": "ClothingDefinition",
     "rootNamespace": "",
     "references": [
-        "GUID:3bda22b46eb61054aa194c900f53e0e4"
+        "GUID:3bda22b46eb61054aa194c900f53e0e4",
+        "GUID:a1329ac2cc4798e488f7107de1b82866"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
