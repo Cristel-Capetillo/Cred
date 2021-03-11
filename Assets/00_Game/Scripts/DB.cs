@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
+using UnityEngine.SceneManagement;
 
 namespace Cred.Scripts {
     public class DB : MonoBehaviour, IDataBase {
@@ -58,6 +59,7 @@ namespace Cred.Scripts {
                 //Now get the result
                 User = LoginTask.Result;
                 Debug.Log(User.Email);
+                SceneManager.LoadScene("MainScene");
 
             }
         }
