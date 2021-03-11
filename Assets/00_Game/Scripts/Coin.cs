@@ -2,7 +2,7 @@ using Cred.Scripts.SaveSystem;
 using EventBrokerFolder;
 using UnityEngine;
 
-namespace Cred.Scripts
+namespace Cred._00_Game.Scripts
 {
     public class Coin : MonoBehaviour, ISavable {
         SaveHandler saveHandler;
@@ -19,7 +19,7 @@ namespace Cred.Scripts
         }
         void Start() {
             saveHandler = new SaveHandler(this.name);
-            // saveHandler.Load(this);
+            saveHandler.Load(this);
         }
 
         public object ToBeSaved() {
@@ -27,15 +27,7 @@ namespace Cred.Scripts
         }
 
         public void OnLoad(object value) {
-            Coins = (int) value;
-        }
-    }
-
-    public class EventCoinChanged {
-        public readonly int Coins;
-
-        public EventCoinChanged(int coins) {
-            Coins = coins;
+            // Coins = int.Parse((string) value);
         }
     }
 }

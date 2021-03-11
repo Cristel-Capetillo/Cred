@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Cred.Scripts {
+namespace Cred._00_Game.Scripts {
     public class UpdateCoinTextOnScreen : MonoBehaviour {
         Text coinText;
 
