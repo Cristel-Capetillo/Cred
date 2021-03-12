@@ -1,9 +1,11 @@
 {
-    "name": "ClothingDefinition",
+    "name": "ScriptDefinition",
     "rootNamespace": "",
     "references": [
-        "GUID:3bda22b46eb61054aa194c900f53e0e4",
-        "GUID:a1329ac2cc4798e488f7107de1b82866"
+        "GUID:c6b7f2d14686cb94a90f176b9f86e809",
+        "GUID:ff6de30450f3748908ff580f6ec64d9a",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:84651a3751eca9349aac36a66bba901b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

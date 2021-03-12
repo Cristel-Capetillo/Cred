@@ -4,10 +4,9 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "AddressableAssembly",
         "Unity.ResourceManager",
         "Unity.Addressables",
-        "CoinDef"
+        "ScriptDefinition"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
