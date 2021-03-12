@@ -14,9 +14,13 @@ namespace Cred
         public GameObject SubmitButton;
         public GameObject LoginToggle;
         public GameObject SignUpToggle;
+
+        Vector3 btnScales;
+
         // Start is called before the first frame update
         void Start() {
             SubmitButton.GetComponent<Button>().onClick.AddListener(LoginClick);
+            btnScales = LoginToggle.GetComponent<RectTransform>().localScale;
         }
 
         public void LoginClick() 
@@ -53,8 +57,8 @@ namespace Cred
             SubmitButton.GetComponent<Button>().onClick.AddListener(LoginClick);
             
             //change toggle buttons style
-            LoginToggle.GetComponent<RectTransform>().localScale = new Vector3(0.2f,0.39f, 0.5982905f);
-            SignUpToggle.GetComponent<RectTransform>().localScale = new Vector3(0.2f,0.3f, 0.5982905f);
+            LoginToggle.GetComponent<RectTransform>().localScale = btnScales;
+            SignUpToggle.GetComponent<RectTransform>().localScale = btnScales;
 
         }
         public void SignUpToggleButton() {
@@ -64,9 +68,8 @@ namespace Cred
             SubmitButton.GetComponent<Button>().onClick.RemoveAllListeners();
             SubmitButton.GetComponent<Button>().onClick.AddListener(SignUpClick);
             
-            LoginToggle.GetComponent<RectTransform>().localScale = new Vector3(0.2f,0.3f, 0.5982905f);
-            SignUpToggle.GetComponent<RectTransform>().localScale = new Vector3(0.2f,0.39f, 0.5982905f);
+            LoginToggle.GetComponent<RectTransform>().localScale = btnScales;
+            SignUpToggle.GetComponent<RectTransform>().localScale = btnScales;
         }
-        
     }
 }
