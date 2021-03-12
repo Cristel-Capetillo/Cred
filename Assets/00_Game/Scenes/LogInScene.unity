@@ -2287,11 +2287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6791b38793b78574c90650bff047ac11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsernameText: {fileID: 1872287648}
-  PasswordText: {fileID: 1583382264}
-  SubmitButton: {fileID: 1063259385}
-  LoginToggle: {fileID: 543518420}
-  SignUpToggle: {fileID: 1058430348}
+  usernameText: {fileID: 1872287648}
+  passwordText: {fileID: 1583382264}
+  submitButton: {fileID: 1063259385}
+  loginToggle: {fileID: 543518420}
+  signUpToggle: {fileID: 1058430348}
 --- !u!4 &2099893756
 Transform:
   m_ObjectHideFlags: 0
