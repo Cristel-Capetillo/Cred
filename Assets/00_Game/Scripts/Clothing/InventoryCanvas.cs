@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _00_Game.Scripts.Clothing;
 using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ namespace Cred.Scripts.Clothing {
         public GameObject[] buttons;
         readonly Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
         InventoryDataHandler inventoryDataHandler;
-        [SerializeField] List<ClothingType> tempClothingTypesList = new List<ClothingType>();
+        [SerializeField] List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         bool hasActivatedScrollView;
         Vector3 newButtonPosition;
 
@@ -24,16 +25,20 @@ namespace Cred.Scripts.Clothing {
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            //var clickButton = EventSystem.current.currentSelectedGameObject;
-            //clickButton.transform.localPosition = newButtonPosition;
-            //ToggleButtons(clickButton);
-            //ToggleScrollView(scrollView, clickButton);
+            if (inventoryDataHandler.WearableDictionary.ContainsKey(clothingType)) {
+                Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[clothingType].Count);
+                var maxAmount = Mathf.Min(inventoryContent.Count, inventoryDataHandler.WearableDictionary[clothingType].Count);
+                for (int i = 0; i < maxAmount; i++) {
+                    inventoryContent[i].Setup(inventoryDataHandler.WearableDictionary[clothingType][i]);
+                }
+            }
         }
 
         void ToggleButtons(GameObject clickButton) {
             foreach (var go in buttons) {
                 if (go == clickButton) continue;
                 go.SetActive(hasActivatedScrollView);
+                
             }
         }
 
@@ -43,20 +48,20 @@ namespace Cred.Scripts.Clothing {
             
         }
 
-        void ToggleScrollView(GameObject scrollView, GameObject clickButton) {
-            if (scrollView.activeInHierarchy) {
-                scrollView.SetActive(false);
-                clickButton.transform.localPosition = originalPositions[clickButton];
-            }
-            else {
-                scrollView.SetActive(true);
-                if (inventoryDataHandler.WearableDictionary.ContainsKey(tempClothingTypesList[0])) {
-                    Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[tempClothingTypesList[0]].Count);
-                }
-                Debug.Log("ScrollViewActivated " + clickButton.name);
-            }
-            hasActivatedScrollView = !hasActivatedScrollView;
-        }
+        // void ToggleScrollView(GameObject scrollView, GameObject clickButton) {
+        //     if (scrollView.activeInHierarchy) {
+        //         scrollView.SetActive(false);
+        //         clickButton.transform.localPosition = originalPositions[clickButton];
+        //     }
+        //     else {
+        //         scrollView.SetActive(true);
+        //         if (inventoryDataHandler.WearableDictionary.ContainsKey(tempClothingTypesList[0])) {
+        //             Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[tempClothingTypesList[0]].Count);
+        //         }
+        //         Debug.Log("ScrollViewActivated " + clickButton.name);
+        //     }
+        //     hasActivatedScrollView = !hasActivatedScrollView;
+        // }
 
         public void Start() {
             newButtonPosition = buttons[0].GetComponent<RectTransform>().transform.localPosition;

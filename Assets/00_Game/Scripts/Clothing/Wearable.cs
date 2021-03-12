@@ -6,8 +6,10 @@ namespace Cred.Scripts.Clothing {
         [SerializeField] Rarity rarity;
         [SerializeField] ClothingType clothingType;
         [SerializeField] Texture texture; //TODO: Inventory icon
+        [SerializeField] Sprite sprite;
 
         public Texture Texture => texture;
+        public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
         public ClothingType ClothingType => clothingType;
         
