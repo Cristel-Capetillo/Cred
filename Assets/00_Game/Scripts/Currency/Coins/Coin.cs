@@ -3,7 +3,7 @@ using Cred.Scripts.SaveSystem;
 using EventBrokerFolder;
 using UnityEngine;
 
-namespace Cred.Coins {
+namespace _00_Game.Scripts.Currency.Coins {
     public class Coin : MonoBehaviour, ISavable<long> {
         SaveHandler saveHandler;
         public long _coin;
@@ -17,24 +17,8 @@ namespace Cred.Coins {
         }
 
         void Start() {
-            saveHandler = new SaveHandler(this.name);
-            //saveHandler.Load(this);
-        }
-
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.A)) {
-                Coins++;
-                print(Coins);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.S)) {
-                saveHandler.Save(this);
-                print($"Saved {Coins}");
-            }
-            
-            if (Input.GetKeyDown(KeyCode.L)) {
-                saveHandler.Load(this);
-            }
+            saveHandler = new SaveHandler(name);
+            saveHandler.Load(this);
         }
 
         public long ToBeSaved() {
@@ -43,7 +27,6 @@ namespace Cred.Coins {
 
         public void OnLoad(long value) {
             Coins = value;
-            Debug.Log($"Coins: {Coins}");
         }
     }
 }

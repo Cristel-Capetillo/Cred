@@ -8,8 +8,8 @@ namespace Cred
 {
     public class SwapScene : MonoBehaviour
     {
-        public void PressButton(string name) {
-            EventBroker.Instance().SendMessage(new EventSceneLoad(name));
+        public void LoadScene(string sceneToLoad) {
+            EventBroker.Instance().SendMessage(new EventSceneLoad(sceneToLoad));
         }
     }
 }

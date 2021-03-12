@@ -1,4 +1,4 @@
-﻿using Cred.Coins;
+﻿using _00_Game.Scripts.Currency.Coins;
 using EventBrokerFolder;
 using UnityEngine;
 
