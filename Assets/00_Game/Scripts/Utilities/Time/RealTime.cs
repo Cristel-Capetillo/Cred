@@ -14,9 +14,12 @@ namespace Cred._00_Game.Scripts.Utilities.Time {
                 CultureInfo.InvariantCulture.DateTimeFormat,
                 DateTimeStyles.AssumeUniversal);
         }
+
+        public int TimeDifference(DateTime time1, DateTime time2) 
+            => TimeBetween(time1, time2);
+
+        public static int TimeBetween(DateTime time1, DateTime time2) 
+            => time2.Subtract(time1).Minutes;
         
-        public int TimeDifference(DateTime time1, DateTime time2) {
-            return time1.Subtract(time2).Minutes;
-        }
     }
 }
