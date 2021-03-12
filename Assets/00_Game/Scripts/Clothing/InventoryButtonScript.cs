@@ -11,6 +11,7 @@ namespace _00_Game.Scripts.Clothing {
         public void Setup(Wearable wearable) {
             _wearable = wearable;
             GetComponent<Image>().sprite = wearable.Sprite;
+            gameObject.SetActive(true);
             Debug.Log(wearable.Sprite.name);
         }
         

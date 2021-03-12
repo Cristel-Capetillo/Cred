@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092bd33318146814fba1d5f3d9b36a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torso: {fileID: 0}
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
+  AlexTorso: {fileID: 0}
+  AlexPants: {fileID: 0}
