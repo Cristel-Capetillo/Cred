@@ -6,21 +6,21 @@ using EventBrokerFolder;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Cred._00_Game.Scripts.Ads
-{
-    public class AdWatchButton : MonoBehaviour, ISavable<string>{
-
+namespace Cred._00_Game.Scripts.Ads {
+    public class AdWatchButton : MonoBehaviour, ISavable<string> {
         [SerializeField] int durationBetweenAdWatches = 5;
         TimeHandler timeHandler;
         Button button;
         DateTime lastAdWatchedTime;
 
         bool CanWatchAd => timeHandler.EnoughTimePassed(durationBetweenAdWatches, lastAdWatchedTime, timeHandler.GetTime());
-        
+
         void Start() {
             timeHandler = new TimeHandler(new SystemTime());
             button = GetComponent<Button>();
-            lastAdWatchedTime = DateTime.Now; //must get it from firebase
+            lastAdWatchedTime = DateTime.Now;
+            button.onClick.AddListener(FindObjectOfType<AdsManager>().ShowRewardedAd);
+            //must get it from firebase
         }
 
         void OnEnable() {
@@ -29,7 +29,7 @@ namespace Cred._00_Game.Scripts.Ads
         }
 
         void InteractableButton() {
-            if(!button.interactable)
+            if (!button.interactable)
                 button.interactable = CanWatchAd;
         }
 
@@ -42,11 +42,11 @@ namespace Cred._00_Game.Scripts.Ads
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
             CancelInvoke(nameof(InteractableButton));
         }
-        
+
         string ISavable<string>.ToBeSaved() {
             return lastAdWatchedTime.ToString(CultureInfo.InvariantCulture);
         }
-        
+
         public void OnLoad(string value) {
             lastAdWatchedTime = DateTime.ParseExact(value,
                 "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
