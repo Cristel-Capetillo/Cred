@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Cred._00_Game.Scripts.Ads
 {
-    public class AdWatchButton : MonoBehaviour, ISavable{
+    public class AdWatchButton : MonoBehaviour, ISavable<string>{
 
         [SerializeField] int durationBetweenAdWatches = 5;
         TimeHandler timeHandler;
@@ -42,13 +42,13 @@ namespace Cred._00_Game.Scripts.Ads
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
             CancelInvoke(nameof(InteractableButton));
         }
-
-        public object ToBeSaved() {
+        
+        string ISavable<string>.ToBeSaved() {
             return lastAdWatchedTime.ToString(CultureInfo.InvariantCulture);
         }
-
-        public void OnLoad(object value) {
-            lastAdWatchedTime = DateTime.ParseExact(value.ToString(),
+        
+        public void OnLoad(string value) {
+            lastAdWatchedTime = DateTime.ParseExact(value,
                 "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
                 CultureInfo.InvariantCulture.DateTimeFormat,
                 DateTimeStyles.AssumeUniversal);

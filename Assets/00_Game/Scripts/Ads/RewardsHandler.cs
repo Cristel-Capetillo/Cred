@@ -1,4 +1,4 @@
-﻿using Cred.Scripts;
+﻿using Cred.Coins;
 using EventBrokerFolder;
 using UnityEngine;
 

@@ -1,8 +1,8 @@
 ﻿namespace Cred._00_Game.Scripts.Currency.Coins {
     public class EventCoinChanged {
-        public readonly int Coins;
+        public readonly long Coins;
 
-        public EventCoinChanged(int coins) {
+        public EventCoinChanged(long coins) {
             Coins = coins;
         }
     }

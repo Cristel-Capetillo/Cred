@@ -1,4 +1,6 @@
 using System;
+using _00_Game.Scripts.Clothing;
+using EventBrokerFolder;
 using UnityEngine;
 
 namespace Cred.Scripts.Clothing {
@@ -12,6 +14,29 @@ namespace Cred.Scripts.Clothing {
         [SerializeField] GameObject leftLeg;
         [SerializeField] GameObject rightLeg;
 
+        [SerializeField] GameObject AlexTorso;
+        [SerializeField] GameObject AlexPants;
+        
+        void Start() {
+            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+        }
+
+        void UpdateClothes(EventClothesChanged eventClothesChanged) {
+            print("eventclothesChanged called");
+            switch (eventClothesChanged.bodyPart) {
+                case "Shirt":
+                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    break;
+                case "Pants":
+                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    break;
+            }
+        }
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
+        }
+        
         public void SelectPants() {
             Debug.Log("Pants selected!");
             var leftMesh = leftLeg.GetComponent<MeshRenderer>();
