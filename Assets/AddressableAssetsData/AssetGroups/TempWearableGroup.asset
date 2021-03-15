@@ -80,6 +80,13 @@ MonoBehaviour:
     - Pants
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: f37faf7d9cd5a5943b6ed9eac1a119fe
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans 4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:
