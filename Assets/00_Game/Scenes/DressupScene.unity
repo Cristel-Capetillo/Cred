@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac190f3a8934f0baa4e50e159d6807b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupWindow: {fileID: 597966612}
+  popupWindow: {fileID: 2038990085}
 --- !u!114 &223985563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,12 +421,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &597966612 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7972848574298455752, guid: 9673ce21aea494df49fbfb549709923a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5592945824179644430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &619860378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5592945824179644450, guid: 9673ce21aea494df49fbfb549709923a,
@@ -1324,6 +1318,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835832742851437909, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835832742851437909, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835832742851437909, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 51.201004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835832742851437909, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.3833
       objectReference: {fileID: 0}
     - target: {fileID: 4994629866473055727, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
