@@ -35,7 +35,7 @@ namespace Clothing {
                 {
                    
                         Debug.Log("PopUp UpCycle is Active");
-                        EventBroker.Instance().SendMessage(new MessageUpCycleClothes(_wearable, _wearable2));
+                       // EventBroker.Instance().SendMessage(new MessageUpCycleClothes(_wearable, _wearable2));
                     
                  
                 }

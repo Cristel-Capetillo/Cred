@@ -7,9 +7,15 @@ namespace Clothing
         public Wearable Wearable1 { get; private set; }
         public Wearable Wearable2 { get; private set; }
 
-        public MessageUpCycleClothes(Wearable firstwearable, Wearable secondwearable) { 
+        public Sprite outfit1;
+        public Sprite outfit2;
+        public MessageUpCycleClothes(Wearable firstwearable, Wearable secondwearable) {
+           
             Wearable1 = firstwearable;
             Wearable2 = secondwearable;
+
+            outfit1 = firstwearable.Sprite;
+            outfit2 = secondwearable.Sprite;
         }
     }
 

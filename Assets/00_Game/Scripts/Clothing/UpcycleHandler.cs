@@ -10,18 +10,19 @@ namespace Clothing
 
         void Start()
         {
-            EventBroker.Instance().SubscribeMessage<UpCyclingMessage>(OnLoadWearablesAssets);
+            EventBroker.Instance().SubscribeMessage<MessageUpCycleClothes>(OnLoadWearablesAssets);
         }
 
         void OnDestroy()
         {
-            EventBroker.Instance().UnsubscribeMessage<UpCyclingMessage>(OnLoadWearablesAssets);
+            EventBroker.Instance().UnsubscribeMessage<MessageUpCycleClothes>(OnLoadWearablesAssets);
         }
 
-        void OnLoadWearablesAssets(UpCyclingMessage upCyclingMessage)
+        void OnLoadWearablesAssets(MessageUpCycleClothes messageUpCycleClothes)
         {
-            GameObject item1 = upCyclingMessage.wearable1;
-            GameObject item2 = upCyclingMessage.wearable2;
+        
+            Sprite item1 = messageUpCycleClothes.outfit1;
+            Sprite item2 = messageUpCycleClothes.outfit2;
       
             
         }
