@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EventBrokerFolder {
+namespace Utilities {
     public class EventBroker : IEventBroker {
         private static EventBroker _thisInstance;
 

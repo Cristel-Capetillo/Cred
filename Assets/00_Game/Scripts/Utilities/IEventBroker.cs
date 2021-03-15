@@ -1,6 +1,6 @@
 using System;
 
-namespace EventBrokerFolder {
+namespace Utilities {
     public interface IEventBroker {
         void SubscribeMessage<TMessage>(Action<TMessage> callback);
         void UnsubscribeMessage<TMessage>(Action<TMessage> callback);

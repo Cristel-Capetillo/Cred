@@ -1,17 +1,14 @@
 using System.Collections.Generic;
-using _00_Game.Scripts.Clothing;
-using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Cred.Scripts.Clothing {
+namespace Clothing {
     //TODO: If you press anything outside of the InventoryButtons, could the InvCanvas act like you pressed the InventoryButton?
-    
-    public class InventoryCanvas : MonoBehaviour {
 
-        [SerializeField]GameObject scrollView;
-        [SerializeField]GameObject buttonHolder;
-        [SerializeField]Text closeButtonText;
+    public class InventoryCanvas : MonoBehaviour {
+        [SerializeField] GameObject scrollView;
+        [SerializeField] GameObject buttonHolder;
+        [SerializeField] Text closeButtonText;
 
         public GameObject[] buttons;
         readonly Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
@@ -20,7 +17,7 @@ namespace Cred.Scripts.Clothing {
         bool hasActivatedScrollView;
         Vector3 newButtonPosition;
 
-        
+
         public void ToggleButton(ClothingType clothingType) {
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
@@ -38,14 +35,12 @@ namespace Cred.Scripts.Clothing {
             foreach (var go in buttons) {
                 if (go == clickButton) continue;
                 go.SetActive(hasActivatedScrollView);
-                
             }
         }
 
         public void CloseScrollview() {
             buttonHolder.SetActive(true);
             scrollView.SetActive(false);
-            
         }
 
         // void ToggleScrollView(GameObject scrollView, GameObject clickButton) {
@@ -68,6 +63,7 @@ namespace Cred.Scripts.Clothing {
             foreach (var btn in buttons) {
                 originalPositions[btn] = btn.transform.localPosition;
             }
+
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
     }

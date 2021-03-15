@@ -1,8 +1,7 @@
 using System.Threading.Tasks;
 using Firebase.Database;
-using UnityEngine;
 
-namespace Cred.Scripts.SaveSystem {
+namespace SaveSystem {
     public class FireBaseSaveHandler : ISaveHandler {
         FirebaseDatabase fbDatabase;
         string saveID;
@@ -19,7 +18,7 @@ namespace Cred.Scripts.SaveSystem {
 
         public async Task<T> Load<T>(string loadID) {
             var checkFile = await CheckExisting();
-            
+
             if (!checkFile) return default;
             var tmp = await fbDatabase.GetReference(saveID).GetValueAsync();
             return (T) tmp.Value;

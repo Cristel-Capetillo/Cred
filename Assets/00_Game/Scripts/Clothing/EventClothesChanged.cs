@@ -1,9 +1,7 @@
-using Cred.Scripts.Clothing;
 using UnityEngine;
 
-namespace _00_Game.Scripts.Clothing {
-    public class EventClothesChanged
-    {
+namespace Clothing {
+    public class EventClothesChanged {
         public readonly Texture textureChanged;
         public readonly string bodyPart;
 
@@ -11,6 +9,5 @@ namespace _00_Game.Scripts.Clothing {
             textureChanged = wearable.Texture;
             bodyPart = wearable.ClothingType.name;
         }
-        
     }
 }

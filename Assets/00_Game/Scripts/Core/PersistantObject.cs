@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Cred._00_Game.Scripts.Core {
+namespace Core {
     public class PersistantObject : MonoBehaviour {
         public GameObject persistantObject;
         bool hasBeenInstantiate;

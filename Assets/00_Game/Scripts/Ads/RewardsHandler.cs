@@ -1,11 +1,11 @@
-﻿using _00_Game.Scripts.Currency.Coins;
-using EventBrokerFolder;
+﻿using Currency.Coins;
 using UnityEngine;
+using Utilities;
 
-namespace Cred._00_Game.Scripts.Ads {
+namespace Ads {
     public class RewardsHandler : MonoBehaviour {
-
         [SerializeField] int coinsToRewardOnSuccessfulAdWatch;
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAdWatched>(RewardAdWatched);
         }

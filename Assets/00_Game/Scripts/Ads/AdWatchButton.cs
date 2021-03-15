@@ -1,12 +1,12 @@
 using System;
 using System.Globalization;
-using Cred._00_Game.Scripts.Utilities.Time;
-using Cred.Scripts.SaveSystem;
-using EventBrokerFolder;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
+using Utilities.Time;
 
-namespace Cred._00_Game.Scripts.Ads {
+namespace Ads {
     public class AdWatchButton : MonoBehaviour, ISavable<string> {
         [SerializeField] int durationBetweenAdWatches = 5;
         TimeHandler timeHandler;

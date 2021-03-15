@@ -1,5 +1,4 @@
-namespace Cred._00_Game.Scripts.Ads {
+namespace Ads {
     public class EventAdWatched {
-        
     }
 }

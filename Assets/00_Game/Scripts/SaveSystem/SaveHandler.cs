@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Cred.Scripts.SaveSystem {
+namespace SaveSystem {
     public class SaveHandler {
-
         string objectID;
         ISaveHandler backEndSaveSystem;
 
@@ -19,7 +18,7 @@ namespace Cred.Scripts.SaveSystem {
         public async void Load<T>(ISavable<T> savable) {
             var tmp = await backEndSaveSystem.Load<T>(objectID);
             savable.OnLoad(tmp);
-            Debug.Log("Object loaded from backEndSaveSystem: "+objectID);
+            Debug.Log("Object loaded from backEndSaveSystem: " + objectID);
         }
     }
 }

@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
 using Firebase;
 using Firebase.Auth;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
-
-namespace Cred.Scripts {
+namespace LoginScene {
     public class DB : MonoBehaviour, IDataBase {
         public FirebaseAuth auth;
         public FirebaseUser User;
@@ -58,12 +55,10 @@ namespace Cred.Scripts {
                 User = LoginTask.Result;
                 UserData.UserID = User.UserId;
                 SceneManager.LoadScene("MainScene");
-
             }
         }
 
         public string GetFacebookToken() {
-            
             return "ewjk";
         }
 
@@ -103,18 +98,12 @@ namespace Cred.Scripts {
                 User = RegisterTask.Result;
                 UserData.UserID = User.UserId;
                 SceneManager.LoadScene("MainScene");
-
-
             }
         }
-
-
     }
 }
-
 
 
 /*public void SignUp(string username, string password) {
     Debug.Log($"{username} and {password} signup");
 }*/
- 

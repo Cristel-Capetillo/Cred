@@ -1,11 +1,8 @@
-using System;
-using _00_Game.Scripts.Clothing;
-using EventBrokerFolder;
 using UnityEngine;
+using Utilities;
 
-namespace Cred.Scripts.Clothing {
+namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
-
         //TODO: Use the event broker to update the body parts
         //TODO: Instead of colour, change the mesh or sprite or textures
         //TODO: Add a reset button to go back to default
@@ -16,7 +13,7 @@ namespace Cred.Scripts.Clothing {
 
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
-        
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
         }
@@ -36,7 +33,7 @@ namespace Cred.Scripts.Clothing {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
         }
-        
+
         public void SelectPants() {
             Debug.Log("Pants selected!");
             var leftMesh = leftLeg.GetComponent<MeshRenderer>();
