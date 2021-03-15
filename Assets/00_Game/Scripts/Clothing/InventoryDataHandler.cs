@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing {
     public class InventoryDataHandler : MonoBehaviour {
+        [SerializeField] List<Rarity> raritySortOrder = new List<Rarity>();
         public Dictionary<ClothingType, List<Wearable>> WearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
 
         void Start() {
@@ -16,7 +18,6 @@ namespace Clothing {
         }
 
         void OnLoadWearablesAssets(WearableListMessage wearableListMessage) {
-            print("Test");
             var temp = wearableListMessage.Wearables;
             if (!WearableDictionary.ContainsKey(temp[0].ClothingType)) {
                 WearableDictionary.Add(temp[0].ClothingType, temp);
@@ -24,12 +25,9 @@ namespace Clothing {
             else {
                 WearableDictionary[temp[0].ClothingType].AddRange(temp);
             }
-
             Debug.Log(WearableDictionary.Count + " WearableDictonaryCount");
-        }
+            WearableDictionary[temp[0].ClothingType] = raritySortOrder.OrderBy(w => w.name).ToList();
 
-        void OnLoadWearableData() {
-            throw new Exception("Not implemented yet!");
         }
     }
 

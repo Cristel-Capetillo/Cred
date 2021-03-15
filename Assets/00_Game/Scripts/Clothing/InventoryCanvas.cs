@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,62 +10,51 @@ namespace Clothing {
         [SerializeField] GameObject scrollView;
         [SerializeField] GameObject buttonHolder;
         [SerializeField] Text closeButtonText;
-
-        public GameObject[] buttons;
-        readonly Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+        [SerializeField] InventoryButtonScript inventoryContentPrefab;
+        [SerializeField] Transform contentParent;
+        readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         InventoryDataHandler inventoryDataHandler;
-        [SerializeField] List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
-        bool hasActivatedScrollView;
-        Vector3 newButtonPosition;
-
+        
+        void Start() {
+            inventoryDataHandler = GetComponent<InventoryDataHandler>();
+        }
 
         public void ToggleButton(ClothingType clothingType) {
+            if (!inventoryDataHandler.WearableDictionary.ContainsKey(clothingType)) {
+                Debug.LogWarning($"No item was found in {clothingType.name}");
+                return;
+            }
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            if (inventoryDataHandler.WearableDictionary.ContainsKey(clothingType)) {
-                Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[clothingType].Count);
-                var maxAmount = Mathf.Min(inventoryContent.Count, inventoryDataHandler.WearableDictionary[clothingType].Count);
-                for (int i = 0; i < maxAmount; i++) {
+            var clothingTypeCount = inventoryDataHandler.WearableDictionary[clothingType].Count;
+            ContentPooling(clothingTypeCount);
+            AddToInventory(clothingType, clothingTypeCount);
+        }
+
+        void AddToInventory(ClothingType clothingType, int clothingTypeCount) {
+            for (int i = 0; i < clothingTypeCount; i++) {
                     inventoryContent[i].Setup(inventoryDataHandler.WearableDictionary[clothingType][i]);
-                }
             }
         }
 
-        void ToggleButtons(GameObject clickButton) {
-            foreach (var go in buttons) {
-                if (go == clickButton) continue;
-                go.SetActive(hasActivatedScrollView);
+        void ContentPooling(int clothingTypeCount) {
+            if (inventoryContent.Count < clothingTypeCount) {
+                var temp = Mathf.Max(0, inventoryContent.Count - 1);
+                for (int i = temp; i < clothingTypeCount; i++) {
+                    inventoryContent.Add(Instantiate(inventoryContentPrefab, contentParent));
+                }
+            }
+            else {
+                for (int i = clothingTypeCount; i < inventoryContent.Count; i++) {
+                    inventoryContent[i].gameObject.SetActive(false);
+                }
             }
         }
 
         public void CloseScrollview() {
             buttonHolder.SetActive(true);
             scrollView.SetActive(false);
-        }
-
-        // void ToggleScrollView(GameObject scrollView, GameObject clickButton) {
-        //     if (scrollView.activeInHierarchy) {
-        //         scrollView.SetActive(false);
-        //         clickButton.transform.localPosition = originalPositions[clickButton];
-        //     }
-        //     else {
-        //         scrollView.SetActive(true);
-        //         if (inventoryDataHandler.WearableDictionary.ContainsKey(tempClothingTypesList[0])) {
-        //             Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[tempClothingTypesList[0]].Count);
-        //         }
-        //         Debug.Log("ScrollViewActivated " + clickButton.name);
-        //     }
-        //     hasActivatedScrollView = !hasActivatedScrollView;
-        // }
-
-        public void Start() {
-            newButtonPosition = buttons[0].GetComponent<RectTransform>().transform.localPosition;
-            foreach (var btn in buttons) {
-                originalPositions[btn] = btn.transform.localPosition;
-            }
-
-            inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
     }
 }
