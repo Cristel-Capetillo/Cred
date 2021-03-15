@@ -1,9 +1,8 @@
-using Cred._00_Game.Scripts.Currency.Coins;
-using Cred.Scripts.SaveSystem;
-using EventBrokerFolder;
+using SaveSystem;
 using UnityEngine;
+using Utilities;
 
-namespace _00_Game.Scripts.Currency.Coins {
+namespace Currency.Coins {
     public class Coin : MonoBehaviour, ISavable<long> {
         SaveHandler saveHandler;
         public long _coin;

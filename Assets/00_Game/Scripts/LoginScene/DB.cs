@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
 using Firebase;
 using Firebase.Auth;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
-
-namespace Cred.Scripts {
+namespace LoginScene {
     public class DB : MonoBehaviour, IDataBase {
         public FirebaseAuth auth;
         public FirebaseUser User;

@@ -1,10 +1,9 @@
-using Cred.Scripts.Clothing;
-using EventBrokerFolder;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Utilities;
 
-namespace _00_Game.Scripts.Clothing {
+namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
         Wearable _wearable;
 

@@ -1,9 +1,7 @@
-using System;
-using _00_Game.Scripts.Clothing;
-using EventBrokerFolder;
 using UnityEngine;
+using Utilities;
 
-namespace Cred.Scripts.Clothing {
+namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
 
         //TODO: Use the event broker to update the body parts

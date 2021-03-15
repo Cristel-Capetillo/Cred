@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cred.Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Cred
+namespace LoginScene
 {
     public class ClickEvents : MonoBehaviour
     {

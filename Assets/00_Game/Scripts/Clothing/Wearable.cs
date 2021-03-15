@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Cred.Scripts.Clothing {
+namespace Clothing {
     [CreateAssetMenu(menuName = "ScriptableObjects/Wearable")]
     public class Wearable : ScriptableObject{
         [SerializeField] Rarity rarity;

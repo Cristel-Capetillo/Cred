@@ -1,9 +1,7 @@
-using _00_Game.Scripts.Clothing;
-using Cred.Scripts.Clothing;
-using EventBrokerFolder;
 using UnityEngine;
+using Utilities;
 
-namespace Cred
+namespace Clothing
 {
     public class SendClothesMessage : MonoBehaviour
     {

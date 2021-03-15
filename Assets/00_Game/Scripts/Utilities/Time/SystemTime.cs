@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cred._00_Game.Scripts.Utilities.Time {
+namespace Utilities.Time {
     public class SystemTime : ITimeProvider{
         public DateTime GetTime() {
             return DateTime.Now;

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Cred._00_Game.Scripts.Utilities.Time {
+namespace Utilities.Time {
     public class TimeHandler {
 
         ITimeProvider timeProvider;

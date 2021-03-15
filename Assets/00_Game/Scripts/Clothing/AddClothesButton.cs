@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cred
+namespace Clothing
 {
     public class AddClothesButton : MonoBehaviour
     {

@@ -1,18 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Clothing;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Events;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Linq;
-using Cred._00_Game.Scripts.Clothing;
-using Cred.Scripts.Clothing;
-using EventBrokerFolder;
-using UnityEditor;
-using Object = System.Object;
+using Utilities;
 
-namespace Cred.AddressableLoadSystem{
+namespace AddressableLoadSystem{
     public class AddressableManager : MonoBehaviour
     {
         //TODO: Sorting data (in this class?)

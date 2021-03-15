@@ -1,4 +1,4 @@
-namespace Cred._00_Game.Scripts.SceneLoader
+namespace Core
 {
     public class EventSceneLoad {
         public readonly string Name;

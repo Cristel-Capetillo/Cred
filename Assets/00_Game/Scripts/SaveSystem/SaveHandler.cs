@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cred.Scripts.SaveSystem {
+namespace SaveSystem {
     public class SaveHandler {
 
         string objectID;

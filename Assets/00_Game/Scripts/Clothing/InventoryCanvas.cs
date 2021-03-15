@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using _00_Game.Scripts.Clothing;
-using Cred._00_Game.Scripts.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Cred.Scripts.Clothing {
+namespace Clothing {
     //TODO: If you press anything outside of the InventoryButtons, could the InvCanvas act like you pressed the InventoryButton?
     
     public class InventoryCanvas : MonoBehaviour {

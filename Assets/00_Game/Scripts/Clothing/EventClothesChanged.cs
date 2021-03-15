@@ -1,7 +1,6 @@
-using Cred.Scripts.Clothing;
 using UnityEngine;
 
-namespace _00_Game.Scripts.Clothing {
+namespace Clothing {
     public class EventClothesChanged
     {
         public readonly Texture textureChanged;

@@ -1,8 +1,8 @@
-using EventBrokerFolder;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
-namespace Cred._00_Game.Scripts.SceneLoader
+namespace Core
 {
     public class SceneLoader : MonoBehaviour
     {

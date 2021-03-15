@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
-using System.IO;
 
-namespace Cred.Scripts.SaveSystem {
+namespace SaveSystem {
     public class JSONSaveHandler : ISaveHandler {
         
         const string SaveFilePath = "/Cred.";

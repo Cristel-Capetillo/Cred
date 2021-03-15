@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cred._00_Game.Scripts.SceneLoader;
-using EventBrokerFolder;
+using Core;
 using UnityEngine;
+using Utilities;
 
-namespace Cred
+namespace HUD
 {
     public class SwapScene : MonoBehaviour
     {

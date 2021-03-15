@@ -1,8 +1,8 @@
-using EventBrokerFolder;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using Utilities;
 
-namespace Cred._00_Game.Scripts.Ads {
+namespace Ads {
     public class AdsManager : MonoBehaviour, IUnityAdsListener {
         string gameId = "4044681";
         string adID = "Rewarded_Android";
@@ -19,7 +19,13 @@ namespace Cred._00_Game.Scripts.Ads {
             Advertisement.AddListener(this);
             Advertisement.Initialize(gameId, true);
         }
-        
+
+        void OnApplicationPause(bool pauseStatus) {
+            if (!pauseStatus) {
+                //resync time
+            }
+        }
+
         public void ShowRewardedAd() {
             Advertisement.Show(adID);
         }

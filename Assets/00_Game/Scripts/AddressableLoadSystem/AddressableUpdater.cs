@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Scripts.AddressableLoadSystem{
+namespace AddressableLoadSystem{
     public class AddressableUpdater : MonoBehaviour
     {
         //TODO: Implement this class

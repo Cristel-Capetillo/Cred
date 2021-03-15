@@ -1,8 +1,7 @@
 using System.Threading.Tasks;
 using Firebase.Database;
-using UnityEngine;
 
-namespace Cred.Scripts.SaveSystem {
+namespace SaveSystem {
     public class FireBaseSaveHandler : ISaveHandler {
         FirebaseDatabase fbDatabase;
         string saveID;

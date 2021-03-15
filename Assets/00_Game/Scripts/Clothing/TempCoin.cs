@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cred._00_Game.Scripts.Clothing {
+namespace Clothing {
     public class TempCoin : MonoBehaviour {
         public int coin;
 

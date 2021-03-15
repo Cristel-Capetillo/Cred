@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Cred.AddressableLoadSystem;
+using AddressableLoadSystem;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;

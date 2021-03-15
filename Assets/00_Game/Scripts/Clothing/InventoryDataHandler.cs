@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Cred.Scripts.Clothing;
 using UnityEngine;
-using EventBrokerFolder;
+using Utilities;
 
-namespace Cred._00_Game.Scripts.Clothing
+namespace Clothing
 {
     public class InventoryDataHandler : MonoBehaviour
     {

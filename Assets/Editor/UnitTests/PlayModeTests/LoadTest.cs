@@ -1,4 +1,4 @@
-﻿using _00_Game.Scripts.Currency.Coins;
+﻿using Currency.Coins;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;

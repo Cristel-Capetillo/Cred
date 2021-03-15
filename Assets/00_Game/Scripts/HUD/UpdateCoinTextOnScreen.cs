@@ -1,9 +1,9 @@
-﻿using Cred._00_Game.Scripts.Currency.Coins;
-using EventBrokerFolder;
+﻿using Currency.Coins;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
-namespace Cred._00_Game.Scripts {
+namespace HUD {
     public class UpdateCoinTextOnScreen : MonoBehaviour {
         Text coinText;
 
