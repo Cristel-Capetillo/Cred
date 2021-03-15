@@ -861,7 +861,7 @@ GameObject:
   - component: {fileID: 775414695904201889}
   - component: {fileID: 8053440000847702599}
   - component: {fileID: 1887034238133422471}
-  - component: {fileID: 3551514174217021423}
+  - component: {fileID: 13803315400883892}
   m_Layer: 5
   m_Name: DefaultClothes
   m_TagString: Untagged
@@ -971,10 +971,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3551514174217021423}
-        m_TargetAssemblyTypeName: Cred.SwapScene, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 13803315400883892}
+        m_TargetAssemblyTypeName: Clothing.SendClothesMessage, ScriptDefinition
+        m_MethodName: ChangeDefaultClothes
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -983,7 +983,7 @@ MonoBehaviour:
           m_StringArgument: MainScene
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3551514174217021423
+--- !u!114 &13803315400883892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -992,9 +992,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4911395888023047395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31164157feeecf40a2ccc94f4be2f98, type: 3}
+  m_Script: {fileID: 11500000, guid: 38bf2297ccfe30340ab78f8d924c9319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultShirt: {fileID: 11400000, guid: 616764340370a2947ae1ef8a0db22268, type: 2}
+  defaultPants: {fileID: 11400000, guid: acdd8c8de3f0080478b50233eb39f710, type: 2}
 --- !u!1 &5592945823802038616
 GameObject:
   m_ObjectHideFlags: 0
