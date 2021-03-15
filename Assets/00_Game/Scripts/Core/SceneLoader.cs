@@ -2,10 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities;
 
-namespace Core
-{
-    public class SceneLoader : MonoBehaviour
-    {
+namespace Core {
+    public class SceneLoader : MonoBehaviour {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventSceneLoad>(LoadScene);
         }

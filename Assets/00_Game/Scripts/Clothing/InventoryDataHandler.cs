@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utilities;
 
-namespace Clothing
-{
-    public class InventoryDataHandler : MonoBehaviour
-    {
+namespace Clothing {
+    public class InventoryDataHandler : MonoBehaviour {
         public Dictionary<ClothingType, List<Wearable>> WearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
 
-        void Start(){
+        void Start() {
             EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
         }
-        void OnDestroy(){
-           EventBroker.Instance().UnsubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
         }
-        void OnLoadWearablesAssets(WearableListMessage wearableListMessage){
+
+        void OnLoadWearablesAssets(WearableListMessage wearableListMessage) {
             print("Test");
             var temp = wearableListMessage.Wearables;
             if (!WearableDictionary.ContainsKey(temp[0].ClothingType)) {
@@ -24,17 +24,19 @@ namespace Clothing
             else {
                 WearableDictionary[temp[0].ClothingType].AddRange(temp);
             }
+
             Debug.Log(WearableDictionary.Count + " WearableDictonaryCount");
         }
-        void OnLoadWearableData(){
+
+        void OnLoadWearableData() {
             throw new Exception("Not implemented yet!");
         }
     }
 
-    public class WearableListMessage{
+    public class WearableListMessage {
         public List<Wearable> Wearables;
 
-        public WearableListMessage(List<Wearable> wearables){
+        public WearableListMessage(List<Wearable> wearables) {
             Wearables = wearables;
         }
     }

@@ -3,7 +3,6 @@ using Utilities;
 
 namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
-
         //TODO: Use the event broker to update the body parts
         //TODO: Instead of colour, change the mesh or sprite or textures
         //TODO: Add a reset button to go back to default
@@ -14,7 +13,7 @@ namespace Clothing {
 
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
-        
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
         }
@@ -34,7 +33,7 @@ namespace Clothing {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
         }
-        
+
         public void SelectPants() {
             Debug.Log("Pants selected!");
             var leftMesh = leftLeg.GetComponent<MeshRenderer>();

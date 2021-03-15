@@ -3,10 +3,9 @@ using System.Globalization;
 using System.Net;
 
 namespace Utilities.Time {
-    public class RealTime : ITimeProvider{
-        
+    public class RealTime : ITimeProvider {
         public DateTime GetTime() {
-            var myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.microsoft.com");
+            var myHttpWebRequest = (HttpWebRequest) WebRequest.Create("http://www.microsoft.com");
             var response = myHttpWebRequest.GetResponse();
             var todaysDates = response.Headers["date"];
             return DateTime.ParseExact(todaysDates,
@@ -15,11 +14,10 @@ namespace Utilities.Time {
                 DateTimeStyles.AssumeUniversal);
         }
 
-        public int TimeDifference(DateTime time1, DateTime time2) 
+        public int TimeDifference(DateTime time1, DateTime time2)
             => TimeBetween(time1, time2);
 
-        public static int TimeBetween(DateTime time1, DateTime time2) 
+        public static int TimeBetween(DateTime time1, DateTime time2)
             => time2.Subtract(time1).Minutes;
-        
     }
 }

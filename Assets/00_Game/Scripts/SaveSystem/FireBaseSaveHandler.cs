@@ -18,7 +18,7 @@ namespace SaveSystem {
 
         public async Task<T> Load<T>(string loadID) {
             var checkFile = await CheckExisting();
-            
+
             if (!checkFile) return default;
             var tmp = await fbDatabase.GetReference(saveID).GetValueAsync();
             return (T) tmp.Value;

@@ -55,12 +55,10 @@ namespace LoginScene {
                 User = LoginTask.Result;
                 UserData.UserID = User.UserId;
                 SceneManager.LoadScene("MainScene");
-
             }
         }
 
         public string GetFacebookToken() {
-            
             return "ewjk";
         }
 
@@ -100,18 +98,12 @@ namespace LoginScene {
                 User = RegisterTask.Result;
                 UserData.UserID = User.UserId;
                 SceneManager.LoadScene("MainScene");
-
-
             }
         }
-
-
     }
 }
-
 
 
 /*public void SignUp(string username, string password) {
     Debug.Log($"{username} and {password} signup");
 }*/
- 

@@ -13,11 +13,10 @@ namespace Clothing {
             gameObject.SetActive(true);
             Debug.Log(wearable.Sprite.name);
         }
-        
+
         public void OnPointerClick(PointerEventData eventData) {
             EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
             Debug.Log(_wearable.Sprite.name);
         }
     }
 }
-

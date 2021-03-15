@@ -4,17 +4,15 @@ using UnityEngine;
 
 namespace SaveSystem {
     public class JSONSaveHandler : ISaveHandler {
-        
         const string SaveFilePath = "/Cred.";
-        
+
         string SaveFileName = "";
 
         StreamWriter streamWriter;
         StreamReader streamReader;
-        
+
         public void Authenticate(string saveID) {
             SaveFileName = GetFilePath(Path.Combine(SaveFilePath, Path.Combine(saveID, ".cred")));
-            
         }
 
         public void Save(object saveObj) {
@@ -32,9 +30,10 @@ namespace SaveSystem {
                 return new Task<object>(() => streamReader.ReadLine());
             }
         }
-        
+
         string GetFilePath(string fileName)
             => Application.persistentDataPath + fileName;
     }
+
     //%AppData%/saveID+SaveFileName
 }

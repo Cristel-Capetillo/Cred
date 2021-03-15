@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Utilities.Time {
-    public class SystemTime : ITimeProvider{
+    public class SystemTime : ITimeProvider {
         public DateTime GetTime() {
             return DateTime.Now;
         }

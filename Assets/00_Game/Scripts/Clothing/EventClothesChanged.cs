@@ -1,8 +1,7 @@
 using UnityEngine;
 
 namespace Clothing {
-    public class EventClothesChanged
-    {
+    public class EventClothesChanged {
         public readonly Texture textureChanged;
         public readonly string bodyPart;
 
@@ -10,6 +9,5 @@ namespace Clothing {
             textureChanged = wearable.Texture;
             bodyPart = wearable.ClothingType.name;
         }
-        
     }
 }

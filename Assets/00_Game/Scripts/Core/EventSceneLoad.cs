@@ -1,5 +1,4 @@
-namespace Core
-{
+namespace Core {
     public class EventSceneLoad {
         public readonly string Name;
 

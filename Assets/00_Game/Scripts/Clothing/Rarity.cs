@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Clothing{
-    
-    
+namespace Clothing {
     [CreateAssetMenu(menuName = "ScriptableObjects/Rarity")]
     public class Rarity : ScriptableObject {
-        
     }
 }
