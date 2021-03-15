@@ -12,6 +12,7 @@ namespace Clothing {
         [SerializeField] Text closeButtonText;
         [SerializeField] InventoryButtonScript inventoryContentPrefab;
         [SerializeField] Transform contentParent;
+        
         readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         InventoryDataHandler inventoryDataHandler;
         
@@ -20,21 +21,26 @@ namespace Clothing {
         }
 
         public void ToggleButton(ClothingType clothingType) {
-            if (!inventoryDataHandler.WearableDictionary.ContainsKey(clothingType)) {
+            if (!inventoryDataHandler.wearableDictionary.ContainsKey(clothingType)) {
                 Debug.LogWarning($"No item was found in {clothingType.name}");
                 return;
             }
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            var clothingTypeCount = inventoryDataHandler.WearableDictionary[clothingType].Count;
+            var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
             ContentPooling(clothingTypeCount);
             AddToInventory(clothingType, clothingTypeCount);
         }
-
+        
+        public void CloseScrollview() {
+            buttonHolder.SetActive(true);
+            scrollView.SetActive(false);
+        }
         void AddToInventory(ClothingType clothingType, int clothingTypeCount) {
             for (int i = 0; i < clothingTypeCount; i++) {
-                    inventoryContent[i].Setup(inventoryDataHandler.WearableDictionary[clothingType][i]);
+                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i]);
+                print(inventoryDataHandler.wearableDictionary[clothingType][i].Rarity);//TODO:Remove when unit test is added...
             }
         }
 
@@ -52,9 +58,5 @@ namespace Clothing {
             }
         }
 
-        public void CloseScrollview() {
-            buttonHolder.SetActive(true);
-            scrollView.SetActive(false);
-        }
     }
 }

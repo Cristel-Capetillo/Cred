@@ -6,8 +6,7 @@ using Utilities;
 
 namespace Clothing {
     public class InventoryDataHandler : MonoBehaviour {
-        [SerializeField] List<Rarity> raritySortOrder = new List<Rarity>();
-        public Dictionary<ClothingType, List<Wearable>> WearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
+        public Dictionary<ClothingType, List<Wearable>> wearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
@@ -19,15 +18,14 @@ namespace Clothing {
 
         void OnLoadWearablesAssets(WearableListMessage wearableListMessage) {
             var temp = wearableListMessage.Wearables;
-            if (!WearableDictionary.ContainsKey(temp[0].ClothingType)) {
-                WearableDictionary.Add(temp[0].ClothingType, temp);
+            if (!wearableDictionary.ContainsKey(temp[0].ClothingType)) {
+                wearableDictionary.Add(temp[0].ClothingType, temp);
             }
             else {
-                WearableDictionary[temp[0].ClothingType].AddRange(temp);
+                wearableDictionary[temp[0].ClothingType].AddRange(temp);
             }
-            Debug.Log(WearableDictionary.Count + " WearableDictonaryCount");
-            WearableDictionary[temp[0].ClothingType] = raritySortOrder.OrderBy(w => w.name).ToList();
-
+            wearableDictionary[temp[0].ClothingType] = wearableDictionary[temp[0].ClothingType]
+                .OrderBy(rarity => rarity.Rarity.Value).ToList();
         }
     }
 
