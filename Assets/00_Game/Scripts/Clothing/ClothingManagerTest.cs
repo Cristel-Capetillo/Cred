@@ -3,25 +3,28 @@ using Utilities;
 
 namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
+        [SerializeField] Texture lastKnownShirt;
+        [SerializeField] Texture lastKnownPants;
         
-        //TODO: Add a reset button to go back to default
-        
-
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+
+            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = lastKnownShirt;
+            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = lastKnownPants;
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
-            print("eventclothesChanged called");
             switch (eventClothesChanged.bodyPart) {
                 case "Shirt":
                     AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    lastKnownShirt = eventClothesChanged.textureChanged;
                     break;
                 case "Pants":
                     AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    lastKnownPants = eventClothesChanged.textureChanged;
                     break;
             }
         }
