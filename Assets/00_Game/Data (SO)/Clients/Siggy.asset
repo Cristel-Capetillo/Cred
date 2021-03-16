@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Siggy
   m_EditorClassIdentifier: 
   narration: Siggy's Narration
+  model: {fileID: 9113561252080322206, guid: 1e02bad12ebe93847ab0a7367cbb484a, type: 3}

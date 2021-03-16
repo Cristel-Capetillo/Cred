@@ -2,6 +2,6 @@ using UnityEngine;
 
 namespace Core {
     public class SelectedClient : MonoBehaviour {
-        public Client selectedClient;
+        public Client client;
     }
 }

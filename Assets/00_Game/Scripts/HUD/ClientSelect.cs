@@ -25,11 +25,6 @@ namespace HUD {
 
         public void ToggleMenu() {
             clientGroup.SetActive(true);
-            var clientObjects = GameObject.Find("Clients").GetComponentsInChildren<Button>();
-            foreach (var child in clientObjects)
-            {
-                // clients.Add(child.gameObject);
-            }
             clientMenuButton.SetActive(false);
         }
 
@@ -44,7 +39,6 @@ namespace HUD {
         }
 
         public void MakeSelection(Client cl) {
-            // Debug.Log(EventSystem.current.currentSelectedGameObject);
             selectedClient = cl;
             clientNarrations.SetActive(true);
             clientGroup.SetActive(false);
@@ -52,8 +46,7 @@ namespace HUD {
         }
 
         public void ConfirmSelection() {
-            //Close all menus & swap model
-            sc.selectedClient = selectedClient;
+            sc.client = selectedClient;
             ss.LoadScene("DressupScene");
         }
 
