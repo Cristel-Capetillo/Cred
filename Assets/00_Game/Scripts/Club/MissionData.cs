@@ -9,12 +9,13 @@ namespace Club {
         [SerializeField] List<ColorData> requiredColors;
         [SerializeField] int minimumStylePoints;
         [SerializeField] int maximumStylePoints;
+        [SerializeField] int targetReword;
         public ClubData ClubData => clubData;
         public DialogData DialogData => dialogData;
         public List<ColorData> RequiredColors => requiredColors;
         public int MinimumStylePoints => minimumStylePoints;
         public int MaximumStylePoints => maximumStylePoints;
-        
 
+        public int TargetReword => targetReword;
     }
 }
