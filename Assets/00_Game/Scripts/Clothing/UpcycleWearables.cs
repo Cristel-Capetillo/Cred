@@ -32,10 +32,10 @@ namespace Clothing
             {
                 inventoryButtonScript = clothingItems[i].GetComponent<InventoryButtonScript>();
 
-                if (inventoryButtonScript.clothingChosen)
+                if (inventoryButtonScript.upcyclingClothingChosen)
                 {
-                    
                     count++;
+
                     if (count == 1)
                     {
                         wearables[0] = inventoryButtonScript._wearable;
@@ -47,9 +47,7 @@ namespace Clothing
                         count = 0;
                     }
 
-                    inventoryButtonScript.clothingChosen = false;
-
-
+                    inventoryButtonScript.upcyclingClothingChosen = false;
                 }
 
             }

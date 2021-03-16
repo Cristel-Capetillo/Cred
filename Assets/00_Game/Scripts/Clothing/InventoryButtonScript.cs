@@ -7,7 +7,7 @@ namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
         public Wearable _wearable;
         PopupWindowUpCycleDonate _popupWindow;
-        public bool clothingChosen;
+        public bool upcyclingClothingChosen;
 
         public void Setup(Wearable wearable, PopupWindowUpCycleDonate popupWindow) {
             _wearable = wearable;
@@ -31,7 +31,7 @@ namespace Clothing {
             {
                 if (_popupWindow.isUpCycleWindow)
                 {
-                    clothingChosen = true;
+                    upcyclingClothingChosen = true;
                 }
 
                 if (_popupWindow.isDonateWindow)
