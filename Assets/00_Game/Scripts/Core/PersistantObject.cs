@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Core {
     public class PersistantObject : MonoBehaviour {
         public GameObject persistantObject;
-        bool hasBeenInstantiate;
+        static bool hasBeenInstantiate;
 
         void Start() {
             if (hasBeenInstantiate) return;

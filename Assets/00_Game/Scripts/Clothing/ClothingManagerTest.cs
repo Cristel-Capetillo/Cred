@@ -1,30 +1,30 @@
+using System;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
-        [SerializeField] Texture lastKnownShirt;
-        [SerializeField] Texture lastKnownPants;
         
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
-
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+        }
 
-            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = lastKnownShirt;
-            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = lastKnownPants;
+        void OnEnable() {
+            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownShirt.Texture;
+            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownPants.Texture;
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
-            switch (eventClothesChanged.bodyPart) {
+            switch (eventClothesChanged.Wearable.ClothingType.name) {
                 case "Shirt":
-                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
-                    lastKnownShirt = eventClothesChanged.textureChanged;
+                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
                     break;
                 case "Pants":
-                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
-                    lastKnownPants = eventClothesChanged.textureChanged;
+                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
                     break;
             }
         }
