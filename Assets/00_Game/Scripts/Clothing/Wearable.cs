@@ -7,10 +7,23 @@ namespace Clothing {
         [SerializeField] ClothingType clothingType;
         [SerializeField] Texture texture; //TODO: Inventory icon
         [SerializeField] Sprite sprite;
+        int _stylePoints;
 
+        public int StylePoints => _stylePoints + rarity.Value;
+        
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
         public ClothingType ClothingType => clothingType;
+
+        public void AddStylePoint() {
+            if (StylePoints < Rarity.MaxValue) {
+                _stylePoints++;
+            }
+        }
+
+        public void SetStylePoints(int stylePoints) {
+            _stylePoints = stylePoints - rarity.Value;
+        }
     }
 }
