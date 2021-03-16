@@ -4,7 +4,20 @@ using System.Net;
 
 namespace Utilities.Time {
     public class RealTime : ITimeProvider {
+        
+        DateTime lastSyncTime;
+        float unityTime;
+        
         public DateTime GetTime() {
+            return lastSyncTime.AddSeconds(UnityEngine.Time.realtimeSinceStartup - unityTime);
+        }
+
+        public void SyncTime() {
+            lastSyncTime = ServerTime();
+            unityTime = UnityEngine.Time.realtimeSinceStartup;
+        }
+
+        DateTime ServerTime() {
             var myHttpWebRequest = (HttpWebRequest) WebRequest.Create("http://www.microsoft.com");
             var response = myHttpWebRequest.GetResponse();
             var todaysDates = response.Headers["date"];
@@ -13,11 +26,5 @@ namespace Utilities.Time {
                 CultureInfo.InvariantCulture.DateTimeFormat,
                 DateTimeStyles.AssumeUniversal);
         }
-
-        public int TimeDifference(DateTime time1, DateTime time2)
-            => TimeBetween(time1, time2);
-
-        public static int TimeBetween(DateTime time1, DateTime time2)
-            => time2.Subtract(time1).Minutes;
     }
 }
