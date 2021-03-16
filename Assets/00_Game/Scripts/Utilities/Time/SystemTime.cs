@@ -2,12 +2,17 @@
 
 namespace Utilities.Time {
     public class SystemTime : ITimeProvider {
+        
+        DateTime lastSyncTime;
+        float unityTime;
+        
         public DateTime GetTime() {
-            return DateTime.Now;
+            return lastSyncTime.AddSeconds(UnityEngine.Time.realtimeSinceStartup - unityTime);
         }
 
-        public int TimeDifference(DateTime time1, DateTime time2) {
-            return time2.Subtract(time1).Seconds;
+        public void SyncTime() {
+            lastSyncTime = DateTime.Now; //Get this from webSource
+            unityTime = UnityEngine.Time.realtimeSinceStartup;
         }
     }
 }
