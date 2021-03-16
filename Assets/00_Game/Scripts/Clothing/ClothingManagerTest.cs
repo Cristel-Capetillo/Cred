@@ -9,11 +9,12 @@ namespace Clothing {
         [SerializeField] GameObject AlexPants;
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownShirt.Texture;
+            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownPants.Texture;
         }
 
         void OnEnable() {
-            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownShirt.Texture;
-            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownPants.Texture;
+
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {

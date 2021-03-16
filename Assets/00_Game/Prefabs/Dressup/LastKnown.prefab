@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2a0324e9105d141b9c5d6904627d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastKnownShirt: {fileID: 2800000, guid: 006420280f3aa0e4091046702e1dd0f3, type: 3}
-  lastKnownPants: {fileID: 2800000, guid: c34f7dd3bccc7b0459e80396120dbf48, type: 3}
+  lastKnownShirt: {fileID: 11400000, guid: dc122460f91a24857b5948a4149e5b8f, type: 2}
+  lastKnownPants: {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}
