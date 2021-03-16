@@ -1,11 +1,11 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing {
     public class InventoryDataHandler : MonoBehaviour {
-        public Dictionary<ClothingType, List<Wearable>> WearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
+        public readonly Dictionary<ClothingType, List<Wearable>> wearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
@@ -16,20 +16,15 @@ namespace Clothing {
         }
 
         void OnLoadWearablesAssets(WearableListMessage wearableListMessage) {
-            print("Test");
-            var temp = wearableListMessage.Wearables;
-            if (!WearableDictionary.ContainsKey(temp[0].ClothingType)) {
-                WearableDictionary.Add(temp[0].ClothingType, temp);
+            var wearables = wearableListMessage.Wearables;
+            if (!wearableDictionary.ContainsKey(wearables[0].ClothingType)) {
+                wearableDictionary.Add(wearables[0].ClothingType, wearables);
             }
             else {
-                WearableDictionary[temp[0].ClothingType].AddRange(temp);
+                wearableDictionary[wearables[0].ClothingType].AddRange(wearables);
             }
-
-            Debug.Log(WearableDictionary.Count + " WearableDictonaryCount");
-        }
-
-        void OnLoadWearableData() {
-            throw new Exception("Not implemented yet!");
+            wearableDictionary[wearables[0].ClothingType] = wearableDictionary[wearables[0].ClothingType]
+                .OrderBy(rarity => rarity.Rarity.Value).ToList();
         }
     }
 

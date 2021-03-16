@@ -80,6 +80,27 @@ MonoBehaviour:
     - Pants
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 5ab79e81f34f7ac4bb82bf06f88a766d
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Epic jeans.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 11400000, guid: 5ab79e81f34f7ac4bb82bf06f88a766d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5ab79e81f34f7ac4bb82bf06f88a766d, type: 2}
+  - m_GUID: aa9a45ae97b3a1546a652c816b5551b4
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Rare jeans.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 11400000, guid: aa9a45ae97b3a1546a652c816b5551b4, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: aa9a45ae97b3a1546a652c816b5551b4, type: 2}
+  - m_GUID: efc39e321f9594248b00396db360b2f8
+    m_Address: Assets/00_Game/Data (SO)/Wearables/Rare jeans 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Pants
+    m_MainAsset: {fileID: 11400000, guid: efc39e321f9594248b00396db360b2f8, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: efc39e321f9594248b00396db360b2f8, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:
