@@ -12,6 +12,8 @@ namespace Clothing {
         [SerializeField] Text closeButtonText;
         [SerializeField] InventoryButtonScript inventoryContentPrefab;
         [SerializeField] Transform contentParent;
+
+        [SerializeField] PopupWindowUpCycleDonate popupWindonwUpcycleDonate;
         
         readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         InventoryDataHandler inventoryDataHandler;
@@ -40,7 +42,7 @@ namespace Clothing {
         }
         void AddToInventory(ClothingType clothingType) {
             for (int i = 0; i < inventoryDataHandler.wearableDictionary[clothingType].Count; i++) {
-                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i]);
+                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i], popupWindonwUpcycleDonate);
             }
         }
 
