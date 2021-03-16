@@ -6,6 +6,7 @@ namespace Ads {
     public class AdsManager : MonoBehaviour, IUnityAdsListener {
         string gameId = "4044681";
         string adID = "Rewarded_Android";
+        bool doubleMyRewards = false;
 
         void Start() {
             if (Application.platform == RuntimePlatform.Android)
@@ -19,19 +20,14 @@ namespace Ads {
             Advertisement.Initialize(gameId, true);
         }
 
-        void OnApplicationPause(bool pauseStatus) {
-            if (!pauseStatus) {
-                //resync time
-            }
-        }
-
-        public void ShowRewardedAd() {
+        public void ShowRewardedAd(bool doubleRewards) {
+            doubleMyRewards = doubleRewards;
             Advertisement.Show(adID);
         }
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult) {
             if (showResult == ShowResult.Finished) {
-                EventBroker.Instance().SendMessage(new EventAdWatched());
+                EventBroker.Instance().SendMessage(new EventAdWatched(doubleMyRewards)); //watch ad to earn coins
             }
             else if (showResult == ShowResult.Failed) {
                 Debug.Log("Error while trying to watch ad");

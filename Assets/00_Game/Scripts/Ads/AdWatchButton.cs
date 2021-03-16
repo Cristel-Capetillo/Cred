@@ -9,11 +9,8 @@ namespace Ads {
         Button button;
         Timer timer;
         
-        //bool CanWatchAd => timeHandler.EnoughTimePassed(durationBetweenAdWatches, lastAdWatchedTime, timeHandler.GetTime());
-
         void Start() {
             button = GetComponent<Button>();
-            button.onClick.AddListener(FindObjectOfType<AdsManager>().ShowRewardedAd);
             timer = new Timer(new TimeHandler(), "lastAdWatched");
         }
 
@@ -26,8 +23,10 @@ namespace Ads {
         }
         
         void TimeStampAdWatched(EventAdWatched eventAdWatched) {
-             button.interactable = false;
-             timer.Reset();
+            if(!eventAdWatched.doubleMissionRewards) {
+                button.interactable = false;
+                timer.Reset();
+            }
         }
 
         void Update() {

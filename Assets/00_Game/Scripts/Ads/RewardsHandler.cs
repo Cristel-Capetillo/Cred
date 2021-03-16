@@ -11,7 +11,12 @@ namespace Ads {
         }
 
         void RewardAdWatched(EventAdWatched eventAdWatched) {
-            FindObjectOfType<Coin>().Coins += coinsToRewardOnSuccessfulAdWatch;
+            if(eventAdWatched.doubleMissionRewards) {
+                FindObjectOfType<Coin>().Coins += coinsToRewardOnSuccessfulAdWatch * 2;
+            }
+            else {
+                FindObjectOfType<Coin>().Coins += coinsToRewardOnSuccessfulAdWatch;
+            }
         }
 
         void OnDestroy() {
