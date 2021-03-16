@@ -1102,6 +1102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watch Ad Button
       objectReference: {fileID: 0}
+    - target: {fileID: 3120824093629377588, guid: b1edbf94d43605642a15f737655f06d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3120824093629377589, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
       propertyPath: m_Pivot.x
