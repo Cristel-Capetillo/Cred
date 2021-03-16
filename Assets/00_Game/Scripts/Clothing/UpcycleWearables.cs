@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
+using Utilities;
 namespace Clothing
 {
-    public class UpcycleWearables : MonoBehaviour
+    public class UpcycleWearables : MonoBehaviour, IPointerClickHandler
     {
         Wearable[] wearables = new Wearable[2];
         public GameObject[] clothingItems;
@@ -52,6 +53,15 @@ namespace Clothing
                 }
 
             }
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        { 
+            if (bothHasBeenCollected) { 
+              
+                EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
+            }
+
         }
     }
 }
