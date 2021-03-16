@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Epic jeans
+  m_Name: Trashy jeans 4
   m_EditorClassIdentifier: 
-  rarity: {fileID: 11400000, guid: 1ebb332f9fadaad4880a5e41728838a3, type: 2}
+  rarity: {fileID: 11400000, guid: 8a9a780ddac906848a33833e0695febc, type: 2}
   clothingType: {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}
-  texture: {fileID: 2800000, guid: da4c4e93b5ec3434595ee8f41f1ceb81, type: 3}
-  sprite: {fileID: 21300000, guid: da4c4e93b5ec3434595ee8f41f1ceb81, type: 3}
+  texture: {fileID: 2800000, guid: f7d0b38a4f448449f842baa84ccdc412, type: 3}
+  sprite: {fileID: 21300000, guid: f7d0b38a4f448449f842baa84ccdc412, type: 3}

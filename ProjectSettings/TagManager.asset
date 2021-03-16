@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clothing
   - InventoryButtons
+  - ClothingInventory
   layers:
   - Default
   - TransparentFX

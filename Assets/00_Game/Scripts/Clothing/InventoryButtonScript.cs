@@ -9,14 +9,14 @@ namespace Clothing {
 
         public void Setup(Wearable wearable) {
             _wearable = wearable;
-            GetComponent<Image>().sprite = wearable.Sprite;
             gameObject.SetActive(true);
-            Debug.Log(wearable.Sprite.name);
+            GetComponent<Image>().sprite = wearable.Sprite;
+            GetComponentInChildren<Text>().text = wearable.StylePoints.ToString();
+            print(wearable.StylePoints + " " + wearable.Rarity.name);
         }
 
         public void OnPointerClick(PointerEventData eventData) {
             EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
-            Debug.Log(_wearable.Sprite.name);
         }
     }
 }
