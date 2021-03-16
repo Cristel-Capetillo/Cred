@@ -15,7 +15,6 @@ namespace Ads {
                 adID = "Rewarded_iOS";
             }
 
-            // If we have multiple scenes we need to put this somewhere else than in start
             Advertisement.AddListener(this);
             Advertisement.Initialize(gameId, true);
         }
