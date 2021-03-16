@@ -21,8 +21,8 @@ namespace Clothing
         void OnLoadWearablesAssets(MessageUpCycleClothes messageUpCycleClothes)
         {
         
-            Sprite item1 = messageUpCycleClothes.outfit1;
-            Sprite item2 = messageUpCycleClothes.outfit2;
+            Wearable item1 = messageUpCycleClothes.Wearable1;
+            Wearable item2 = messageUpCycleClothes.Wearable2;
       
             
         }
@@ -32,16 +32,16 @@ namespace Clothing
             throw new Exception("Not implemented yet!");
         }
 
-        public class UpCyclingMessage
-        {
-            public GameObject wearable1;
-            public GameObject wearable2;
-            public UpCyclingMessage(GameObject firstWearable, GameObject secondWearable)
-            {
-                firstWearable = wearable1;
-                secondWearable = wearable2;
-            }
-        }
+        //public class UpCyclingMessage
+        //{
+        //    public GameObject wearable1;
+        //    public GameObject wearable2;
+        //    public UpCyclingMessage(GameObject firstWearable, GameObject secondWearable)
+        //    {
+        //        firstWearable = wearable1;
+        //        secondWearable = wearable2;
+        //    }
+        //}
     }
 }
 

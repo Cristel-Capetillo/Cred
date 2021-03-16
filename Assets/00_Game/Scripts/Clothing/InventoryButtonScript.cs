@@ -6,13 +6,17 @@ using Utilities;
 namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
         Wearable _wearable;
-        Wearable _wearable2;
-        PopUpWindow popupWindow;
+        PopUpWindow _popupWindow;
+        Wearable _chosenWearable1;
+        Wearable _chosenWearable2;
 
-        bool hasClickedWearable;
+        public bool hasClickedWearable;
+        public bool chosenFirstWearable = false;
+        public bool chosenSecondWearable = false;
+
         private void Awake()
         {
-            popupWindow = GameObject.FindGameObjectWithTag("ClothingInventory").GetComponent<PopUpWindow>();
+            _popupWindow = GameObject.FindGameObjectWithTag("ClothingInventory").GetComponent<PopUpWindow>();
         }
         public void Setup(Wearable wearable) {
             _wearable = wearable;
@@ -22,35 +26,51 @@ namespace Clothing {
         }
 
         public void OnPointerClick(PointerEventData eventData) {
-            
-            if (!popupWindow.popupActive)
+            if (!_popupWindow.popupActive)
             {
-                EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
+                _chosenWearable1 = _wearable;
+                EventBroker.Instance().SendMessage(new EventClothesChanged(_chosenWearable1));
                 Debug.Log(_wearable.Sprite.name);
             }
             else
             {
-                hasClickedWearable = true;
-                if (popupWindow.isUpCycleWindow)
+
+                if (_popupWindow.isUpCycleWindow && !chosenFirstWearable)
                 {
-                   
-                        Debug.Log("PopUp UpCycle is Active");
-                       // EventBroker.Instance().SendMessage(new MessageUpCycleClothes(_wearable, _wearable2));
-                    
-                 
+                    _chosenWearable1 = _wearable;
+                    chosenFirstWearable = true;
+
+                    Debug.Log("First Chosen Wearable: " + _chosenWearable1);
+
                 }
 
-                if (popupWindow.isDonateWindow)
+                if(_popupWindow.isUpCycleWindow && !chosenSecondWearable)
+                {
+                    _chosenWearable2 = _wearable;
+                    chosenSecondWearable = true;
+                    Debug.Log("Second Chosen Wearable: " + _chosenWearable2);
+                }
+               
+
+                if (/*_popupWindow.isUpCycleWindow && */chosenFirstWearable && chosenSecondWearable) { 
+
+                    EventBroker.Instance().SendMessage(new MessageUpCycleClothes(_chosenWearable1, _chosenWearable2));
+                }
+
+
+                if (_popupWindow.isDonateWindow)
                 {
                     Debug.Log("Donate is Active");
                     EventBroker.Instance().SendMessage(new MessageDonateClothes(_wearable));
                 }
 
             }
+            hasClickedWearable = false;
+
         }
 
 
 
-      
+
     }
 }
