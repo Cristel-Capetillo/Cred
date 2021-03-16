@@ -3,10 +3,13 @@ using Utilities;
 
 namespace Clothing {
     public class SendClothesMessage : MonoBehaviour {
-        [SerializeField] Wearable wearable;
+        [SerializeField] Wearable defaultShirt;
+        [SerializeField] Wearable defaultPants;
+        
 
-        public void ChangeClothes() {
-            EventBroker.Instance().SendMessage(new EventClothesChanged(wearable));
+        public void ChangeDefaultClothes() {
+            EventBroker.Instance().SendMessage(new EventClothesChanged(defaultShirt));
+            EventBroker.Instance().SendMessage(new EventClothesChanged(defaultPants));
         }
     }
 }

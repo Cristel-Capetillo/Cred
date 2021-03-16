@@ -13,7 +13,7 @@ namespace Ads {
         Button button;
         DateTime lastAdWatchedTime;
 
-        bool CanWatchAd => timeHandler.EnoughTimePassed(durationBetweenAdWatches, lastAdWatchedTime, timeHandler.GetTime());
+        //bool CanWatchAd => timeHandler.EnoughTimePassed(durationBetweenAdWatches, lastAdWatchedTime, timeHandler.GetTime());
 
         void Start() {
             timeHandler = new TimeHandler(new SystemTime());
@@ -25,13 +25,13 @@ namespace Ads {
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventAdWatched>(TimeStampAdWatched);
-            InvokeRepeating(nameof(InteractableButton), 1f, 1f);
+            //InvokeRepeating(nameof(InteractableButton), 1f, 1f);
         }
 
-        void InteractableButton() {
-            if (!button.interactable)
-                button.interactable = CanWatchAd;
-        }
+        // void InteractableButton() {
+        //     if (!button.interactable)
+        //         button.interactable = CanWatchAd;
+        // }
 
         void TimeStampAdWatched(EventAdWatched eventAdWatched) {
             button.interactable = false;
@@ -40,7 +40,7 @@ namespace Ads {
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
-            CancelInvoke(nameof(InteractableButton));
+            //CancelInvoke(nameof(InteractableButton));
         }
 
         string ISavable<string>.ToBeSaved() {

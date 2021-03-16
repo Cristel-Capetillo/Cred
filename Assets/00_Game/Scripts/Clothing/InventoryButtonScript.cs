@@ -5,6 +5,7 @@ using Utilities;
 
 namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
+<<<<<<< HEAD
         public Wearable _wearable;
         PopUpWindow popupWindow;
 
@@ -14,14 +15,20 @@ namespace Clothing {
         {
             popupWindow = GameObject.FindGameObjectWithTag("ClothingInventory").GetComponent<PopUpWindow>();
         }
+=======
+        Wearable _wearable;
+
+>>>>>>> 3b74d04ae2e8b0046f7ac7a55671cdb8008f2e8a
         public void Setup(Wearable wearable) {
             _wearable = wearable;
-            GetComponent<Image>().sprite = wearable.Sprite;
             gameObject.SetActive(true);
-            Debug.Log(wearable.Sprite.name);
+            GetComponent<Image>().sprite = wearable.Sprite;
+            GetComponentInChildren<Text>().text = wearable.StylePoints.ToString();
+            print(wearable.StylePoints + " " + wearable.Rarity.name);
         }
 
         public void OnPointerClick(PointerEventData eventData) {
+<<<<<<< HEAD
             
             if (!popupWindow.popupActive)
             {
@@ -51,5 +58,9 @@ namespace Clothing {
 
 
       
+=======
+            EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
+        }
+>>>>>>> 3b74d04ae2e8b0046f7ac7a55671cdb8008f2e8a
     }
 }

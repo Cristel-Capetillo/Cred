@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,62 +10,53 @@ namespace Clothing {
         [SerializeField] GameObject scrollView;
         [SerializeField] GameObject buttonHolder;
         [SerializeField] Text closeButtonText;
-
-        public GameObject[] buttons;
-        readonly Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+        [SerializeField] InventoryButtonScript inventoryContentPrefab;
+        [SerializeField] Transform contentParent;
+        
+        readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         InventoryDataHandler inventoryDataHandler;
-        [SerializeField] List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
-        bool hasActivatedScrollView;
-        Vector3 newButtonPosition;
 
+        public int InventoryContentCount => inventoryContent.Count;
+
+        void Start() {
+            inventoryDataHandler = GetComponent<InventoryDataHandler>();
+        }
 
         public void ToggleButton(ClothingType clothingType) {
+            if (!inventoryDataHandler.wearableDictionary.ContainsKey(clothingType)) {
+                Debug.LogWarning($"No item was found in {clothingType.name}");
+                return;
+            }
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            if (inventoryDataHandler.WearableDictionary.ContainsKey(clothingType)) {
-                Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[clothingType].Count);
-                var maxAmount = Mathf.Min(inventoryContent.Count, inventoryDataHandler.WearableDictionary[clothingType].Count);
-                for (int i = 0; i < maxAmount; i++) {
-                    inventoryContent[i].Setup(inventoryDataHandler.WearableDictionary[clothingType][i]);
-                }
-            }
+            ContentPooling(clothingType);
+            AddToInventory(clothingType);
         }
-
-        void ToggleButtons(GameObject clickButton) {
-            foreach (var go in buttons) {
-                if (go == clickButton) continue;
-                go.SetActive(hasActivatedScrollView);
-            }
-        }
-
+        
         public void CloseScrollview() {
             buttonHolder.SetActive(true);
             scrollView.SetActive(false);
         }
-
-        // void ToggleScrollView(GameObject scrollView, GameObject clickButton) {
-        //     if (scrollView.activeInHierarchy) {
-        //         scrollView.SetActive(false);
-        //         clickButton.transform.localPosition = originalPositions[clickButton];
-        //     }
-        //     else {
-        //         scrollView.SetActive(true);
-        //         if (inventoryDataHandler.WearableDictionary.ContainsKey(tempClothingTypesList[0])) {
-        //             Debug.Log("InventoryHandler " + inventoryDataHandler.WearableDictionary[tempClothingTypesList[0]].Count);
-        //         }
-        //         Debug.Log("ScrollViewActivated " + clickButton.name);
-        //     }
-        //     hasActivatedScrollView = !hasActivatedScrollView;
-        // }
-
-        public void Start() {
-            newButtonPosition = buttons[0].GetComponent<RectTransform>().transform.localPosition;
-            foreach (var btn in buttons) {
-                originalPositions[btn] = btn.transform.localPosition;
+        void AddToInventory(ClothingType clothingType) {
+            for (int i = 0; i < inventoryDataHandler.wearableDictionary[clothingType].Count; i++) {
+                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i]);
             }
-
-            inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
+
+        void ContentPooling(ClothingType clothingType) {
+            var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
+            if (inventoryContent.Count < clothingTypeCount) {
+                for (int i = inventoryContent.Count; i < clothingTypeCount; i++) {
+                    inventoryContent.Add(Instantiate(inventoryContentPrefab, contentParent));
+                }
+            }
+            else {
+                for (int i = clothingTypeCount; i < inventoryContent.Count; i++) {
+                    inventoryContent[i].gameObject.SetActive(false);
+                }
+            }
+        }
+
     }
 }

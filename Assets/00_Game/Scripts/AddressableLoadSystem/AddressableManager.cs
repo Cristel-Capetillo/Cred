@@ -32,7 +32,7 @@ namespace AddressableLoadSystem {
             Addressables.LoadAssetsAsync<Wearable>(assetLabelReference, asset => {
                 if (asset == null) return;
                 loadedAssets.Add(asset);
-                Debug.Log($"Adding: {asset}");
+                // Debug.Log($"Adding: {asset}");
             }).Completed += OnComplete;
             _activeAsyncOperations++;
         }
