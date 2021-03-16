@@ -376,6 +376,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaca38722d3541f2b6a4d9ef374b12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &503536281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 356309357796653276, guid: 661431c79b411954ba7e1481b538bbbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1688695254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &503536284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503536281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588d4049d0b00cc43bd4ff3d09d232fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothingItems: []
+  count: 0
 --- !u!1 &572433877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1330,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1333404311, guid: 9673ce21aea494df49fbfb549709923a, type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
     - target: {fileID: 998568978596221034, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
       propertyPath: m_IsActive
@@ -1774,6 +1798,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393388533803969, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389053006443, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389379977485, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389451859933, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389461809754, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389695780723, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393389747003799, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393390072463217, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393390206289523, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393390300923995, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787393390330361235, guid: 9673ce21aea494df49fbfb549709923a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clothing
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9673ce21aea494df49fbfb549709923a, type: 3}
