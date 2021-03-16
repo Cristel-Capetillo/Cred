@@ -11,7 +11,7 @@ namespace Clothing
         InventoryButtonScript inventoryButtonScript;
         public int count = 0;
         public bool bothHasBeenCollected;
-        public void Update()
+        public void FixedUpdate()
         {
             clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
             if (clothingItems.Length > 0)
@@ -31,7 +31,7 @@ namespace Clothing
             {
                 inventoryButtonScript = clothingItems[i].GetComponent<InventoryButtonScript>();
 
-                if (inventoryButtonScript.hasBeenChosen)
+                if (inventoryButtonScript.clothingChosen)
                 {
                     
                     count++;
@@ -43,11 +43,10 @@ namespace Clothing
                     {
                         wearables[1] = inventoryButtonScript._wearable;
                         bothHasBeenCollected = true;
+                        count = 0;
                     }
-                    Debug.Log("Number of times Hasbeenchoosen is true: " + count);
 
-
-                    inventoryButtonScript.hasBeenChosen = false;
+                    inventoryButtonScript.clothingChosen = false;
 
 
                 }

@@ -7,7 +7,7 @@ namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
         public Wearable _wearable;
         PopupWindowUpCycleDonate _popupWindow;
-        public bool hasBeenChosen;
+        public bool clothingChosen;
 
         public void Setup(Wearable wearable, PopupWindowUpCycleDonate popupWindow) {
             _wearable = wearable;
@@ -25,24 +25,20 @@ namespace Clothing {
             {
                 EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
                 Debug.Log(_wearable.Sprite.name);
-                Debug.Log("hello");
-            
-            }
-           
-
-
-            if (_popupWindow.isUpCycleWindow)
-            {
-                hasBeenChosen = true;
-                Debug.Log("PopUp UpCycle is Active");
-
 
             }
-
-            if (_popupWindow.isDonateWindow)
+            else
             {
-                Debug.Log("Donate is Active");
-                EventBroker.Instance().SendMessage(new MessageDonateClothes(_wearable));
+                if (_popupWindow.isUpCycleWindow)
+                {
+                    clothingChosen = true;
+                }
+
+                if (_popupWindow.isDonateWindow)
+                {
+                    Debug.Log("Donate is Active");
+                    EventBroker.Instance().SendMessage(new MessageDonateClothes(_wearable));
+                }
             }
 
         }
