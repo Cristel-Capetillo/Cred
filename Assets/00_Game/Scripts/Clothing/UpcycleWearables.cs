@@ -10,13 +10,18 @@ namespace Clothing
         public GameObject[] clothingItems;
         InventoryButtonScript inventoryButtonScript;
         public int count = 0;
-
+        public bool bothHasBeenCollected;
         public void Update()
         {
             clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
             if (clothingItems.Length > 0)
             {
                 GetScript();
+            }
+
+            if (bothHasBeenCollected) {
+
+                Debug.Log("Wearables: " + wearables[0] + ", " + wearables[1]);
             }
         }
 
@@ -30,17 +35,16 @@ namespace Clothing
                 {
                     
                     count++;
-                    if (count == 0)
+                    if (count == 1)
                     {
                         wearables[0] = inventoryButtonScript._wearable;
                     }
-                    if(count == 1)
+                    if(count == 2)
                     {
                         wearables[1] = inventoryButtonScript._wearable;
+                        bothHasBeenCollected = true;
                     }
                     Debug.Log("Number of times Hasbeenchoosen is true: " + count);
-                    Debug.Log("Wearable spot 1: "+  wearables[0]);
-                    Debug.Log("Wearable spot 2: " + wearables[1]);
 
 
                     inventoryButtonScript.hasBeenChosen = false;
