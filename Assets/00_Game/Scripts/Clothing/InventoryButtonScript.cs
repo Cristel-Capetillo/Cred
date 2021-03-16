@@ -5,7 +5,6 @@ using Utilities;
 
 namespace Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
-<<<<<<< HEAD
         public Wearable _wearable;
         PopUpWindow popupWindow;
 
@@ -15,10 +14,7 @@ namespace Clothing {
         {
             popupWindow = GameObject.FindGameObjectWithTag("ClothingInventory").GetComponent<PopUpWindow>();
         }
-=======
-        Wearable _wearable;
 
->>>>>>> 3b74d04ae2e8b0046f7ac7a55671cdb8008f2e8a
         public void Setup(Wearable wearable) {
             _wearable = wearable;
             gameObject.SetActive(true);
@@ -28,7 +24,6 @@ namespace Clothing {
         }
 
         public void OnPointerClick(PointerEventData eventData) {
-<<<<<<< HEAD
             
             if (!popupWindow.popupActive)
             {
@@ -41,7 +36,6 @@ namespace Clothing {
                 {
                     hasBeenChosen = true;
                      Debug.Log("PopUp UpCycle is Active");
-                       // EventBroker.Instance().SendMessage(new MessageUpCycleClothes(_wearable, _wearable2));
                     
                  
                 }
@@ -55,12 +49,5 @@ namespace Clothing {
             }
         }
 
-
-
-      
-=======
-            EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
         }
->>>>>>> 3b74d04ae2e8b0046f7ac7a55671cdb8008f2e8a
     }
-}

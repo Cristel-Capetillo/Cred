@@ -6,7 +6,7 @@ namespace Clothing
 {
     public class UpcycleWearables : MonoBehaviour
     {
-        Wearable[] wearables;
+        Wearable[] wearables = new Wearable[2];
         public GameObject[] clothingItems;
         InventoryButtonScript inventoryButtonScript;
         public int count = 0;
@@ -28,9 +28,21 @@ namespace Clothing
 
                 if (inventoryButtonScript.hasBeenChosen)
                 {
+                    
                     count++;
+                    if (count == 0)
+                    {
+                        wearables[0] = inventoryButtonScript._wearable;
+                    }
+                    if(count == 1)
+                    {
+                        wearables[1] = inventoryButtonScript._wearable;
+                    }
                     Debug.Log("Number of times Hasbeenchoosen is true: " + count);
-                  
+                    Debug.Log("Wearable spot 1: "+  wearables[0]);
+                    Debug.Log("Wearable spot 2: " + wearables[1]);
+
+
                     inventoryButtonScript.hasBeenChosen = false;
 
 
