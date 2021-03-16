@@ -15,7 +15,9 @@ namespace Clothing {
         
         readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
         InventoryDataHandler inventoryDataHandler;
-        
+
+        public int InventoryContentCount => inventoryContent.Count;
+
         void Start() {
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
@@ -28,26 +30,24 @@ namespace Clothing {
             closeButtonText.text = clothingType.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
-            ContentPooling(clothingTypeCount);
-            AddToInventory(clothingType, clothingTypeCount);
+            ContentPooling(clothingType);
+            AddToInventory(clothingType);
         }
         
         public void CloseScrollview() {
             buttonHolder.SetActive(true);
             scrollView.SetActive(false);
         }
-        void AddToInventory(ClothingType clothingType, int clothingTypeCount) {
-            for (int i = 0; i < clothingTypeCount; i++) {
+        void AddToInventory(ClothingType clothingType) {
+            for (int i = 0; i < inventoryDataHandler.wearableDictionary[clothingType].Count; i++) {
                 inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i]);
-                print(inventoryDataHandler.wearableDictionary[clothingType][i].Rarity);//TODO:Remove when unit test is added...
             }
         }
 
-        void ContentPooling(int clothingTypeCount) {
+        void ContentPooling(ClothingType clothingType) {
+            var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
             if (inventoryContent.Count < clothingTypeCount) {
-                var temp = Mathf.Max(0, inventoryContent.Count - 1);
-                for (int i = temp; i < clothingTypeCount; i++) {
+                for (int i = inventoryContent.Count; i < clothingTypeCount; i++) {
                     inventoryContent.Add(Instantiate(inventoryContentPrefab, contentParent));
                 }
             }

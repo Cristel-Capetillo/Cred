@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using AddressableLoadSystem;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
-using UnityEngine.AddressableAssets;
 
 namespace Editor.UnitTests.PlayModeTests{
     public class MonoBehaviorAddressableTests
@@ -19,7 +16,7 @@ namespace Editor.UnitTests.PlayModeTests{
         }
         [Test]
         public void MonoBehaviorAddressableTestWithResourceLoadPrefabInstantiate(){
-            var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager") as GameObject);
+            var gameObject = GameObject.Instantiate(Resources.Load("AddressableManager")as GameObject);
             var addressableHandler = gameObject.GetComponent<AddressableManager>();
             Assert.AreEqual(typeof(AddressableManager),addressableHandler.GetType());
         }
