@@ -21,7 +21,7 @@ namespace Club {
             // EventBroker.Instance().SubscribeMessage<MissionWearableMessage>(GetWearableList);
             StartMission();
             _currentStylePoints = GetStylePoints();
-            EndMission();
+            //EndMission();
         }
         // void OnDestroy(){
         //     EventBroker.Instance().UnsubscribeMessage<MissionWearableMessage>(GetWearableList);
@@ -33,27 +33,27 @@ namespace Club {
                 AdjustStylePoint(_currentMission.MinimumStylePoints, _currentMission.MaximumStylePoints);
             print($"Min: {_currentMinStylepointValue} Max: {_currentMaxStylepointValue}");
         }
-        public void EndMission(){
-            print("Colors match: " + CheckColors());
-            if (_currentStylePoints < _currentMinStylepointValue){
-                print("Mission failed!");
-                return;
-            }
-            print(CalculateReword());
-        }
+        // public void EndMission(){
+        //     print("Colors match: " + CheckColors());
+        //     if (_currentStylePoints < _currentMinStylepointValue){
+        //         print("Mission failed!");
+        //         return;
+        //     }
+        //     print(CalculateReword());
+        // }
 
         //TODO: Get equation from GameDesigner! 
         int CalculateReword(){
             var t = Mathf.InverseLerp(0, _currentMaxStylepointValue, _currentStylePoints);
-            return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.TargetReword, t));
+            return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.MaxReward, t));
         }
         int GetStylePoints(){
             return wearables.Sum(wearable => wearable.StylePoints);
         }
 
-        bool CheckColors(){
-            return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
-        }
+        //bool CheckColors(){
+        //    return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
+        //}
         void GetWearableList(MissionWearableMessage missionWearableMessage){
             wearableList = missionWearableMessage.wearables;
         }
@@ -85,5 +85,6 @@ namespace Club {
         public int CalculateTotalReward(float stylePercentage){
             return (int) (stylePercentage * maxReward);
         }*/
+       
     }
 }
