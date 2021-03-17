@@ -1,5 +1,9 @@
 ﻿namespace Clothing.Upgrade {
-    public class EventAddUpcycleClothes {
-        
+    public class EventAddUpCycleClothes {
+        public readonly Wearable wearable;
+
+        public EventAddUpCycleClothes(Wearable wearable) {
+            this.wearable = wearable;
+        }
     }
 }

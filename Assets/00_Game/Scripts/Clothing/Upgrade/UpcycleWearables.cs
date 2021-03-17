@@ -1,5 +1,7 @@
+using System;
 using HUD.Clothing;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
 
@@ -17,40 +19,26 @@ namespace Clothing.Upgrade {
         public int count = 0;
         public bool bothHasBeenCollected;
 
-        public void FixedUpdate() {
-
-            if (clothingItems.Length > 0) GetScript();
+        void Start() {
+            EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
         }
 
-        public void FindClothes()
-        {
-            clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
-        }
-
-        public void GetScript() {
-            for (var i = 0; i < clothingItems.Length; i++) {
-                inventoryButtonScript = clothingItems[i].GetComponent<InventoryButtonScript>();
-
-                if (inventoryButtonScript.upcyclingClothingChosen) {
-                    count++;
-
-                    if (count == 1) {
-                        wearables[0] = inventoryButtonScript._wearable;
-                        slot1.GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
-                        slot1.GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
-                    }
-
-                    if (count == 2) {
-                        wearables[1] = inventoryButtonScript._wearable;
-                        bothHasBeenCollected = true;
-                        count = 0;
-                        upcycleConfirmButton.interactable = true;
-                        slot2.GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
-                        slot2.GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
-                    }
-
-                    inventoryButtonScript.upcyclingClothingChosen = false;
-                }
+        public void GetScript(EventAddUpCycleClothes eventAddUpCycleClothes) {
+            count++;
+            switch (count) {
+                case 1:
+                    wearables[0] = eventAddUpCycleClothes.wearable;
+                    slot1.GetComponent<Image>().sprite = eventAddUpCycleClothes.wearable.Sprite;
+                    slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+                    break;
+                case 2:
+                    wearables[1] = eventAddUpCycleClothes.wearable;
+                    bothHasBeenCollected = true;
+                    count = 0;
+                    upcycleConfirmButton.interactable = true;
+                    slot2.GetComponent<Image>().sprite = eventAddUpCycleClothes.wearable.Sprite;
+                    slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+                    break;
             }
         }
 
