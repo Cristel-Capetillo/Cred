@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -7,25 +8,29 @@ using Utilities.Time;
 
 namespace Ads {
     public class AdWatchButton : MonoBehaviour {
-        
         const string LastAdWatched = "lastAdWatched";
-        
+
         [SerializeField] int durationBetweenAdWatches = 5;
-        
+
         Button button;
         TimeManager timeManager;
 
-        IEnumerator Start() {
+        void Start() {
+            EventBroker.Instance().SubscribeMessage<EventAfterLoad>(AfterLoad);
             button = GetComponent<Button>();
             timeManager = FindObjectOfType<TimeManager>();
-            
+            timeManager.LastOccuredTime(LastAdWatched);
+        }
+
+        void AfterLoad(EventAfterLoad afterLoad) {
+            if (!afterLoad.shouldRunAfterLoad) return;
             button.onClick.AddListener(() => FindObjectOfType<AdsManager>().ShowRewardedAd(false));
-            yield return button.interactable = timeManager.CanIPlay(LastAdWatched, durationBetweenAdWatches);
-            
-            if(!button.interactable) {
+            button.interactable = timeManager.CanIPlay(durationBetweenAdWatches);
+
+            if (!button.interactable) {
                 StartCoroutine(timeManager
-                    .OnComplete(timeManager.HowLongBeforeICan(LastAdWatched, durationBetweenAdWatches), 
-                            () => button.interactable = true));
+                    .OnComplete(timeManager.HowLongBeforeICan(LastAdWatched, durationBetweenAdWatches),
+                        () => button.interactable = true));
             }
         }
 
@@ -37,11 +42,11 @@ namespace Ads {
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
             StopCoroutine(nameof(timeManager.OnComplete));
         }
-        
+
         void TimeStampAdWatched(EventAdWatched eventAdWatched) {
-            if(!eventAdWatched.doubleMissionRewards) {
+            if (!eventAdWatched.doubleMissionRewards) {
                 button.interactable = false;
-                TimeStamp lastAdTimeStamp= new TimeStamp(LastAdWatched, timeManager.timeHandler.GetTime());
+                TimeStamp lastAdTimeStamp = new TimeStamp(LastAdWatched, timeManager.timeHandler.GetTime());
                 lastAdTimeStamp.Save();
                 StartCoroutine(timeManager.OnComplete(durationBetweenAdWatches, () => button.interactable = true));
             }

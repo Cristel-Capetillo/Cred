@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections;
 using System.Threading.Tasks;
+using SaveSystem;
 using UnityEngine;
 
 namespace Utilities.Time {
     public class TimeManager : MonoBehaviour {
-        
         public TimeHandler timeHandler { get; private set; }
+        TimeStamp timeStamp;
 
         void Start() {
             timeHandler = new TimeHandler();
         }
 
-        public bool CanIPlay(string ID, int cooldown) {
-            var thisLastOccured = new TimeStamp(ID).Time;
-            // Debug.Log($"{ID} last occured : {thisLastOccured}");
+        public void LastOccuredTime(string ID) {
+            timeStamp = new TimeStamp(ID);
+        }
+
+        public bool CanIPlay(int cooldown) {
+            var thisLastOccured = timeStamp.Time;
+            Debug.Log($"last occured : {thisLastOccured}");
+
             if (thisLastOccured.AddSeconds(cooldown) >= timeHandler.GetTime()) {
                 return true;
             }
+
             return false;
         }
 
@@ -30,6 +37,5 @@ namespace Utilities.Time {
             yield return new WaitForSeconds(delay);
             onComplete.Invoke();
         }
-
     }
 }
