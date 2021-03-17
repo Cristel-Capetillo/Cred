@@ -18,8 +18,13 @@ namespace Clothing.Upgrade {
         public bool bothHasBeenCollected;
 
         public void FixedUpdate() {
-            clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
+
             if (clothingItems.Length > 0) GetScript();
+        }
+
+        public void FindClothes()
+        {
+            clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
         }
 
         public void GetScript() {
