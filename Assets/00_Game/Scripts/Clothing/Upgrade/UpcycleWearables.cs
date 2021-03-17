@@ -1,5 +1,5 @@
-using HUD.Clothing;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
 
@@ -13,48 +13,48 @@ namespace Clothing.Upgrade {
         public GameObject[] clothingItems;
         public Button upcycleConfirmButton;
 
-        public int count = 0;
-        public bool bothHasBeenCollected;
+        PopupWindowUpCycleDonate popupWindowUpCycleDonate;
+        public GameObject popupWindowUpCycle;
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
+            popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
         }
 
         public void GetScript(EventAddUpCycleClothes eventAddUpCycleClothes) {
-            count++;
-            switch (count) {
-                case 1:
-                    wearables[0] = eventAddUpCycleClothes.wearable;
-                    slot1.GetComponent<Image>().sprite = eventAddUpCycleClothes.wearable.Sprite;
-                    slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
-                    break;
-                case 2:
-                    wearables[1] = eventAddUpCycleClothes.wearable;
-                    bothHasBeenCollected = true;
-                    count = 0;
-                    upcycleConfirmButton.interactable = true;
-                    slot2.GetComponent<Image>().sprite = eventAddUpCycleClothes.wearable.Sprite;
-                    slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
-                    break;
+            if (slot1.sprite == null) {
+                wearables[0] = eventAddUpCycleClothes.wearable;
+                slot1.sprite = eventAddUpCycleClothes.wearable.Sprite;
+                slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+                return;
             }
+
+            upcycleConfirmButton.interactable = true;
+            wearables[1] = eventAddUpCycleClothes.wearable;
+            slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
+            slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
         }
 
         public void OnConfirm() {
             if (upcycleConfirmButton.interactable) {
                 EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
-                CleanUp();
+                CleanUpOnExitAndConfirm();
             }
         }
 
-        public void CleanUp() {
-            // wearables[0] = null;
-            // wearables[1] = null;
-            count = 0;
-            upcycleConfirmButton.interactable = false;
-            slot1.GetComponent<Image>().sprite = null;
-            slot2.GetComponent<Image>().sprite = null;
+        public void CleanUpOnExitAndConfirm() {
+            popupWindowUpCycle.SetActive(false);
+            popupWindowUpCycleDonate.ResetBools();
+            slot1.sprite = null;
             slot1.GetComponentInChildren<Text>().text = null;
+            slot2.sprite = null;
             slot2.GetComponentInChildren<Text>().text = null;
+        }
+
+        public void CleanUpOnWearableSelect() {
+            EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = null;
+            EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = null;
+            upcycleConfirmButton.interactable = false;
         }
     }
 }

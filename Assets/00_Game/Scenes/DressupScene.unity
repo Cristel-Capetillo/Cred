@@ -1123,7 +1123,7 @@ PrefabInstance:
     - target: {fileID: 1276161674056697781, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1276161674056697781, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
@@ -1473,7 +1473,7 @@ PrefabInstance:
     - target: {fileID: 8338471790961882792, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8338471790961882792, guid: 9673ce21aea494df49fbfb549709923a,
         type: 3}
@@ -1561,6 +1561,10 @@ PrefabInstance:
       propertyPath: slot2
       value: 
       objectReference: {fileID: 1493320392}
+    - target: {fileID: 223985565, guid: 03f3601ee1092384382039354269ddad, type: 3}
+      propertyPath: popupWindowUpCycle
+      value: 
+      objectReference: {fileID: 5592945824179644432}
     - target: {fileID: 223985565, guid: 03f3601ee1092384382039354269ddad, type: 3}
       propertyPath: upcycleConfirmButton
       value: 
