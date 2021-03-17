@@ -703,6 +703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mystery Box
       objectReference: {fileID: 0}
+    - target: {fileID: 1802649147888067416, guid: 0b6dfcdfda49e8b4c9439c62ebcddbad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1802649147888067419, guid: 0b6dfcdfda49e8b4c9439c62ebcddbad,
         type: 3}
       propertyPath: m_RootOrder
