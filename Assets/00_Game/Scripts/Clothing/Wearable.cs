@@ -8,8 +8,10 @@ namespace Clothing {
         [SerializeField] Texture texture; //TODO: Inventory icon
         [SerializeField] Sprite sprite;
         int _stylePoints;
+        int _amountOwned;
 
         public int StylePoints => _stylePoints + rarity.Value;
+        public int AmountOwned => _amountOwned;
         
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
