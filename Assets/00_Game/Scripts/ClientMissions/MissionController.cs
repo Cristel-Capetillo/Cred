@@ -14,12 +14,13 @@ namespace Club {
         [SerializeField] int maxFollowers = 1000;
         [SerializeField] int maxStylePoints = 50;
         List<Wearable> wearableList = new List<Wearable>();
-        int _currentMinStylepointValue, _currentMaxStylepointValue;
+        int _currentMinStylepointValue;
+        int _currentMaxStylepointValue;
         int _currentStylePoints;
         MissionData _currentMission;
         void Start(){
             // EventBroker.Instance().SubscribeMessage<MissionWearableMessage>(GetWearableList);
-            StartMission();
+            //StartMission();
             _currentStylePoints = GetStylePoints();
             //EndMission();
         }
@@ -27,12 +28,12 @@ namespace Club {
         //     EventBroker.Instance().UnsubscribeMessage<MissionWearableMessage>(GetWearableList);
         // }
 
-        public void StartMission() {
+        /*public void StartMission() {
             _currentMission = missionList[playerData.CurrentMissionIndex];
             (_currentMinStylepointValue, _currentMaxStylepointValue) =
                 AdjustStylePoint(_currentMission.MinimumStylePoints, _currentMission.MaximumStylePoints);
             print($"Min: {_currentMinStylepointValue} Max: {_currentMaxStylepointValue}");
-        }
+        }*/
         // public void EndMission(){
         //     print("Colors match: " + CheckColors());
         //     if (_currentStylePoints < _currentMinStylepointValue){
@@ -43,10 +44,10 @@ namespace Club {
         // }
 
         //TODO: Get equation from GameDesigner! 
-        int CalculateReword(){
+        /*int CalculateReword(){
             var t = Mathf.InverseLerp(0, _currentMaxStylepointValue, _currentStylePoints);
             return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.MaxReward, t));
-        }
+        }*/
         int GetStylePoints(){
             return wearables.Sum(wearable => wearable.StylePoints);
         }

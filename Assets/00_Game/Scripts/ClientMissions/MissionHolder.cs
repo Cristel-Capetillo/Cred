@@ -9,7 +9,7 @@ namespace Club {
         public void PopulateMissionData() {
             if (!missionData.Any()) {
                 for (int i = 0; i <= maxMissions; i++) {
-                    
+                    missionData.Add(MissionGenerator.CreateMissionData());
                 }
             }
         }
