@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Clothing;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Club {
     public class MissionGenerator : MonoBehaviour {
@@ -12,9 +14,30 @@ namespace Club {
 
         [Header("Follower ranges for missions (easy = element 0...)")] [SerializeField]
         List<DifficultyRange> difficultyRange;
-        
+
+        public int followers;
+        public int difficultyAdjuster;
         MissionDifficulty GetDifficultyFromFollowers(int followers) {
             return new MissionDifficulty();
+        }
+
+        void Start() {
+            /*
+             * Vad vi vill har är:
+             * OM followers är högre än A och mindre än B så ska missions vara EASY
+             * OM followers är högre än C och mindre än D så ska missions vara MEDIUM
+             * Om followers är högre än E och mindre än F så ska missions vara HARD
+             * Dessa värden A,B,C,D,E,F ska designers sätta, och dessa kan överlappa så att man kan få:
+             * 1 easy + 2 medium etc..
+             */
+            
+            
+            var tmp = followers / difficultyAdjuster;
+            var min = 101 - tmp;
+            var max = min + 20;
+            print(Random.Range(min,max) + " Random");
+            print(min + " min");
+            print(max + " max");
         }
 
         public static MissionData CreateMissionData() {
