@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -5,13 +7,26 @@ using Utilities.Time;
 
 namespace Ads {
     public class AdWatchButton : MonoBehaviour {
-        [SerializeField] int durationBetweenAdWatches = 5;
-        Button button;
-        Timer timer;
         
-        void Start() {
+        const string LastAdWatched = "lastAdWatched";
+        
+        [SerializeField] int durationBetweenAdWatches = 5;
+        
+        Button button;
+        TimeManager timeManager;
+
+        IEnumerator Start() {
             button = GetComponent<Button>();
-            timer = new Timer(new TimeHandler(), "lastAdWatched");
+            timeManager = FindObjectOfType<TimeManager>();
+            
+            button.onClick.AddListener(() => FindObjectOfType<AdsManager>().ShowRewardedAd(false));
+            yield return button.interactable = timeManager.CanIPlay(LastAdWatched, durationBetweenAdWatches);
+            
+            if(!button.interactable) {
+                StartCoroutine(timeManager
+                    .OnComplete(timeManager.HowLongBeforeICan(LastAdWatched, durationBetweenAdWatches), 
+                            () => button.interactable = true));
+            }
         }
 
         void OnEnable() {
@@ -20,17 +35,22 @@ namespace Ads {
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
+            StopCoroutine(nameof(timeManager.OnComplete));
         }
         
         void TimeStampAdWatched(EventAdWatched eventAdWatched) {
             if(!eventAdWatched.doubleMissionRewards) {
                 button.interactable = false;
-                timer.Reset();
+                TimeStamp lastAdTimeStamp= new TimeStamp(LastAdWatched, timeManager.timeHandler.GetTime());
+                lastAdTimeStamp.Save();
+                StartCoroutine(timeManager.OnComplete(durationBetweenAdWatches, () => button.interactable = true));
             }
         }
 
         void Update() {
-            button.interactable = timer.TimePassedSeconds >= durationBetweenAdWatches;
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                EventBroker.Instance().SendMessage(new EventAdWatched(false));
+            }
         }
     }
 }
