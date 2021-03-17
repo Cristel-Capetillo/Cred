@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Club;
 using UnityEngine;
 
 namespace Clothing {
@@ -7,10 +9,13 @@ namespace Clothing {
         [SerializeField] ClothingType clothingType;
         [SerializeField] Texture texture; //TODO: Inventory icon
         [SerializeField] Sprite sprite;
+        [SerializeField] List<ColorData> colorData = new List<ColorData>();
         int _stylePoints;
 
-        public int StylePoints => _stylePoints + rarity.Value;
         
+        public int StylePoints => _stylePoints + rarity.Value;
+
+        public List<ColorData> ColorData => colorData;
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
