@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8710418172795401445}
   - component: {fileID: 8710418172795401442}
   - component: {fileID: 8710418172795401444}
+  - component: {fileID: 223985565}
   m_Layer: 0
   m_Name: PlayerClothingInventory
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   inventoryContentPrefab: {fileID: 3273389510571062718, guid: 19cfc677135744997827c38b13dc4289,
     type: 3}
   contentParent: {fileID: 0}
+  popupWindonwUpcycleDonate: {fileID: 8710418172795401444}
 --- !u!114 &8710418172795401442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +80,18 @@ MonoBehaviour:
   popupActive: 0
   isUpCycleWindow: 0
   isDonateWindow: 0
+--- !u!114 &223985565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710418172795401446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588d4049d0b00cc43bd4ff3d09d232fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothingItems: []
+  count: 0
+  bothHasBeenCollected: 0
