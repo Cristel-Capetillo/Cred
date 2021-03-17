@@ -1,9 +1,11 @@
+using Clothing;
+using Clothing.Upgrade;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
 
-namespace Clothing {
+namespace HUD.Clothing {
     public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
         public Wearable _wearable;
         PopupWindowUpCycleDonate _popupWindow;
@@ -18,30 +20,20 @@ namespace Clothing {
             _popupWindow = popupWindow;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-
-            if (!_popupWindow.popupActive)
-            {
+        public void OnPointerClick(PointerEventData eventData) {
+            if (!_popupWindow.popupActive) {
                 EventBroker.Instance().SendMessage(new EventClothesChanged(_wearable));
                 Debug.Log(_wearable.Sprite.name);
-
-            }
-            else
-            {
-                if (_popupWindow.isUpCycleWindow)
-                {
+            } else {
+                if (_popupWindow.isUpCycleWindow) {
                     upcyclingClothingChosen = true;
                 }
 
-                if (_popupWindow.isDonateWindow)
-                {
+                if (_popupWindow.isDonateWindow) {
                     Debug.Log("Donate is Active");
                     EventBroker.Instance().SendMessage(new MessageDonateClothes(_wearable));
                 }
             }
-
-        }
-
         }
     }
+}
