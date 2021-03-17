@@ -15,6 +15,10 @@ namespace SaveSystem {
             SaveFileName = GetFilePath(Path.Combine(SaveFilePath, Path.Combine(saveID, ".cred")));
         }
 
+        public void Save<T>(T saveObj) {
+            //throw new System.NotImplementedException();
+        }
+
         public void Save(object saveObj) {
             using (streamWriter = new StreamWriter(SaveFileName)) {
                 streamWriter.Write(saveObj.ToString());

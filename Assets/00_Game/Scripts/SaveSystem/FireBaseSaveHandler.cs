@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Firebase.Database;
+using UnityEngine;
 
 namespace SaveSystem {
     public class FireBaseSaveHandler : ISaveHandler {
@@ -12,7 +13,7 @@ namespace SaveSystem {
             this.saveID = "JsuJjn1YHZdrgTGvz5hsYs3HFkl1" + "/" + saveID;
         }
 
-        public async void Save(object saveObj) {
+        public async void Save<T>(T saveObj) {
             await fbDatabase.GetReference(saveID).SetValueAsync(saveObj);
         }
 

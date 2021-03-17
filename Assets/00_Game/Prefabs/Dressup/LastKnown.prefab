@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &356309357796653276
+--- !u!1 &7958151361893486901
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7415486890582487492}
-  - component: {fileID: 4011626582358981678}
+  - component: {fileID: 7958151361893486899}
+  - component: {fileID: 7958151361893486898}
   m_Layer: 0
-  m_Name: ClothingManager
+  m_Name: LastKnown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7415486890582487492
+--- !u!4 &7958151361893486899
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356309357796653276}
+  m_GameObject: {fileID: 7958151361893486901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1742.6963, y: 737.3921, z: 4.68042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4011626582358981678
+--- !u!114 &7958151361893486898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356309357796653276}
+  m_GameObject: {fileID: 7958151361893486901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 092bd33318146814fba1d5f3d9b36a75, type: 3}
+  m_Script: {fileID: 11500000, guid: ea2a0324e9105d141b9c5d6904627d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastKnownShirt: {fileID: 2800000, guid: 006420280f3aa0e4091046702e1dd0f3, type: 3}
-  lastKnownPants: {fileID: 2800000, guid: 66c6f5324190f43d89a9878b8402320b, type: 3}
-  AlexTorso: {fileID: 0}
-  AlexPants: {fileID: 0}
+  lastKnownShirt: {fileID: 11400000, guid: dc122460f91a24857b5948a4149e5b8f, type: 2}
+  lastKnownPants: {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}

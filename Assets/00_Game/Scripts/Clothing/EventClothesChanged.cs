@@ -1,13 +1,9 @@
-using UnityEngine;
-
 namespace Clothing {
     public class EventClothesChanged {
-        public readonly Texture textureChanged;
-        public readonly string bodyPart;
+        public Wearable Wearable { get; }
 
         public EventClothesChanged(Wearable wearable) {
-            textureChanged = wearable.Texture;
-            bodyPart = wearable.ClothingType.name;
+            Wearable = wearable;
         }
     }
 }
