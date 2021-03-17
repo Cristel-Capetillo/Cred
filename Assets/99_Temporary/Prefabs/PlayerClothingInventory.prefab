@@ -92,6 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588d4049d0b00cc43bd4ff3d09d232fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot1: {fileID: 0}
+  slot2: {fileID: 0}
   clothingItems: []
+  upcycleConfirmButton: {fileID: 0}
   count: 0
   bothHasBeenCollected: 0

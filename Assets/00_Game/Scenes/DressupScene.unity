@@ -1440,6 +1440,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5592945824179644434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7224904090319769574, guid: 9673ce21aea494df49fbfb549709923a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5592945824179644430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5592945824179644435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7080190999344824091, guid: 9673ce21aea494df49fbfb549709923a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5592945824179644430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8710418172748630910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,6 +1471,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 223985565, guid: 03f3601ee1092384382039354269ddad, type: 3}
+      propertyPath: slot1
+      value: 
+      objectReference: {fileID: 5592945824179644435}
+    - target: {fileID: 223985565, guid: 03f3601ee1092384382039354269ddad, type: 3}
+      propertyPath: slot2
+      value: 
+      objectReference: {fileID: 5592945824179644434}
     - target: {fileID: 223985565, guid: 03f3601ee1092384382039354269ddad, type: 3}
       propertyPath: upcycleConfirmButton
       value: 

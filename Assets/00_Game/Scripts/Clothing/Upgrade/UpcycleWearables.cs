@@ -7,6 +7,10 @@ using Utilities;
 namespace Clothing.Upgrade {
     public class UpcycleWearables : MonoBehaviour, IPointerClickHandler {
         readonly Wearable[] wearables = new Wearable[2];
+
+        public Image slot1;
+        public Image slot2;
+
         public GameObject[] clothingItems;
         InventoryButtonScript inventoryButtonScript;
         public Button upcycleConfirmButton;
@@ -34,8 +38,7 @@ namespace Clothing.Upgrade {
 
                     if (count == 1) {
                         wearables[0] = inventoryButtonScript._wearable;
-                        gameObject.SetActive(true);
-                        GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
+                        slot1.GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
                         GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
                     }
 
