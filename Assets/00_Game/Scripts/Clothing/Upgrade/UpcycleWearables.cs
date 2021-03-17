@@ -1,11 +1,10 @@
 using HUD.Clothing;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
 
 namespace Clothing.Upgrade {
-    public class UpcycleWearables : MonoBehaviour, IPointerClickHandler {
+    public class UpcycleWearables : MonoBehaviour {
         readonly Wearable[] wearables = new Wearable[2];
 
         public Image slot1;
@@ -20,17 +19,11 @@ namespace Clothing.Upgrade {
 
         public void FixedUpdate() {
             clothingItems = GameObject.FindGameObjectsWithTag("Clothing");
-            if (clothingItems.Length > 0) {
-                GetScript();
-            }
-
-            if (bothHasBeenCollected) {
-                Debug.Log("Wearables: " + wearables[0] + ", " + wearables[1]);
-            }
+            if (clothingItems.Length > 0) GetScript();
         }
 
         public void GetScript() {
-            for (int i = 0; i < clothingItems.Length; i++) {
+            for (var i = 0; i < clothingItems.Length; i++) {
                 inventoryButtonScript = clothingItems[i].GetComponent<InventoryButtonScript>();
 
                 if (inventoryButtonScript.upcyclingClothingChosen) {
@@ -39,7 +32,7 @@ namespace Clothing.Upgrade {
                     if (count == 1) {
                         wearables[0] = inventoryButtonScript._wearable;
                         slot1.GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
-                        GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
+                        slot1.GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
                     }
 
                     if (count == 2) {
@@ -47,6 +40,8 @@ namespace Clothing.Upgrade {
                         bothHasBeenCollected = true;
                         count = 0;
                         upcycleConfirmButton.interactable = true;
+                        slot2.GetComponent<Image>().sprite = inventoryButtonScript._wearable.Sprite;
+                        slot2.GetComponentInChildren<Text>().text = inventoryButtonScript._wearable.StylePoints.ToString();
                     }
 
                     inventoryButtonScript.upcyclingClothingChosen = false;
@@ -54,9 +49,10 @@ namespace Clothing.Upgrade {
             }
         }
 
-        public void OnPointerClick(PointerEventData eventData) {
-            if (bothHasBeenCollected) {
+        public void OnConfirm() {
+            if (upcycleConfirmButton.interactable) {
                 EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
+                print("HasConfirmed " + wearables[0] + wearables[1]);
             }
         }
     }

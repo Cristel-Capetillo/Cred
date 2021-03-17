@@ -1,7 +1,7 @@
 namespace Clothing.Upgrade {
     public class MessageUpCycleClothes {
-        public Wearable Wearable1 { get;}
-        public Wearable Wearable2 { get;}
+        public Wearable Wearable1 { get; }
+        public Wearable Wearable2 { get; }
 
 
         public MessageUpCycleClothes(Wearable firstwearable, Wearable secondwearable) {
@@ -11,7 +11,7 @@ namespace Clothing.Upgrade {
     }
 
     public class MessageDonateClothes {
-        public Wearable Wearable { get;}
+        public Wearable Wearable { get; }
 
         public MessageDonateClothes(Wearable wearable) {
             Wearable = wearable;

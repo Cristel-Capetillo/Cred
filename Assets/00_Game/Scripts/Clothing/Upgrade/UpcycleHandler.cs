@@ -13,8 +13,8 @@ namespace Clothing.Upgrade {
         }
 
         void OnLoadWearablesAssets(MessageUpCycleClothes messageUpCycleClothes) {
-            Wearable item1 = messageUpCycleClothes.Wearable1;
-            Wearable item2 = messageUpCycleClothes.Wearable2;
+            var item1 = messageUpCycleClothes.Wearable1;
+            var item2 = messageUpCycleClothes.Wearable2;
         }
 
         void OnLoadWearableData() {
