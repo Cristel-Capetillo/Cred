@@ -11,7 +11,6 @@ namespace Clothing.Upgrade {
         public Image slot2;
 
         public GameObject[] clothingItems;
-        InventoryButtonScript inventoryButtonScript;
         public Button upcycleConfirmButton;
 
         public int count = 0;
@@ -44,7 +43,6 @@ namespace Clothing.Upgrade {
             if (upcycleConfirmButton.interactable) {
                 EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
                 CleanUp();
-                print("HasConfirmed " + wearables[0] + wearables[1]);
             }
         }
 
@@ -57,7 +55,6 @@ namespace Clothing.Upgrade {
             slot2.GetComponent<Image>().sprite = null;
             slot1.GetComponentInChildren<Text>().text = null;
             slot2.GetComponentInChildren<Text>().text = null;
-            EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
         }
     }
 }
