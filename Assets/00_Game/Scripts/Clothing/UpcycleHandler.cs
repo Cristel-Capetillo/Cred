@@ -32,16 +32,6 @@ namespace Clothing
             throw new Exception("Not implemented yet!");
         }
 
-        //public class UpCyclingMessage
-        //{
-        //    public GameObject wearable1;
-        //    public GameObject wearable2;
-        //    public UpCyclingMessage(GameObject firstWearable, GameObject secondWearable)
-        //    {
-        //        firstWearable = wearable1;
-        //        secondWearable = wearable2;
-        //    }
-        //}
     }
 }
 

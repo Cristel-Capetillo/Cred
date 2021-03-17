@@ -8,7 +8,7 @@ namespace SaveSystem {
         public SaveHandler(string objectID) {
             this.objectID = objectID;
             backEndSaveSystem = new FireBaseSaveHandler();
-            this.backEndSaveSystem.Authenticate(this.objectID);
+            backEndSaveSystem.Authenticate(this.objectID);
         }
 
         public void Save<T>(ISavable<T> savable) {

@@ -1,57 +1,36 @@
-using System;
-using System.Globalization;
-using SaveSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 using Utilities.Time;
 
 namespace Ads {
-    public class AdWatchButton : MonoBehaviour, ISavable<string> {
+    public class AdWatchButton : MonoBehaviour {
         [SerializeField] int durationBetweenAdWatches = 5;
-        TimeHandler timeHandler;
         Button button;
-        DateTime lastAdWatchedTime;
-
-        //bool CanWatchAd => timeHandler.EnoughTimePassed(durationBetweenAdWatches, lastAdWatchedTime, timeHandler.GetTime());
-
+        Timer timer;
+        
         void Start() {
-            timeHandler = new TimeHandler(new SystemTime());
             button = GetComponent<Button>();
-            lastAdWatchedTime = DateTime.Now;
-            button.onClick.AddListener(FindObjectOfType<AdsManager>().ShowRewardedAd);
-            //must get it from firebase
+            timer = new Timer(new TimeHandler(), "lastAdWatched");
         }
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventAdWatched>(TimeStampAdWatched);
-            //InvokeRepeating(nameof(InteractableButton), 1f, 1f);
-        }
-
-        // void InteractableButton() {
-        //     if (!button.interactable)
-        //         button.interactable = CanWatchAd;
-        // }
-
-        void TimeStampAdWatched(EventAdWatched eventAdWatched) {
-            button.interactable = false;
-            lastAdWatchedTime = DateTime.Now;
         }
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
-            //CancelInvoke(nameof(InteractableButton));
+        }
+        
+        void TimeStampAdWatched(EventAdWatched eventAdWatched) {
+            if(!eventAdWatched.doubleMissionRewards) {
+                button.interactable = false;
+                timer.Reset();
+            }
         }
 
-        string ISavable<string>.ToBeSaved() {
-            return lastAdWatchedTime.ToString(CultureInfo.InvariantCulture);
-        }
-
-        public void OnLoad(string value) {
-            lastAdWatchedTime = DateTime.ParseExact(value,
-                "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
-                CultureInfo.InvariantCulture.DateTimeFormat,
-                DateTimeStyles.AssumeUniversal);
+        void Update() {
+            button.interactable = timer.TimePassedSeconds >= durationBetweenAdWatches;
         }
     }
 }

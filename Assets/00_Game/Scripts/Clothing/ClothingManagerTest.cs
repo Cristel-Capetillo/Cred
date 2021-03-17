@@ -1,27 +1,31 @@
+using System;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing {
     public class ClothingManagerTest : MonoBehaviour {
         
-        //TODO: Add a reset button to go back to default
-        
-
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
-
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownShirt.Texture;
+            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownPants.Texture;
+        }
+
+        void OnEnable() {
+
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
-            print("eventclothesChanged called");
-            switch (eventClothesChanged.bodyPart) {
+            switch (eventClothesChanged.Wearable.ClothingType.name) {
                 case "Shirt":
-                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
                     break;
                 case "Pants":
-                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.textureChanged;
+                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
                     break;
             }
         }

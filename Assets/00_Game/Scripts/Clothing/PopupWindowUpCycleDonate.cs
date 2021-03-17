@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Clothing {
-    public class PopUpWindow : MonoBehaviour {
+    public class PopupWindowUpCycleDonate : MonoBehaviour {
 
         public bool popupActive;
 
@@ -12,7 +12,7 @@ namespace Clothing {
             popupWindow.SetActive(true);
             popupActive = true;
 
-            if(popupWindow.name == "PopupUpCycleWindow")
+            if(popupWindow.name == "PopupWindowUpCycle")
             {
                 isUpCycleWindow = true;
                 isDonateWindow = false;

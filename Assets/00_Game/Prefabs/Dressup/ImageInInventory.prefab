@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3273389510571062718}
   m_Layer: 5
   m_Name: ImageInInventory
-  m_TagString: Untagged
+  m_TagString: Clothing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaca38722d3541f2b6a4d9ef374b12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wearable: {fileID: 0}
+  popupWindow: {fileID: 8710418172795401444, guid: 03f3601ee1092384382039354269ddad,
+    type: 3}
+  hasBeenChosen: 0
