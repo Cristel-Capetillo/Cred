@@ -3,18 +3,17 @@ using Clothing;
 
 namespace Club {
     public class MissionData {
-        MissionDifficulty difficulty;
-        List<MissionRequirement> requirements;
-        StylePointValues stylePointValues;
+        public MissionDifficulty Difficulty{ get; private set; }
+        public List<MissionRequirement> Requirements{ get; private set; }
+        public StylePointValues StylePointValues{ get; private set;}
 
         public MissionData(MissionDifficulty difficulty, List<MissionRequirement> requirements, StylePointValues stylePointValues) {
-            this.difficulty = difficulty;
-            this.requirements = requirements;
-            this.stylePointValues = stylePointValues;
+            Difficulty = difficulty;
+            Requirements = requirements;
+            StylePointValues = stylePointValues;
         }
         
     }
-
     public class MissionRequirement {
         public MissionRequirement(ColorData color, Rarity rarity, ClothingType clothingType) {
             Color = color;

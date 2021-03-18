@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1305691672}
   - component: {fileID: 1305691671}
+  - component: {fileID: 1305691674}
+  - component: {fileID: 1305691673}
   m_Layer: 0
   m_Name: MissionController
   m_TagString: Untagged
@@ -152,9 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ed817872cc444e92f0fe11f57c6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionList:
-  - {fileID: 11400000, guid: 6d1f9160c52eb4fc1a682b36f346c985, type: 2}
-  - {fileID: 11400000, guid: 686c602a78bcf4d058d13c03f37f2aee, type: 2}
   playerData:
     currentMissionIndex: 0
     followers: 0
@@ -186,6 +185,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1305691673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305691670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cdad36c108455488ee63a3420c2093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
+  testFollowers: 0
+--- !u!114 &1305691674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305691670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86674ffc302a468aa0b6581421f5728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1469797667
 GameObject:
   m_ObjectHideFlags: 0

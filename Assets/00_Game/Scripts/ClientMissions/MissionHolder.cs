@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 namespace Club {
-    public class MissionHolder : MonoBehaviour {
+    public class MissionHolder : MonoBehaviour{
         List<MissionData> missionData = new List<MissionData>();
-        const int maxMissions = 3;
-        public void PopulateMissionData() {
-            if (!missionData.Any()) {
-                for (int i = 0; i <= maxMissions; i++) {
-                    missionData.Add(MissionGenerator.CreateMissionData());
-                }
-            }
+        MissionGenerator missionGenerator;
+
+        void Start(){
+            missionGenerator = GetComponent<MissionGenerator>();
+        }
+
+        public void CreateMissionData(){
+            
+            missionGenerator.CreateMissionData();
         }
     }
 }
