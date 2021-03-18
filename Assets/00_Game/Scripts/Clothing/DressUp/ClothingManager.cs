@@ -1,16 +1,21 @@
-using System;
-using Club.ClubMissions;
+using ClientMissions.ClubMissions;
 using UnityEngine;
 using Utilities;
 
-namespace Clothing {
-    public class ClothingManagerTest : MonoBehaviour {
+namespace Clothing.DressUp {
+    public class ClothingManager : MonoBehaviour {
         [SerializeField] GameObject AlexTorso;
         [SerializeField] GameObject AlexPants;
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
-            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownShirt.Texture;
-            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = FindObjectOfType<LastKnownClothes>().lastKnownPants.Texture;
+            
+            var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
+            var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
+            EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
+            EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
+            
+            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentShirt.Texture;
+            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentPants.Texture;
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {

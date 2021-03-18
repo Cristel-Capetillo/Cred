@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c959d58a8be8447a89dcf058e5c6477, type: 3}
   m_Name: "Tr\xE4dg\xE5rden"
   m_EditorClassIdentifier: 
-  stylePointsRequired: 8
+  stylePointsRequired: 100
   coinsReward: 100

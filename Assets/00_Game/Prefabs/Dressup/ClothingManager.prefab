@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7415486890582487492}
   - component: {fileID: 4011626582358981678}
   - component: {fileID: 5536570162887534998}
-  - component: {fileID: 132462027}
   m_Layer: 0
   m_Name: ClothingManager
   m_TagString: Untagged
@@ -62,16 +61,3 @@ MonoBehaviour:
   clothingTypes:
   - {fileID: 11400000, guid: 0749319de8169dd478b81d0e0e884e25, type: 2}
   - {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}
---- !u!114 &132462027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356309357796653276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832cadd4dd5b423ea28a39ff9a52e037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clubData: {fileID: 11400000, guid: dd7e00ccf19da4bc3bd77e563a7ff5a8, type: 2}

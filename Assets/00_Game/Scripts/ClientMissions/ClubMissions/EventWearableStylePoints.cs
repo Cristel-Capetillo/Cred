@@ -1,11 +1,11 @@
 using Clothing;
 
-namespace Club.ClubMissions {
+namespace ClientMissions.ClubMissions {
     public class EventWearableStylePoints {
-        public readonly Wearable value;
+        public readonly Wearable Value;
 
         public EventWearableStylePoints(Wearable value) {
-            this.value = value;
+            Value = value;
         }
     }
 }

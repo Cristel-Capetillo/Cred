@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -888, y: 311}
-  m_SizeDelta: {x: 392.1115, y: 73.5211}
+  m_AnchoredPosition: {x: -840.7115, y: 311}
+  m_SizeDelta: {x: 486.6885, y: 91.2543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3309759342065430030
 CanvasRenderer:
@@ -278,7 +278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1047408217948675200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5273269422765870992}
+        m_TargetAssemblyTypeName: Club.ClubMissions.EnterClub, ScriptDefinition
+        m_MethodName: EnterClubReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7934885141412343058
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +300,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7952096032438970349}
-  - component: {fileID: 8821357260626989534}
+  - component: {fileID: 5273269422765870992}
+  - component: {fileID: 5446069368918496756}
   m_Layer: 5
   m_Name: Club
   m_TagString: Untagged
@@ -317,7 +330,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8821357260626989534
+--- !u!114 &5273269422765870992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934885141412343058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832cadd4dd5b423ea28a39ff9a52e037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clubData: {fileID: 11400000, guid: dd7e00ccf19da4bc3bd77e563a7ff5a8, type: 2}
+--- !u!114 &5446069368918496756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
