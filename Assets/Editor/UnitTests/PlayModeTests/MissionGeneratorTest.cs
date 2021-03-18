@@ -44,13 +44,16 @@ public class MissionGeneratorTest
          var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);
          var missionGenerator = gameObject.GetComponent<MissionGenerator>();
          yield return new WaitForSeconds(0.5f);//<- Wait for start to finish...
-         
-         var missionInstance = missionGenerator.CreateMissionData();
-         Assert.AreEqual(typeof(MissionData), missionInstance.GetType());
-         Assert.AreEqual(typeof(MissionDifficulty), missionInstance.Difficulty.GetType());
-         //TODO: Implement these two:
-         Assert.AreEqual(typeof(List<MissionRequirement>), missionInstance.Requirements.GetType());
-         Assert.AreEqual(typeof(StylePointValues), missionInstance.StylePointValues.GetType());
+         for (var i = 0; i <= 5; i++){
+             var missionInstance = missionGenerator.CreateMissionData();
+             Debug.Log(missionInstance.Difficulty.name);
+             Assert.AreEqual(typeof(MissionData), missionInstance.GetType());
+             Assert.AreEqual(typeof(MissionDifficulty), missionInstance.Difficulty.GetType());
+             Assert.AreEqual(typeof(List<IMissionRequirement>), missionInstance.Requirements.GetType());
+             //TODO: Implement this:
+             //Assert.AreEqual(typeof(StylePointValues), missionInstance.StylePointValues.GetType());
+         }
+
          yield return null;
      }
      

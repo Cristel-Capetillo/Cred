@@ -15,4 +15,4 @@ MonoBehaviour:
   minimumStylePoints: 5
   maximumStylePoints: 20
   maxReward: 0
-  numberOfRequirements: 0
+  numberOfRequirements: 1

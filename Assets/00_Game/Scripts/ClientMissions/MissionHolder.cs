@@ -11,7 +11,6 @@ namespace Club {
         }
 
         public void CreateMissionData(){
-            
             missionGenerator.CreateMissionData();
         }
     }
