@@ -1,8 +1,8 @@
 ﻿namespace Currency.Coins {
-    public class EventCoinChanged {
+    public class EventUpdateUICoins {
         public readonly long Coins;
 
-        public EventCoinChanged(long coins) {
+        public EventUpdateUICoins(long coins) {
             Coins = coins;
         }
     }
