@@ -1,9 +1,9 @@
 ﻿namespace SaveSystem {
     public class EventAfterLoad {
-        public readonly bool shouldRunAfterLoad;
+        public readonly string loadedEventID;
 
-        public EventAfterLoad(bool shouldRunAfterLoad) {
-            this.shouldRunAfterLoad = shouldRunAfterLoad;
+        public EventAfterLoad(string loadedEventID) {
+            this.loadedEventID = loadedEventID;
         }
     }
 }

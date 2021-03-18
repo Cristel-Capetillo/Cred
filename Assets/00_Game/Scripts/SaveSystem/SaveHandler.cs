@@ -19,7 +19,7 @@ namespace SaveSystem {
         public async void Load<T>(ISavable<T> savable) {
             var tmp = await backEndSaveSystem.Load<T>(objectID);
             savable.OnLoad(tmp);
-            EventBroker.Instance().SendMessage(new EventAfterLoad(true));
+            EventBroker.Instance().SendMessage(new EventAfterLoad(objectID));
             //Debug.Log("Object loaded from backEndSaveSystem: " + objectID);
         }
     }

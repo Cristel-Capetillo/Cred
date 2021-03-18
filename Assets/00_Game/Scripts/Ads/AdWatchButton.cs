@@ -23,13 +23,14 @@ namespace Ads {
         }
 
         void AfterLoad(EventAfterLoad afterLoad) {
-            if (!afterLoad.shouldRunAfterLoad) return;
+            if (afterLoad.loadedEventID != LastAdWatched) return;
+            Debug.Log($"{afterLoad.loadedEventID} loading complete.");
             button.onClick.AddListener(() => FindObjectOfType<AdsManager>().ShowRewardedAd(false));
             button.interactable = timeManager.CanIPlay(durationBetweenAdWatches);
-
+            //Debug.Log("Button interactability set.");
             if (!button.interactable) {
                 StartCoroutine(timeManager
-                    .OnComplete(timeManager.HowLongBeforeICan(LastAdWatched, durationBetweenAdWatches),
+                    .OnComplete(timeManager.HowLongBeforeICan(durationBetweenAdWatches),
                         () => button.interactable = true));
             }
         }
@@ -40,6 +41,7 @@ namespace Ads {
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAdWatched>(TimeStampAdWatched);
+            EventBroker.Instance().UnsubscribeMessage<EventAfterLoad>(AfterLoad);
             StopCoroutine(nameof(timeManager.OnComplete));
         }
 

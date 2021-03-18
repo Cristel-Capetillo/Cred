@@ -19,18 +19,12 @@ namespace Utilities.Time {
 
         public bool CanIPlay(int cooldown) {
             var thisLastOccured = timeStamp.Time;
-            Debug.Log($"last occured : {thisLastOccured}");
-
-            if (thisLastOccured.AddSeconds(cooldown) >= timeHandler.GetTime()) {
-                return true;
-            }
-
-            return false;
+            return timeHandler.GetTime() >= thisLastOccured.AddSeconds(cooldown);
         }
 
-        public int HowLongBeforeICan(string ID, int cooldown) {
-            var thisLastOccured = new TimeStamp(ID);
-            return (thisLastOccured.Time.AddSeconds(cooldown) - timeHandler.GetTime()).Seconds;
+        public int HowLongBeforeICan(int cooldown) {
+            //var thisLastOccured = new TimeStamp(ID);
+            return (timeStamp.Time.AddSeconds(cooldown) - timeHandler.GetTime()).Seconds;
         }
 
         public IEnumerator OnComplete(float delay, Action onComplete) {
