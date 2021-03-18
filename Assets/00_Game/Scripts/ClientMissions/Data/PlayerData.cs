@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Assertions;
 
-namespace Club {
+namespace ClientMissions.Data {
     [System.Serializable]
     public class PlayerData {
         [SerializeField] int currentMissionIndex;

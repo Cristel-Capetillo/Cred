@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using ClientMissions;
+using ClientMissions.Data;
+using ClientMissions.MissionRequirements;
 using Club;
 using NUnit.Framework;
 using UnityEngine;

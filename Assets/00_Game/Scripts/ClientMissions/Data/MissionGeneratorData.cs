@@ -2,7 +2,7 @@
 using Clothing;
 using UnityEngine;
 
-namespace Club{
+namespace ClientMissions.Data{
     [CreateAssetMenu(fileName = "ScriptableObject/MissionData/GeneratorData")]
     public class MissionGeneratorData : ScriptableObject{
         [SerializeField] List<MissionDifficulty> missionDifficulties;

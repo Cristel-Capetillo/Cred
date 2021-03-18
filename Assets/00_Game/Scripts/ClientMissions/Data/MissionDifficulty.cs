@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Club {
+namespace ClientMissions.Data {
     [CreateAssetMenu(menuName = "ScriptableObjects/ClientRequestData/MissionData")]
     public class MissionDifficulty : ScriptableObject {
         [SerializeField] int minimumStylePoints;

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ClientMissions;
+using ClientMissions.Data;
+using ClientMissions.MissionMessages;
 using Clothing;
 using UnityEngine;
 using Utilities;
