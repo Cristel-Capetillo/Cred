@@ -30,10 +30,5 @@ namespace ClientMissions.ClubMissions {
             mainMenuButton.gameObject.SetActive(true);
             collectButton.gameObject.SetActive(false);
         }
-
-        public void GotoMainMenu() {
-            SceneManager.LoadScene("MainScene");
-        }
-
     }
 }

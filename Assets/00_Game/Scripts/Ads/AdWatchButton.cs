@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using SaveSystem;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +16,7 @@ namespace Ads {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAfterLoad>(AfterLoad);
             button = GetComponent<Button>();
+            button.onClick.AddListener(() => FindObjectOfType<AdsManager>().ShowRewardedAd(false));
             timeManager = FindObjectOfType<TimeManager>();
             timeManager.LastOccuredTime(LastAdWatched);
         }
