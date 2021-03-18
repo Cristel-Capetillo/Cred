@@ -11,25 +11,34 @@ namespace Clothing {
         [SerializeField] Texture texture; //TODO: Inventory icon
         [SerializeField] Sprite sprite;
         [SerializeField] List<ColorData> colorData = new List<ColorData>();
-        int _stylePoints;
+        int stylePoints;
+        [SerializeField] int amount;
 
-        
-        public int StylePoints => _stylePoints + rarity.Value;
+        public int StylePoints => stylePoints + rarity.Value;
+        public int Amount => amount;
+ 
+        public bool Unlocked() {
+            return Amount > 0;
+        }
 
         public List<ColorData> ColorData => colorData;
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
         public ClothingType ClothingType => clothingType;
-
+        
         public void AddStylePoint() {
             if (StylePoints < Rarity.MaxValue) {
-                _stylePoints++;
+                stylePoints++;
             }
         }
 
-        public void SetStylePoints(int stylePoints) {
-            _stylePoints = stylePoints - rarity.Value;
+        public void SetStylePoints(int sp) {
+            stylePoints = sp - rarity.Value;
+        }
+
+        public void SetAmount(int i) {
+            amount = i;
         }
     }
 }

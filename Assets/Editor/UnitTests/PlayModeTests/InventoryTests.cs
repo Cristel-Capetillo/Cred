@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using Clothing;
+using HUD.Clothing;
 using NUnit.Framework;
 using UnityEngine.TestTools;
 using Random = UnityEngine.Random;

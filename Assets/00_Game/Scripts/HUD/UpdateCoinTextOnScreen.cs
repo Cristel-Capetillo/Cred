@@ -9,18 +9,15 @@ namespace HUD {
 
         void Awake() {
             coinText = GetComponent<Text>();
+            EventBroker.Instance().SubscribeMessage<EventUpdateUICoins>(UpdateCoinText);
         }
 
-        void Start() {
-            EventBroker.Instance().SubscribeMessage<EventCoinChanged>(UpdateCoinText);
-        }
-
-        void UpdateCoinText(EventCoinChanged eventCoinChanged) {
-            coinText.text = eventCoinChanged.Coins.ToString();
+        void UpdateCoinText(EventUpdateUICoins eventUpdateUICoins) {
+            coinText.text = eventUpdateUICoins.Coins.ToString();
         }
 
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventCoinChanged>(UpdateCoinText);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateUICoins>(UpdateCoinText);
         }
     }
 }
