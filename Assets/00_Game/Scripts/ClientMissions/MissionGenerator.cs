@@ -39,16 +39,16 @@ namespace ClientMissions {
         List<IMissionRequirement> CreateRandomRequirements(int requirementAmount){
             var missionRequirements = new List<IMissionRequirement>();
             var requirementAmountLeft = requirementAmount;
+            var colorDataList = new List<ColorData>();
+            colorDataList.AddRange(generatorData.Colors);
             while (requirementAmountLeft >= 1){
-                var requirementValue = Random.Range(1, requirementAmountLeft+1);
-                
+                var requirementValue = NumberGenerator(requirementAmountLeft);
                 switch (requirementValue){
                     case 1:
-                        missionRequirements.Add(new MatchColor(generatorData.Colors[Random.Range(0,generatorData.Colors.Count)]));
+                        missionRequirements.Add(new MatchColor(AddColorVariation(colorDataList)));
                         break;
                     case 2:
-                        missionRequirements.Add(new MatchColorAndClothingType(
-                            generatorData.Colors[Random.Range(0, generatorData.Colors.Count)],
+                        missionRequirements.Add(new MatchColorAndClothingType(AddColorVariation(colorDataList),
                             generatorData.ClothingTypes[Random.Range(0, generatorData.ClothingTypes.Count)]));
                         break;
                     case 3:
@@ -60,6 +60,19 @@ namespace ClientMissions {
                 requirementAmountLeft -= requirementValue;
             }
             return missionRequirements;
+        }
+        static int NumberGenerator(int requirementAmountLeft){
+            var requirementValue = 1;
+            if (requirementAmountLeft > 2)
+                requirementValue = Random.Range(2, requirementAmountLeft + 1);
+            return requirementValue;
+        }
+
+        ColorData AddColorVariation(List<ColorData> colorDataList){
+            var colorIndex = Random.Range(0, colorDataList.Count);
+            var colorData = colorDataList[colorIndex];
+            colorDataList.RemoveAt(colorIndex);
+            return colorData;
         }
         MissionDifficulty PickDifficultyMission(){
             return generatorData.MissionDifficulties[missionCycleCombinedList[GetDifficultyKey()][currentCycleIndex]];

@@ -17,5 +17,8 @@ namespace ClientMissions.MissionRequirements{
             return wearable.ColorData.Contains(ColorData) &&
                    wearable.ClothingType == ClothingType && wearable.Rarity == Rarity;
         }
+        public override string ToString(){
+            return $"{ColorData.name} {Rarity.name.ToLower()} {ClothingType.SingularName.ToLower()}.";
+        }
     }
 }

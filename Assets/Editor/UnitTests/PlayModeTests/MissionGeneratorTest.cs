@@ -10,7 +10,6 @@ using UnityEngine.TestTools;
 
 namespace Editor.UnitTests.PlayModeTests{
     public class MissionGeneratorTest{
-        // A Test behaves as an ordinary method
         [Test]
         public void SimplePassCreateNewInstance(){
             var gameObject = new GameObject();

@@ -13,5 +13,9 @@ namespace ClientMissions.MissionRequirements{
         public bool PassedRequirement(Wearable wearable){
             return wearable.ColorData.Contains(ColorData) && wearable.ClothingType == ClothingType;
         }
+
+        public override string ToString(){
+            return $"{ColorData.name} {ClothingType.SingularName.ToLower()}.";
+        }
     }
 }
