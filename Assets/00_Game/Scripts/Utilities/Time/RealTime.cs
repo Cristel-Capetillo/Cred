@@ -8,6 +8,10 @@ namespace Utilities.Time {
         
         DateTime lastSyncTime;
         float unityTime;
+
+        public RealTime() {
+            SyncTime();
+        }
         
         public DateTime GetTime() {
             return lastSyncTime.AddSeconds(UnityEngine.Time.realtimeSinceStartup - unityTime);
