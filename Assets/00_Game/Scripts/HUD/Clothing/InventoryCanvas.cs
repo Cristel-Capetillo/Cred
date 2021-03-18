@@ -11,7 +11,7 @@ namespace HUD.Clothing {
         [SerializeField] GameObject scrollView;
         [SerializeField] GameObject buttonHolder;
         [SerializeField] Text closeButtonText;
-        [SerializeField] InventoryButtonScript inventoryContentPrefab;
+        public InventoryButtonScript inventoryContentPrefab;
         [SerializeField] Transform contentParent;
 
         [SerializeField] PopupWindowUpCycleDonate popupWindonwUpcycleDonate;
@@ -24,6 +24,12 @@ namespace HUD.Clothing {
         void Start() {
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
+
+        // public void UpdateAmountStylePoints(ClothingType type) {
+        //     for (var i = 0; i < inventoryDataHandler.wearableDictionary.Count; i++) {
+        //         inventoryContentPrefab.UpdateAmountStylePoint(inventoryDataHandler.wearableDictionary[i]);
+        //     }
+        // }
 
         public void ToggleButton(ClothingType clothingType) {
             if (!inventoryDataHandler.wearableDictionary.ContainsKey(clothingType)) {

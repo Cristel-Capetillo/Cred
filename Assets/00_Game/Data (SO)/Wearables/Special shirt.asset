@@ -18,3 +18,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c88aa57c583af4f7d81c5711dde56f71, type: 3}
   colorData:
   - {fileID: 11400000, guid: e3fafea2feaebf44da5cef039104a41d, type: 2}
+  amount: -1

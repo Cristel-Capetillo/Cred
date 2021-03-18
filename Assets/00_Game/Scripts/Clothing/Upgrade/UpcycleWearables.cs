@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ namespace Clothing.Upgrade {
 
         PopupWindowUpCycleDonate popupWindowUpCycleDonate;
         public GameObject popupWindowUpCycle;
+        public GameObject content;
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
@@ -38,7 +40,12 @@ namespace Clothing.Upgrade {
         public void OnConfirm() {
             if (upcycleConfirmButton.interactable) {
                 EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
+                foreach (var wearable in wearables) {
+                    wearable.SetAmount(wearable.Amount - 1);
+                    Debug.Log($"Decreased {wearable} amount by 1");
+                }
                 CleanUpOnExitAndConfirm();
+                
             }
         }
 
