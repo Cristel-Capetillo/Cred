@@ -13,7 +13,6 @@ namespace Club {
             Requirements = requirements;
             StylePointValues = stylePointValues;
         }
-        
     }
     public class MatchColor: IMissionRequirement{
         public MatchColor(ColorData colorData) {

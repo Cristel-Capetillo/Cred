@@ -9,7 +9,7 @@ namespace Club{
         [SerializeField] List<ColorData> colors;
         [SerializeField] List<Rarity> rarities;
         [SerializeField] List<ClothingType> clothingTypes;
-        [SerializeField]int easyModeEndValue = 200;
+        [SerializeField, Header("Values based on followers:")]int easyModeEndValue = 200;
         [SerializeField]int hardModeStartValue = 1000;
         [SerializeField]List<int> easyModeMissionCycle = new List<int>(10);
         [SerializeField]List<int> mediumModeMissionCycle = new List<int>(10);

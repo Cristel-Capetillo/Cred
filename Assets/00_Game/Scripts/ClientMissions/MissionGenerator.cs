@@ -7,6 +7,7 @@ namespace Club {
         //TODO: New user = pick tutorial mission...
         [SerializeField] MissionGeneratorData generatorData;
         [SerializeField] int testFollowers = 0;
+        [SerializeField] int maxFollowers = 1000; 
         int currentCycleIndex;
         readonly Dictionary<int, List<int>> missionCycleCombinedList = new Dictionary<int, List<int>>();
         
@@ -15,22 +16,26 @@ namespace Club {
         }
         public MissionData CreateMissionData() {
             var missionDifficulty = PickDifficultyMission();
-            var missionRequirements = CreateRandomRequirements(missionDifficulty.NumberOfRequirements);
             CycleIndex();//TODO: Save/load currentCycleIndex from firebase!
-            foreach (var requirement in missionRequirements){
-                Debug.Log(requirement.GetType());
-            }
-            return new MissionData(missionDifficulty,missionRequirements,null);
+            return new MissionData(missionDifficulty,CreateRandomRequirements(missionDifficulty.NumberOfRequirements),CreateStylePointValues(missionDifficulty));
         }
 
-        
-        
+        StylePointValues CreateStylePointValues(MissionDifficulty missionDifficulty){
+            var (min, max) = AdjustStylePoint(missionDifficulty.MinimumStylePoints,missionDifficulty.MaximumStylePoints);
+            return new StylePointValues(min,max);
+        }
+        (int, int) AdjustStylePoint(int minValue, int maxValue){
+            const int maxPossibleStylePoints = 50;
+            var t = Mathf.InverseLerp(0, maxFollowers, testFollowers);
+            minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
+            maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxPossibleStylePoints,t)); 
+            return (minValue, maxValue);
+        }
         List<IMissionRequirement> CreateRandomRequirements(int requirementAmount){
             var missionRequirements = new List<IMissionRequirement>();
-            //TODO: Fix this logic:
             var requirementAmountLeft = requirementAmount;
             while (requirementAmountLeft >= 1){
-                var requirementValue = Random.Range(1, requirementAmountLeft);
+                var requirementValue = Random.Range(1, requirementAmountLeft+1);
                 
                 switch (requirementValue){
                     case 1:
