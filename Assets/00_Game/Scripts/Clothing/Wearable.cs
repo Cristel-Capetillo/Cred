@@ -14,7 +14,6 @@ namespace Clothing {
 
         
         public int StylePoints => _stylePoints + rarity.Value;
-
         public List<ColorData> ColorData => colorData;
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
