@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utilities;
 
 namespace SaveSystem {
     public class SaveHandler {
@@ -18,7 +19,8 @@ namespace SaveSystem {
         public async void Load<T>(ISavable<T> savable) {
             var tmp = await backEndSaveSystem.Load<T>(objectID);
             savable.OnLoad(tmp);
-            Debug.Log("Object loaded from backEndSaveSystem: " + objectID);
+            EventBroker.Instance().SendMessage(new EventAfterLoad(objectID));
+            //Debug.Log("Object loaded from backEndSaveSystem: " + objectID);
         }
     }
 }

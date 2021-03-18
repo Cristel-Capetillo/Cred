@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Utilities.Time {
     public class TimeHandler {
@@ -6,12 +7,10 @@ namespace Utilities.Time {
 
         public TimeHandler() {
             timeProvider = new RealTime();
-            timeProvider.SyncTime();
         }
 
         public TimeHandler(ITimeProvider timeProvider) {
             this.timeProvider = timeProvider;
-            timeProvider.SyncTime();
         }
         
         public DateTime GetTime() {

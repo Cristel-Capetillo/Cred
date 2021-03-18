@@ -18,8 +18,9 @@ namespace ClientMissions.ClubMissions {
                     return;
                 }
                 Debug.Log("Enter club");
-                var tmp = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
-                Debug.Log("your reward is " + tmp);
+                var reward = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
+                Debug.Log("your reward is " + reward);
+                EventBroker.Instance().SendMessage(new EventShowReward(reward));
             }
     }
 }
