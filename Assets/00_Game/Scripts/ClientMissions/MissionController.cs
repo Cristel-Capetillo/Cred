@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ClientMissions;
+using ClientMissions.Data;
+using ClientMissions.MissionMessages;
 using Clothing;
 using UnityEngine;
 using Utilities;
@@ -14,46 +17,47 @@ namespace Club {
         [SerializeField] int maxFollowers = 1000;
         [SerializeField] int maxStylePoints = 50;
         List<Wearable> wearableList = new List<Wearable>();
-        int _currentMinStylepointValue, _currentMaxStylepointValue;
+        int _currentMinStylepointValue;
+        int _currentMaxStylepointValue;
         int _currentStylePoints;
         MissionData _currentMission;
         void Start(){
             // EventBroker.Instance().SubscribeMessage<MissionWearableMessage>(GetWearableList);
-            StartMission();
+            //StartMission();
             _currentStylePoints = GetStylePoints();
-            EndMission();
+            //EndMission();
         }
         // void OnDestroy(){
         //     EventBroker.Instance().UnsubscribeMessage<MissionWearableMessage>(GetWearableList);
         // }
 
-        public void StartMission() {
+        /*public void StartMission() {
             _currentMission = missionList[playerData.CurrentMissionIndex];
             (_currentMinStylepointValue, _currentMaxStylepointValue) =
                 AdjustStylePoint(_currentMission.MinimumStylePoints, _currentMission.MaximumStylePoints);
             print($"Min: {_currentMinStylepointValue} Max: {_currentMaxStylepointValue}");
-        }
-        public void EndMission(){
-            print("Colors match: " + CheckColors());
-            if (_currentStylePoints < _currentMinStylepointValue){
-                print("Mission failed!");
-                return;
-            }
-            print(CalculateReword());
-        }
+        }*/
+        // public void EndMission(){
+        //     print("Colors match: " + CheckColors());
+        //     if (_currentStylePoints < _currentMinStylepointValue){
+        //         print("Mission failed!");
+        //         return;
+        //     }
+        //     print(CalculateReword());
+        // }
 
         //TODO: Get equation from GameDesigner! 
-        int CalculateReword(){
+        /*int CalculateReword(){
             var t = Mathf.InverseLerp(0, _currentMaxStylepointValue, _currentStylePoints);
-            return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.TargetReword, t));
-        }
+            return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.MaxReward, t));
+        }*/
         int GetStylePoints(){
             return wearables.Sum(wearable => wearable.StylePoints);
         }
 
-        bool CheckColors(){
-            return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
-        }
+        //bool CheckColors(){
+        //    return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
+        //}
         void GetWearableList(MissionWearableMessage missionWearableMessage){
             wearableList = missionWearableMessage.wearables;
         }
@@ -85,5 +89,6 @@ namespace Club {
         public int CalculateTotalReward(float stylePercentage){
             return (int) (stylePercentage * maxReward);
         }*/
+       
     }
 }

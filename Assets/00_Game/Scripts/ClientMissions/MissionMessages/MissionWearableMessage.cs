@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Clothing;
 
-namespace Club{
+namespace ClientMissions.MissionMessages{
     public class MissionWearableMessage{
 
         public List<Wearable> wearables;
