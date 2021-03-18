@@ -35,10 +35,12 @@ namespace Clothing.Upgrade {
                 return;
             }
 
-            upcycleConfirmButton.interactable = true;
-            wearables[1] = eventAddUpCycleClothes.wearable;
-            slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
-            slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+            if (slot2.sprite == null) {
+                wearables[1] = eventAddUpCycleClothes.wearable;
+                slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
+                slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+                upcycleConfirmButton.interactable = true;
+            }
         }
 
         public void OnConfirm() {
