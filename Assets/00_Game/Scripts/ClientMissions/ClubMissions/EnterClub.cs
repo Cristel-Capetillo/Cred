@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Utilities;
 
 namespace Club.ClubMissions {
     public class EnterClub : MonoBehaviour{
@@ -8,13 +9,12 @@ namespace Club.ClubMissions {
         
             public void Start() {
             equippedStylePoints = FindObjectOfType<EquippedStylePoints>();
+            EventBroker.Instance().SendMessage();
             }
 
-            public void Update() {
-                if (Input.GetKeyDown(KeyCode.K)) {
-                    var tmp = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
-                    Debug.Log("your reward is " + tmp);
-                }
-            }
+            void EnterClubReward() {
+                var tmp = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
+                Debug.Log("your reward is " + tmp);
+        }
     }
 }

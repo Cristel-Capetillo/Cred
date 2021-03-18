@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ClientMissions.ClubMissions;
 using Clothing;
 using UnityEngine;
 using Utilities;
@@ -25,7 +26,7 @@ namespace Club.ClubMissions {
             foreach (var y in Dictionary) {
                 CurrentStylePoints += y.Value;
             }
-            Debug.Log("updated stylepoints" + CurrentStylePoints);
+            EventBroker.Instance().SendMessage(new EventUpdateStylePoints(CurrentStylePoints));
         }
         
     }
