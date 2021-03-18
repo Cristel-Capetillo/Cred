@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415486890582487492}
   - component: {fileID: 4011626582358981678}
+  - component: {fileID: 5536570162887534998}
   m_Layer: 0
   m_Name: ClothingManager
   m_TagString: Untagged
@@ -43,7 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092bd33318146814fba1d5f3d9b36a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastKnownShirt: {fileID: 2800000, guid: 006420280f3aa0e4091046702e1dd0f3, type: 3}
-  lastKnownPants: {fileID: 2800000, guid: 66c6f5324190f43d89a9878b8402320b, type: 3}
   AlexTorso: {fileID: 0}
   AlexPants: {fileID: 0}
+--- !u!114 &5536570162887534998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356309357796653276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b75204f7bdb41c4b04625c16333cfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothingTypes:
+  - {fileID: 11400000, guid: 0749319de8169dd478b81d0e0e884e25, type: 2}
+  - {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}
