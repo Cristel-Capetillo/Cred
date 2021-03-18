@@ -385,6 +385,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1127197749}
     m_Modifications:
+    - target: {fileID: 5364197394541103381, guid: 1d56202dea76fb24e97d812eb3af3d94,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364197394592452959, guid: 1d56202dea76fb24e97d812eb3af3d94,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5364197396290087830, guid: 1d56202dea76fb24e97d812eb3af3d94,
         type: 3}
       propertyPath: m_Pivot.x
@@ -503,6 +513,48 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1225890035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1225890037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364197394541103376, guid: 1d56202dea76fb24e97d812eb3af3d94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1225890035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1225890038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364197394592452954, guid: 1d56202dea76fb24e97d812eb3af3d94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1225890035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225890039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225890037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -2}
+  m_UseGraphicAlpha: 0
+--- !u!114 &1225890040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225890038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -2}
+  m_UseGraphicAlpha: 0
 --- !u!1 &1364118718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5562554766342848627, guid: 1e02bad12ebe93847ab0a7367cbb484a,

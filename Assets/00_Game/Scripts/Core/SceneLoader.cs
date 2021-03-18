@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities;
@@ -9,7 +10,12 @@ namespace Core {
         }
 
         void LoadScene(EventSceneLoad sceneEvent) {
-            SceneManager.LoadScene(sceneEvent.Name);
+            StartCoroutine(LoadSceneAsync(sceneEvent.sceneToLoad));
+        }
+
+        IEnumerator LoadSceneAsync(string sceneToLoad) {
+            yield return SceneManager.LoadSceneAsync(sceneToLoad);
+            EventBroker.Instance().SendMessage(new EventSceneSwap(true));
         }
 
         public void OnDestroy() {

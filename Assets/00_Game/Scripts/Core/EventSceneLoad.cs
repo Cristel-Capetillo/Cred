@@ -1,9 +1,9 @@
 namespace Core {
     public class EventSceneLoad {
-        public readonly string Name;
+        public readonly string sceneToLoad;
 
-        public EventSceneLoad(string name) {
-            this.Name = name;
+        public EventSceneLoad(string sceneToLoad) {
+            this.sceneToLoad = sceneToLoad;
         }
     }
 }
