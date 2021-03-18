@@ -12,8 +12,7 @@ namespace Clothing {
         [SerializeField] List<ColorData> colorData = new List<ColorData>();
         int stylePoints;
         [SerializeField] int amount;
-        bool unlocked;
-        
+
         public int StylePoints => stylePoints + rarity.Value;
         public int Amount => amount;
  

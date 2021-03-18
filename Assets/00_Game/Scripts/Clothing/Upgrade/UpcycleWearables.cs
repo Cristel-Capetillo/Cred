@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,12 +19,15 @@ namespace Clothing.Upgrade {
         public GameObject popupWindowUpCycle;
         public GameObject content;
 
+        List<InventoryButtonScript> buttonScriptList = new List<InventoryButtonScript>();
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
             popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
         }
 
         public void GetScript(EventAddUpCycleClothes eventAddUpCycleClothes) {
+            buttonScriptList.Add(eventAddUpCycleClothes.inventoryButtonScript);
             if (slot1.sprite == null) {
                 wearables[0] = eventAddUpCycleClothes.wearable;
                 slot1.sprite = eventAddUpCycleClothes.wearable.Sprite;
@@ -44,8 +48,11 @@ namespace Clothing.Upgrade {
                     wearable.SetAmount(wearable.Amount - 1);
                     Debug.Log($"Decreased {wearable} amount by 1");
                 }
+
+                foreach (var buttonScript in buttonScriptList) {
+                    buttonScript.UpdateAmountStylePoint();
+                }
                 CleanUpOnExitAndConfirm();
-                
             }
         }
 
@@ -56,6 +63,7 @@ namespace Clothing.Upgrade {
             slot1.GetComponentInChildren<Text>().text = null;
             slot2.sprite = null;
             slot2.GetComponentInChildren<Text>().text = null;
+            buttonScriptList.Clear();
         }
 
         public void CleanUpOnWearableSelect() {

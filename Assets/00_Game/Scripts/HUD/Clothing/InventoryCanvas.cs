@@ -25,12 +25,6 @@ namespace HUD.Clothing {
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
 
-        // public void UpdateAmountStylePoints(ClothingType type) {
-        //     for (var i = 0; i < inventoryDataHandler.wearableDictionary.Count; i++) {
-        //         inventoryContentPrefab.UpdateAmountStylePoint(inventoryDataHandler.wearableDictionary[i]);
-        //     }
-        // }
-
         public void ToggleButton(ClothingType clothingType) {
             if (!inventoryDataHandler.wearableDictionary.ContainsKey(clothingType)) {
                 Debug.LogWarning($"No item was found in {clothingType.name}");
