@@ -30,6 +30,8 @@ namespace HUD.MysteryBox {
             for (int i = 0; i < quantity; i++) {
                 var instance = Instantiate(mysteryBoxButtonPrefab, selectionArea);
                 instance.GetComponent<MysteryBoxButton>().AssignLootTable(normalLootTable);
+                instance.GetComponent<Button>().onClick.AddListener(instance.GetComponent<MysteryBoxButton>().SpawnMysteryBox);
+                instance.GetComponent<Button>().onClick.AddListener(CloseSelectorMenu);
             }
         }
     }

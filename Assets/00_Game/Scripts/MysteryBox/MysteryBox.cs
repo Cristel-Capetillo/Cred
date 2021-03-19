@@ -2,22 +2,21 @@ using UnityEngine;
 
 namespace MysteryBox {
     public class MysteryBox : MonoBehaviour {
-        Animator animator;
+        
         LootTable lootTable;
-        bool opened;
+        [SerializeField] float destroyDelay = 5f;
 
         void Start() {
-            animator = gameObject.GetComponent<Animator>();
+            Destroy(gameObject, destroyDelay);
         }
         
         public void AssignLootTable(LootTable lootTable) {
             this.lootTable = lootTable;
         }
-
-        public void StartAnimation() {
-            animator.SetTrigger("OpenLootBox");
-        }
-
+        // public void StartAnimation() {
+        //     animator.SetTrigger("OpenLootBox");
+        // }
+        //
         // IEnumerator temp() {
         //     opened = true;
         //     StartAnimation();
@@ -26,18 +25,18 @@ namespace MysteryBox {
         //     Debug.Log("Loot Box Opened");
         //     Destroy(gameObject);
         // }
-
-        void Update() {
-            if (Input.GetMouseButtonDown(0)) {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, 6)) {
-                    if (hit.collider != null) {
-                        Destroy(gameObject);
-                    }
-                }
-            }
-        }
+        //
+        // void Update() {
+        //     if (Input.GetMouseButtonDown(0)) {
+        //         RaycastHit hit;
+        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //
+        //         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 6)) {
+        //             if (hit.collider != null) {
+        //                 Destroy(gameObject);
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
