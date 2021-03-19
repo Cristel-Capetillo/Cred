@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "ZHA237K86H",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "ZHA237K86H",
+        "name": "se.credible.cred",
+        "processId": 13469,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,12 @@
             "deviceId": "ZHA237K86H",
             "name": "com.motorola.launcher3",
             "processId": 7065,
+            "exited": false
+        },
+        {
+            "deviceId": "ZHA237K86H",
+            "name": "se.credible.cred",
+            "processId": 13469,
             "exited": false
         }
     ],
