@@ -10,7 +10,7 @@ namespace Login {
         
         IEnumerator Start()
         {
-            auth = FirebaseAuth.DefaultInstance;
+            yield return auth = FirebaseAuth.DefaultInstance;
    
             //this seems to be required to NOT create new users for each login
             var dummyUserID = auth.CurrentUser.UserId;
