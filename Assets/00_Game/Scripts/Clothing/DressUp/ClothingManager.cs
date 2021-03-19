@@ -20,7 +20,7 @@ namespace Clothing.DressUp {
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
             switch (eventClothesChanged.Wearable.ClothingType.name) {
-                case "Shirt":
+                case "Shirts":
                     AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
                     FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
                     break;
