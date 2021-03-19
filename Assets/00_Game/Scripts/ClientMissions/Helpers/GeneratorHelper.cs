@@ -3,7 +3,7 @@ using ClientMissions.Data;
 using UnityEngine;
 
 namespace ClientMissions.Helpers{
-    public struct SemiRandom{
+    public struct GeneratorHelper{
         public static int RandomIndex(int listCount){
             return Random.Range(0, listCount);
         }

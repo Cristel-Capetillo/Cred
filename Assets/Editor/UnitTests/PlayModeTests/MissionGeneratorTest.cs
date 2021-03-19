@@ -10,6 +10,45 @@ using UnityEngine.TestTools;
 namespace Editor.UnitTests.PlayModeTests{
     public class MissionGeneratorTest{
         
+        [UnityTest]
+        public IEnumerator CycleTestGenerateSavableDataMissions(){
+            var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);
+            var missionGenerator = gameObject.GetComponent<MissionGenerator>();
+            yield return new WaitForSeconds(1f); //<- Wait for start to finish...
+        
+            for (var i = 0; i <= missionGenerator.MissionCycleCount; i++){
+                var savableMissionData = missionGenerator.GenerateMissionData();
+                Debug.Log($"Test({i}): Name: {savableMissionData}, MissionIndex: {savableMissionData.MissionDifficultyIndex} ,ClientIndex: {savableMissionData.MissionClientIndex}");
+                Assert.AreEqual(typeof(SavableMissionData), savableMissionData.GetType());
+                Assert.AreEqual(typeof(SavableDialogData), savableMissionData.SavableDialogData.GetType());
+                Assert.AreEqual(typeof(List<SavableRequirementData>), savableMissionData.SavableRequirementData.GetType());
+            }
+            yield return null;
+        }
+        [UnityTest]
+        public IEnumerator CycleTestGenerateDataMissionsFromSavableDataMissions(){
+            var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);
+            var missionGenerator = gameObject.GetComponent<MissionGenerator>();
+            yield return new WaitForSeconds(1f); //<- Wait for start to finish...
+        
+            for (var i = 0; i <= missionGenerator.MissionCycleCount; i++){
+                var savableMissionData = missionGenerator.GenerateMissionData();
+                var missionData = missionGenerator.GenerateMission(savableMissionData);
+                Assert.AreEqual(typeof(MissionData), missionData.GetType());
+                // Assert.AreEqual(typeof(MissionDifficulty),missionData.Difficulty.GetType());
+                // Assert.AreEqual(typeof(List<IMissionRequirement>), missionData.Requirements.GetType());
+                // Assert.AreNotEqual(null, missionData.StylePointValues.GetType());
+                // Assert.AreEqual(typeof(ClientTestData), missionData.ClientTestData.GetType());
+                // Assert.AreEqual(typeof(SavableDialogData), missionData.SavableDialogData.GetType());
+                Debug.Log($"Test: {i} Difficulty: {missionData.Difficulty.name} Data: {savableMissionData.SavableRequirementData.Count} Spawned{missionData.Requirements.Count}");
+                foreach (var requirement in missionData.Requirements){
+                    Debug.Log(requirement.ToString());
+                }
+                missionGenerator.CycleIndex();//TODO: Shouldn't be public
+            }
+            yield return null;
+        }
+        
         // [UnityTest]
         // public IEnumerator MissionPickerCycleTest(){
         //     var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);

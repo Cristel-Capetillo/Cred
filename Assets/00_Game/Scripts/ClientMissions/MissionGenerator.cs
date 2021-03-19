@@ -16,6 +16,8 @@ namespace ClientMissions {
         int missionCycleCount;
         int currentClientIndex;
 
+        public int MissionCycleCount => missionCycleCount;
+
         void Start(){
             AddMissionCyclesToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle, 
                 generatorData.MediumModeMissionCycle, generatorData.HardModeMissionCycle});
@@ -23,16 +25,20 @@ namespace ClientMissions {
                 generatorData.MediumModeMissionCycle.Count), generatorData.HardModeMissionCycle.Count);
         }
         
-        public SavableMissionData GenerateMissionData() {
-            var savableRequirementData = GenerateNewRequirements(PickDifficultyMission(currentMissionDifficultyIndex).NumberOfRequirements);
+        public SavableMissionData GenerateMissionData(){
+            var missionDifficulty = PickDifficultyMission(currentMissionDifficultyIndex);
+            var savableRequirementData = GenerateNewRequirements(missionDifficulty.NumberOfRequirements);
             var missionClient = generatorData.ClientData[currentClientIndex];
-            currentClientIndex = SemiRandom.CycleListIndex(currentClientIndex, generatorData.ClientData.Count);
-            currentMissionDifficultyIndex = SemiRandom.CycleListIndex(currentMissionDifficultyIndex, missionCycleCount);
             return new SavableMissionData(currentMissionDifficultyIndex, currentClientIndex, 
-                new SavableDialogData(SemiRandom.RandomIndex(missionClient.StartDialog.Count), SemiRandom.RandomIndex(missionClient.MissionInfoDialog.Count)), savableRequirementData);
+                new SavableDialogData(GeneratorHelper.RandomIndex(missionClient.StartDialog.Count), GeneratorHelper.RandomIndex(missionClient.MissionInfoDialog.Count)), savableRequirementData);
+        }
+
+        public void CycleIndex(){
+            currentClientIndex = GeneratorHelper.CycleListIndex(currentClientIndex, generatorData.ClientData.Count);
+            currentMissionDifficultyIndex = GeneratorHelper.CycleListIndex(currentMissionDifficultyIndex, missionCycleCount);
         }
         public MissionData GenerateMission(SavableMissionData savableMissionData){
-            var missionDifficulty = generatorData.MissionDifficulties[savableMissionData.MissionDifficultyIndex];
+            var missionDifficulty = PickDifficultyMission(savableMissionData.MissionDifficultyIndex);
             var missionClient = generatorData.ClientData[savableMissionData.MissionClientIndex];
             return new MissionData(missionDifficulty,LoadRequirements(savableMissionData.SavableRequirementData), 
                 new StylePointValues(missionDifficulty.MinimumStylePoints, missionDifficulty.MaximumStylePoints), 
@@ -66,7 +72,7 @@ namespace ClientMissions {
                 case 3:
                     missionRequirements.Add(new MatchColorClothingTypeAndRarity(
                         generatorData.Colors[requirementData.RequirementsDataIndex[0]],
-                        generatorData.ClothingTypes[requirementData.RequirementsDataIndex[1]], generatorData.Rarities[requirementData.RequirementsDataIndex[3]]));
+                        generatorData.ClothingTypes[requirementData.RequirementsDataIndex[1]], generatorData.Rarities[requirementData.RequirementsDataIndex[2]]));
                     break;
                 }
             }
@@ -78,24 +84,24 @@ namespace ClientMissions {
             var colorDataList = new List<ColorData>();
             colorDataList.AddRange(generatorData.Colors);
             while (requirementAmountLeft >= 1){
-                var requirementValue = SemiRandom.NumberGenerator(requirementAmountLeft);
+                var requirementValue = GeneratorHelper.NumberGenerator(requirementAmountLeft);
                 int colorDataIndex;
                 int clothingTypeIndex;
                 switch (requirementValue){
                     case 1:
-                        colorDataIndex = SemiRandom.AddColorVariation(colorDataList);
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue, new List<int>(){colorDataIndex}));
+                        colorDataIndex = GeneratorHelper.AddColorVariation(colorDataList);
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue, new List<int>{colorDataIndex}));
                         break;
                     case 2:
-                        clothingTypeIndex = SemiRandom.RandomIndex(generatorData.ClothingTypes.Count);
-                        colorDataIndex = SemiRandom.AddColorVariation(colorDataList);
+                        clothingTypeIndex = GeneratorHelper.RandomIndex(generatorData.ClothingTypes.Count);
+                        colorDataIndex = GeneratorHelper.AddColorVariation(colorDataList);
                         savableMissionRequirements.Add(new SavableRequirementData(requirementValue,new List<int>{colorDataIndex,clothingTypeIndex}));
                         
                         break;
                     case 3:
-                        colorDataIndex = SemiRandom.RandomIndex(generatorData.ClothingTypes.Count);
-                        clothingTypeIndex = SemiRandom.RandomIndex(generatorData.ClothingTypes.Count);
-                        var rarityDataIndex = SemiRandom.RandomIndex(generatorData.Rarities.Count);
+                        colorDataIndex = GeneratorHelper.RandomIndex(generatorData.ClothingTypes.Count);
+                        clothingTypeIndex = GeneratorHelper.RandomIndex(generatorData.ClothingTypes.Count);
+                        var rarityDataIndex = Random.Range(1,generatorData.Rarities.Count);
                         savableMissionRequirements.Add(new SavableRequirementData(requirementValue,new List<int>{colorDataIndex, clothingTypeIndex, rarityDataIndex}));
                         break;
                 }
