@@ -15,7 +15,6 @@ namespace ClientMissions.ClubMissions {
             public void EnterClubReward() {
                 if (equippedStylePoints == null) {
                     throw new Exception("cannot find equippedstylepoints");
-                    return;
                 }
                 Debug.Log("Enter club");
                 var reward = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
