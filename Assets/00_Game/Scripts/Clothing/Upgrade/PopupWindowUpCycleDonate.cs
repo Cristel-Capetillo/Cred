@@ -21,7 +21,7 @@ namespace Clothing.Upgrade {
                 popupActive = true;
                 popupWindowIsActive = true;
 
-                if (popupWindow.name == "PopupWindowUpCycle") {
+                if (popupWindow.name == "UpCyclePopupWindow") {
                     isUpCycleWindow = true;
                     isDonateWindow = false;
                 } else {
