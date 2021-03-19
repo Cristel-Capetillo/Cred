@@ -4,11 +4,11 @@ using Clothing;
 
 namespace Club.MissionRequirments{
     public class MatchColor: IMissionRequirement{
+        public readonly ColorData ColorData;
         public MatchColor(ColorData colorData) {
             ColorData = colorData;
         }
-        public ColorData ColorData { get; private set; }
-        
+
         public bool PassedRequirement(Wearable wearable){
             return wearable.ColorData.Contains(ColorData);
         }

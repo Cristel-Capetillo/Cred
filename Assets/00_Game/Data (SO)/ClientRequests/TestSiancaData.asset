@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05081ebf8d4e1e920d9c4eac5f130b, type: 3}
+  m_Name: TestSiancaData
+  m_EditorClassIdentifier: 
+  genericDialog:
+  - "\u201CI saw that you just opened a new studio and I&#39;m in desperate need
+    of styling! I\u2019m going to\r\nThe Yard tonight and I need something new. I
+    love supporting small businesses, everyone\r\nstarts somewhere. If you impress
+    me I definitely will make a post about you on Cred. You\r\nmight get some new
+    followers!\u201D"
+  - "\u201CI just posted a picture of this outfit and forgot I was supposed to wear
+    it to Niche tonight.\r\nNow I desperately need something new to show my followers.
+    Please help me!\u201D"
+  - "\u201CI just followed a right-wing politician on Instagram and so my sponsor
+    dropped me. I\u2019m\r\ngoing to Backdoor tonight and need something leathery.
+    Something that makes me look like I\r\ncould kiss a girl - but not enough that
+    someone actually does. I\u2019m not gay\u2026 Not that there\u2019s\r\nanything
+    wrong with that! So you got something like that?\u201D"
+  - "\u201CHi, I just used my new biker shorts and now I need something brand-new
+    to wear to The\r\nYard tonight. Preferably something eco-friendly\u201D"

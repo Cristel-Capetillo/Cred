@@ -3,15 +3,16 @@ using Clothing;
 
 namespace ClientMissions.MissionRequirements{
     public class MatchColorClothingTypeAndRarity : IMissionRequirement{
+        public readonly ColorData ColorData;
+        public readonly ClothingType ClothingType;
+        public readonly Rarity Rarity;
         public MatchColorClothingTypeAndRarity(ColorData colorData, ClothingType clothingType, Rarity rarity){
             ColorData = colorData;
             ClothingType = clothingType;
             Rarity = rarity;
         }
 
-        public ColorData ColorData{ get; private set; }
-        public ClothingType ClothingType{ get; private set; }
-        public Rarity Rarity{ get; private set; }
+        
 
         public bool PassedRequirement(Wearable wearable){
             return wearable.ColorData.Contains(ColorData) &&

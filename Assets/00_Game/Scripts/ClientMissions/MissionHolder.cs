@@ -22,7 +22,7 @@ namespace ClientMissions {
         void Start(){
             missionGenerator = GetComponent<MissionGenerator>();
             CreateMissionData();
-            InstantiateMissions();
+            InstantiateMissionUI();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
         }
         void OnDestroy(){
@@ -49,7 +49,7 @@ namespace ClientMissions {
             currentMission = selectMissionMessage.missionData;
             print(currentMission.Difficulty.name);
         }
-        void InstantiateMissions(){
+        void InstantiateMissionUI(){
             foreach (var mission in missionData){
                 missionButtonScripts.Add(Instantiate(missionUiPrefab, contentParent));
             }
@@ -66,7 +66,7 @@ namespace ClientMissions {
             if(missingMissionsCount <= 0)
                 return;
             for (var i = 0; i < missingMissionsCount; i++){
-                missionData.Add(missionGenerator.CreateMissionData());
+                //missionData.Add(missionGenerator.GenerateMissionData());
             }
             print(missionData.Count);
         }
