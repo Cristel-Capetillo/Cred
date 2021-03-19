@@ -1,4 +1,6 @@
 using System;
+using Core;
+using HUD;
 using SaveSystem;
 using UnityEngine;
 using Utilities;
@@ -18,21 +20,28 @@ namespace Currency.Coins {
 
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventUpdateCoins>(UpdateCoins);
+            EventBroker.Instance().SubscribeMessage<EventSceneSwap>(UpdateOnNewScene);
         }
 
         void Start() {
             saveHandler = new SaveHandler(name);
             saveHandler.Load(this);
-            
         }
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventUpdateCoins>(UpdateCoins);
+            EventBroker.Instance().UnsubscribeMessage<EventSceneSwap>(UpdateOnNewScene);
         }
 
         void UpdateCoins(EventUpdateCoins updateCoins) {
             Coins += updateCoins.amountToUpdate;
         }
+
+        void UpdateOnNewScene(EventSceneSwap nextScene) {
+            if (!nextScene.newScene) return;
+            saveHandler.Load(this);
+        }
+
         public long ToBeSaved() {
             return Coins;
         }
@@ -40,7 +49,5 @@ namespace Currency.Coins {
         public void OnLoad(long value) {
             Coins = value;
         }
-
-
     }
 }

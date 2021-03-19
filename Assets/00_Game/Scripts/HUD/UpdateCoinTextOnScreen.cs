@@ -9,9 +9,6 @@ namespace HUD {
 
         void Awake() {
             coinText = GetComponent<Text>();
-        }
-
-        void Start() {
             EventBroker.Instance().SubscribeMessage<EventUpdateUICoins>(UpdateCoinText);
         }
 
