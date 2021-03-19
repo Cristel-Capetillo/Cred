@@ -37,7 +37,7 @@ namespace HUD.Clothing {
                 Debug.Log(wearable.Sprite.name);
             }
             else {
-                if (_popupWindow.isUpCycleWindow) {
+                if (_popupWindow.isUpCycleWindow && wearable.Amount > 0) {
                     EventBroker.Instance().SendMessage(new EventAddUpCycleClothes(wearable, this));
                     upcyclingClothingChosen = true;
                 }
