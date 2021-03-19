@@ -13,8 +13,6 @@ using Utilities;
 namespace Login {
     public class AutoLogin : MonoBehaviour {
         FirebaseAuth auth;
-
-        string deviceID;
         FirebaseUser user;
 
         async Task Initialize() {
@@ -37,9 +35,14 @@ namespace Login {
         }
 
         IEnumerator Start() {
-            yield return Initialize();
-            yield return LogIn();
-            yield return new WaitForSeconds(5f);
+            while (!Initialize().IsCompleted) {
+                yield return null;
+            }
+
+            while (!LogIn().IsCompleted) {
+                yield return null;
+            }
+
             SceneManager.LoadScene("MainScene");
         }
     }
