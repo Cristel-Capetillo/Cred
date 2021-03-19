@@ -1,45 +1,45 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core;
+using Firebase;
 using Firebase.Auth;
+using Firebase.Extensions;
+using HUD;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
 namespace Login {
-    public class AutoLogin : MonoBehaviour
-    {
-        private FirebaseAuth auth;
-        Task tmp;
+    public class AutoLogin : MonoBehaviour {
+        FirebaseAuth auth;
 
         string deviceID;
-        async void Start() {
-            deviceID = SystemInfo.deviceUniqueIdentifier;
-            print($"Device ID: {deviceID}");
-            auth = FirebaseAuth.DefaultInstance;
-            //this seems to be required to NOT create new users for each login
-            //var dummy = auth.CurrentUser.UserId;
-            await auth.SignInAnonymouslyAsync();
+        FirebaseUser user;
 
-            await auth.SignInAnonymouslyAsync().ContinueWith(task => {
-                if (task.IsCanceled) {
-                    Debug.LogError("SignInAnonymouslyAsync was canceled.");
-                    return;
+        async Task Initialize() {
+            await FirebaseApp.CheckDependenciesAsync().ContinueWithOnMainThread(task => {
+                if (task.Result == DependencyStatus.Available) {
+                    auth = FirebaseAuth.DefaultInstance;
+                    Debug.Log("Logged in!");
                 }
-                if (task.IsFaulted) {
-                    Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
-                    return;
+                else {
+                    Debug.LogError("Could not resolve all Firebase dependencies " + task.Result);
                 }
-                
-                print($"result is: {task.Result.UserId}");
-
-                var newUser = task.Result;
-                Debug.LogFormat("User signed in successfully: {0} ({1})",
-                    newUser.DisplayName, newUser.UserId);
-                
-                
-                Debug.Log("username after sign in: " + auth.CurrentUser.UserId);
-           
-
             });
+            Debug.Log("Finished Initialization");
+        }
+
+        async Task LogIn() {
+            Debug.Log("Trying to login");
+            user = await Task.Run(() => auth.SignInAnonymouslyAsync());
+            Debug.Log($"User ID: {user.UserId}");
+        }
+
+        IEnumerator Start() {
+            yield return Initialize();
+            yield return LogIn();
+            yield return new WaitForSeconds(5f);
             SceneManager.LoadScene("MainScene");
         }
     }
