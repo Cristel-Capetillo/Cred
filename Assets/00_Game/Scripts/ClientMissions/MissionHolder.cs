@@ -47,7 +47,6 @@ namespace ClientMissions {
                 var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
                 for (var i = 0; i < missingMissions; i++){
                     var newMission = missionGenerator.GenerateSavableMissionData();
-                    missionGenerator.CycleIndex();
                     missionHolder.AddMission(newMission);
                 }
             }

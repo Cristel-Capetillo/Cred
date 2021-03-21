@@ -11,7 +11,7 @@ namespace Editor.UnitTests.PlayModeTests{
     public class MissionGeneratorTest{
         
         [UnityTest]
-        public IEnumerator CycleTestGenerateSavableDataMissions(){
+        public IEnumerator CycleTestGenerateSavableDataMissionsNullChecks(){
             var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);
             var missionInitializer = gameObject.GetComponent<MissionInitializer>();
             var missionGenerator = missionInitializer.CreateMissionGenerator();
@@ -23,12 +23,11 @@ namespace Editor.UnitTests.PlayModeTests{
                 Assert.AreEqual(typeof(SavableMissionData), savableMissionData.GetType());
                 Assert.AreEqual(typeof(SavableDialogData), savableMissionData.SavableDialogData.GetType());
                 Assert.AreEqual(typeof(List<SavableRequirementData>), savableMissionData.SavableRequirementData.GetType());
-                missionGenerator.CycleIndex();
             }
             yield return null;
         }
         [UnityTest]
-        public IEnumerator CycleTestGenerateDataMissionsFromSavableDataMissions(){
+        public IEnumerator CycleTestGenerateDataMissionsFromSavableDataMissionsNullChecks(){
             var gameObject = GameObject.Instantiate(Resources.Load("MissionControllerTestPrefab") as GameObject);
             var missionInitializer = gameObject.GetComponent<MissionInitializer>();
             var missionGenerator = missionInitializer.CreateMissionGenerator();
@@ -47,7 +46,6 @@ namespace Editor.UnitTests.PlayModeTests{
                 foreach (var requirement in missionData.Requirements){
                     Debug.Log(requirement.ToString());
                 }
-                missionGenerator.CycleIndex();
             }
             yield return null;
         }

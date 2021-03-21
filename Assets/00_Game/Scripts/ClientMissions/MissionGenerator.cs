@@ -25,10 +25,12 @@ namespace ClientMissions {
             var missionRequirements = generatorData.MissionDifficulties[missionDifficultyIndex].NumberOfRequirements;
             var savableRequirementData = GenerateNewRequirements(missionRequirements);
             var missionClient = generatorData.ClientData[playerData.ClientIndex];
-            return new SavableMissionData(missionDifficultyIndex, playerData.ClientIndex, 
+            var clientIndex = playerData.ClientIndex;
+            CycleIndexes();
+            return new SavableMissionData(missionDifficultyIndex, clientIndex, 
                 new SavableDialogData(Random.Range(0,missionClient.StartDialog.Count), Random.Range(0,missionClient.MissionInfoDialog.Count)), savableRequirementData);
         }
-        public void CycleIndex(){
+        void CycleIndexes(){
             playerData.ClientIndex = Helper.CycleListIndex(playerData.ClientIndex, generatorData.ClientData.Count);
             playerData.MissionIndex = Helper.CycleListIndex(playerData.MissionIndex, missionCycleCount);
         }
