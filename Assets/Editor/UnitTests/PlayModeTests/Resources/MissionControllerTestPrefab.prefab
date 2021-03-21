@@ -40,9 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5107249650898874214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3cdad36c108455488ee63a3420c2093, type: 3}
+  m_Script: {fileID: 11500000, guid: c7af8f5305190ab44bc72a7fe6daf0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
-  testFollowers: 1000
-  maxFollowers: 1000
+  localPlayerTestData:
+    followers: 6000
+    maxFollowers: 1000
+    testCoins: 0

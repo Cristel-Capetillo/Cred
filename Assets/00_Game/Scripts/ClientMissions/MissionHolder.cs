@@ -2,26 +2,29 @@ using System;
 using System.Collections.Generic;
 using ClientMissions.Data;
 using ClientMissions.MissionMessages;
-using Club;
 using UnityEngine;
 using Utilities;
 
 namespace ClientMissions {
     public class MissionHolder : MonoBehaviour{
+        //TODO: create unit tests, cleanup code and change to real data...
+        //TODO: Remove/replace missions
         [SerializeField] MissionButtonScript missionUiPrefab;
         [SerializeField] Transform contentParent;
         List<MissionData> missionData = new List<MissionData>();
+        List<SavableMissionData> savableMissionData = new List<SavableMissionData>();
         MissionData currentMission;
         List<MissionButtonScript> missionButtonScripts = new List<MissionButtonScript>();
+        IMissionHolder missionHolder;
+        MissionInitializer missionInitializer;
         MissionGenerator missionGenerator;
-        
-        
-        //TODO: Check time
-        //TODO: Connect Broker event
 
         void Start(){
-            missionGenerator = GetComponent<MissionGenerator>();
-            CreateMissionData();
+            missionInitializer = GetComponent<MissionInitializer>();
+            missionHolder = missionInitializer.GetMissionHolder();
+            missionGenerator = missionInitializer.CreateMissionGenerator();
+            
+            CheckMissions();
             InstantiateMissionUI();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
         }
@@ -36,15 +39,24 @@ namespace ClientMissions {
             }
             throw new Exception("Not implemented yet!");
         }
-        //TODO: When a button is pressed
+        //TODO: Cleanup...
         public void CheckMissions(){
-            CreateMissionData();
+            savableMissionData.Clear();
+            savableMissionData = missionHolder.GetMissions();
+            if (savableMissionData.Count < missionHolder.MaxMissions){
+                var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
+                for (var i = 0; i < missingMissions; i++){
+                    var newMission = missionGenerator.GenerateSavableMissionData();
+                    missionGenerator.CycleIndex();
+                    missionHolder.AddMission(newMission);
+                }
+            }
+            savableMissionData = missionHolder.GetMissions();
+            foreach (var saveMissionData in savableMissionData){
+                missionData.Add(missionInitializer.GetSavedMission(saveMissionData));
+            }
             SendMissionData();
         }
-        public void RemoveMission(){
-            throw new Exception("Not implemented yet!");
-        }
-
         void SelectMission(SelectMissionMessage selectMissionMessage){
             currentMission = selectMissionMessage.missionData;
             print(currentMission.Difficulty.name);
@@ -60,15 +72,6 @@ namespace ClientMissions {
                     missionButtonScripts[i].Setup(missionData[i]);
                 }
             }
-        }
-        void CreateMissionData(){
-            var missingMissionsCount = 3 - missionData.Count;
-            if(missingMissionsCount <= 0)
-                return;
-            for (var i = 0; i < missingMissionsCount; i++){
-                //missionData.Add(missionGenerator.GenerateMissionData());
-            }
-            print(missionData.Count);
         }
     }
 }

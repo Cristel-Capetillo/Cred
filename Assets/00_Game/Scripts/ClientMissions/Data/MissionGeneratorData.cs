@@ -19,7 +19,6 @@ namespace ClientMissions.Data{
         public List<ColorData> Colors => colors;
         public List<Rarity> Rarities => rarities;
         public List<ClothingType> ClothingTypes => clothingTypes;
-
         public List<ClientTestData> ClientData => clientData;
         public int EasyModeEndValue => easyModeEndValue;
         public int HardModeStartValue => hardModeStartValue;

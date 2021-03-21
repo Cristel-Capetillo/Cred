@@ -12,7 +12,7 @@ namespace Club {
     public class MissionController : MonoBehaviour {
 
         [SerializeField] List<MissionData> missionList = new List<MissionData>();
-        [SerializeField] PlayerData playerData;
+        [SerializeField] LocalPlayerTestData localPlayerTestData;
         [SerializeField] List<Wearable> wearables = new List<Wearable>();//TODO: test remove this
         [SerializeField] int maxFollowers = 1000;
         [SerializeField] int maxStylePoints = 50;
@@ -62,7 +62,7 @@ namespace Club {
             wearableList = missionWearableMessage.wearables;
         }
         (int, int) AdjustStylePoint(int minValue, int maxValue){
-            var t = Mathf.InverseLerp(0, maxFollowers, playerData.Followers);
+            var t = Mathf.InverseLerp(0, maxFollowers, localPlayerTestData.Followers);
             minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
             maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxStylePoints,t)); 
             return (minValue, maxValue);

@@ -1585,7 +1585,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1305691671
 MonoBehaviour:
@@ -1599,10 +1599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ed817872cc444e92f0fe11f57c6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    currentMissionIndex: 0
+  localPlayerTestData:
     followers: 0
+    maxFollowers: 0
     testCoins: 0
+    missions: []
+    maxMissions: 0
   wearables:
   - {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}
   - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
@@ -1639,12 +1641,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1305691670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3cdad36c108455488ee63a3420c2093, type: 3}
+  m_Script: {fileID: 11500000, guid: c7af8f5305190ab44bc72a7fe6daf0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
-  testFollowers: 1000
-  maxFollowers: 1000
+  localPlayerTestData:
+    followers: 500
+    maxFollowers: 1000
+    testCoins: 0
+    missions: []
+    maxMissions: 3
 --- !u!114 &1305691674
 MonoBehaviour:
   m_ObjectHideFlags: 0

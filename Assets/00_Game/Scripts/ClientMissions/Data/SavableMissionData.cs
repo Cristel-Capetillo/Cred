@@ -5,17 +5,21 @@ using UnityEngine;
 namespace ClientMissions.Data{
     [Serializable]
     public class SavableMissionData{
-        public readonly int MissionDifficultyIndex;
-        public readonly int MissionClientIndex;
-        public readonly SavableDialogData SavableDialogData;
-        public readonly List<SavableRequirementData> SavableRequirementData;
-
+        [SerializeField] int missionDifficultyIndex;
+        [SerializeField] int missionClientIndex;
+        [SerializeField] SavableDialogData savableDialogData;
+        [SerializeField] List<SavableRequirementData> savableRequirementData;
+        
         public SavableMissionData(int missionDifficultyIndex, int missionClientIndex,
             SavableDialogData savableDialogData, List<SavableRequirementData> savableRequirementData){
-            MissionDifficultyIndex = missionDifficultyIndex; 
-            MissionClientIndex = missionClientIndex;
-            SavableDialogData = savableDialogData;//TODO: Split this up more?
-            SavableRequirementData = savableRequirementData;//TODO: Split this up more?
+            this.missionDifficultyIndex = missionDifficultyIndex; 
+            this.missionClientIndex = missionClientIndex;
+            this.savableDialogData = savableDialogData;//TODO: Split this up more?
+            this.savableRequirementData = savableRequirementData;//TODO: Split this up more?
         }
+        public int MissionDifficultyIndex => missionDifficultyIndex;
+        public int MissionClientIndex => missionClientIndex;
+        public SavableDialogData SavableDialogData => savableDialogData;
+        public List<SavableRequirementData> SavableRequirementData => savableRequirementData;
     }
 }
