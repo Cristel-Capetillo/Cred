@@ -30,10 +30,6 @@ namespace ClientMissions {
             return new SavableMissionData(missionDifficultyIndex, clientIndex, 
                 new SavableDialogData(Random.Range(0,missionClient.StartDialog.Count), Random.Range(0,missionClient.MissionInfoDialog.Count)), savableRequirementData);
         }
-        void CycleIndexes(){
-            playerData.ClientIndex = Helper.CycleListIndex(playerData.ClientIndex, generatorData.ClientData.Count);
-            playerData.MissionIndex = Helper.CycleListIndex(playerData.MissionIndex, missionCycleCount);
-        }
         int GetDifficultyIndex(int difficultyIndex){
             return missionCycles[GetDifficultyCycleKey()][difficultyIndex];
         }
@@ -42,7 +38,10 @@ namespace ClientMissions {
                 return 0;
             return playerData.Followers >= generatorData.HardModeStartValue ? 2 : 1;
         }
-        
+        void CycleIndexes(){
+            playerData.ClientIndex = Helper.CycleListIndex(playerData.ClientIndex, generatorData.ClientData.Count);
+            playerData.MissionIndex = Helper.CycleListIndex(playerData.MissionIndex, missionCycleCount);
+        }
         List<SavableRequirementData> GenerateNewRequirements(int requirementAmount){
             var savableMissionRequirements = new List<SavableRequirementData>();
             var requirementAmountLeft = requirementAmount;
@@ -52,24 +51,28 @@ namespace ClientMissions {
                 var requirementValue = Helper.NumberGenerator(Mathf.Min(3,requirementAmountLeft));
                 var colorDataListIndex = GetRandomNonRepeatingIndexFromList(colorDataList);
                 var clothingTypeIndex = GetRandomNonRepeatingIndexFromList(clothingTypeDataList);
-                
+
                 switch (requirementValue){
                     case 1:
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue, new List<int>{colorDataListIndex}));
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex}));
                         break;
                     case 2:
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,new List<int>{colorDataListIndex,clothingTypeIndex}));
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex, clothingTypeIndex}));
                         break;
-                    case 3:
-                        var rarityDataIndex = Random.Range(1,generatorData.Rarities.Count);
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,new List<int>{colorDataListIndex, clothingTypeIndex, rarityDataIndex}));
+                    case 3:{
+                        var rarityDataIndex = Random.Range(1, generatorData.Rarities.Count);
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex, clothingTypeIndex, rarityDataIndex}));
                         break;
+                    }
                 }
+
                 requirementAmountLeft -= requirementValue;
             }
             return savableMissionRequirements;
         }
-
         static int GetRandomNonRepeatingIndexFromList(List<int> listOfIndexes){
             var randomListIndex = Random.Range(0, listOfIndexes.Count);
             var index = listOfIndexes[randomListIndex];
