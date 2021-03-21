@@ -1576,7 +1576,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305691672}
-  - component: {fileID: 1305691671}
   - component: {fileID: 1305691674}
   - component: {fileID: 1305691673}
   - component: {fileID: 1305691675}
@@ -1587,37 +1586,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1305691671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305691670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ed817872cc444e92f0fe11f57c6eb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localPlayerTestData:
-    followers: 0
-    maxFollowers: 0
-    testCoins: 0
-    missions: []
-    maxMissions: 0
-  wearables:
-  - {fileID: 11400000, guid: fc84658296eab5b46aaed68dbc593a9b, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  - {fileID: 11400000, guid: e91cdfcea96fdd64bb35aaf49c40629f, type: 2}
-  maxFollowers: 1000
-  maxStylePoints: 50
 --- !u!4 &1305691672
 Transform:
   m_ObjectHideFlags: 0
