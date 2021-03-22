@@ -5,17 +5,17 @@ using UnityEngine;
 namespace ClientMissions.Data{
     [Serializable]
     public class SavableDialogData{
-        [SerializeField] int startDialogIndex;
-        [SerializeField] int missionInfoIndex;
+        [SerializeField] int clubIndex;
+        [SerializeField] int dialogIndex;
 
-        public SavableDialogData(int startDialogIndex, int missionInfoIndex){
-            this.startDialogIndex = startDialogIndex;
-            this.missionInfoIndex = missionInfoIndex;
+        public SavableDialogData(int clubIndex, int dialogIndex){
+            this.clubIndex = clubIndex;
+            this.dialogIndex = dialogIndex;
         }
 
-        public int StartDialogIndex => startDialogIndex;
+        public int ClubIndex => clubIndex;
 
-        public int MissionInfoIndex => missionInfoIndex;
+        public int DialogIndex => dialogIndex;
     }
 
     [Serializable]

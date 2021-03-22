@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.MissionMessages;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utilities;
 
 namespace ClientMissions {
@@ -23,13 +25,21 @@ namespace ClientMissions {
             missionInitializer = GetComponent<MissionInitializer>();
             missionHolder = missionInitializer.GetMissionHolder();
             missionGenerator = missionInitializer.CreateMissionGenerator();
-            
+
             CheckMissions();
             InstantiateMissionUI();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
         }
+
         void OnDestroy(){
             EventBroker.Instance().UnsubscribeMessage<SelectMissionMessage>(SelectMission);
+        }
+
+        public void RemoveMission(){
+            if (!missionHolder.RemoveMission(currentMission.SavableMissionData))
+                return;
+            RemoveMissionData(currentMission);
+            CheckMissions();
         }
 
         public void OnStartMission(){
@@ -37,8 +47,11 @@ namespace ClientMissions {
                 Debug.LogWarning("CurrentMission is null!");
                 return;
             }
-            throw new Exception("Not implemented yet!");
+
+            EventBroker.Instance().SendMessage(new CurrentMissionMessage(currentMission));
+            //TODO: Load dress up scene!
         }
+
         //TODO: Cleanup...
         public void CheckMissions(){
             savableMissionData.Clear();
@@ -50,19 +63,28 @@ namespace ClientMissions {
                     missionHolder.AddMission(newMission);
                 }
             }
+
             savableMissionData = missionHolder.GetMissions();
             foreach (var saveMissionData in savableMissionData){
                 missionData.Add(missionInitializer.GetSavedMission(saveMissionData));
             }
             SendMissionData();
         }
+
         void SelectMission(SelectMissionMessage selectMissionMessage){
             currentMission = selectMissionMessage.missionData;
-            print(currentMission.Difficulty.name);
         }
+
         void InstantiateMissionUI(){
             foreach (var mission in missionData){
                 missionButtonScripts.Add(Instantiate(missionUiPrefab, contentParent));
+            }
+        }
+
+        void RemoveMissionData(MissionData missionData){
+            foreach (var missionButtonScript in missionButtonScripts.Where(missionButtonScript => missionButtonScript.MissionData == missionData)){
+                missionButtonScript.Setup(null);
+                return;
             }
         }
         void SendMissionData(){

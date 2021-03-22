@@ -12,15 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c112794dc5b41d28b23a00611afb819, type: 3}
   m_Name: SiancaTest
   m_EditorClassIdentifier: 
-  startDialog:
-  - Dialog 1
-  - Dialog 2
-  - Dialog 3
-  - Dialog 3
-  - Dialog 3
-  missionInfoDialog:
-  - Info 1
-  - Info 2
-  - Info 3
-  - Info 3
-  - Info 3
+  characterSprite: {fileID: 0}
+  clientDialogData:
+  - {fileID: 11400000, guid: d9c3be34d142710478b1db7c85876e2d, type: 2}
+  - {fileID: 11400000, guid: f3cf33c0dc1a7ca48811c899bc31ccf9, type: 2}
+  - {fileID: 11400000, guid: b37862934f1eefe489058081aa1209e1, type: 2}

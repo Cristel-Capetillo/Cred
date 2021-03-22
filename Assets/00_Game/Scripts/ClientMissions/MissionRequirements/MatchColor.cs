@@ -13,7 +13,7 @@ namespace Club.MissionRequirments{
             return wearable.ColorData.Contains(ColorData);
         }
         public override string ToString(){
-            return $"Any {ColorData.name.ToLower()} wearable.";
+            return $"Any {ColorData.name.ToLower()} clothing.";
         }
     }
 }

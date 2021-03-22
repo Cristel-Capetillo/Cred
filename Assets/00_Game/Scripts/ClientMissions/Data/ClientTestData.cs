@@ -4,12 +4,10 @@ using UnityEngine;
 namespace ClientMissions.Data{
     [CreateAssetMenu(fileName = "ScriptableObject/Mission/ClientData")]
     public class ClientTestData : ScriptableObject{
-        //TODO: Texture and 3d model addressable references.
-        [SerializeField, TextArea] List<string> startDialog = new List<string>();
-        [SerializeField, TextArea] List<string> missionInfoDialog = new List<string>();
+        [SerializeField] Sprite characterSprite;
+        [SerializeField] List<ClientDialogData> clientDialogData;
 
-        public List<string> StartDialog => startDialog;
-
-        public List<string> MissionInfoDialog => missionInfoDialog;
+        public List<ClientDialogData> ClientDialogData => clientDialogData;
+        public Sprite CharacterSprite => characterSprite;
     }
 }

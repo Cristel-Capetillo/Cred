@@ -27,8 +27,10 @@ namespace ClientMissions {
             var missionClient = generatorData.ClientData[playerData.ClientIndex];
             var clientIndex = playerData.ClientIndex;
             CycleIndexes();
+            var randomClub = Random.Range(0, missionClient.ClientDialogData.Count);
+            var randomDialog = Random.Range(0, missionClient.ClientDialogData[randomClub].Dialog.Count);
             return new SavableMissionData(missionDifficultyIndex, clientIndex, 
-                new SavableDialogData(Random.Range(0,missionClient.StartDialog.Count), Random.Range(0,missionClient.MissionInfoDialog.Count)), savableRequirementData);
+                new SavableDialogData(randomClub, randomDialog), savableRequirementData);
         }
         int GetDifficultyIndex(int difficultyIndex){
             return missionCycles[GetDifficultyCycleKey()][difficultyIndex];

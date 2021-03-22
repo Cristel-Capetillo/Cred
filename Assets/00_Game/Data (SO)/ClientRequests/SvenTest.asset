@@ -12,15 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c112794dc5b41d28b23a00611afb819, type: 3}
   m_Name: SvenTest
   m_EditorClassIdentifier: 
-  startDialog:
-  - Dialog 1
-  - Dialog 2
-  - Dialog 3
-  - Dialog 4
-  - Dialog 5
-  missionInfoDialog:
-  - Info 1
-  - Info 2
-  - Info 3
-  - Info 4
-  - Info 5
+  characterSprite: {fileID: 0}
+  clientDialogData:
+  - {fileID: 11400000, guid: e9bfc08a40ec5754e8f33f7f2f232011, type: 2}
+  - {fileID: 11400000, guid: 189ce0b3a8fbdf74e9f36bf50801b66d, type: 2}
+  - {fileID: 11400000, guid: b48e3c4642face5488c6fc4a426fd53a, type: 2}

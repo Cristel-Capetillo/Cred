@@ -37,6 +37,18 @@ namespace ClientMissions.Data {
             }
             return false;
         }
+
+        public bool RemoveMission(SavableMissionData savableMissionData){
+            var missionDataToJson = JsonUtility.ToJson(savableMissionData);
+            for (var i = 0; i < maxMissions; i++){
+                if (PlayerPrefs.GetString($"PlayerMission({i})", "") == missionDataToJson){
+                    PlayerPrefs.SetString($"PlayerMission({i})", "");
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public List<SavableMissionData> GetMissions(){
             missions.Clear();
             var savableMissionData = new List<SavableMissionData>();
@@ -64,6 +76,7 @@ namespace ClientMissions.Data {
     public interface IMissionHolder{
         int MaxMissions{ get; }
         bool AddMission(SavableMissionData savableMissionData);
+        bool RemoveMission(SavableMissionData savableMissionData);
         List<SavableMissionData> GetMissions();
         
     }

@@ -22,7 +22,7 @@ namespace ClientMissions{
             
             return new MissionData(missionDifficulty,LoadRequirements(savableMissionData.SavableRequirementData), 
                 new StylePointValues(missionDifficulty.MinimumStylePoints, missionDifficulty.MaximumStylePoints), 
-                missionClient,savableMissionData.SavableDialogData);
+                missionClient,savableMissionData.SavableDialogData, savableMissionData);
         }
         List<IMissionRequirement> LoadRequirements(IEnumerable<SavableRequirementData> savableRequirementData){
             var missionRequirements = new List<IMissionRequirement>();
