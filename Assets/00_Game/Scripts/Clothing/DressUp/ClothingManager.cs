@@ -4,8 +4,20 @@ using Utilities;
 
 namespace Clothing.DressUp {
     public class ClothingManager : MonoBehaviour {
-        [SerializeField] GameObject AlexTorso;
-        [SerializeField] GameObject AlexPants;
+
+        [SerializeField] GameObject clientShirtTorso;
+        [SerializeField] GameObject clientJacketTorso;
+
+        [SerializeField] GameObject clientShirtArmLeft;
+        [SerializeField] GameObject clientShirtArmRight;
+        [SerializeField] GameObject clientJacketArmLeft;
+        [SerializeField] GameObject clientJacketArmRight;
+
+        [SerializeField] GameObject clientPantsRight;
+        [SerializeField] GameObject clientPantsLeft;
+        [SerializeField] GameObject clientSkirtLegs;
+
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
             
@@ -14,18 +26,18 @@ namespace Clothing.DressUp {
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
             
-            AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentShirt.Texture;
-            AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentPants.Texture;
+            clientShirtTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentShirt.Texture;
+            clientPantsLeft.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentPants.Texture;
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
             switch (eventClothesChanged.Wearable.ClothingType.name) {
                 case "Shirts":
-                    AlexTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    clientShirtTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
                     FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
                     break;
                 case "Pants":
-                    AlexPants.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    clientPantsLeft.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
                     FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
                     break;
             }
