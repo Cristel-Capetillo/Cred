@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Shirts
   m_EditorClassIdentifier: 
   singularName: 
+  bodyParts:
+  - {fileID: 11400000, guid: 9cf8a4ba575dfd149a2d973d4d9db2dc, type: 2}
+  - {fileID: 11400000, guid: ed130e5fcc4a7b34bae14bc5232007ea, type: 2}
+  - {fileID: 11400000, guid: d4c44078ccc20e6448369ba940edaac3, type: 2}

@@ -4,7 +4,6 @@ using Utilities;
 
 namespace Clothing.DressUp {
     public class ClothingManager : MonoBehaviour {
-
         [SerializeField] GameObject clientShirtTorso;
         [SerializeField] GameObject clientJacketTorso;
 
@@ -15,7 +14,11 @@ namespace Clothing.DressUp {
 
         [SerializeField] GameObject clientPantsRight;
         [SerializeField] GameObject clientPantsLeft;
+
         [SerializeField] GameObject clientSkirtLegs;
+
+        [SerializeField] GameObject clientShoesLeft;
+        [SerializeField] GameObject clientShoesRight;
 
 
         void Start() {
@@ -23,21 +26,38 @@ namespace Clothing.DressUp {
             
             var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
             var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
+           
+
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
-            
-            clientShirtTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentShirt.Texture;
-            clientPantsLeft.GetComponent<SkinnedMeshRenderer>().material.mainTexture = currentPants.Texture;
+
+            clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+            clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+            clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+
+            clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
+            clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
+
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
             switch (eventClothesChanged.Wearable.ClothingType.name) {
                 case "Shirts":
-                    clientShirtTorso.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
                     FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
+
+                    clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
+
+                    clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
+
                     break;
                 case "Pants":
-                    clientPantsLeft.GetComponent<SkinnedMeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
+                    FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
+
+                    clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
                     FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
                     break;
             }

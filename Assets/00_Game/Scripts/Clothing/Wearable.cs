@@ -50,5 +50,6 @@ namespace Clothing {
         public void SetAmount(int i) {
             amount = i;
         }
+
     }
 }
