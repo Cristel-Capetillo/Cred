@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using Club;
 using UnityEngine;
@@ -26,6 +28,8 @@ namespace Clothing {
             return Amount > 0;
         }
 
+	public override string ToString() {
+            return rarity.name + clothingType.name + colorData.Aggregate("", (current, data) => current + data.GetHexColorID());
         public bool HasUnlockedUpCycledWearable()
         {
             return isUpCycledWearable && unlockedUpcycle;
@@ -48,7 +52,7 @@ namespace Clothing {
         }
 
         public void SetAmount(int i) {
-            amount = i;
+            amount += i;
         }
 
     }
