@@ -25,6 +25,7 @@ namespace Clothing.Upgrade {
                 // chosenWearable.Value.SetAmount(chosenWearable.Value.Amount - 1);
 
             }
+            EventBroker.Instance().SendMessage(new MessageUpCycleClothes(messageUpCycleClothes.Wearable1, messageUpCycleClothes.Wearable2));
         }
 
         void OnLoadWearableData() {

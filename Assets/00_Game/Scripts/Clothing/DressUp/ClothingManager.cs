@@ -1,4 +1,5 @@
 using ClientMissions.ClubMissions;
+using Clothing.Upgrade;
 using UnityEngine;
 using Utilities;
 
@@ -20,14 +21,13 @@ namespace Clothing.DressUp {
         [SerializeField] GameObject clientShoesLeft;
         [SerializeField] GameObject clientShoesRight;
 
-
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+            EventBroker.Instance().SubscribeMessage<MessageUpCycleClothes>(UpCycleWearable);
             
             var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
             var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
            
-
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
 
@@ -37,7 +37,6 @@ namespace Clothing.DressUp {
 
             clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
             clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
-
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
@@ -66,6 +65,10 @@ namespace Clothing.DressUp {
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
+        }
+
+        void UpCycleWearable(MessageUpCycleClothes messageUpCycleClothes) {
+            Debug.Log("VAR");
         }
     }
 }
