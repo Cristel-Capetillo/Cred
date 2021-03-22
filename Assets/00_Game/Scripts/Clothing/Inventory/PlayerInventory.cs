@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClientMissions.Data;
 using SaveSystem;
 using UnityEngine;
 using Utilities;
@@ -9,10 +10,13 @@ namespace Clothing.Inventory {
         Dictionary<string, object> newClothing = new Dictionary<string, object>();
         SaveHandler saveHandler;
 
+        public Wearable wearable;
+
         void Start() {
             saveHandler = new SaveHandler("Inventory");
-
             EventBroker.Instance().SubscribeMessage<EventAddToInventory>(AddToInventory);
+            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, 1));
+            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, -1));
         }
 
         void OnDestroy() {
@@ -22,6 +26,7 @@ namespace Clothing.Inventory {
         void Update() {
             if (Input.GetKeyDown(KeyCode.F5)) {
                 saveHandler.Save(this);
+                print("saved");
             }
 
             if (Input.GetKeyDown(KeyCode.F9)) {
@@ -29,29 +34,34 @@ namespace Clothing.Inventory {
             }
         }
 
-        void GenerateNewClothingItem(Wearable wearable) {
+        void AddToInventory(EventAddToInventory inventory) {
+            GenerateNewClothingItem(inventory);
+        }
+
+        void GenerateNewClothingItem(EventAddToInventory wearableEvent) {
             var id = "";
+            id += wearableEvent.wearable.ToString();
+
+            var wearableStatsList = WearableStatsList(wearableEvent.wearable);
+
+            if (!newClothing.ContainsKey(id)) {
+                newClothing[id] = wearableStatsList;
+            }
+            wearableEvent.wearable.SetAmount(wearableEvent.addOrSubtractAmount);
+            wearableStatsList.Add(wearableEvent.wearable.Amount.ToString());
+        }
+
+        List<object> WearableStatsList(Wearable wearable) {
             var wearableStatsList = new List<object>();
-            id += wearable.ToString();
             foreach (var data in wearable.ColorData) {
                 wearableStatsList.Add(data.GetHexColorID());
             }
-
 
             wearableStatsList.Add(wearable.Rarity.ToString());
             wearableStatsList.Add(wearable.ClothingType.ToString());
             wearableStatsList.Add(wearable.Texture.ToString());
             wearableStatsList.Add(wearable.Sprite.ToString());
-
-            newClothing[id] = wearableStatsList;
-
-            wearable.SetAmount(1);
-
-            wearableStatsList.Add(wearable.Amount.ToString());
-        }
-
-        void AddToInventory(EventAddToInventory inventory) {
-            GenerateNewClothingItem(inventory.wearable);
+            return wearableStatsList;
         }
 
         public Dictionary<string, object> ToBeSaved() {

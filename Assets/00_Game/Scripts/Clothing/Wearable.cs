@@ -17,21 +17,22 @@ namespace Clothing {
         [SerializeField] int amount;
 
         ////////////////////*Upcycle Wearables*///////////////////////////
-        [SerializeField ]public bool isUpCycledWearable;
-        
-        [HideInInspector]public bool unlockedUpcycle;
+        [SerializeField] public bool isUpCycledWearable;
+
+        [HideInInspector] public bool unlockedUpcycle;
         /////////////////////////////////////////////////////////////////
         public int StylePoints => stylePoints + rarity.Value;
         public int Amount => amount;
- 
+
         public bool Unlocked() {
             return Amount > 0;
         }
 
-	public override string ToString() {
+        public override string ToString() {
             return rarity.name + clothingType.name + colorData.Aggregate("", (current, data) => current + data.GetHexColorID());
-        public bool HasUnlockedUpCycledWearable()
-        {
+        }
+
+        public bool HasUnlockedUpCycledWearable() {
             return isUpCycledWearable && unlockedUpcycle;
         }
 
@@ -40,7 +41,7 @@ namespace Clothing {
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
         public ClothingType ClothingType => clothingType;
-        
+
         public void AddStylePoint() {
             if (StylePoints < Rarity.MaxValue) {
                 stylePoints++;
@@ -54,6 +55,5 @@ namespace Clothing {
         public void SetAmount(int i) {
             amount += i;
         }
-
     }
 }
