@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918196446594590456}
   - component: {fileID: 2526620561053950877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6609062627945301492}
   - component: {fileID: 6259804713621784292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3384365094071610512}
   - component: {fileID: 5228450668752668187}
-  m_Layer: 0
+  - component: {fileID: 795347357}
+  - component: {fileID: 795347356}
+  m_Layer: 6
   m_Name: MysteryBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2719187585190524458}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -208,7 +210,7 @@ Transform:
   - {fileID: 6609062627945301492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &5228450668752668187
 Animator:
   serializedVersion: 3
@@ -228,6 +230,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &795347357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719187585190524458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 1.14, z: 0}
+--- !u!114 &795347356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719187585190524458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20b1a064574624409a0033c58f52acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5301991473930937997
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179114306325728721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7872287028547547331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093442168440177757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
