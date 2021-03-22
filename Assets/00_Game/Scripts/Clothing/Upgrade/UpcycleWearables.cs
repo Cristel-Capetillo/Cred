@@ -12,6 +12,8 @@ namespace Clothing.Upgrade {
         public Image slot1;
         public Image slot2;
 
+        public GameObject upcycleWarningText;
+
         public GameObject[] clothingItems;
         public Button upcycleConfirmButton;
 
@@ -19,11 +21,14 @@ namespace Clothing.Upgrade {
         public GameObject popupWindowUpCycle;
         public GameObject content;
 
+        public bool warningTextInstantiated;
+
         List<InventoryButtonScript> buttonScriptList = new List<InventoryButtonScript>();
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(GetScript);
             popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
+            warningTextInstantiated = false;
         }
 
         public void GetScript(EventAddUpCycleClothes eventAddUpCycleClothes) {
@@ -39,19 +44,35 @@ namespace Clothing.Upgrade {
                 wearables[1] = eventAddUpCycleClothes.wearable;
                 slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
                 slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
+
+            }
+
+           
+            warningTextInstantiated = wearables[0].ClothingType != wearables[1].ClothingType || wearables[0].Rarity != wearables[1].Rarity;
+            DisplayWarningText();
+
+        }
+
+        void DisplayWarningText()
+        {
+            if (warningTextInstantiated)
+            {
+                upcycleWarningText.SetActive(true);
+            }
+            else
+            {
                 upcycleConfirmButton.interactable = true;
+                upcycleWarningText.SetActive(false);
+
             }
         }
 
         public void OnConfirm() {
             if (upcycleConfirmButton.interactable) {
                 EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[0], wearables[1]));
-                foreach (var wearable in wearables) {
-                    wearable.SetAmount(wearable.Amount - 1);
-                    Debug.Log($"Decreased {wearable} amount by 1");
-                }
 
-                foreach (var buttonScript in buttonScriptList) {
+                foreach (var buttonScript in buttonScriptList)
+                {
                     buttonScript.UpdateAmountStylePoint();
                 }
                 CleanUpOnExitAndConfirm();

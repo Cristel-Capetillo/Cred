@@ -281,6 +281,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761128210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6633045414775143635, guid: 5e68133601660534f8b15fbd92667e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 8245301297569581308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986592002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7595069259025721788, guid: 1e02bad12ebe93847ab0a7367cbb484a,
@@ -2230,6 +2236,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1127197749}
     m_Modifications:
+    - target: {fileID: 3631162145915274683, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633045414775143635, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245301298625993224, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: content
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245301298625993224, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: upcycleWarningText
+      value: 
+      objectReference: {fileID: 761128210}
     - target: {fileID: 8245301298625993226, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_Pivot.x

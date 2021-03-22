@@ -14,11 +14,21 @@ namespace Clothing {
         int stylePoints;
         [SerializeField] int amount;
 
+        ////////////////////*Upcycle Wearables*///////////////////////////
+        [SerializeField ]public bool isUpCycledWearable;
+        
+        [HideInInspector]public bool unlockedUpcycle;
+        /////////////////////////////////////////////////////////////////
         public int StylePoints => stylePoints + rarity.Value;
         public int Amount => amount;
  
         public bool Unlocked() {
             return Amount > 0;
+        }
+
+        public bool HasUnlockedUpCycledWearable()
+        {
+            return isUpCycledWearable && unlockedUpcycle;
         }
 
         public List<ColorData> ColorData => colorData;

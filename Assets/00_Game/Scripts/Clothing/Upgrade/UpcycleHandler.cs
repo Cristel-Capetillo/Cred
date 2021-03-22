@@ -4,7 +4,8 @@ using Utilities;
 
 namespace Clothing.Upgrade {
     public class UpcycleHandler : MonoBehaviour {
-        InventoryDataHandler inventoryDataHandler;
+        WearableListMessage wearableListMessage;
+        Wearable newUpcycledWearable;
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<MessageUpCycleClothes>(UpCycleCombine);
@@ -15,9 +16,14 @@ namespace Clothing.Upgrade {
         }
 
         void UpCycleCombine(MessageUpCycleClothes messageUpCycleClothes) {
-            var item1 = messageUpCycleClothes.Wearable1;
-            var item2 = messageUpCycleClothes.Wearable2;
-            print("Has Confirmed " + item1 + ", " + item2);
+
+            Wearable[] wearables = new Wearable[2] { messageUpCycleClothes.Wearable1, messageUpCycleClothes.Wearable2};
+
+            foreach (var chosenWearable in wearables)
+            {
+                chosenWearable.SetAmount(chosenWearable.Amount - 1);
+
+            }
         }
 
         void OnLoadWearableData() {
