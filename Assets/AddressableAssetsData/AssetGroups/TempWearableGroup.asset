@@ -16,7 +16,16 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: d8a885efe9adc694dbcedc58bd261907
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f4b3aa0fc4c568649b89780429bc803f
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/DesignerJacket.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Jacket
+    m_MainAsset: {fileID: 8888027554029416538, guid: f4b3aa0fc4c568649b89780429bc803f,
+      type: 3}
+    m_TargetAsset: {fileID: 8888027554029416538, guid: f4b3aa0fc4c568649b89780429bc803f,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:

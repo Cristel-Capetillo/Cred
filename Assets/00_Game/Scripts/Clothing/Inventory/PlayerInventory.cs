@@ -9,6 +9,9 @@ using Utilities;
 namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
         Dictionary<string, object> newClothing = new Dictionary<string, object>();
+
+        Dictionary<CombinedWearables, int> combineWearablesAmount = new Dictionary<CombinedWearables, int>();
+        
         SaveHandler saveHandler;
 
         [FormerlySerializedAs("combineWearable")] public Wearable wearable;

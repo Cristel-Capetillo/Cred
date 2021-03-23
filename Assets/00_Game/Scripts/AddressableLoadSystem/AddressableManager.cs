@@ -15,7 +15,7 @@ namespace AddressableLoadSystem {
         //TODO: List of assetReferences to levels that holds ScriptableObjects...
         //TODO: Derive this lists from ScriptableObjects:
         [SerializeField] List<AssetLabelReference> assetLabelReferences = new List<AssetLabelReference>();
-        [SerializeField] List<CombinedWearables> loadedAssets = new List<CombinedWearables>(); //TODO:Change dataType
+        [SerializeField] List<GameObject> loadedAssets = new List<GameObject>(); //TODO:Change dataType
         int _activeAsyncOperations;
         public List<AssetLabelReference> AssetLabelReferences => assetLabelReferences;
         public int ListCount => loadedAssets.Count;
@@ -33,7 +33,7 @@ namespace AddressableLoadSystem {
         void LoadAssetGroup(AssetLabelReference assetLabelReference) {
             Addressables.LoadAssetsAsync<GameObject>(assetLabelReference, asset => {
                 if (asset == null) return;
-                // Debug.Log($"Adding: {asset}");
+                Debug.Log($"Adding: {asset}");
             }).Completed += OnComplete;
             _activeAsyncOperations++;
         }
@@ -43,7 +43,7 @@ namespace AddressableLoadSystem {
                 _activeAsyncOperations--;
             var temp = (List<GameObject>) obj.Result;
             var tmpList = temp.Select(o => o.GetComponent<CombinedWearables>()).ToList();
-
+            loadedAssets = temp;
             EventBroker.Instance().SendMessage(new EventCombinedWearable(tmpList));
             Debug.Log(_activeAsyncOperations <= 0 ? $"Send Loaded assets: full list {loadedAssets.Count} or latest list {obj.Result.Count}" : $"Active async operations: {_activeAsyncOperations}");
         }
