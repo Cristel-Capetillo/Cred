@@ -51,15 +51,19 @@ namespace HUD.Clothing {
 
         void ContentPooling(ClothingType clothingType) {
             var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
+        
             if (inventoryContent.Count < clothingTypeCount) {
                 for (int i = inventoryContent.Count; i < clothingTypeCount; i++) {
                     inventoryContent.Add(Instantiate(inventoryContentPrefab, contentParent));
                 }
             } else {
                 for (int i = clothingTypeCount; i < inventoryContent.Count; i++) {
+                    
                     inventoryContent[i].gameObject.SetActive(false);
+                  
                 }
             }
+
         }
     }
 }

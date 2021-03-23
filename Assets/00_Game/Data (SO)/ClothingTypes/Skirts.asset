@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Skirts
   m_EditorClassIdentifier: 
   singularName: 
+  bodyParts:
+  - {fileID: 11400000, guid: 44c39b465aeb14d489720d51aba4a14a, type: 2}

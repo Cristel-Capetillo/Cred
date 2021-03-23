@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using Club;
 using UnityEngine;
@@ -14,11 +16,24 @@ namespace Clothing {
         int stylePoints;
         [SerializeField] int amount;
 
+        ////////////////////*Upcycle Wearables*///////////////////////////
+        [SerializeField] public bool isUpCycledWearable;
+
+        [HideInInspector] public bool unlockedUpcycle;
+        /////////////////////////////////////////////////////////////////
         public int StylePoints => stylePoints + rarity.Value;
         public int Amount => amount;
- 
+
         public bool Unlocked() {
             return Amount > 0;
+        }
+
+        public override string ToString() {
+            return rarity.name + clothingType.name + colorData.Aggregate("", (current, data) => current + data.GetHexColorID());
+        }
+
+        public bool HasUnlockedUpCycledWearable() {
+            return isUpCycledWearable && unlockedUpcycle;
         }
 
         public List<ColorData> ColorData => colorData;
@@ -26,7 +41,7 @@ namespace Clothing {
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
         public ClothingType ClothingType => clothingType;
-        
+
         public void AddStylePoint() {
             if (StylePoints < Rarity.MaxValue) {
                 stylePoints++;
@@ -38,7 +53,7 @@ namespace Clothing {
         }
 
         public void SetAmount(int i) {
-            amount = i;
+            amount += i;
         }
     }
 }
