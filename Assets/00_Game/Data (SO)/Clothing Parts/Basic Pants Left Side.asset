@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Trashy jeans 1
+  m_Name: Basic Pants Left Side
   m_EditorClassIdentifier: 
-  rarity: {fileID: 11400000, guid: 8a9a780ddac906848a33833e0695febc, type: 2}
-  clothingType: {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}
-  texture: {fileID: 2800000, guid: 8977fa83223173e47be893f7113183f1, type: 3}
-  sprite: {fileID: 21300000, guid: 8977fa83223173e47be893f7113183f1, type: 3}
-  colorData: []
-  amount: 1
+  bodyPart: {fileID: 11400000, guid: 606e08556cda24446a97f02bc6debf42, type: 2}
+  texture: {fileID: 0}
+  sprite: {fileID: 0}
+  colorData: {fileID: 11400000, guid: ba98bb311a824f44892b37af1cae5a38, type: 2}
+  addedUpcycleTexture: {fileID: 0}
+  isUpCycledWearable: 0
+  unlockedUpcycle: 0

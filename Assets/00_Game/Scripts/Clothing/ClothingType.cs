@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 
 namespace Clothing {
-    [CreateAssetMenu(menuName = "ScriptableObjects/ClothingType")]
-    public class ClothingType : ScriptableObject{
-        [SerializeField] string singularName;
+    [CreateAssetMenu]
+    public class ClothingType : ScriptableObject {
         
-        public string SingularName => singularName;
-
-      
     }
 }

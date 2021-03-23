@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Clothing;
+using Clothing.Inventory;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -13,7 +14,7 @@ namespace AddressableLoadSystem {
         //TODO: List of assetReferences to levels that holds ScriptableObjects...
         //TODO: Derive this lists from ScriptableObjects:
         [SerializeField] List<AssetLabelReference> assetLabelReferences = new List<AssetLabelReference>();
-        [SerializeField] List<Wearable> loadedAssets = new List<Wearable>(); //TODO:Change dataType
+        [SerializeField] List<CombinedWearables> loadedAssets = new List<CombinedWearables>(); //TODO:Change dataType
         int _activeAsyncOperations;
         public List<AssetLabelReference> AssetLabelReferences => assetLabelReferences;
         public int ListCount => loadedAssets.Count;
@@ -29,7 +30,7 @@ namespace AddressableLoadSystem {
         }
 
         void LoadAssetGroup(AssetLabelReference assetLabelReference) {
-            Addressables.LoadAssetsAsync<Wearable>(assetLabelReference, asset => {
+            Addressables.LoadAssetsAsync<CombinedWearables>(assetLabelReference, asset => {
                 if (asset == null) return;
                 loadedAssets.Add(asset);
                 // Debug.Log($"Adding: {asset}");
@@ -37,11 +38,11 @@ namespace AddressableLoadSystem {
             _activeAsyncOperations++;
         }
 
-        void OnComplete(AsyncOperationHandle<IList<Wearable>> obj) {
+        void OnComplete(AsyncOperationHandle<IList<CombinedWearables>> obj) {
             if (_activeAsyncOperations > 0)
                 _activeAsyncOperations--;
-            var temp = (List<Wearable>) obj.Result;
-            EventBroker.Instance().SendMessage(new WearableListMessage(temp));
+            var temp = (List<CombinedWearables>) obj.Result;
+            EventBroker.Instance().SendMessage(new EventCombinedWearable(temp));
             Debug.Log(_activeAsyncOperations <= 0 ? $"Send Loaded assets: full list {loadedAssets.Count} or latest list {obj.Result.Count}" : $"Active async operations: {_activeAsyncOperations}");
         }
     }
