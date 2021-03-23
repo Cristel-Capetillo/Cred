@@ -13,5 +13,9 @@ namespace Clothing {
         public Sprite Sprite => sprite;
         public BodyPart ClothingType => clothingType;
 
+
+        public override string ToString() {
+            return name;
+        }
     }
 }
