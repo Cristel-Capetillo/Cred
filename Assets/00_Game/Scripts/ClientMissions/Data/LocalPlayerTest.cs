@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace ClientMissions.Data {
     [Serializable]
-    public class LocalPlayerTestData : IPlayer, IMissionHolder{
+    public class LocalPlayerTest : IPlayer, IMissionHolder{
+        const int MaxCurrentMissions = 3;
         [SerializeField] int followers;
         [SerializeField] int maxFollowers;
         [SerializeField] int testCoins;
         [SerializeField] List<string> missions;
-        [SerializeField] int maxMissions;
+        
 
         public int Followers => followers;
 
@@ -26,10 +27,10 @@ namespace ClientMissions.Data {
             set => PlayerPrefs.SetInt("ClientIndex", value);
         }
 
-        public int MaxMissions => maxMissions;
+        public int MaxMissions => MaxCurrentMissions;
 
         public bool AddMission(SavableMissionData savableMissionData){
-            for (var i = 0; i < maxMissions; i++){
+            for (var i = 0; i < MaxCurrentMissions; i++){
                 if (PlayerPrefs.GetString($"PlayerMission({i})", "") == ""){
                     PlayerPrefs.SetString($"PlayerMission({i})", JsonUtility.ToJson(savableMissionData));
                     return true;
@@ -40,7 +41,7 @@ namespace ClientMissions.Data {
 
         public bool RemoveMission(SavableMissionData savableMissionData){
             var missionDataToJson = JsonUtility.ToJson(savableMissionData);
-            for (var i = 0; i < maxMissions; i++){
+            for (var i = 0; i < MaxCurrentMissions; i++){
                 if (PlayerPrefs.GetString($"PlayerMission({i})", "") == missionDataToJson){
                     PlayerPrefs.SetString($"PlayerMission({i})", "");
                     return true;
@@ -52,7 +53,7 @@ namespace ClientMissions.Data {
         public List<SavableMissionData> GetMissions(){
             missions.Clear();
             var savableMissionData = new List<SavableMissionData>();
-            for (int i = 0; i < maxMissions; i++){
+            for (int i = 0; i < MaxCurrentMissions; i++){
                 var missionInfo = PlayerPrefs.GetString($"PlayerMission({i})", "");
                 if(missionInfo != "") 
                     missions.Add(missionInfo);

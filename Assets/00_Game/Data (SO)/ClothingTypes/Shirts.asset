@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886a23a1d8e54a20b28bc7a99388ec02, type: 3}
   m_Name: Shirts
   m_EditorClassIdentifier: 
+  singularName: Shirt

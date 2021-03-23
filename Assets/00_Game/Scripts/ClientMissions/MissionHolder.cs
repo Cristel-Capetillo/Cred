@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
@@ -12,6 +13,7 @@ namespace ClientMissions {
     public class MissionHolder : MonoBehaviour{
         //TODO: create unit tests, cleanup code and change to real data...
         //TODO: Remove/replace missions
+        const int MaxCurrentMissions = 3;
         [SerializeField] MissionButtonScript missionUiPrefab;
         [SerializeField] Transform contentParent;
         [SerializeField] int missionTimerInSec = 60;
@@ -23,14 +25,14 @@ namespace ClientMissions {
         MissionInitializer missionInitializer;
         MissionGenerator missionGenerator;
         
-        void Start(){
+        IEnumerator Start(){
             missionInitializer = GetComponent<MissionInitializer>();
             missionHolder = missionInitializer.GetMissionHolder();
             missionGenerator = missionInitializer.CreateMissionGenerator();
-
+            EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
+            yield return new WaitForSeconds(1);
             CheckMissions();
             InstantiateMissionUI();
-            EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
         }
 
         void OnDestroy(){
@@ -52,32 +54,47 @@ namespace ClientMissions {
             EventBroker.Instance().SendMessage(new CurrentMissionMessage(currentMission));
             //TODO: Load dress up scene!
         }
-
-        //TODO: Cleanup...!!!!!!!!!!!!!
+        
         public void CheckMissions(){
-            savableMissionData.Clear();
-            missionData.Clear();
+            ClearLists();
             savableMissionData = missionHolder.GetMissions();
+            TimeCheck();
+            savableMissionData = missionHolder.GetMissions();
+            GenerateMissions();
+            InitializeMissions();
+            SendMissionData();
+        }
 
-            var dateTime = FindObjectOfType<TimeManager>().timeHandler.GetTime();
-            var unixTimestamp = Helper.ToUnixTimestamp(dateTime);
-            foreach (var savableMission in savableMissionData){
-                if (unixTimestamp - savableMission.UnixUtcTimeStamp > 60)
-                    missionHolder.RemoveMission(savableMission);
-            }
-            
-            if (savableMissionData.Count < missionHolder.MaxMissions){
-                var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
-                for (var i = 0; i < missingMissions; i++){
-                    var newMission = missionGenerator.GenerateSavableMissionData();
-                    missionHolder.AddMission(newMission);
-                }
-            }
-            savableMissionData = missionHolder.GetMissions();
+        void InitializeMissions(){
             foreach (var saveMissionData in savableMissionData){
                 missionData.Add(missionInitializer.GetSavedMission(saveMissionData));
             }
-            SendMissionData();
+        }
+
+        void GenerateMissions(){
+            if (savableMissionData.Count >= missionHolder.MaxMissions) return;
+            var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
+            for (var i = 0; i < missingMissions; i++){
+                var newMission = missionGenerator.GenerateSavableMissionData();
+                missionHolder.AddMission(newMission);
+            }
+        }
+
+        void ClearLists(){
+            savableMissionData.Clear();
+            missionData.Clear();
+        }
+
+        void TimeCheck(){
+            var dateTime = FindObjectOfType<TimeManager>().timeHandler.GetTime();
+            var unixTimestamp = Helper.ToUnixTimestamp(dateTime);
+            var tempList = savableMissionData.ToArray();
+            foreach (var savableMission in tempList){
+                if (unixTimestamp - savableMission.UnixUtcTimeStamp > missionTimerInSec){
+                    missionHolder.RemoveMission(savableMission);
+                    Debug.Log(unixTimestamp - savableMission.UnixUtcTimeStamp + " < " + missionTimerInSec);
+                }
+            }
         }
 
         void SelectMission(SelectMissionMessage selectMissionMessage){
@@ -85,7 +102,7 @@ namespace ClientMissions {
         }
 
         void InstantiateMissionUI(){
-            foreach (var mission in missionData){
+            for (var i = 0; i < MaxCurrentMissions; i++){
                 missionButtonScripts.Add(Instantiate(missionUiPrefab, contentParent));
             }
         }

@@ -1710,7 +1710,6 @@ MonoBehaviour:
     maxFollowers: 1000
     testCoins: 0
     missions: []
-    maxMissions: 3
 --- !u!114 &1305691674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,7 +1725,7 @@ MonoBehaviour:
   missionUiPrefab: {fileID: -2044608161243971125, guid: 1c02794c51b6a324f9db9a8746df6701,
     type: 3}
   contentParent: {fileID: 2106906705}
-  missionTimerInSec: 60
+  missionTimerInSec: 10
 --- !u!114 &1305691675
 MonoBehaviour:
   m_ObjectHideFlags: 0
