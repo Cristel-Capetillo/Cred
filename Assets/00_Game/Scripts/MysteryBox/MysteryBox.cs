@@ -26,7 +26,7 @@ namespace MysteryBox {
         
         
         void ShowReward() {
-            //play animation and spawn visual Representation of loot acquired, perhaps play sound
+            //play animation and spawn visual Representation of loot acquired, play sound
             Instantiate(lootTable.Reward()); 
         }
         void OnDestroy() {
