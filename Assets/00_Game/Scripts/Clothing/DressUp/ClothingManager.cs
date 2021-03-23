@@ -30,36 +30,37 @@ namespace Clothing.DressUp {
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
 
-            clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
-            clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
-            clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
-
-            clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
-            clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
+            //
+            // clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+            // clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+            // clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
+            //
+            // clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
+            // clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = currentPants.Texture;
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
-            switch (eventClothesChanged.Wearable.BodyPart.name) {
+            switch (eventClothesChanged.CombinedWearables.clothingType.name) {
                 case "Shirts":
-                    clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
-                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
-
-                    clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
-                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
-
-                    clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
-                    FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.Wearable;
+                    // clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.CombinedWearables.Texture;
+                    // FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.CombinedWearables;
+                    //
+                    // clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.CombinedWearables.Texture;
+                    // FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.CombinedWearables;
+                    //
+                    // clientShirtArmRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.CombinedWearables.Texture;
+                    // FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.CombinedWearables;
 
                     break;
                 case "Pants":
-                    clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
-                    FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
-
-                    clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.Wearable.Texture;
-                    FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.Wearable;
+                    // clientPantsLeft.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.CombinedWearables.Texture;
+                    // FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.CombinedWearables;
+                    //
+                    // clientPantsRight.GetComponent<MeshRenderer>().material.mainTexture = eventClothesChanged.CombinedWearables.Texture;
+                    // FindObjectOfType<LastKnownClothes>().lastKnownPants = eventClothesChanged.CombinedWearables;
                     break;
             }
-            EventBroker.Instance().SendMessage(new EventWearableStylePoints(eventClothesChanged.Wearable));
+            EventBroker.Instance().SendMessage(new EventWearableStylePoints(eventClothesChanged.CombinedWearables));
         }
 
         void OnDestroy() {

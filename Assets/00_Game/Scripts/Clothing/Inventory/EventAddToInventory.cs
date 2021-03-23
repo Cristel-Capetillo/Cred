@@ -1,10 +1,10 @@
 ﻿namespace Clothing.Inventory {
     public class EventAddToInventory {
-        public readonly Wearable wearable;
+        public readonly CombinedWearables combinedWearable;
         public readonly int addOrSubtractAmount;
 
-        public EventAddToInventory(Wearable wearable, int addOrSubtractAmount) {
-            this.wearable = wearable;
+        public EventAddToInventory(CombinedWearables combinedWearable, int addOrSubtractAmount) {
+            this.combinedWearable = combinedWearable;
             this.addOrSubtractAmount = addOrSubtractAmount;
         }
     }

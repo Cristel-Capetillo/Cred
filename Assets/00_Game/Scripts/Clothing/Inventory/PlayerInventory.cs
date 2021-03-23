@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ClientMissions.Data;
 using SaveSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Clothing.Inventory {
@@ -10,16 +11,19 @@ namespace Clothing.Inventory {
         Dictionary<string, object> newClothing = new Dictionary<string, object>();
         SaveHandler saveHandler;
 
-        public Wearable wearable;
+        [FormerlySerializedAs("combineWearable")] public Wearable wearable;
 
+        ScriptableObject combinedWearable;
+        
         void Start() {
             saveHandler = new SaveHandler("Inventory");
             EventBroker.Instance().SubscribeMessage<EventAddToInventory>(AddToInventory);
-            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, 1));
-            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, -1));
+            
         }
 
+        //TODO unlocked Wearable?
         void OnDestroy() {
+            
             EventBroker.Instance().UnsubscribeMessage<EventAddToInventory>(AddToInventory);
         }
 
@@ -40,27 +44,29 @@ namespace Clothing.Inventory {
 
         void GenerateNewClothingItem(EventAddToInventory wearableEvent) {
             var id = "";
-            id += wearableEvent.wearable.ToString();
+            id += wearableEvent.combinedWearable.ToString();
 
-            var wearableStatsList = WearableStatsList(wearableEvent.wearable);
+            var wearableStatsList = WearableStatsList(wearableEvent.combinedWearable);
 
             if (!newClothing.ContainsKey(id)) {
                 newClothing[id] = wearableStatsList;
             }
-            wearableEvent.wearable.SetAmount(wearableEvent.addOrSubtractAmount);
-            wearableStatsList.Add(wearableEvent.wearable.Amount.ToString());
+
+            // wearableEvent.wearable.SetAmount(wearableEvent.addOrSubtractAmount);
+            // wearableStatsList.Add(wearableEvent.wearable.Amount.ToString());
         }
 
-        List<object> WearableStatsList(Wearable wearable) {
+        List<object> WearableStatsList(CombinedWearables combinedWearables) {
             var wearableStatsList = new List<object>();
-            foreach (var data in wearable.ColorData) {
-                wearableStatsList.Add(data.GetHexColorID());
+            foreach (var data in combinedWearables.wearable) {
+                wearableStatsList.Add(data.colorData.GetHexColorID());
+                wearableStatsList.Add(data.Texture.ToString());
+                wearableStatsList.Add(data.Sprite.ToString());
             }
 
-            wearableStatsList.Add(wearable.Rarity.ToString());
-            wearableStatsList.Add(wearable.ClothingType.ToString());
-            wearableStatsList.Add(wearable.Texture.ToString());
-            wearableStatsList.Add(wearable.Sprite.ToString());
+            //wearableStatsList.Add(wearable.Rarity.ToString());
+            //wearableStatsList.Add(wearable.ClothingType.ToString());
+            
             return wearableStatsList;
         }
 
@@ -70,6 +76,9 @@ namespace Clothing.Inventory {
 
         public void OnLoad(Dictionary<string, object> value) {
             newClothing = value;
+            
+            
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Clothing;
+using Clothing.Inventory;
 using UnityEngine;
 using Utilities;
 
@@ -11,10 +12,10 @@ namespace Editor.UnitTests.PlayModeTests{
         public Rarity common, rare, epic;
         public BodyPart pants, shirt;
         public void SendWearablePantsMessage(){
-            EventBroker.Instance().SendMessage(new WearableListMessage(wearablePants));
+            //EventBroker.Instance().SendMessage(new EventCombinedWearable(wearablePants));
         }
         public void SendWearableShirtsMessage(){
-            EventBroker.Instance().SendMessage(new WearableListMessage(wearableShirts));
+            //EventBroker.Instance().SendMessage(new EventCombinedWearable(wearableShirts));
         }
     }
 }

@@ -10,8 +10,9 @@ namespace ClientMissions.MissionRequirements{
         public ColorData ColorData { get; private set; }
         public BodyPart BodyPart{ get; private set; }
         
+        //TODO it's wrong! Should probably be CombinedWearbles + check for all parts?
         public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData) && wearable.BodyPart == BodyPart;
+            return wearable.colorData == ColorData && wearable.BodyPart == BodyPart;
         }
 
         public override string ToString(){
