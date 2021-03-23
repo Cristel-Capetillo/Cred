@@ -7,7 +7,7 @@ namespace Clothing {
     [CreateAssetMenu(menuName = "ScriptableObjects/Wearable")]
     public class Wearable : ScriptableObject {
         [SerializeField] Rarity rarity;
-        [SerializeField] ClothingType clothingType;
+        [SerializeField] BodyPart bodyPart;
         [SerializeField] Texture texture; //TODO: Inventory icon
         [SerializeField] Sprite sprite;
         [SerializeField] List<ColorData> colorData = new List<ColorData>();
@@ -37,7 +37,7 @@ namespace Clothing {
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
         public Rarity Rarity => rarity;
-        public ClothingType ClothingType => clothingType;
+        public BodyPart BodyPart => bodyPart;
         
         public void AddStylePoint() {
             if (StylePoints < Rarity.MaxValue) {
