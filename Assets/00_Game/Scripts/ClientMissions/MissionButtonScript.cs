@@ -19,8 +19,12 @@ namespace ClientMissions{
         }
 
         public void Setup(MissionData missionData){
+            if (missionData == null){
+                this.missionData = null;
+                return;
+            }
             this.missionData = missionData;
-            testText.text = missionData.Difficulty.name;
+            testText.text = missionData.ClientTestData.name;
         }
         public void OnPointerClick(PointerEventData eventData){
             EventBroker.Instance().SendMessage(new SelectMissionMessage(missionData));

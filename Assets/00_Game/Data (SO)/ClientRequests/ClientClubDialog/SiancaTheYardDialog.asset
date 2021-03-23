@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886a23a1d8e54a20b28bc7a99388ec02, type: 3}
-  m_Name: Accessories
+  m_Script: {fileID: 11500000, guid: 5804ac650b7a4935af0b655f43d3a7c2, type: 3}
+  m_Name: SiancaTheYardDialog
   m_EditorClassIdentifier: 
-  singularName: Accessorie
+  dialog:
+  - Sianca the yard 0
+  - Sianca the yard 1
+  - Sianca the yard 2
+  - Sianca the yard 3
+  clubData: {fileID: 11400000, guid: e2fc4b39446aec645836a9bebbf1f5f2, type: 2}

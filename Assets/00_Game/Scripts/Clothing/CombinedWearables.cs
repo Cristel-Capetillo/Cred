@@ -11,7 +11,7 @@ namespace Clothing {
         public override string ToString() {
             var uID = "";
             foreach (var wearable1 in wearable) {
-                uID += wearable1.BodyPart;
+                uID += wearable1.ClothingType;
                 uID += wearable1.colorData;
             }
 

@@ -1,98 +1,91 @@
+using System;
 using System.Collections.Generic;
 using ClientMissions.Data;
-using ClientMissions.MissionRequirements;
-using Club.MissionRequirments;
+using ClientMissions.Helpers;
 using UnityEngine;
+using Utilities.Time;
+using Random = UnityEngine.Random;
 
 namespace ClientMissions {
-    public class MissionGenerator : MonoBehaviour {
-        //TODO: New user = pick tutorial mission...
-        [SerializeField] MissionGeneratorData generatorData;
-        [SerializeField] int testFollowers = 0;
-        [SerializeField] int maxFollowers = 1000; 
-        int currentCycleIndex;
-        readonly Dictionary<int, List<int>> missionCycleCombinedList = new Dictionary<int, List<int>>();
-        
-        void Start(){
-            AddMissionCyclesToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle, 
-                generatorData.MediumModeMissionCycle, generatorData.HardModeMissionCycle});
-        }
-        public MissionData CreateMissionData() {
-            var missionDifficulty = PickDifficultyMission();
-            CycleIndex();//TODO: Save/load currentCycleIndex from firebase!
-            return new MissionData(missionDifficulty,CreateRandomRequirements(missionDifficulty.NumberOfRequirements),
-                CreateStylePointValues(missionDifficulty));
-        }
+    public class MissionGenerator{
+        readonly Dictionary<int, List<int>> missionCycles;
+        MissionGeneratorData generatorData;
+        IPlayer playerData;
+        int missionCycleCount;
+        TimeManager timeManager;
 
-        StylePointValues CreateStylePointValues(MissionDifficulty missionDifficulty){
-            var (min, max) = AdjustStylePoint(missionDifficulty.MinimumStylePoints,
-                missionDifficulty.MaximumStylePoints);
-            return new StylePointValues(min,max);
+        public int MissionCycleCount => missionCycleCount;
+
+        public MissionGenerator(MissionGeneratorData generatorData, IPlayer player, TimeManager timeManager){
+            this.generatorData = generatorData;
+             missionCycles = Helper.CombineListsToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle, 
+                 generatorData.MediumModeMissionCycle, generatorData.HardModeMissionCycle});
+             missionCycleCount = Helper.GetLowestNumberFromThreeNumbers(generatorData.EasyModeMissionCycle.Count,
+                 generatorData.MediumModeMissionCycle.Count, generatorData.HardModeMissionCycle.Count);
+             playerData = player;
+             this.timeManager = timeManager;
         }
-        (int, int) AdjustStylePoint(int minValue, int maxValue){
-            const int maxPossibleStylePoints = 50;
-            var t = Mathf.InverseLerp(0, maxFollowers, testFollowers);
-            minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
-            maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxPossibleStylePoints,t)); 
-            return (minValue, maxValue);
+        public SavableMissionData GenerateSavableMissionData(){
+            var missionDifficultyIndex = GetDifficultyIndex(playerData.MissionIndex);
+            var missionRequirements = generatorData.MissionDifficulties[missionDifficultyIndex].NumberOfRequirements;
+            var savableRequirementData = GenerateNewRequirements(missionRequirements);
+            var missionClient = generatorData.ClientData[playerData.ClientIndex];
+            var clientIndex = playerData.ClientIndex;
+            CycleIndexes();
+            var randomClub = Random.Range(0, missionClient.ClientDialogData.Count);
+            var randomDialog = Random.Range(0, missionClient.ClientDialogData[randomClub].Dialog.Count);
+            var dataTimeStart1 = timeManager.timeHandler.GetTime();
+            var unixTime = Helper.ToUnixTimestamp(dataTimeStart1);
+            return new SavableMissionData(missionDifficultyIndex, clientIndex, 
+                new SavableDialogData(randomClub, randomDialog), savableRequirementData, unixTime);
         }
-        List<IMissionRequirement> CreateRandomRequirements(int requirementAmount){
-            var missionRequirements = new List<IMissionRequirement>();
+        int GetDifficultyIndex(int difficultyIndex){
+            return missionCycles[GetDifficultyCycleKey()][difficultyIndex];
+        }
+        int GetDifficultyCycleKey(){
+            if (playerData.Followers <= generatorData.EasyModeEndValue)
+                return 0;
+            return playerData.Followers >= generatorData.HardModeStartValue ? 2 : 1;
+        }
+        void CycleIndexes(){
+            playerData.ClientIndex = Helper.CycleListIndex(playerData.ClientIndex, generatorData.ClientData.Count);
+            playerData.MissionIndex = Helper.CycleListIndex(playerData.MissionIndex, missionCycleCount);
+        }
+        List<SavableRequirementData> GenerateNewRequirements(int requirementAmount){
+            var savableMissionRequirements = new List<SavableRequirementData>();
             var requirementAmountLeft = requirementAmount;
-            var colorDataList = new List<ColorData>();
-            colorDataList.AddRange(generatorData.Colors);
+            var colorDataList = Helper.CreateListOfIndexes(generatorData.Colors.Count);
+            var clothingTypeDataList = Helper.CreateListOfIndexes(generatorData.ClothingTypes.Count);
             while (requirementAmountLeft >= 1){
-                var requirementValue = NumberGenerator(requirementAmountLeft);
+                var requirementValue = Helper.NumberGenerator(Mathf.Min(3,requirementAmountLeft));
+                var colorDataListIndex = GetRandomNonRepeatingIndexFromList(colorDataList);
+                var clothingTypeIndex = GetRandomNonRepeatingIndexFromList(clothingTypeDataList);
+                
                 switch (requirementValue){
                     case 1:
-                        missionRequirements.Add(new MatchColor(AddColorVariation(colorDataList)));
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex}));
                         break;
                     case 2:
-                        missionRequirements.Add(new MatchColorAndClothingType(AddColorVariation(colorDataList),
-                            generatorData.ClothingTypes[Random.Range(0, generatorData.ClothingTypes.Count)]));
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex, clothingTypeIndex}));
                         break;
-                    case 3:
-                        missionRequirements.Add(new MatchColorClothingTypeAndRarity(generatorData.Colors[Random.Range(0, generatorData.Colors.Count)],
-                            generatorData.ClothingTypes[Random.Range(0, generatorData.ClothingTypes.Count)],
-                            generatorData.Rarities[Random.Range(1,generatorData.Rarities.Count)]));
+                    case 3:{
+                        var rarityDataIndex = Random.Range(1, generatorData.Rarities.Count);
+                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
+                            new List<int>{colorDataListIndex, clothingTypeIndex, rarityDataIndex}));
                         break;
+                    }
                 }
                 requirementAmountLeft -= requirementValue;
             }
-            return missionRequirements;
+            return savableMissionRequirements;
         }
-        static int NumberGenerator(int requirementAmountLeft){
-            var requirementValue = 1;
-            if (requirementAmountLeft > 2)
-                requirementValue = Random.Range(2, requirementAmountLeft + 1);
-            return requirementValue;
-        }
-
-        ColorData AddColorVariation(List<ColorData> colorDataList){
-            var colorIndex = Random.Range(0, colorDataList.Count);
-            var colorData = colorDataList[colorIndex];
-            colorDataList.RemoveAt(colorIndex);
-            return colorData;
-        }
-        MissionDifficulty PickDifficultyMission(){
-            return generatorData.MissionDifficulties[missionCycleCombinedList[GetDifficultyKey()][currentCycleIndex]];
-        }
-        void AddMissionCyclesToDictionary(IReadOnlyList<List<int>> difficultyMissionLists){
-            for (var i = 0; i < difficultyMissionLists.Count; i++){
-                missionCycleCombinedList.Add(i,difficultyMissionLists[i]);
-            }
-        }
-        void CycleIndex(){
-            if (currentCycleIndex < 9)
-                currentCycleIndex++;
-            else{
-                currentCycleIndex = 0;
-            }
-        }
-        int GetDifficultyKey(){
-            if (testFollowers <= generatorData.EasyModeEndValue)
-                return 0;
-            return testFollowers >= generatorData.HardModeStartValue ? 2 : 1;
+        static int GetRandomNonRepeatingIndexFromList(List<int> listOfIndexes){
+            var randomListIndex = Random.Range(0, listOfIndexes.Count);
+            var index = listOfIndexes[randomListIndex];
+            listOfIndexes.RemoveAt(randomListIndex);
+            return index;
         }
     }
 }

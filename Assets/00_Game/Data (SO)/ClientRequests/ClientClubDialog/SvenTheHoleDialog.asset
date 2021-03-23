@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886a23a1d8e54a20b28bc7a99388ec02, type: 3}
-  m_Name: Accessories
+  m_Script: {fileID: 11500000, guid: 5804ac650b7a4935af0b655f43d3a7c2, type: 3}
+  m_Name: SvenTheHoleDialog
   m_EditorClassIdentifier: 
-  singularName: Accessorie
+  dialog:
+  - Sven the hole 0
+  - Sven the hole 1
+  - Sven the hole 2
+  - Sven the hole 3
+  clubData: {fileID: 11400000, guid: a79c609553e786b4798a5657dcae62ec, type: 2}

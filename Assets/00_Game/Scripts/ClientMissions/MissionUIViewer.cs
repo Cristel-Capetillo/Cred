@@ -22,11 +22,14 @@ namespace ClientMissions{
         }
 
         void UpdateMissionUI(SelectMissionMessage selectMissionMessage){
+            var missionData = selectMissionMessage.missionData;
             selectedMissionCanvas.enabled = true;
             missionPickerCanvas.enabled = false;
+            var clubInfo =  missionData.ClientTestData.ClientDialogData[missionData.SavableDialogData.ClubIndex];
+            storyText.text = clubInfo.Dialog[missionData.SavableDialogData.DialogIndex];
             requirementText.text = "";
-            foreach (var requirement in selectMissionMessage.missionData.Requirements){
-                requirementText.text += $"\n {requirement.ToString()}";
+            foreach (var requirement in missionData.Requirements){
+                requirementText.text += $"\n {requirement}";
             }
         }
     }
