@@ -3,7 +3,6 @@ namespace Clothing.Upgrade {
         public Wearable Wearable1 { get; }
         public Wearable Wearable2 { get; }
 
-
         public MessageUpCycleClothes(Wearable firstwearable, Wearable secondwearable) {
             Wearable1 = firstwearable;
             Wearable2 = secondwearable;

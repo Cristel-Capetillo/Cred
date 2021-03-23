@@ -12,10 +12,10 @@ namespace Ads {
 
         void RewardAdWatched(EventAdWatched eventAdWatched) {
             if(eventAdWatched.doubleMissionRewards) {
-                FindObjectOfType<Coin>().Coins += coinsToRewardOnSuccessfulAdWatch * 2;
+                EventBroker.Instance().SendMessage(new EventUpdateCoins(coinsToRewardOnSuccessfulAdWatch * 2));
             }
             else {
-                FindObjectOfType<Coin>().Coins += coinsToRewardOnSuccessfulAdWatch;
+                EventBroker.Instance().SendMessage(new EventUpdateCoins(coinsToRewardOnSuccessfulAdWatch));
             }
         }
 

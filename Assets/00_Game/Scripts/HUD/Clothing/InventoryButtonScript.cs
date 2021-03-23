@@ -14,19 +14,30 @@ namespace HUD.Clothing {
         public Text amountText;
 
         public void Setup(Wearable wearable, PopupWindowUpCycleDonate popupWindow) {
-            this.wearable = wearable;
-            gameObject.SetActive(true);
-            GetComponent<Image>().sprite = wearable.Sprite;
-            UpdateAmountStylePoint();
-            print(wearable.StylePoints + " " + wearable.Rarity.name);
-            _popupWindow = popupWindow;
+
+                this.wearable = wearable;
+                gameObject.SetActive(true);
+                GetComponent<Image>().sprite = wearable.Sprite;
+                UpdateAmountStylePoint();
+                print(wearable.StylePoints + " " + wearable.Rarity.name);
+                _popupWindow = popupWindow;
+                LockedUpcycledWearables();
+            
         }
 
         public void UpdateAmountStylePoint() {
             stylePointText.text = wearable.StylePoints.ToString();
             amountText.text = wearable.Amount.ToString();
         }
-
+        public void LockedUpcycledWearables()
+        {
+            if (!wearable.HasUnlockedUpCycledWearable() && wearable.isUpCycledWearable)
+            {
+                gameObject.SetActive(false);
+            }
+           
+        }
+            
         public void OnPointerClick(PointerEventData eventData) {
             if (!wearable.Unlocked()) {
                 Debug.Log("Not unlocked.");
@@ -37,7 +48,7 @@ namespace HUD.Clothing {
                 Debug.Log(wearable.Sprite.name);
             }
             else {
-                if (_popupWindow.isUpCycleWindow) {
+                if (_popupWindow.isUpCycleWindow && wearable.Amount > 0) {
                     EventBroker.Instance().SendMessage(new EventAddUpCycleClothes(wearable, this));
                     upcyclingClothingChosen = true;
                 }
