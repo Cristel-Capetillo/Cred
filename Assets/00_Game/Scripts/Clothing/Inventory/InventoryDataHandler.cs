@@ -19,7 +19,7 @@ namespace Clothing.Inventory {
         }
 
         void OnLoadWearablesAssets(EventCombinedWearable eventCombinedWearable) {
-            var combinedWearableList = eventCombinedWearable.Wearables;
+            var combinedWearableList = eventCombinedWearable.wearables;
             if (!wearableDictionary.ContainsKey(combinedWearableList[0].clothingType)) {
                 wearableDictionary.Add(combinedWearableList[0].clothingType, combinedWearableList);
             }
@@ -33,10 +33,10 @@ namespace Clothing.Inventory {
     }
 
     public class EventCombinedWearable {
-        public List<CombinedWearables> Wearables;
+        public readonly List<CombinedWearables> wearables;
 
         public EventCombinedWearable(List<CombinedWearables> wearables) {
-            Wearables = wearables;
+            this.wearables = wearables;
         }
     }
 }

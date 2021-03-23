@@ -27,9 +27,9 @@ namespace Clothing.DressUp {
             var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
             var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
            
-            EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
-            EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
-
+            // EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
+            // EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
+ 
             //
             // clientShirtTorso.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;
             // clientShirtArmLeft.GetComponent<MeshRenderer>().material.mainTexture = currentShirt.Texture;

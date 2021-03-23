@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Clothing;
 using Clothing.Inventory;
 using UnityEngine;
@@ -30,19 +31,20 @@ namespace AddressableLoadSystem {
         }
 
         void LoadAssetGroup(AssetLabelReference assetLabelReference) {
-            Addressables.LoadAssetsAsync<CombinedWearables>(assetLabelReference, asset => {
+            Addressables.LoadAssetsAsync<GameObject>(assetLabelReference, asset => {
                 if (asset == null) return;
-                loadedAssets.Add(asset);
                 // Debug.Log($"Adding: {asset}");
             }).Completed += OnComplete;
             _activeAsyncOperations++;
         }
 
-        void OnComplete(AsyncOperationHandle<IList<CombinedWearables>> obj) {
+        void OnComplete(AsyncOperationHandle<IList<GameObject>> obj) {
             if (_activeAsyncOperations > 0)
                 _activeAsyncOperations--;
-            var temp = (List<CombinedWearables>) obj.Result;
-            EventBroker.Instance().SendMessage(new EventCombinedWearable(temp));
+            var temp = (List<GameObject>) obj.Result;
+            var tmpList = temp.Select(o => o.GetComponent<CombinedWearables>()).ToList();
+
+            EventBroker.Instance().SendMessage(new EventCombinedWearable(tmpList));
             Debug.Log(_activeAsyncOperations <= 0 ? $"Send Loaded assets: full list {loadedAssets.Count} or latest list {obj.Result.Count}" : $"Active async operations: {_activeAsyncOperations}");
         }
     }
