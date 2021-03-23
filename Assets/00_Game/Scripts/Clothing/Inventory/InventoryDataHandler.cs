@@ -7,9 +7,13 @@ namespace Clothing {
     public class InventoryDataHandler : MonoBehaviour {
         public readonly Dictionary<BodyPart, List<Wearable>> wearableDictionary = new Dictionary<BodyPart, List<Wearable>>();
 
+
+        public Wearable wearable;
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
         }
+
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
@@ -23,6 +27,7 @@ namespace Clothing {
             else {
                 wearableDictionary[wearables[0].BodyPart].AddRange(wearables);
             }
+
             wearableDictionary[wearables[0].BodyPart] = wearableDictionary[wearables[0].BodyPart]
                 .OrderBy(rarity => rarity.Rarity.Value).ToList();
         }
