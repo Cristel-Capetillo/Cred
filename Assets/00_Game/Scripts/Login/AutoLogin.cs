@@ -14,7 +14,7 @@ namespace Login {
     public class AutoLogin : MonoBehaviour {
         FirebaseAuth auth;
         FirebaseUser user;
-
+        
         async Task Initialize() {
             await FirebaseApp.CheckDependenciesAsync().ContinueWithOnMainThread(task => {
                 if (task.Result == DependencyStatus.Available) {
@@ -35,11 +35,13 @@ namespace Login {
         }
 
         IEnumerator Start() {
-            while (!Initialize().IsCompleted) {
+            var initTask = Initialize();
+            while (!initTask.IsCompleted) {
                 yield return null;
             }
 
-            while (!LogIn().IsCompleted) {
+            var loginTask = LogIn();
+            while (loginTask.IsCompleted) {
                 yield return null;
             }
 
