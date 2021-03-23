@@ -23,7 +23,6 @@ namespace Clothing.DressUp {
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
-            EventBroker.Instance().SubscribeMessage<MessageUpCycleClothes>(UpCycleWearable);
             
             var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
             var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
@@ -67,8 +66,6 @@ namespace Clothing.DressUp {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
         }
 
-        void UpCycleWearable(MessageUpCycleClothes messageUpCycleClothes) {
-            Debug.Log("VAR");
-        }
+       
     }
 }

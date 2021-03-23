@@ -14,6 +14,8 @@ namespace Clothing {
         int stylePoints;
         [SerializeField] int amount;
 
+        public Texture addedUpcycleTexture;
+
         ////////////////////*Upcycle Wearables*///////////////////////////
         [SerializeField ]public bool isUpCycledWearable;
         

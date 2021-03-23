@@ -19,4 +19,8 @@ MonoBehaviour:
   colorData:
   - {fileID: 11400000, guid: e3fafea2feaebf44da5cef039104a41d, type: 2}
   amount: 4
-  fusedWearable: 0
+  upcycleTextures:
+  - {fileID: 0}
+  - {fileID: 0}
+  isUpCycledWearable: 0
+  unlockedUpcycle: 0
