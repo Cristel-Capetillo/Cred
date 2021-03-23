@@ -3,21 +3,20 @@ using Clothing;
 
 namespace ClientMissions.MissionRequirements{
     public class MatchColorAndClothingType : IMissionRequirement{
-        public readonly ColorData ColorData;
-        public readonly ClothingType ClothingType;
-        public MatchColorAndClothingType(ColorData colorData, ClothingType clothingType){
+        public MatchColorAndClothingType(ColorData colorData, BodyPart bodyPart){
             ColorData = colorData;
-            ClothingType = clothingType;
+            BodyPart = bodyPart;
         }
-
+        public ColorData ColorData { get; private set; }
+        public BodyPart BodyPart{ get; private set; }
         
-        
+        //TODO it's wrong! Should probably be CombinedWearbles + check for all parts?
         public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData) && wearable.ClothingType == ClothingType;
+            return wearable.colorData == ColorData && wearable.BodyPart == BodyPart;
         }
 
         public override string ToString(){
-            return $"{ColorData.name} {ClothingType.SingularName.ToLower()}.";
+            return $"{ColorData.name} {BodyPart.SingularName.ToLower()}.";
         }
     }
 }

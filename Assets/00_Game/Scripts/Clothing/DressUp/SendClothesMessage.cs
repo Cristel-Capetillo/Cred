@@ -3,8 +3,8 @@ using Utilities;
 
 namespace Clothing {
     public class SendClothesMessage : MonoBehaviour {
-        [SerializeField] Wearable defaultShirt;
-        [SerializeField] Wearable defaultPants;
+        [SerializeField] CombinedWearables defaultShirt;
+        [SerializeField] CombinedWearables defaultPants;
         
 
         public void ChangeDefaultClothes() {

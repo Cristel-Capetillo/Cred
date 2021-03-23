@@ -11,7 +11,7 @@ namespace Club.MissionRequirments{
         }
 
         public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData);
+            return wearable.colorData == ColorData;
         }
         // public SavableRequirementData ToSavable(){
         //     return new SavableRequirementData(0, new List<int>(0));
