@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
   localPlayerTestData:
-    followers: 1000
+    followers: 200
     maxFollowers: 1000
     testCoins: 0
     missions: []

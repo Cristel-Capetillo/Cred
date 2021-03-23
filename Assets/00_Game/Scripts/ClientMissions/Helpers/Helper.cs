@@ -14,7 +14,7 @@ namespace ClientMissions.Helpers{
             return listOfIndexes;
         }
         public static int NumberGenerator(int requirementAmountLeft){
-            return requirementAmountLeft <= 2 ? Random.Range(1, requirementAmountLeft + 1) : 
+            return requirementAmountLeft < 3 ? Random.Range(1, requirementAmountLeft + 1) : 
                 Random.Range(2, requirementAmountLeft + 1);
         }
         public static int CycleListIndex(int currentIndex, int listCount){

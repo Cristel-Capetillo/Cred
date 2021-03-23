@@ -29,7 +29,8 @@ namespace ClientMissions{
             foreach (var requirementData in savableRequirementData){
                 switch (requirementData.RequirementValue){
                     case 1:
-                        missionRequirements.Add(new MatchColor(generatorData.Colors[requirementData.RequirementsDataIndex[0]]));
+                       missionRequirements.Add(new MatchColor(generatorData.Colors[requirementData.RequirementsDataIndex[0]])); 
+                       //MatchColor.FromSavable(requirementData)
                         break;
                     case 2:
                         missionRequirements.Add(new MatchColorAndClothingType(generatorData.Colors[requirementData.RequirementsDataIndex[0]],

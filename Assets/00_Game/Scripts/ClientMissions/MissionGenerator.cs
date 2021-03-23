@@ -53,7 +53,7 @@ namespace ClientMissions {
                 var requirementValue = Helper.NumberGenerator(Mathf.Min(3,requirementAmountLeft));
                 var colorDataListIndex = GetRandomNonRepeatingIndexFromList(colorDataList);
                 var clothingTypeIndex = GetRandomNonRepeatingIndexFromList(clothingTypeDataList);
-
+                
                 switch (requirementValue){
                     case 1:
                         savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
@@ -70,7 +70,6 @@ namespace ClientMissions {
                         break;
                     }
                 }
-
                 requirementAmountLeft -= requirementValue;
             }
             return savableMissionRequirements;
