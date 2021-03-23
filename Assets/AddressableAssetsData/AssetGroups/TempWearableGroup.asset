@@ -17,13 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: d8a885efe9adc694dbcedc58bd261907
   m_SerializeEntries:
-  - m_GUID: fc84658296eab5b46aaed68dbc593a9b
-    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Pants
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: e91cdfcea96fdd64bb35aaf49c40629f
     m_Address: Assets/00_Game/Data (SO)/Wearables/Special shirt.asset
     m_ReadOnly: 0
