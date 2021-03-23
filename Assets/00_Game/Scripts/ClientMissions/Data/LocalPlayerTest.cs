@@ -9,9 +9,7 @@ namespace ClientMissions.Data {
         [SerializeField] int followers;
         [SerializeField] int maxFollowers;
         [SerializeField] int testCoins;
-        [SerializeField] List<string> missions;
         
-
         public int Followers => followers;
 
         public int MaxFollowers => maxFollowers;
@@ -38,7 +36,6 @@ namespace ClientMissions.Data {
             }
             return false;
         }
-
         public bool RemoveMission(SavableMissionData savableMissionData){
             var missionDataToJson = JsonUtility.ToJson(savableMissionData);
             for (var i = 0; i < MaxCurrentMissions; i++){
@@ -49,20 +46,27 @@ namespace ClientMissions.Data {
             }
             return false;
         }
-
         public List<SavableMissionData> GetMissions(){
-            missions.Clear();
+            var jSonMission = GetMissionsFromPlayerPrefs();
+            return ReturnSavableMissionData(jSonMission);
+        }
+
+        static List<SavableMissionData> ReturnSavableMissionData(List<string> jSonMission){
             var savableMissionData = new List<SavableMissionData>();
-            for (int i = 0; i < MaxCurrentMissions; i++){
-                var missionInfo = PlayerPrefs.GetString($"PlayerMission({i})", "");
-                if(missionInfo != "") 
-                    missions.Add(missionInfo);
-            }
-            foreach (var mission in missions){
-                if(mission != "")
+            foreach (var mission in jSonMission){
+                if (mission != "")
                     savableMissionData.Add(JsonUtility.FromJson<SavableMissionData>(mission));
             }
             return savableMissionData;
+        }
+        static List<string> GetMissionsFromPlayerPrefs(){
+            var jSonMission = new List<string>();
+            for (var i = 0; i < MaxCurrentMissions; i++){
+                var missionInfo = PlayerPrefs.GetString($"PlayerMission({i})", "");
+                if (missionInfo != "")
+                    jSonMission.Add(missionInfo);
+            }
+            return jSonMission;
         }
     }
 

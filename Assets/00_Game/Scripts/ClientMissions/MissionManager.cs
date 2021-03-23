@@ -10,29 +10,35 @@ using Utilities;
 using Utilities.Time;
 
 namespace ClientMissions {
-    public class MissionHolder : MonoBehaviour{
+    public class MissionManager : MonoBehaviour{
         //TODO: create unit tests, cleanup code and change to real data...
         //TODO: Remove/replace missions
         const int MaxCurrentMissions = 3;
         [SerializeField] MissionButtonScript missionUiPrefab;
         [SerializeField] Transform contentParent;
         [SerializeField] int missionTimerInSec = 60;
-        List<MissionData> missionData = new List<MissionData>();
-        List<SavableMissionData> savableMissionData = new List<SavableMissionData>();
+        public List<SavableMissionData> savableMissionData = new List<SavableMissionData>();
         MissionData currentMission;
         List<MissionButtonScript> missionButtonScripts = new List<MissionButtonScript>();
         IMissionHolder missionHolder;
         MissionInitializer missionInitializer;
         MissionGenerator missionGenerator;
         
+        List<MissionData> activeMissions = new List<MissionData>();
+
+        //ForTesting:
+        public List<MissionData> ActiveMissions => activeMissions;//For testing...
+        public MissionData CurrentMission => currentMission;
+
+
         IEnumerator Start(){
             missionInitializer = GetComponent<MissionInitializer>();
             missionHolder = missionInitializer.GetMissionHolder();
             missionGenerator = missionInitializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
-            yield return new WaitForSeconds(1);
-            CheckMissions();
+            yield return new WaitForSeconds(1f);
             InstantiateMissionUI();
+            CheckMissions();
         }
 
         void OnDestroy(){
@@ -40,9 +46,12 @@ namespace ClientMissions {
         }
 
         public void RemoveMission(){
-            if (!missionHolder.RemoveMission(currentMission.SavableMissionData))
+            if (currentMission == null){
+                Debug.Log("CurrentMission == null");
                 return;
-            RemoveMissionData(currentMission);
+            }
+            var anyMissionToRemove = missionHolder.RemoveMission(currentMission.SavableMissionData);
+            Debug.Log("Any mission to remove? " + anyMissionToRemove);
             CheckMissions();
         }
 
@@ -54,47 +63,39 @@ namespace ClientMissions {
             EventBroker.Instance().SendMessage(new CurrentMissionMessage(currentMission));
             //TODO: Load dress up scene!
         }
-        
         public void CheckMissions(){
-            ClearLists();
-            savableMissionData = missionHolder.GetMissions();
-            TimeCheck();
-            savableMissionData = missionHolder.GetMissions();
-            GenerateMissions();
-            InitializeMissions();
-            SendMissionData();
+            savableMissionData = TimeCheck(missionHolder.GetMissions());
+            GenerateSavableMissions();
+            activeMissions = InitializeMissions();
+            SendMissionData(activeMissions);
         }
 
-        void InitializeMissions(){
-            foreach (var saveMissionData in savableMissionData){
-                missionData.Add(missionInitializer.GetSavedMission(saveMissionData));
-            }
+        List<MissionData> InitializeMissions(){
+            return savableMissionData.Select(savedMissionData => missionInitializer.GetSavedMission(savedMissionData)).ToList();
         }
 
-        void GenerateMissions(){
+        void GenerateSavableMissions(){
             if (savableMissionData.Count >= missionHolder.MaxMissions) return;
             var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
             for (var i = 0; i < missingMissions; i++){
                 var newMission = missionGenerator.GenerateSavableMissionData();
                 missionHolder.AddMission(newMission);
+                savableMissionData.Add(newMission);
             }
         }
 
-        void ClearLists(){
-            savableMissionData.Clear();
-            missionData.Clear();
-        }
-
-        void TimeCheck(){
+        List<SavableMissionData> TimeCheck(List<SavableMissionData> savableMissionDatas){
             var dateTime = FindObjectOfType<TimeManager>().timeHandler.GetTime();
             var unixTimestamp = Helper.ToUnixTimestamp(dateTime);
-            var tempList = savableMissionData.ToArray();
+            var tempList = savableMissionDatas.ToArray();
             foreach (var savableMission in tempList){
                 if (unixTimestamp - savableMission.UnixUtcTimeStamp > missionTimerInSec){
                     missionHolder.RemoveMission(savableMission);
+                    savableMissionDatas.Remove(savableMission);
                     Debug.Log(unixTimestamp - savableMission.UnixUtcTimeStamp + " < " + missionTimerInSec);
                 }
             }
+            return savableMissionDatas;
         }
 
         void SelectMission(SelectMissionMessage selectMissionMessage){
@@ -106,18 +107,9 @@ namespace ClientMissions {
                 missionButtonScripts.Add(Instantiate(missionUiPrefab, contentParent));
             }
         }
-
-        void RemoveMissionData(MissionData missionData){
-            foreach (var missionButtonScript in missionButtonScripts.Where(missionButtonScript => missionButtonScript.MissionData == missionData)){
-                missionButtonScript.Setup(null);
-                return;
-            }
-        }
-        void SendMissionData(){
+        void SendMissionData(List<MissionData> missionData){
             for (var i = 0; i < missionButtonScripts.Count; i++){
-                if (missionButtonScripts[i].MissionData == null){
-                    missionButtonScripts[i].Setup(missionData[i]);
-                }
+                missionButtonScripts[i].Setup(missionData[i]);
             }
         }
     }

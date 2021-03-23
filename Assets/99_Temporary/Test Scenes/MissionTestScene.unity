@@ -1705,11 +1705,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
-  localPlayerTestData:
-    followers: 200
+  localPlayerTest:
+    followers: 100
     maxFollowers: 1000
     testCoins: 0
-    missions: []
 --- !u!114 &1305691674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,6 +1725,7 @@ MonoBehaviour:
     type: 3}
   contentParent: {fileID: 2106906705}
   missionTimerInSec: 10
+  savableMissionData: []
 --- !u!114 &1305691675
 MonoBehaviour:
   m_ObjectHideFlags: 0
