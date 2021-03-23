@@ -52,9 +52,10 @@ namespace ClientMissions {
             //TODO: Load dress up scene!
         }
 
-        //TODO: Cleanup...
+        //TODO: Cleanup...!!!!!!!!!!!!!
         public void CheckMissions(){
             savableMissionData.Clear();
+            missionData.Clear();
             savableMissionData = missionHolder.GetMissions();
             if (savableMissionData.Count < missionHolder.MaxMissions){
                 var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
@@ -63,7 +64,6 @@ namespace ClientMissions {
                     missionHolder.AddMission(newMission);
                 }
             }
-
             savableMissionData = missionHolder.GetMissions();
             foreach (var saveMissionData in savableMissionData){
                 missionData.Add(missionInitializer.GetSavedMission(saveMissionData));
