@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Basic Pants Left Side
+  m_Name: Designer Black Jacket Left Sleeve
   m_EditorClassIdentifier: 
-  bodyPart: {fileID: 11400000, guid: 606e08556cda24446a97f02bc6debf42, type: 2}
+  clothingType: {fileID: 11400000, guid: 606e08556cda24446a97f02bc6debf42, type: 2}
   texture: {fileID: 0}
-  sprite: {fileID: 0}
-  colorData: {fileID: 11400000, guid: ba98bb311a824f44892b37af1cae5a38, type: 2}
-  addedUpcycleTexture: {fileID: 0}
-  isUpCycledWearable: 0
-  unlockedUpcycle: 0
+  sprite: {fileID: 21300000, guid: 6d8a0d52d6f933f49be02685dd258f92, type: 3}
+  colorData: {fileID: 11400000, guid: 86ca8bf00e5f82e4a82fffcf22db6307, type: 2}
