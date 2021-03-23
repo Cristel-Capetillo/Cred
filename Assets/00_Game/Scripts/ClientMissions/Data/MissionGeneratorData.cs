@@ -8,7 +8,7 @@ namespace ClientMissions.Data{
         [SerializeField] List<MissionDifficulty> missionDifficulties;
         [SerializeField] List<ColorData> colors;
         [SerializeField] List<Rarity> rarities;
-        [SerializeField] List<ClothingType> clothingTypes;
+        [SerializeField] List<BodyPart> clothingTypes;
         [SerializeField, Header("Values based on followers:")]int easyModeEndValue = 200;
         [SerializeField]int hardModeStartValue = 1000;
         [SerializeField]List<int> easyModeMissionCycle = new List<int>(10);
@@ -18,7 +18,7 @@ namespace ClientMissions.Data{
         public List<MissionDifficulty> MissionDifficulties => missionDifficulties;
         public List<ColorData> Colors => colors;
         public List<Rarity> Rarities => rarities;
-        public List<ClothingType> ClothingTypes => clothingTypes;
+        public List<BodyPart> ClothingTypes => clothingTypes;
         public int EasyModeEndValue => easyModeEndValue;
         public int HardModeStartValue => hardModeStartValue;
         public List<int> EasyModeMissionCycle => easyModeMissionCycle;

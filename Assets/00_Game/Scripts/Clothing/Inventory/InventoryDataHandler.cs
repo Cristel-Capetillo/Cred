@@ -1,42 +1,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
-namespace Clothing {
+namespace Clothing.Inventory {
     public class InventoryDataHandler : MonoBehaviour {
-        public readonly Dictionary<ClothingType, List<Wearable>> wearableDictionary = new Dictionary<ClothingType, List<Wearable>>();
+        public readonly Dictionary<ClothingType, List<CombinedWearables>> wearableDictionary = new Dictionary<ClothingType, List<CombinedWearables>>();
 
-
-        public Wearable wearable;
 
         void Start() {
-            EventBroker.Instance().SubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
+            EventBroker.Instance().SubscribeMessage<EventCombinedWearable>(OnLoadWearablesAssets);
         }
 
 
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<WearableListMessage>(OnLoadWearablesAssets);
+            EventBroker.Instance().UnsubscribeMessage<EventCombinedWearable>(OnLoadWearablesAssets);
         }
 
-        void OnLoadWearablesAssets(WearableListMessage wearableListMessage) {
-            var wearables = wearableListMessage.Wearables;
-            if (!wearableDictionary.ContainsKey(wearables[0].ClothingType)) {
-                wearableDictionary.Add(wearables[0].ClothingType, wearables);
+        void OnLoadWearablesAssets(EventCombinedWearable eventCombinedWearable) {
+            var combinedWearableList = eventCombinedWearable.Wearables;
+            if (!wearableDictionary.ContainsKey(combinedWearableList[0].clothingType)) {
+                wearableDictionary.Add(combinedWearableList[0].clothingType, combinedWearableList);
             }
             else {
-                wearableDictionary[wearables[0].ClothingType].AddRange(wearables);
+                wearableDictionary[combinedWearableList[0].clothingType].AddRange(combinedWearableList);
             }
 
-            wearableDictionary[wearables[0].ClothingType] = wearableDictionary[wearables[0].ClothingType]
-                .OrderBy(rarity => rarity.Rarity.Value).ToList();
+            wearableDictionary[combinedWearableList[0].clothingType] = wearableDictionary[combinedWearableList[0].clothingType]
+                .OrderBy(combineWearable => combineWearable.rarity.Value).ToList();
         }
     }
 
-    public class WearableListMessage {
-        public List<Wearable> Wearables;
+    public class EventCombinedWearable {
+        public List<CombinedWearables> Wearables;
 
-        public WearableListMessage(List<Wearable> wearables) {
+        public EventCombinedWearable(List<CombinedWearables> wearables) {
             Wearables = wearables;
         }
     }

@@ -1,9 +1,9 @@
 namespace Clothing {
     public class EventClothesChanged {
-        public Wearable Wearable { get; }
+        public CombinedWearables CombinedWearables { get; }
 
-        public EventClothesChanged(Wearable wearable) {
-            Wearable = wearable;
+        public EventClothesChanged(CombinedWearables combinedWearables) {
+            CombinedWearables = combinedWearables;
         }
     }
 }

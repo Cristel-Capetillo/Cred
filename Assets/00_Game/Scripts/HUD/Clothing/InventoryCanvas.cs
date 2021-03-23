@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Clothing;
+using Clothing.Inventory;
 using Clothing.Upgrade;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace HUD.Clothing {
     //TODO: If you press anything outside of the InventoryButtons, could the InvCanvas act like you pressed the InventoryButton?
@@ -23,6 +25,7 @@ namespace HUD.Clothing {
 
         void Start() {
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
+            EventBroker.Instance().SubscribeMessage<MessageUpCycleClothes>(UpCycleWearable);
         }
 
         public void ToggleButton(ClothingType clothingType) {
@@ -51,19 +54,22 @@ namespace HUD.Clothing {
 
         void ContentPooling(ClothingType clothingType) {
             var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
-        
+
             if (inventoryContent.Count < clothingTypeCount) {
                 for (int i = inventoryContent.Count; i < clothingTypeCount; i++) {
                     inventoryContent.Add(Instantiate(inventoryContentPrefab, contentParent));
                 }
-            } else {
+            }
+            else {
                 for (int i = clothingTypeCount; i < inventoryContent.Count; i++) {
-                    
                     inventoryContent[i].gameObject.SetActive(false);
-                  
                 }
             }
+        }
 
+        void UpCycleWearable(MessageUpCycleClothes messageUpCycleClothes) {
+            for (int i = 0; i < inventoryContent.Count; i++) {
+            }
         }
     }
 }

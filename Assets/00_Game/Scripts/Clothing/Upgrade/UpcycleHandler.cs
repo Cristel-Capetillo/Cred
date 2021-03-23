@@ -1,10 +1,11 @@
 using System;
+using Clothing.Inventory;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing.Upgrade {
     public class UpcycleHandler : MonoBehaviour {
-        WearableListMessage wearableListMessage;
+        EventCombinedWearable eventCombinedWearable;
         Wearable newUpcycledWearable;
 
         void Start() {
@@ -21,7 +22,8 @@ namespace Clothing.Upgrade {
 
             foreach (var chosenWearable in wearables)
             {
-                chosenWearable.SetAmount(chosenWearable.Amount - 1);
+                //TODO fix
+                //chosenWearable.Amount -= 1;
                 // chosenWearable.Value.SetAmount(chosenWearable.Value.Amount - 1);
 
             }

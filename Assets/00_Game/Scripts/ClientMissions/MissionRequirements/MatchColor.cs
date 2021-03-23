@@ -10,7 +10,7 @@ namespace Club.MissionRequirments{
         public ColorData ColorData { get; private set; }
         
         public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData);
+            return wearable.colorData == ColorData;
         }
         public override string ToString(){
             return $"Any {ColorData.name.ToLower()} wearable.";
