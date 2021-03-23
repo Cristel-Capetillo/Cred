@@ -33,11 +33,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
   - {fileID: 11400000, guid: 1ebb332f9fadaad4880a5e41728838a3, type: 2}
   clothingTypes:
-  - {fileID: 11400000, guid: ce35a1e6c56cc6e4caf45f203933892f, type: 2}
-  - {fileID: 11400000, guid: 197e706b94f9b7342861822684a636de, type: 2}
-  - {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}
-  - {fileID: 11400000, guid: 0749319de8169dd478b81d0e0e884e25, type: 2}
-  - {fileID: 11400000, guid: af3873bc01c1706458c96ff44478fcda, type: 2}
+  - {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69, type: 2}
+  - {fileID: 11400000, guid: 1eacb442ef8452649831bb9b83906d57, type: 2}
+  - {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c, type: 2}
+  - {fileID: 11400000, guid: c64867dc560fccf4487b4bec4c4dd42d, type: 2}
+  - {fileID: 11400000, guid: 00de2a19f27a4104297fdf180c8fe652, type: 2}
+  - {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d, type: 2}
   clientData:
   - {fileID: 11400000, guid: c1d6be903a6e0bc40a37ae3428bde357, type: 2}
   - {fileID: 11400000, guid: 896989b7ea7155f47ac6810a92e41742, type: 2}

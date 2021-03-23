@@ -1726,6 +1726,7 @@ MonoBehaviour:
   missionUiPrefab: {fileID: -2044608161243971125, guid: 1c02794c51b6a324f9db9a8746df6701,
     type: 3}
   contentParent: {fileID: 2106906705}
+  missionTimerInSec: 60
 --- !u!114 &1305691675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,6 +1928,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1509104621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118929, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240094714958118931, guid: 1bf7c7f0175bc7244af1cc2bb491d174,
+        type: 3}
+      propertyPath: m_Name
+      value: TimeManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bf7c7f0175bc7244af1cc2bb491d174, type: 3}
 --- !u!1 &1676065729
 GameObject:
   m_ObjectHideFlags: 0

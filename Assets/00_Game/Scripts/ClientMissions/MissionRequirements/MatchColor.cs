@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.MissionRequirements;
 using Clothing;
@@ -10,8 +11,8 @@ namespace Club.MissionRequirments{
             ColorData = colorData;
         }
 
-        public bool PassedRequirement(Wearable wearable){
-            return wearable.colorData == ColorData;
+        public bool PassedRequirement(CombinedWearables combinedWearables){
+            return combinedWearables.wearable.Any(wearable => wearable.colorData == ColorData);
         }
         // public SavableRequirementData ToSavable(){
         //     return new SavableRequirementData(0, new List<int>(0));
