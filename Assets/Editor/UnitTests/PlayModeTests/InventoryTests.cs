@@ -29,7 +29,7 @@ namespace Editor.UnitTests.PlayModeTests{
 
             var index = 0;
             foreach (var item in inventoryDataHandler.wearableDictionary.First().Value){
-                Debug.Log($"{index}: {item.name} {item.Rarity.name} {item.ClothingType.name}");
+                Debug.Log($"{index}: {item.name} {item.Rarity.name} {item.BodyPart.name}");
                 index++;
             }
             Assert.AreEqual(addressableMock.common.name, inventoryDataHandler.wearableDictionary[addressableMock.pants].First().Rarity.name);

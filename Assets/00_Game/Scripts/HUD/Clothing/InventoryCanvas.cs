@@ -25,17 +25,17 @@ namespace HUD.Clothing {
             inventoryDataHandler = GetComponent<InventoryDataHandler>();
         }
 
-        public void ToggleButton(ClothingType clothingType) {
-            if (!inventoryDataHandler.wearableDictionary.ContainsKey(clothingType)) {
-                Debug.LogWarning($"No item was found in {clothingType.name}");
+        public void ToggleButton(BodyPart bodyPart) {
+            if (!inventoryDataHandler.wearableDictionary.ContainsKey(bodyPart)) {
+                Debug.LogWarning($"No item was found in {bodyPart.name}");
                 return;
             }
 
-            closeButtonText.text = clothingType.name;
+            closeButtonText.text = bodyPart.name;
             buttonHolder.SetActive(false);
             scrollView.SetActive(true);
-            ContentPooling(clothingType);
-            AddToInventory(clothingType);
+            ContentPooling(bodyPart);
+            AddToInventory(bodyPart);
         }
 
         public void CloseScrollview() {
@@ -43,14 +43,14 @@ namespace HUD.Clothing {
             scrollView.SetActive(false);
         }
 
-        void AddToInventory(ClothingType clothingType) {
-            for (int i = 0; i < inventoryDataHandler.wearableDictionary[clothingType].Count; i++) {
-                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[clothingType][i], popupWindonwUpcycleDonate);
+        void AddToInventory(BodyPart bodyPart) {
+            for (int i = 0; i < inventoryDataHandler.wearableDictionary[bodyPart].Count; i++) {
+                inventoryContent[i].Setup(inventoryDataHandler.wearableDictionary[bodyPart][i], popupWindonwUpcycleDonate);
             }
         }
 
-        void ContentPooling(ClothingType clothingType) {
-            var clothingTypeCount = inventoryDataHandler.wearableDictionary[clothingType].Count;
+        void ContentPooling(BodyPart bodyPart) {
+            var clothingTypeCount = inventoryDataHandler.wearableDictionary[bodyPart].Count;
         
             if (inventoryContent.Count < clothingTypeCount) {
                 for (int i = inventoryContent.Count; i < clothingTypeCount; i++) {

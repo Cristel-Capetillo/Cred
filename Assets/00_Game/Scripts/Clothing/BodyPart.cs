@@ -2,11 +2,9 @@
 
 namespace Clothing {
     [CreateAssetMenu(menuName = "ScriptableObjects/ClothingType")]
-    public class ClothingType : ScriptableObject{
+    public class BodyPart : ScriptableObject{
         [SerializeField] string singularName;
         
         public string SingularName => singularName;
-
-      
     }
 }

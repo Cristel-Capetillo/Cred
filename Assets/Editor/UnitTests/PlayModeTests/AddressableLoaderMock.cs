@@ -9,7 +9,7 @@ namespace Editor.UnitTests.PlayModeTests{
         public List<Wearable> wearablePants = new List<Wearable>();
         public List<Wearable> wearableShirts = new List<Wearable>();
         public Rarity common, rare, epic;
-        public ClothingType pants, shirt;
+        public BodyPart pants, shirt;
         public void SendWearablePantsMessage(){
             EventBroker.Instance().SendMessage(new WearableListMessage(wearablePants));
         }

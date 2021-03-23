@@ -3,22 +3,22 @@ using Clothing;
 
 namespace ClientMissions.MissionRequirements{
     public class MatchColorClothingTypeAndRarity : IMissionRequirement{
-        public MatchColorClothingTypeAndRarity(ColorData colorData, ClothingType clothingType, Rarity rarity){
+        public MatchColorClothingTypeAndRarity(ColorData colorData, BodyPart bodyPart, Rarity rarity){
             ColorData = colorData;
-            ClothingType = clothingType;
+            BodyPart = bodyPart;
             Rarity = rarity;
         }
 
         public ColorData ColorData{ get; private set; }
-        public ClothingType ClothingType{ get; private set; }
+        public BodyPart BodyPart{ get; private set; }
         public Rarity Rarity{ get; private set; }
 
         public bool PassedRequirement(Wearable wearable){
             return wearable.ColorData.Contains(ColorData) &&
-                   wearable.ClothingType == ClothingType && wearable.Rarity == Rarity;
+                   wearable.BodyPart == BodyPart && wearable.Rarity == Rarity;
         }
         public override string ToString(){
-            return $"{ColorData.name} {Rarity.name.ToLower()} {ClothingType.SingularName.ToLower()}.";
+            return $"{ColorData.name} {Rarity.name.ToLower()} {BodyPart.SingularName.ToLower()}.";
         }
     }
 }

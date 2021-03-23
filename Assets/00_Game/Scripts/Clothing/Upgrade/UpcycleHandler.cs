@@ -21,7 +21,7 @@ namespace Clothing.Upgrade {
 
             foreach (var chosenWearable in wearables)
             {
-                chosenWearable.SetAmount(chosenWearable.Amount - 1);
+                chosenWearable.Amount -= 1;
                 // chosenWearable.Value.SetAmount(chosenWearable.Value.Amount - 1);
 
             }

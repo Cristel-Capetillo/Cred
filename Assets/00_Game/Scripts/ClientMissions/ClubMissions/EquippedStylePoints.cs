@@ -6,7 +6,7 @@ using Utilities;
 namespace ClientMissions.ClubMissions {
     public class EquippedStylePoints : MonoBehaviour{
         public int CurrentStylePoints { get; private set; }
-        readonly Dictionary<ClothingType, int> dictionary = new Dictionary<ClothingType, int>();
+        readonly Dictionary<BodyPart, int> dictionary = new Dictionary<BodyPart, int>();
 
         public void Awake() {
             EventBroker.Instance().SubscribeMessage<EventWearableStylePoints>(UpdateStylePoints);
@@ -14,7 +14,7 @@ namespace ClientMissions.ClubMissions {
 
         void UpdateStylePoints(EventWearableStylePoints eventWearableStylePoints) {
             CurrentStylePoints = 0;
-            dictionary[eventWearableStylePoints.Value.ClothingType] = eventWearableStylePoints.Value.StylePoints;
+            dictionary[eventWearableStylePoints.Value.BodyPart] = eventWearableStylePoints.Value.StylePoints;
             foreach (var y in dictionary) {
                 CurrentStylePoints += y.Value;
             }

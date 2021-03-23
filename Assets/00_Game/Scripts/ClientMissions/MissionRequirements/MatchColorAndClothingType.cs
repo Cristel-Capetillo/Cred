@@ -3,19 +3,19 @@ using Clothing;
 
 namespace ClientMissions.MissionRequirements{
     public class MatchColorAndClothingType : IMissionRequirement{
-        public MatchColorAndClothingType(ColorData colorData, ClothingType clothingType){
+        public MatchColorAndClothingType(ColorData colorData, BodyPart bodyPart){
             ColorData = colorData;
-            ClothingType = clothingType;
+            BodyPart = bodyPart;
         }
         public ColorData ColorData { get; private set; }
-        public ClothingType ClothingType{ get; private set; }
+        public BodyPart BodyPart{ get; private set; }
         
         public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData) && wearable.ClothingType == ClothingType;
+            return wearable.ColorData.Contains(ColorData) && wearable.BodyPart == BodyPart;
         }
 
         public override string ToString(){
-            return $"{ColorData.name} {ClothingType.SingularName.ToLower()}.";
+            return $"{ColorData.name} {BodyPart.SingularName.ToLower()}.";
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Clothing.Upgrade {
         public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
             buttonScriptList.Add(eventAddUpCycleClothes.inventoryButtonScript);
             if (slot1.sprite == null) {
-                if (wearables[slot2] != null && wearables[slot2].ClothingType != eventAddUpCycleClothes.wearable.ClothingType) return;
+                if (wearables[slot2] != null && wearables[slot2].BodyPart != eventAddUpCycleClothes.wearable.BodyPart) return;
                 wearables[slot1] = eventAddUpCycleClothes.wearable;
                 slot1.sprite = eventAddUpCycleClothes.wearable.Sprite;
                 slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
@@ -43,7 +43,7 @@ namespace Clothing.Upgrade {
             }
 
             if (slot2.sprite == null) {
-                if (wearables[slot1] != null && wearables[slot1].ClothingType != eventAddUpCycleClothes.wearable.ClothingType) return;
+                if (wearables[slot1] != null && wearables[slot1].BodyPart != eventAddUpCycleClothes.wearable.BodyPart) return;
                 wearables[slot2] = eventAddUpCycleClothes.wearable;
                 slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
                 slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
