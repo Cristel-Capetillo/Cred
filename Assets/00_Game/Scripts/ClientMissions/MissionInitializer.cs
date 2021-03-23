@@ -3,6 +3,7 @@ using ClientMissions.Data;
 using ClientMissions.MissionRequirements;
 using Club.MissionRequirments;
 using UnityEngine;
+using Utilities.Time;
 
 namespace ClientMissions{
     public class MissionInitializer : MonoBehaviour
@@ -10,7 +11,7 @@ namespace ClientMissions{
         [SerializeField] MissionGeneratorData generatorData;//TODO: Get this from addressable for possible remote balancing?
         [SerializeField] LocalPlayerTestData localPlayerTestData;
         public MissionGenerator CreateMissionGenerator(){
-            return new MissionGenerator(generatorData, localPlayerTestData);
+            return new MissionGenerator(generatorData, localPlayerTestData, FindObjectOfType<TimeManager>());
         }
 
         public IMissionHolder GetMissionHolder(){

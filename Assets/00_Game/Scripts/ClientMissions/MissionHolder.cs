@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
+using ClientMissions.Helpers;
 using ClientMissions.MissionMessages;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Utilities;
+using Utilities.Time;
 
 namespace ClientMissions {
     public class MissionHolder : MonoBehaviour{
@@ -13,6 +14,7 @@ namespace ClientMissions {
         //TODO: Remove/replace missions
         [SerializeField] MissionButtonScript missionUiPrefab;
         [SerializeField] Transform contentParent;
+        [SerializeField] int missionTimerInSec = 60;
         List<MissionData> missionData = new List<MissionData>();
         List<SavableMissionData> savableMissionData = new List<SavableMissionData>();
         MissionData currentMission;
@@ -20,7 +22,7 @@ namespace ClientMissions {
         IMissionHolder missionHolder;
         MissionInitializer missionInitializer;
         MissionGenerator missionGenerator;
-
+        
         void Start(){
             missionInitializer = GetComponent<MissionInitializer>();
             missionHolder = missionInitializer.GetMissionHolder();
@@ -47,7 +49,6 @@ namespace ClientMissions {
                 Debug.LogWarning("CurrentMission is null!");
                 return;
             }
-
             EventBroker.Instance().SendMessage(new CurrentMissionMessage(currentMission));
             //TODO: Load dress up scene!
         }
@@ -57,6 +58,14 @@ namespace ClientMissions {
             savableMissionData.Clear();
             missionData.Clear();
             savableMissionData = missionHolder.GetMissions();
+
+            var dateTime = FindObjectOfType<TimeManager>().timeHandler.GetTime();
+            var unixTimestamp = Helper.ToUnixTimestamp(dateTime);
+            foreach (var savableMission in savableMissionData){
+                if (unixTimestamp - savableMission.UnixUtcTimeStamp > 60)
+                    missionHolder.RemoveMission(savableMission);
+            }
+            
             if (savableMissionData.Count < missionHolder.MaxMissions){
                 var missingMissions = missionHolder.MaxMissions - savableMissionData.Count;
                 for (var i = 0; i < missingMissions; i++){

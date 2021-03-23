@@ -11,9 +11,6 @@ namespace ClientMissions.MissionRequirements{
             ClothingType = clothingType;
             Rarity = rarity;
         }
-
-        
-
         public bool PassedRequirement(Wearable wearable){
             return wearable.ColorData.Contains(ColorData) &&
                    wearable.ClothingType == ClothingType && wearable.Rarity == Rarity;

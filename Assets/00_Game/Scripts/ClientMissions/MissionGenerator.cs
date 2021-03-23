@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
 using UnityEngine;
+using Utilities.Time;
+using Random = UnityEngine.Random;
 
 namespace ClientMissions {
     public class MissionGenerator{
@@ -9,16 +12,18 @@ namespace ClientMissions {
         MissionGeneratorData generatorData;
         IPlayer playerData;
         int missionCycleCount;
+        TimeManager timeManager;
 
         public int MissionCycleCount => missionCycleCount;
 
-        public MissionGenerator(MissionGeneratorData generatorData, IPlayer player){
+        public MissionGenerator(MissionGeneratorData generatorData, IPlayer player, TimeManager timeManager){
             this.generatorData = generatorData;
              missionCycles = Helper.CombineListsToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle, 
                  generatorData.MediumModeMissionCycle, generatorData.HardModeMissionCycle});
              missionCycleCount = Helper.GetLowestNumberFromThreeNumbers(generatorData.EasyModeMissionCycle.Count,
                  generatorData.MediumModeMissionCycle.Count, generatorData.HardModeMissionCycle.Count);
              playerData = player;
+             this.timeManager = timeManager;
         }
         public SavableMissionData GenerateSavableMissionData(){
             var missionDifficultyIndex = GetDifficultyIndex(playerData.MissionIndex);
@@ -29,8 +34,10 @@ namespace ClientMissions {
             CycleIndexes();
             var randomClub = Random.Range(0, missionClient.ClientDialogData.Count);
             var randomDialog = Random.Range(0, missionClient.ClientDialogData[randomClub].Dialog.Count);
+            var dataTimeStart1 = timeManager.timeHandler.GetTime();
+            var unixTime = Helper.ToUnixTimestamp(dataTimeStart1);
             return new SavableMissionData(missionDifficultyIndex, clientIndex, 
-                new SavableDialogData(randomClub, randomDialog), savableRequirementData);
+                new SavableDialogData(randomClub, randomDialog), savableRequirementData, unixTime);
         }
         int GetDifficultyIndex(int difficultyIndex){
             return missionCycles[GetDifficultyCycleKey()][difficultyIndex];
