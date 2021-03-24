@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ClientMissions.ClubMissions;
 using UnityEngine;
 using Utilities;
 
@@ -11,7 +10,8 @@ namespace Clothing.DressUp {
         //TODO: put all body parts in a list. make sure the bodyparts have the same names as in code
         //[SerializeField] List<GameObject> bodyParts; this is probably best, with addition limb identifier scripts on body parts
         [SerializeField] List<GameObject> clothingCategories;
-
+        [SerializeField] List<GameObject> clothingRarities;
+        
         LastKnownClothes lastKnownClothes;
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
@@ -20,7 +20,11 @@ namespace Clothing.DressUp {
 
         void RemoveClothes(RemoveAllClothes obj) {
             //undress completely
-            throw new NotImplementedException();
+            foreach (var rarity in clothingRarities) {
+                foreach (Transform child in rarity.transform) {
+                    child.gameObject.SetActive(false);
+                }
+            }
         }
 
         void Start() {
