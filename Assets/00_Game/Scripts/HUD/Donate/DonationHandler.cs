@@ -8,24 +8,24 @@ namespace HUD.Donate {
     public class DonationHandler : MonoBehaviour {
         CombinedWearables combinedWearables;
         PlayerInventory playerInventory;
-        int sPToUpgrade;
+        int stylePointsToUpgrade;
         int addedStylePoints;
         
-        public Button[] buttons;
+        public Button[] alternativesButtons;
         public Text warningText;
 
         void Start() {
             combinedWearables = GetComponent<CombinedWearables>();
             playerInventory = FindObjectOfType<PlayerInventory>();
-            foreach (var button in buttons) {
+            foreach (var button in alternativesButtons) {
                 button.interactable = false;
             }
         }
 
-        void CheckIfValid() {
-            if (IsGood) {
-                for (var buttonToBeActive = 0; buttonToBeActive < sPToUpgrade; buttonToBeActive++) {
-                    foreach (var button in buttons) {
+        void CheckIfValidForDonation() {
+            if (qualifiesForDonation) {
+                for (var buttonToBeActive = 0; buttonToBeActive < stylePointsToUpgrade; buttonToBeActive++) {
+                    foreach (var button in alternativesButtons) {
                         button.interactable = true;
                     }
                 }
@@ -33,12 +33,12 @@ namespace HUD.Donate {
             if (!(playerInventory.combineWearablesAmount[combinedWearables] >= 2)) {
                 warningText.text = "This item does not have any duplicate yet. Come back later!";
             }
-            else if (!(HowManyPointsCanThisBeUpgraded(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
+            else if (!(CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
                 warningText.text = "This item already has its maximum style points";
             }
         }
 
-        public void UpgradeMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
+        public void DonateMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
             addedStylePoints = stylePointsToAdd;
             combinedWearables = wearable;
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, -1));
@@ -47,12 +47,12 @@ namespace HUD.Donate {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
         }
 
-        bool IsGood => HowManyPointsCanThisBeUpgraded(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 
+        bool qualifiesForDonation => CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 
                        && playerInventory.combineWearablesAmount[combinedWearables] >= 2;
         
-        int HowManyPointsCanThisBeUpgraded(int currentPoints, Rarity rarity) {
-            sPToUpgrade = rarity.MaxValue - currentPoints;
-            return sPToUpgrade;
+        int CheckIfMaxStylePointsReached(int currentPoints, Rarity rarity) {
+            stylePointsToUpgrade = rarity.MaxValue - currentPoints;
+            return stylePointsToUpgrade;
         }
     }
 }
