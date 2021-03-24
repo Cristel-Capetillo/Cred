@@ -32,11 +32,10 @@ namespace ClientMissions.Helpers{
         public static int GetLowestNumberFromThreeNumbers(int numberOne, int numberTwo, int numberThree){
             return Mathf.Min(Mathf.Min(numberOne,numberTwo), numberThree);
         }
-
+        //TODO: Move this inside a Utility.Time struct
         public static long ToUnixTimestamp(DateTime target)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, target.Kind);
-            Debug.Log(date.Kind);
             var unixTimestamp = Convert.ToInt64((target - date).TotalSeconds);
 
             return unixTimestamp;

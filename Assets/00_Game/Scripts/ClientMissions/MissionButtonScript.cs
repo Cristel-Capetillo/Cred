@@ -9,22 +9,17 @@ namespace ClientMissions{
     public class MissionButtonScript : MonoBehaviour, IPointerClickHandler{
 
         MissionData missionData;
-        [SerializeField]Text testText;
+        [SerializeField]Image clientPortrait;
 
         public MissionData MissionData => missionData;
 
-        void Start(){
-            if(missionData == null)
-                testText.text = "Locked";
-        }
-
         public void Setup(MissionData missionData){
             if (missionData == null){
-                this.missionData = null;
+                Debug.LogWarning("No missionData was sent...");
                 return;
             }
             this.missionData = missionData;
-            testText.text = missionData.ClientTestData.name;
+            clientPortrait.sprite = missionData.ClientTestData.Portrait;
         }
         public void OnPointerClick(PointerEventData eventData){
             EventBroker.Instance().SendMessage(new SelectMissionMessage(missionData));
