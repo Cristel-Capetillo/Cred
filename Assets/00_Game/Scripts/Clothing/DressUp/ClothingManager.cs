@@ -36,6 +36,7 @@ namespace Clothing.DressUp {
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
         }
+        
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
             

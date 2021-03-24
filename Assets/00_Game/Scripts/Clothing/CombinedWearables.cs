@@ -15,9 +15,6 @@ namespace Clothing {
                 uID += wearable1.colorData.name;
             }
 
-            if (rarity == null)
-                return "";
-
             return uID + rarity.name + clothingType.name;
         }
 

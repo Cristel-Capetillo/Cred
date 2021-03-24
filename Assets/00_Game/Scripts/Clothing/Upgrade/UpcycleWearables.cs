@@ -15,21 +15,23 @@ namespace Clothing.Upgrade {
 
         public Button upCycleConfirmButton;
 
-        CombinedWearables newCombinedWearables;
+        public CombinedWearables newCombinedWearables;
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
+            EventBroker.Instance().SubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
         }
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
+            EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
         }
 
         public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
-            upCycleConfirmButton.interactable = AssignToSlot(eventAddUpCycleClothes.combinedWearable);
+            AssignToSlot(eventAddUpCycleClothes.combinedWearable);
         }
 
-        bool AssignToSlot(CombinedWearables combinedWearables) {
+        void AssignToSlot(CombinedWearables combinedWearables) {
             for (var i = 0; i < slots.Length; i++) {
                 if (slots[i].transform.childCount > 0) {
                     if (!combineWearablesDic.ContainsValue(combinedWearables.rarity) || combineWearablesDic.ContainsKey(combinedWearables)) {
@@ -42,28 +44,45 @@ namespace Clothing.Upgrade {
                     var scale = combinedWearables.GetComponent<RectTransform>().localScale;
                     instance.transform.localPosition = Vector2.zero;
                     instance.GetComponent<RectTransform>().localScale = scale;
+                    Destroy(instance.GetComponent<AssignCombinedWearableToUpCycle>());
+                    Destroy(instance.GetComponent<Button>());
                     combineWearablesDic[combinedWearables] = combinedWearables.rarity;
                     break;
                 }
             }
 
-            return slots[0].transform.childCount > 0 && slots[1].transform.childCount > 0;
+            EventBroker.Instance().SendMessage(new EventValidateConfirmButton(slots[0].transform.childCount > 0 && slots[1].transform.childCount > 0));
         }
 
+        void UpdateConfirmButton(EventValidateConfirmButton validateConfirmButton) {
+            upCycleConfirmButton.interactable = validateConfirmButton.validateButton;
+        }
         public void OnConfirm() {
             //EventBroker.Instance().SendMessage(new MessageUpCycleClothes(combineWearablesDic[slot1], combineWearablesDic[slot2]));
             var wearableInSlots = new List<CombinedWearables>();
-            
+
             foreach (var slot in slots) {
                 wearableInSlots.Add(slot.GetComponentInChildren<CombinedWearables>());
             }
-            
-            newCombinedWearables = gameObject.AddComponent<CombinedWearables>();
-            newCombinedWearables.rarity = wearableInSlots[0].rarity;
-             newCombinedWearables.clothingType = wearableInSlots[0].clothingType;
 
+            var instance = Instantiate(newCombinedWearables);
+            instance.rarity = wearableInSlots[0].rarity;
+            instance.clothingType = wearableInSlots[0].clothingType;
 
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(newCombinedWearables, 1));
+            var count = wearableInSlots[0].wearable.Count;
+
+            if (count < 3) {
+                instance.wearable.Add(wearableInSlots[0].wearable[0]);
+                instance.wearable.Add(wearableInSlots[1].wearable[1]);
+            }
+            else {
+                instance.wearable.Add(wearableInSlots[0].wearable[0]);
+                instance.wearable.Add(wearableInSlots[1].wearable[1]);
+                instance.wearable.Add(wearableInSlots[1].wearable[2]);
+            }
+
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
+            Destroy(instance.gameObject);
         }
 
         // public void CleanUpOnExitAndConfirm() {

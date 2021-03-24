@@ -20,6 +20,11 @@ namespace Clothing.Inventory {
             saveHandler.Load(this);
         }
 
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.F9)) {
+                saveHandler.Load(this);
+            }
+        }
 
         //TODO unlocked Wearable?
         void OnDestroy() {
@@ -31,6 +36,7 @@ namespace Clothing.Inventory {
 
             if (!CombineWearableExists(id)) {
                 GenerateNewCombinedWearable(wearableEvent.combinedWearable);
+                combinedWearableDataToSave.Add(id, wearableEvent.combinedWearable);
                 combineWearablesAmount.Add(wearableEvent.combinedWearable, 0);
             }
 
@@ -48,6 +54,11 @@ namespace Clothing.Inventory {
         }
 
         bool CombineWearableExists(string id) {
+            if (combinedWearableDataToSave == null) {
+                combinedWearableDataToSave = new Dictionary<string, object>();
+                return false;
+            }
+
             return combinedWearableDataToSave.ContainsKey(id);
         }
 
@@ -96,6 +107,7 @@ namespace Clothing.Inventory {
             if (value == null) return;
 
             foreach (var combinedWearable in value) {
+                print("New combinedWearable!");
                 var combinedWearableInstance = InstantiateCombinedWearables();
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
                 var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
