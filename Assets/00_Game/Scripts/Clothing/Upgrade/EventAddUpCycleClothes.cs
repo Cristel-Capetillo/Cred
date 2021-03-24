@@ -3,11 +3,11 @@
 namespace Clothing.Upgrade {
     public class EventAddUpCycleClothes {
         public readonly CombinedWearables combinedWearable;
-        public readonly InventoryButtonScript inventoryButtonScript;
+        public readonly AssignCombinedWearableToUpCycle assignCombinedWearableToUpCycle;
 
-        public EventAddUpCycleClothes(CombinedWearables combinedWearable, InventoryButtonScript inventoryButtonScript) {
+        public EventAddUpCycleClothes(CombinedWearables combinedWearable, AssignCombinedWearableToUpCycle assignCombinedWearableToUpCycle) {
             this.combinedWearable = combinedWearable;
-            this.inventoryButtonScript = inventoryButtonScript;
+            this.assignCombinedWearableToUpCycle = assignCombinedWearableToUpCycle;
         }
     }
 }

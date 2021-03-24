@@ -1,4 +1,6 @@
+using System;
 using Clothing;
+using Clothing.Inventory;
 using Clothing.Upgrade;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,13 +9,28 @@ using UnityEngine.UI;
 using Utilities;
 
 namespace HUD.Clothing {
-    public class InventoryButtonScript : MonoBehaviour, IPointerClickHandler {
+    public class AssignCombinedWearableToUpCycle : MonoBehaviour, IPointerClickHandler {
         [FormerlySerializedAs("combineWearable")]
-        public CombinedWearables combinedWearable;
+        CombinedWearables combinedWearable;
         PopupWindowUpCycleDonate _popupWindow;
-        public bool upcyclingClothingChosen;
+        //public bool upcyclingClothingChosen;
         public Text stylePointText;
-        public Text amountText;
+        //public Text amountText;
+
+        void Start() {
+            combinedWearable = GetComponent<CombinedWearables>();
+            
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearable, -1));
+            
+            //what wearable in "combinedWearable" in slot1 (orange)
+            //what wearable in "combinedWearable" in slot2 (black)
+            
+            //generate new combined wearable (orange + black)
+            
+            //send message new item created
+            //send message subtract from slot1
+            //send message subtract from slot2
+        }
 
         public void Setup(CombinedWearables wearable, PopupWindowUpCycleDonate popupWindow) {
             this.combinedWearable = wearable;
