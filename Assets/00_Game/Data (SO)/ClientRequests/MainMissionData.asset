@@ -22,7 +22,7 @@ MonoBehaviour:
   easyModeEndValue: 200
   hardModeStartValue: 1000
   colors:
-  - {fileID: 11400000, guid: c1d17274633aa4937b6f910ae5bdd30e, type: 2}
+  - {fileID: 11400000, guid: d9977e18cf77f8148ab5d1b5ac809586, type: 2}
   - {fileID: 11400000, guid: 86ca8bf00e5f82e4a82fffcf22db6307, type: 2}
   - {fileID: 11400000, guid: d3a9e0248fc8dab4393b41bad83de8b1, type: 2}
   - {fileID: 11400000, guid: ba98bb311a824f44892b37af1cae5a38, type: 2}
