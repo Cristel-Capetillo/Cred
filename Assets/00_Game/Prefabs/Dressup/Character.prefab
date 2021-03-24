@@ -47,7 +47,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846029164373371038}
   m_Layer: 6
-  m_Name: NormalClothes
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846029165469653895}
   m_Layer: 6
-  m_Name: BasicClothes
+  m_Name: Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846029165973169903}
   m_Layer: 6
-  m_Name: DesignerClothes
+  m_Name: Designer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
       propertyPath: m_Name
-      value: AccessoriesNormal
+      value: Accessories
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
@@ -664,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
       propertyPath: m_Name
-      value: ShirtsNormal
+      value: Shirts
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
       propertyPath: m_Name
-      value: ShoesDesigner
+      value: Shoes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
@@ -1044,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
       propertyPath: m_Name
-      value: PantsNormal
+      value: Pants
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
@@ -1169,7 +1169,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
       propertyPath: m_Name
-      value: ShirtsBasic
+      value: Shirts
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
@@ -1414,7 +1414,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
       propertyPath: m_Name
-      value: ShoesBasic
+      value: Shoes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc2ace8a77c5a6c488704eab322b7baf,
         type: 3}
       propertyPath: m_Name
-      value: AccessoriesDesigner
+      value: Accessories
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bc2ace8a77c5a6c488704eab322b7baf,
         type: 3}
@@ -1649,7 +1649,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
       propertyPath: m_Name
-      value: PantsBasic
+      value: Pants
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
@@ -1769,7 +1769,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
       propertyPath: m_Name
-      value: ShirtsDesigner
+      value: Shirts
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
@@ -1899,7 +1899,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
       propertyPath: m_Name
-      value: AccessoriesBasic
+      value: Accessories
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
@@ -2019,7 +2019,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 24c83e999f25bbf41a9e3b1686fa3801,
         type: 3}
       propertyPath: m_Name
-      value: SkirtNormal
+      value: Skirt
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 24c83e999f25bbf41a9e3b1686fa3801,
         type: 3}
@@ -2129,7 +2129,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 935ba9da32453df4a8a3c7a3b205f2ef,
         type: 3}
       propertyPath: m_Name
-      value: JacketsNormal
+      value: Jackets
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 935ba9da32453df4a8a3c7a3b205f2ef,
         type: 3}
