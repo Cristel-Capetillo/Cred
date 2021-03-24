@@ -12,7 +12,7 @@ namespace HUD.MysteryBox {
         
         public void SpawnMysteryBox() {
             var instance =Instantiate(MysteryBoxPrefab);
-            instance.GetComponent<global::MysteryBox.MysteryBox>().AssignLootTable(lootTable);
+            instance.GetComponent<global::MysteryBox.MysteryBox>().LootTable(lootTable);
         }
         
         public void AssignLootTable(LootTable lootTable) {
