@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3991901679735643709, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: m_Name
-      value: DesignerPantsBlack
+      value: NormalSkirtBlack
       objectReference: {fileID: 0}
     - target: {fileID: 5181284984146279649, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
@@ -71,18 +71,18 @@ PrefabInstance:
         type: 3}
       propertyPath: rarity
       value: 
-      objectReference: {fileID: 11400000, guid: 1ebb332f9fadaad4880a5e41728838a3,
+      objectReference: {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: stylePoints
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: clothingType
       value: 
-      objectReference: {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c,
+      objectReference: {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
@@ -93,12 +93,14 @@ PrefabInstance:
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 30685c1b821dd1849849f9d611ede49a,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 02501ced87c6ed94ab8c40bfa6b3526f,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[2]
