@@ -60,7 +60,7 @@ namespace ClientMissions {
                 Debug.LogWarning("CurrentMission is null!");
                 return;
             }
-            EventBroker.Instance().SendMessage(new CurrentMissionMessage(currentMission));
+            EventBroker.Instance().SendMessage(new ActiveMissionMessage(currentMission));
             //TODO: Load dress up scene!
         }
         public void CheckMissions(){
