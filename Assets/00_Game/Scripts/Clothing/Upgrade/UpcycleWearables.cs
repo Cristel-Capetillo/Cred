@@ -15,7 +15,7 @@ namespace Clothing.Upgrade {
 
         public Button upCycleConfirmButton;
 
-        public CombinedWearables newCombinedWearables;
+        //public CombinedWearables newCombinedWearables;
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
@@ -65,7 +65,7 @@ namespace Clothing.Upgrade {
                 wearableInSlots.Add(slot.GetComponentInChildren<CombinedWearables>());
             }
 
-            var instance = Instantiate(newCombinedWearables);
+            var instance = Instantiate(FindObjectOfType<PlayerInventory>().combinedWearablesTemplate);
             instance.rarity = wearableInSlots[0].rarity;
             instance.clothingType = wearableInSlots[0].clothingType;
 

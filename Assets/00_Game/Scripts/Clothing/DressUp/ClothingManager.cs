@@ -33,11 +33,12 @@ namespace Clothing.DressUp {
                 }
             }
         }
+
         void GetAllBodyParts() {
             foreach (var rarity in clothingRarities) {
                 foreach (Transform clothingType in rarity.transform) {
                     foreach (Transform bodyPart in clothingType) {
-                        if(bodyPart!=null)
+                        if (bodyPart != null)
                             bodyParts.Add(bodyPart.gameObject);
                     }
                 }

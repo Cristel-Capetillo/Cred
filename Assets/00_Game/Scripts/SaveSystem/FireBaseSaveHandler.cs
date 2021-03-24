@@ -10,6 +10,7 @@ namespace SaveSystem {
 
         public void Authenticate(string saveID) {
             fbDatabase = FirebaseDatabase.GetInstance(UrlToolSite);
+            
             this.saveID = "JsuJjn1YHZdrgTGvz5hsYs3HFkl1" + "/" + saveID;
         }
 
