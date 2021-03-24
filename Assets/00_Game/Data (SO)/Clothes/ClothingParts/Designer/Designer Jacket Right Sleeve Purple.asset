@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: fdbbfcd8eb55efa4583bfafc21e4da0c, type: 2}
   texture: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 67df42c560223ef428ca4ea75f1d6147, type: 3}
+  sprite: {fileID: 0}
   colorData: {fileID: 11400000, guid: ed86d007de9f5814b98db8882cfa1aeb, type: 2}
