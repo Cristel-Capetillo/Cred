@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3991901679735643709, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: m_Name
-      value: DesignerAccessoryRed
+      value: DesignerAccessoryBlack
       objectReference: {fileID: 0}
     - target: {fileID: 5181284984146279649, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
@@ -93,8 +93,7 @@ PrefabInstance:
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e3b93a513b318d04cb437768cb4f8fa7,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]

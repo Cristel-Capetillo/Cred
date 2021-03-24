@@ -93,14 +93,12 @@ PrefabInstance:
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 5150ddbf0532a684684cbea19720e4e1,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 892e3eddac159de4891275585cb9073a,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[2]

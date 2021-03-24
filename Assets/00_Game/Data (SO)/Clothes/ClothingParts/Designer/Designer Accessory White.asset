@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Designer Accessory White
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: 05a65d4acb39f6943a07ff2d735d2994, type: 2}
-  texture: {fileID: 0}
-  sprite: {fileID: 0}
-  colorData: {fileID: 0}
+  texture: {fileID: 2800000, guid: 0e9999634b4cf544cb8921449dffa280, type: 3}
+  sprite: {fileID: 21300000, guid: 89be83a5e243e59428caf37826e7d2ae, type: 3}
+  colorData: {fileID: 11400000, guid: bd266e6369b4b16459e5fd40438afeb4, type: 2}

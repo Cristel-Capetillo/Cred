@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Designer Shirt Left Orange
+  m_Name: Designer Skirt Right White
   m_EditorClassIdentifier: 
-  clothingType: {fileID: 11400000, guid: c77069fa49a4b614f8c3a1a466aaa765, type: 2}
-  texture: {fileID: 0}
-  sprite: {fileID: 0}
-  colorData: {fileID: 0}
+  clothingType: {fileID: 11400000, guid: 5c2d92c0c3add5a4b84e6f4f5a61cd80, type: 2}
+  texture: {fileID: 2800000, guid: b3ab0f0afa548aa45aa1d699004db966, type: 3}
+  sprite: {fileID: 21300000, guid: cbcd595e819bed74dbac9459911e4077, type: 3}
+  colorData: {fileID: 11400000, guid: bd266e6369b4b16459e5fd40438afeb4, type: 2}
