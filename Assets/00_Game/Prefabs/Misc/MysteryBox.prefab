@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSpawnOffset: {x: 0, y: 2, z: 0}
   spawnRewardAfterDelay: 1.5
-  destroyDelay: 5
+  destroyDelay: 3
 --- !u!1 &5301991473930937997
 GameObject:
   m_ObjectHideFlags: 0

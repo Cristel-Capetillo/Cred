@@ -21,7 +21,7 @@ namespace MysteryBox {
 
         IEnumerator StartRewardProcess(float delay) {
             yield return new WaitForSeconds(delay);
-            ShowReward();
+            //ShowReward();
             Destroy(gameObject, destroyDelay);
         }
         
@@ -29,8 +29,8 @@ namespace MysteryBox {
             Instantiate(lootTable.Reward().gameObject, transform.position + rewardSpawnOffset, Quaternion.identity);
         }
         
-        void OnDestroy() {
-            StopCoroutine(nameof(StartRewardProcess));
-        }
+        // void OnDestroy() {
+        //     StopCoroutine(nameof(StartRewardProcess));
+        // }
     }
 }
