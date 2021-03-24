@@ -25,13 +25,13 @@ namespace Clothing.Upgrade {
         bool cannotUpcycle;
 
         void Start() {
-            EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(AssignUpCycleSlot);
+            EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
             popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
             combineWearablesDic[slot1] = null;
             combineWearablesDic[slot2] = null;
         }
 
-        public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
+        public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
             buttonScriptList.Add(eventAddUpCycleClothes.assignCombinedWearableToUpCycle);
             // if (slot1.sprite == null) {
             //     if (combineWearablesDic[slot2] != null && combineWearablesDic[slot2].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;

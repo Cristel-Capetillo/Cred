@@ -17,21 +17,6 @@ namespace HUD.Clothing {
         public Text stylePointText;
         //public Text amountText;
 
-        void Start() {
-            combinedWearable = GetComponent<CombinedWearables>();
-            
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearable, -1));
-            
-            //what wearable in "combinedWearable" in slot1 (orange)
-            //what wearable in "combinedWearable" in slot2 (black)
-            
-            //generate new combined wearable (orange + black)
-            
-            //send message new item created
-            //send message subtract from slot1
-            //send message subtract from slot2
-        }
-
         bool popUpWindowIsActive;
         void Start() {
             combinedWearable = GetComponent<CombinedWearables>();
