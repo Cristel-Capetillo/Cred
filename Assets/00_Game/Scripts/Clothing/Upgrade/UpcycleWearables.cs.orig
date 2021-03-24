@@ -31,6 +31,10 @@ namespace Clothing.Upgrade {
             combineWearablesDic[slot2] = null;
         }
 
+<<<<<<< Updated upstream
+        public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
+            buttonScriptList.Add(eventAddUpCycleClothes.inventoryButtonScript);
+=======
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
         }
@@ -42,6 +46,7 @@ namespace Clothing.Upgrade {
         public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddToUpgradeSlot) {
             print("I MADE IT");
             //buttonScriptList.Add(eventAddUpCycleClothes.assignCombinedWearableToUpCycle);
+>>>>>>> Stashed changes
             // if (slot1.sprite == null) {
             //     if (combineWearablesDic[slot2] != null && combineWearablesDic[slot2].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;
             //     combineWearablesDic[slot1] = eventAddUpCycleClothes.combinedWearable;
