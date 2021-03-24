@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Normal Shirt Torso Blue
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: 2d770e4a24d2f3748868b7a2daef2028, type: 2}
-  texture: {fileID: 0}
-  sprite: {fileID: 0}
+  texture: {fileID: 2800000, guid: 9778b42bb72e6e24ba6bf624e54f4686, type: 3}
+  sprite: {fileID: 21300000, guid: f668d33c854ee514eb4a30d8c536e59d, type: 3}
   colorData: {fileID: 11400000, guid: d3a9e0248fc8dab4393b41bad83de8b1, type: 2}

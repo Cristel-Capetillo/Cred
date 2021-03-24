@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
   m_Name: Designer Accessory White
   m_EditorClassIdentifier: 
-  clothingType: {fileID: 11400000, guid: ee4a9eff9e0f4b948872d61849e1a505, type: 2}
-  texture: {fileID: 2800000, guid: 544f60c08821b5d48adbb1daf875b7d1, type: 3}
-  sprite: {fileID: 21300000, guid: e87ce3753ede6ac4cb50a0e676ad6fa9, type: 3}
-  colorData: {fileID: 11400000, guid: bd266e6369b4b16459e5fd40438afeb4, type: 2}
+  clothingType: {fileID: 11400000, guid: 05a65d4acb39f6943a07ff2d735d2994, type: 2}
+  texture: {fileID: 0}
+  sprite: {fileID: 0}
+  colorData: {fileID: 0}

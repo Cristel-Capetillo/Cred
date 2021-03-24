@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
   m_Name: Normal Accessory Pink
   m_EditorClassIdentifier: 
-  clothingType: {fileID: 11400000, guid: ee4a9eff9e0f4b948872d61849e1a505, type: 2}
-  texture: {fileID: 2800000, guid: cfc1f8d8559393846b6fdc683dcac30f, type: 3}
-  sprite: {fileID: 21300000, guid: 952b2e16b96e21d4dae70887140952e5, type: 3}
-  colorData: {fileID: 11400000, guid: e3fafea2feaebf44da5cef039104a41d, type: 2}
+  clothingType: {fileID: 11400000, guid: 27c9f248240fc1d44b9c725d7dbe7a82, type: 2}
+  texture: {fileID: 2800000, guid: 24c092d31f3c4a84ba9be2488ada8d9e, type: 3}
+  sprite: {fileID: 21300000, guid: daf6f8ae88b38c0499b41f8d9fa79d1a, type: 3}
+  colorData: {fileID: 11400000, guid: d8707b35512e0ca4caf40ac61456b09c, type: 2}
