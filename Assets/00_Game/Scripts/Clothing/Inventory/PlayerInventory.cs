@@ -12,11 +12,12 @@ namespace Clothing.Inventory {
         SaveHandler saveHandler;
         readonly Dictionary<CombinedWearables, int> combineWearablesAmount = new Dictionary<CombinedWearables, int>();
         Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
-        
+
         void Start() {
             saveHandler = new SaveHandler("Inventory");
             EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(UpdatePlayerInventory);
             inventoryData.Setup();
+            saveHandler.Load(this);
         }
 
 
@@ -51,10 +52,14 @@ namespace Clothing.Inventory {
         }
 
         void GenerateNewCombinedWearable(CombinedWearables wearableEvent) {
-            var instance = Instantiate(combinedWearablesTemplate);
+            var instance = InstantiateCombinedWearables();
             instance.wearable = wearableEvent.wearable;
             instance.rarity = wearableEvent.rarity;
             instance.clothingType = wearableEvent.clothingType;
+        }
+
+        CombinedWearables InstantiateCombinedWearables() {
+            return Instantiate(combinedWearablesTemplate, transform);
         }
 
         bool CombinedWearableAmountIsZero(CombinedWearables combinedWearables) {
@@ -68,10 +73,10 @@ namespace Clothing.Inventory {
         Dictionary<string, object> WearableStatsDictionary(CombinedWearables combinedWearables) {
             var wearableStatsList = new Dictionary<string, object> {{InventoryData.WearableCount, combinedWearables.wearable.Count.ToString()}};
 
-            var index = 0;
+            var sortIndex = 0;
             foreach (var data in combinedWearables.wearable) {
-                wearableStatsList.Add(data.ToString() + index, "");
-                index++;
+                wearableStatsList.Add(data.ToString() + sortIndex, "");
+                sortIndex++;
             }
 
             wearableStatsList.Add(InventoryData.Amount, combineWearablesAmount[combinedWearables].ToString());
@@ -88,14 +93,16 @@ namespace Clothing.Inventory {
         public void OnLoad(Dictionary<string, object> value) {
             combinedWearableDataToSave = value;
 
+            if (value == null) return;
+
             foreach (var combinedWearable in value) {
-                var combinedWearableInstance = Instantiate(combinedWearablesTemplate);
+                var combinedWearableInstance = InstantiateCombinedWearables();
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
                 var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
 
-                for (var i = 0; i < wearableCount; i++) {
+                for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
                     foreach (var s in inventoryData.wearables) {
-                        if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + i)) {
+                        if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
                             combinedWearableInstance.wearable.Add(s);
                             break;
                         }
