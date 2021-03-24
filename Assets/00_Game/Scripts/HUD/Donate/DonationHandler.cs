@@ -1,12 +1,58 @@
 using Clothing;
+using Clothing.Inventory;
 using UnityEngine;
+using UnityEngine.UI;
+using Utilities;
+
 namespace HUD.Donate {
     public class DonationHandler : MonoBehaviour {
+        CombinedWearables combinedWearables;
+        PlayerInventory playerInventory;
+        int sPToUpgrade;
+        int addedStylePoints;
         
-        
-        void CheckForDuplicate() {
-           
+        public Button[] buttons;
+        public Text warningText;
+
+        void Start() {
+            combinedWearables = GetComponent<CombinedWearables>();
+            playerInventory = FindObjectOfType<PlayerInventory>();
+            foreach (var button in buttons) {
+                button.interactable = false;
+            }
         }
+
+        void CheckIfValid() {
+            if (IsGood) {
+                for (var buttonToBeActive = 0; buttonToBeActive < sPToUpgrade; buttonToBeActive++) {
+                    foreach (var button in buttons) {
+                        button.interactable = true;
+                    }
+                }
+            }
+            if (!(playerInventory.combineWearablesAmount[combinedWearables] >= 2)) {
+                warningText.text = "This item does not have any duplicate yet. Come back later!";
+            }
+            else if (!(HowManyPointsCanThisBeUpgraded(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
+                warningText.text = "This item already has its maximum style points";
+            }
+        }
+
+        public void UpgradeMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
+            addedStylePoints = stylePointsToAdd;
+            combinedWearables = wearable;
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, -1));
+            combinedWearables.stylePoints += addedStylePoints;
+            // Will need to be remade (only returns the old item with old stylepoints instead of the one with increased amount) 
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
+        }
+
+        bool IsGood => HowManyPointsCanThisBeUpgraded(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 
+                       && playerInventory.combineWearablesAmount[combinedWearables] >= 2;
         
+        int HowManyPointsCanThisBeUpgraded(int currentPoints, Rarity rarity) {
+            sPToUpgrade = rarity.MaxValue - currentPoints;
+            return sPToUpgrade;
+        }
     }
 }
