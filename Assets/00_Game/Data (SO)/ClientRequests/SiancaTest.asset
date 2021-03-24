@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c112794dc5b41d28b23a00611afb819, type: 3}
+  m_Name: SiancaTest
+  m_EditorClassIdentifier: 
+  characterSprite: {fileID: 0}
+  clientDialogData:
+  - {fileID: 11400000, guid: d9c3be34d142710478b1db7c85876e2d, type: 2}
+  - {fileID: 11400000, guid: f3cf33c0dc1a7ca48811c899bc31ccf9, type: 2}
+  - {fileID: 11400000, guid: b37862934f1eefe489058081aa1209e1, type: 2}

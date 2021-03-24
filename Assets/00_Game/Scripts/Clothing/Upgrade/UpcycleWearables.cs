@@ -7,7 +7,7 @@ using Utilities;
 
 namespace Clothing.Upgrade {
     public class UpcycleWearables : MonoBehaviour {
-        readonly Dictionary<Image, Wearable> wearables = new Dictionary<Image, Wearable>();
+        readonly Dictionary<Image, Wearable> combineWearablesDic = new Dictionary<Image, Wearable>();
 
         public Image slot1;
         public Image slot2;
@@ -27,42 +27,42 @@ namespace Clothing.Upgrade {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(AssignUpCycleSlot);
             popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
-            wearables[slot1] = null;
-            wearables[slot2] = null;
+            combineWearablesDic[slot1] = null;
+            combineWearablesDic[slot2] = null;
         }
 
         public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
             buttonScriptList.Add(eventAddUpCycleClothes.inventoryButtonScript);
-            if (slot1.sprite == null) {
-                if (wearables[slot2] != null && wearables[slot2].ClothingType != eventAddUpCycleClothes.wearable.ClothingType) return;
-                wearables[slot1] = eventAddUpCycleClothes.wearable;
-                slot1.sprite = eventAddUpCycleClothes.wearable.Sprite;
-                slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
-                //wearables[slot1].SetAmount(-1);
-                return;
-            }
-
-            if (slot2.sprite == null) {
-                if (wearables[slot1] != null && wearables[slot1].ClothingType != eventAddUpCycleClothes.wearable.ClothingType) return;
-                wearables[slot2] = eventAddUpCycleClothes.wearable;
-                slot2.sprite = eventAddUpCycleClothes.wearable.Sprite;
-                slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.wearable.StylePoints.ToString();
-                //wearables[slot2].SetAmount(-1);
-            }
-
-            if(wearables[slot1].Rarity != wearables[slot2].Rarity)
-            {
-                if (!cannotUpcycle)
-                {
-                    cannotUpcycle = true;
-                }
-            }
-            else
-            {
-                cannotUpcycle = false;
-            }
-
-            SpawnWarningText();
+            // if (slot1.sprite == null) {
+            //     if (combineWearablesDic[slot2] != null && combineWearablesDic[slot2].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;
+            //     combineWearablesDic[slot1] = eventAddUpCycleClothes.combinedWearable;
+            //     slot1.sprite = eventAddUpCycleClothes.combinedWearable.Sprite;
+            //     slot1.GetComponentInChildren<Text>().text = eventAddUpCycleClothes..ToString();
+            //     //wearables[slot1].SetAmount(-1);
+            //     return;
+            // }
+            //
+            // if (slot2.sprite == null) {
+            //     if (combineWearablesDic[slot1] != null && combineWearablesDic[slot1].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;
+            //     combineWearablesDic[slot2] = eventAddUpCycleClothes.combinedWearable;
+            //     slot2.sprite = eventAddUpCycleClothes.combinedWearable.Sprite;
+            //     slot2.GetComponentInChildren<Text>().text = eventAddUpCycleClothes.combinedWearable.StylePoints.ToString();
+            //     //wearables[slot2].SetAmount(-1);
+            // }
+            //
+            // if(combineWearablesDic[slot1].Rarity != combineWearablesDic[slot2].Rarity)
+            // {
+            //     if (!cannotUpcycle)
+            //     {
+            //         cannotUpcycle = true;
+            //     }
+            // }
+            // else
+            // {
+            //     cannotUpcycle = false;
+            // }
+            //
+            // SpawnWarningText();
 
         }
 
@@ -81,7 +81,7 @@ namespace Clothing.Upgrade {
 
         public void OnConfirm() {
             if (upcycleConfirmButton.interactable) {
-                EventBroker.Instance().SendMessage(new MessageUpCycleClothes(wearables[slot1], wearables[slot2]));
+                EventBroker.Instance().SendMessage(new MessageUpCycleClothes(combineWearablesDic[slot1], combineWearablesDic[slot2]));
 
                 foreach (var buttonScript in buttonScriptList) {
                     buttonScript.UpdateAmountStylePoint();
@@ -99,9 +99,9 @@ namespace Clothing.Upgrade {
             slot2.GetComponentInChildren<Text>().text = null;
             buttonScriptList.Clear();
            // wearables[slot1].SetAmount(1);
-            wearables[slot1] = null;
+            combineWearablesDic[slot1] = null;
             //wearables[slot2].SetAmount(1);
-            wearables[slot2] = null;
+            combineWearablesDic[slot2] = null;
         }
 
         public void CleanUpOnWearableSelect() {
@@ -110,11 +110,11 @@ namespace Clothing.Upgrade {
             upcycleConfirmButton.interactable = false;
             if (EventSystem.current.currentSelectedGameObject.GetComponent<Image>() == slot1) {
                // wearables[slot1].SetAmount(1);
-                wearables[slot1] = null;
+                combineWearablesDic[slot1] = null;
             }
             else {
               //  wearables[slot2].SetAmount(1);
-                wearables[slot2] = null;
+                combineWearablesDic[slot2] = null;
             }
         }
     }

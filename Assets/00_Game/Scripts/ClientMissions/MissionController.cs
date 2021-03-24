@@ -1,19 +1,16 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using ClientMissions;
 using ClientMissions.Data;
 using ClientMissions.MissionMessages;
 using Clothing;
 using UnityEngine;
-using Utilities;
 
-namespace Club {
+namespace ClientMissions {
     public class MissionController : MonoBehaviour {
 
         [SerializeField] List<MissionData> missionList = new List<MissionData>();
-        [SerializeField] PlayerData playerData;
-        [SerializeField] List<Wearable> wearables = new List<Wearable>();//TODO: test remove this
+        //[SerializeField] PlayerData playerData;
+        [SerializeField] List<CombinedWearables> combinedWearablesList = new List<CombinedWearables>();//TODO: test remove this
         [SerializeField] int maxFollowers = 1000;
         [SerializeField] int maxStylePoints = 50;
         List<Wearable> wearableList = new List<Wearable>();
@@ -52,21 +49,21 @@ namespace Club {
             return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.MaxReward, t));
         }*/
         int GetStylePoints(){
-            return wearables.Sum(wearable => wearable.StylePoints);
+            return combinedWearablesList.Sum(wearable => wearable.stylePoints);
         }
 
         //bool CheckColors(){
         //    return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
         //}
-        void GetWearableList(MissionWearableMessage missionWearableMessage){
-            wearableList = missionWearableMessage.wearables;
-        }
-        (int, int) AdjustStylePoint(int minValue, int maxValue){
-            var t = Mathf.InverseLerp(0, maxFollowers, playerData.Followers);
-            minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
-            maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxStylePoints,t)); 
-            return (minValue, maxValue);
-        }
+        // void GetWearableList(MissionWearableMessage missionWearableMessage){
+        //     wearableList = missionWearableMessage.wearables;
+        // }
+        // (int, int) AdjustStylePoint(int minValue, int maxValue){
+        //     var t = Mathf.InverseLerp(0, maxFollowers, playerData.Followers);
+        //     minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
+        //     maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxStylePoints,t)); 
+        //     return (minValue, maxValue);
+        // }
         
         
 

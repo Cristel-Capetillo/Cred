@@ -1,75 +1,118 @@
 ﻿using System;
 using System.Collections.Generic;
-using ClientMissions.Data;
 using SaveSystem;
 using UnityEngine;
 using Utilities;
 
 namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
-        Dictionary<string, object> newClothing = new Dictionary<string, object>();
-        SaveHandler saveHandler;
+        [SerializeField] CombinedWearables combinedWearablesTemplate;
 
-        public Wearable wearable;
+        public InventoryData inventoryData;
+        SaveHandler saveHandler;
+        public readonly Dictionary<CombinedWearables, int> combineWearablesAmount = new Dictionary<CombinedWearables, int>();
+        Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
 
         void Start() {
             saveHandler = new SaveHandler("Inventory");
-            EventBroker.Instance().SubscribeMessage<EventAddToInventory>(AddToInventory);
-            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, 1));
-            EventBroker.Instance().SendMessage(new EventAddToInventory(wearable, -1));
+            EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(UpdatePlayerInventory);
+            inventoryData.Setup();
+            saveHandler.Load(this);
         }
 
+
+        //TODO unlocked Wearable?
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventAddToInventory>(AddToInventory);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdatePlayerInventory>(UpdatePlayerInventory);
         }
 
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.F5)) {
-                saveHandler.Save(this);
-                print("saved");
+        void UpdatePlayerInventory(EventUpdatePlayerInventory wearableEvent) {
+            var id = GetId(wearableEvent.combinedWearable);
+
+            if (!CombineWearableExists(id)) {
+                GenerateNewCombinedWearable(wearableEvent.combinedWearable);
+                combineWearablesAmount.Add(wearableEvent.combinedWearable, 0);
             }
 
-            if (Input.GetKeyDown(KeyCode.F9)) {
-                saveHandler.Load(this);
+            combineWearablesAmount[wearableEvent.combinedWearable] += wearableEvent.addOrSubtractAmount;
+
+            if (CombinedWearableAmountIsZero(wearableEvent.combinedWearable)) {
+                combineWearablesAmount.Remove(wearableEvent.combinedWearable);
+                combinedWearableDataToSave.Remove(id);
+                return;
             }
+
+            var wearableStatsList = WearableStatsDictionary(wearableEvent.combinedWearable);
+            combinedWearableDataToSave[id] = wearableStatsList;
+            saveHandler.Save(this);
         }
 
-        void AddToInventory(EventAddToInventory inventory) {
-            GenerateNewClothingItem(inventory);
+        bool CombineWearableExists(string id) {
+            return combinedWearableDataToSave.ContainsKey(id);
         }
 
-        void GenerateNewClothingItem(EventAddToInventory wearableEvent) {
-            var id = "";
-            id += wearableEvent.wearable.ToString();
-
-            var wearableStatsList = WearableStatsList(wearableEvent.wearable);
-
-            if (!newClothing.ContainsKey(id)) {
-                newClothing[id] = wearableStatsList;
-            }
-            wearableEvent.wearable.SetAmount(wearableEvent.addOrSubtractAmount);
-            wearableStatsList.Add(wearableEvent.wearable.Amount.ToString());
+        void GenerateNewCombinedWearable(CombinedWearables wearableEvent) {
+            var instance = InstantiateCombinedWearables();
+            instance.wearable = wearableEvent.wearable;
+            instance.rarity = wearableEvent.rarity;
+            instance.clothingType = wearableEvent.clothingType;
         }
 
-        List<object> WearableStatsList(Wearable wearable) {
-            var wearableStatsList = new List<object>();
-            foreach (var data in wearable.ColorData) {
-                wearableStatsList.Add(data.GetHexColorID());
+        CombinedWearables InstantiateCombinedWearables() {
+            return Instantiate(combinedWearablesTemplate, transform);
+        }
+
+        bool CombinedWearableAmountIsZero(CombinedWearables combinedWearables) {
+            return combineWearablesAmount[combinedWearables] < 1;
+        }
+
+        string GetId(CombinedWearables wearableEvent) {
+            return wearableEvent.ToString();
+        }
+
+        Dictionary<string, object> WearableStatsDictionary(CombinedWearables combinedWearables) {
+            var wearableStatsList = new Dictionary<string, object> {{InventoryData.WearableCount, combinedWearables.wearable.Count.ToString()}};
+
+            var sortIndex = 0;
+            foreach (var data in combinedWearables.wearable) {
+                wearableStatsList.Add(data.ToString() + sortIndex, "");
+                sortIndex++;
             }
 
-            wearableStatsList.Add(wearable.Rarity.ToString());
-            wearableStatsList.Add(wearable.ClothingType.ToString());
-            wearableStatsList.Add(wearable.Texture.ToString());
-            wearableStatsList.Add(wearable.Sprite.ToString());
+            wearableStatsList.Add(InventoryData.Amount, combineWearablesAmount[combinedWearables].ToString());
+            wearableStatsList.Add(InventoryData.Rarity, combinedWearables.rarity.name);
+            wearableStatsList.Add(InventoryData.ClothingType, combinedWearables.clothingType.name);
+
             return wearableStatsList;
         }
 
         public Dictionary<string, object> ToBeSaved() {
-            return newClothing;
+            return combinedWearableDataToSave;
         }
 
         public void OnLoad(Dictionary<string, object> value) {
-            newClothing = value;
+            combinedWearableDataToSave = value;
+
+            if (value == null) return;
+
+            foreach (var combinedWearable in value) {
+                var combinedWearableInstance = InstantiateCombinedWearables();
+                var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
+                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
+
+                for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
+                    foreach (var s in inventoryData.wearables) {
+                        if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
+                            combinedWearableInstance.wearable.Add(s);
+                            break;
+                        }
+                    }
+                }
+
+                combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
+                combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
+                combineWearablesAmount[combinedWearableInstance] = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.Amount]);
+            }
         }
     }
 }

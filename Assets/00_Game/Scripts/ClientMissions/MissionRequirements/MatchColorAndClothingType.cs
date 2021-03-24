@@ -1,4 +1,5 @@
-﻿using ClientMissions.Data;
+﻿using System.Linq;
+using ClientMissions.Data;
 using Clothing;
 
 namespace ClientMissions.MissionRequirements{
@@ -7,13 +8,12 @@ namespace ClientMissions.MissionRequirements{
             ColorData = colorData;
             ClothingType = clothingType;
         }
-        public ColorData ColorData { get; private set; }
-        public ClothingType ClothingType{ get; private set; }
+        public ColorData ColorData{ get; }
+        public ClothingType ClothingType{ get;}
         
-        public bool PassedRequirement(Wearable wearable){
-            return wearable.ColorData.Contains(ColorData) && wearable.ClothingType == ClothingType;
+        public bool PassedRequirement(CombinedWearables combinedWearables){
+            return combinedWearables.clothingType == ClothingType && combinedWearables.wearable.Any(wearable => wearable.colorData == ColorData);
         }
-
         public override string ToString(){
             return $"{ColorData.name} {ClothingType.SingularName.ToLower()}.";
         }

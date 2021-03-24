@@ -14,7 +14,7 @@ namespace ClientMissions.ClubMissions {
 
         void UpdateStylePoints(EventWearableStylePoints eventWearableStylePoints) {
             CurrentStylePoints = 0;
-            dictionary[eventWearableStylePoints.Value.ClothingType] = eventWearableStylePoints.Value.StylePoints;
+            dictionary[eventWearableStylePoints.combinedWearable.clothingType] = eventWearableStylePoints.combinedWearable.stylePoints;
             foreach (var y in dictionary) {
                 CurrentStylePoints += y.Value;
             }

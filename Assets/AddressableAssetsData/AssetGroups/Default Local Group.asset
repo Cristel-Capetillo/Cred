@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: d82d036774685c04e915cbf8c1f9900c
   m_SerializeEntries:
-  - m_GUID: fc84658296eab5b46aaed68dbc593a9b
-    m_Address: Assets/00_Game/Data (SO)/Wearables/Trashy jeans.asset
+  - m_GUID: 4f9c71cacaa405e43893315b584931f6
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/DesignerJacketOrange.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}

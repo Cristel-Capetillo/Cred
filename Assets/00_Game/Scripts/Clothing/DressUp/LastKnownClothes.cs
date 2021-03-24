@@ -1,14 +1,12 @@
 using UnityEngine;
 
-namespace Clothing
+namespace Clothing.DressUp
 {
     public class LastKnownClothes : MonoBehaviour {
-        public Wearable lastKnownShirt;
-        public Wearable laskKnownJacket;
-        public Wearable lastKnownPants;
-        public Wearable lastKnownSkirt;
-        public Wearable lastKnownShoes;
-        //public Texture lastKnownShirt;
-        //public Texture lastKnownPants;
+        public CombinedWearables lastKnownShirt;
+        public CombinedWearables lastKnownJacket;
+        public CombinedWearables lastKnownPants;
+        public CombinedWearables lastKnownSkirt;
+        public CombinedWearables lastKnownShoes;
     }
 }
