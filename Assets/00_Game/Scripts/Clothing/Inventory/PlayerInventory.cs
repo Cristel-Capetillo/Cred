@@ -10,7 +10,7 @@ namespace Clothing.Inventory {
 
         public InventoryData inventoryData;
         SaveHandler saveHandler;
-        readonly Dictionary<CombinedWearables, int> combineWearablesAmount = new Dictionary<CombinedWearables, int>();
+        public readonly Dictionary<CombinedWearables, int> combineWearablesAmount = new Dictionary<CombinedWearables, int>();
         Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
 
         void Start() {
