@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a88df1da1f9edd042b34b075b05ef2f4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - BPkinder
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 84bba7b00f7f1254cae347585b175e46, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
