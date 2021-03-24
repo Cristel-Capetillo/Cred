@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   loot:
-  - {fileID: 2012720251065419812, guid: 08375a6cbf7000d46abf448a93f3f827, type: 3}
   - {fileID: 2012720251065419812, guid: f4b3aa0fc4c568649b89780429bc803f, type: 3}
   - {fileID: 2012720251065419812, guid: 4f9c71cacaa405e43893315b584931f6, type: 3}
