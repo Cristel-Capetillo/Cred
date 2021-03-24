@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.ClubMissions;
-using Clothing.Upgrade;
 using UnityEngine;
 using Utilities;
 
@@ -35,16 +34,26 @@ namespace Clothing.DressUp {
             var currentShirt = FindObjectOfType<LastKnownClothes>().lastKnownShirt;
             var currentPants = FindObjectOfType<LastKnownClothes>().lastKnownPants;
             var currentJacket = FindObjectOfType<LastKnownClothes>().lastKnownJacket;
-           
-            // EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentShirt));
-            // EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentPants));
-            EventBroker.Instance().SendMessage(new EventWearableStylePoints(currentJacket));
             
-            //test code:dress up guy in default jacket
+  
+            
+            //test code:dress up guy in starting jacket
             EventBroker.Instance().SendMessage(new EventClothesChanged(currentJacket));
+            //TODO: add more starting clothes
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
+            //TODO: When clicking on clothes already equipped, they should be removed.
+            //possibly calculate item ID and compare to the one equipped
+            
+            //TODO: When removing a jacket -> activate shirt sleeves
+            if (eventClothesChanged.CombinedWearables.clothingType.SingularName == "Jackets") {
+                //activate the correct shirt sleeves
+            }
+            
+            //TODO: disable/enable objects based on the rarity of the new clothes
+            
+            
             //TODO: change the switch to a nested foreach() too loop through all received clothes and match with the corresponding body parts
             //TODO: make sure the different limbs have the same name as the wearables body parts
             
@@ -57,6 +66,17 @@ namespace Clothing.DressUp {
                 }
                 
             }*/
+            
+
+            
+            //TODO: When putting on a jacket -> Deactivate shirt sleeves
+            if (eventClothesChanged.CombinedWearables.clothingType.SingularName == "Jackets") {
+                //deactivate the correct shirt sleeves
+            }
+            
+            //TODO: Update last known clothing item
+            // FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.CombinedWearables.clothingtype;
+            //use Type.GetProperty/SetValue(Object, Object)
             
             switch (eventClothesChanged.CombinedWearables.clothingType.name) {
                 case "Shirts":
@@ -85,6 +105,9 @@ namespace Clothing.DressUp {
                     FindObjectOfType<LastKnownClothes>().lastKnownJacket = eventClothesChanged.CombinedWearables;
                     break;
             }
+            
+            //last, update the stylepoints
+            //TODO: how does it work when taking off clothes?
             EventBroker.Instance().SendMessage(new EventWearableStylePoints(eventClothesChanged.CombinedWearables));
         }
 
