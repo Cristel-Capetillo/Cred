@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Designer Shoe Right Yellow
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: d0b515d6f698a9544b428128f3b4a4d9, type: 2}
-  texture: {fileID: 2800000, guid: e893c89a9e6e56a41bf9bed05f75315d, type: 3}
-  sprite: {fileID: 21300000, guid: e893c89a9e6e56a41bf9bed05f75315d, type: 3}
+  texture: {fileID: 0}
+  sprite: {fileID: 0}
   colorData: {fileID: 11400000, guid: 2e924441e43957a479205bbf573e0e28, type: 2}
