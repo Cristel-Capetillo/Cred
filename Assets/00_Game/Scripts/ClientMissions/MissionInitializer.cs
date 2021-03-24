@@ -13,7 +13,6 @@ namespace ClientMissions{
         public MissionGenerator CreateMissionGenerator(){
             return new MissionGenerator(generatorData, localPlayerTest, FindObjectOfType<TimeManager>());
         }
-
         public IMissionHolder GetMissionHolder(){
             return localPlayerTest;
         }
