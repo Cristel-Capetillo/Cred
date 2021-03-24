@@ -9,12 +9,18 @@ using Utilities;
 namespace Clothing.DressUp {
     public class ClothingManager : MonoBehaviour {
         //TODO: put all body parts in a list. make sure the bodyparts have the same names as in code
-        //[SerializeField] List<GameObject> bodyParts;
+        //[SerializeField] List<GameObject> bodyParts; this is probably best, with addition limb identifier scripts on body parts
         [SerializeField] List<GameObject> clothingCategories;
 
         LastKnownClothes lastKnownClothes;
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
+            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(RemoveClothes);
+        }
+
+        void RemoveClothes(RemoveAllClothes obj) {
+            //undress completely
+            throw new NotImplementedException();
         }
 
         void Start() {
@@ -34,7 +40,7 @@ namespace Clothing.DressUp {
 
             if (clothesRemoved) {
                 //update last known clothes (null or empty)
-                //update styling points (send empty clothes)
+                
                 //return;
             }
             
@@ -50,9 +56,6 @@ namespace Clothing.DressUp {
             // FindObjectOfType<LastKnownClothes>().lastKnownShirt = eventClothesChanged.CombinedWearables.clothingtype;
             //use Type.GetProperty/SetValue(Object, Object)
             
-            
-            //last, update the stylepoints
-            EventBroker.Instance().SendMessage(new EventWearableStylePoints(eventClothesChanged.CombinedWearables));
         }
 
         void DressBodyParts(EventClothesChanged eventClothesChanged) {
@@ -113,6 +116,7 @@ namespace Clothing.DressUp {
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
+            EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(RemoveClothes);
         }
     }
 }
