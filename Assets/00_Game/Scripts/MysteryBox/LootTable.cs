@@ -5,9 +5,9 @@ using UnityEngine;
 namespace MysteryBox {
     [CreateAssetMenu(menuName = "ScriptableObjects/Loot Table")]
     public class LootTable : ScriptableObject {
-        public List<Wearable> loot;
+        public List<CombinedWearables> loot;
 
-        public Wearable Reward() {
+        public CombinedWearables Reward() {
             return loot[Random.Range(0, loot.Count)];
         }
     }

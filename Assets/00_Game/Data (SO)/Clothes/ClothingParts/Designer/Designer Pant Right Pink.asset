@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
+  m_Name: Designer Pant Right Pink
+  m_EditorClassIdentifier: 
+  clothingType: {fileID: 11400000, guid: fa9fc6eacd43af44584d9b7f0311e5cc, type: 2}
+  texture: {fileID: 2800000, guid: c9aeb65960ff73341b91f5e4eeac8c8f, type: 3}
+  sprite: {fileID: 21300000, guid: ae773c2a7d067a744a22fa83be4b8035, type: 3}
+  colorData: {fileID: 11400000, guid: d8707b35512e0ca4caf40ac61456b09c, type: 2}

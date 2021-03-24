@@ -20,7 +20,7 @@ namespace Clothing.Upgrade {
         public GameObject popupWindowUpCycle;
         public GameObject content;
 
-        List<InventoryButtonScript> buttonScriptList = new List<InventoryButtonScript>();
+        List<AssignCombinedWearableToUpCycle> buttonScriptList = new List<AssignCombinedWearableToUpCycle>();
 
         bool cannotUpcycle;
 
@@ -32,7 +32,7 @@ namespace Clothing.Upgrade {
         }
 
         public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
-            buttonScriptList.Add(eventAddUpCycleClothes.inventoryButtonScript);
+            buttonScriptList.Add(eventAddUpCycleClothes.assignCombinedWearableToUpCycle);
             // if (slot1.sprite == null) {
             //     if (combineWearablesDic[slot2] != null && combineWearablesDic[slot2].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;
             //     combineWearablesDic[slot1] = eventAddUpCycleClothes.combinedWearable;
@@ -92,7 +92,7 @@ namespace Clothing.Upgrade {
 
         public void CleanUpOnExitAndConfirm() {
             popupWindowUpCycle.SetActive(false);
-            popupWindowUpCycleDonate.ResetBools();
+            //popupWindowUpCycleDonate.ResetBools();
             slot1.sprite = null;
             slot1.GetComponentInChildren<Text>().text = null;
             slot2.sprite = null;
