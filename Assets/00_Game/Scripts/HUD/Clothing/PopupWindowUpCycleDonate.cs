@@ -1,5 +1,6 @@
 ﻿using Clothing.Upgrade;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Utilities;
 
 namespace HUD.Clothing {

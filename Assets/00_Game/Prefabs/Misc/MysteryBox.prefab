@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20b1a064574624409a0033c58f52acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardSpawnOffset: {x: 0, y: 2, z: 0}
+  spawnRewardAfterDelay: 1.5
+  destroyDelay: 5
 --- !u!1 &5301991473930937997
 GameObject:
   m_ObjectHideFlags: 0

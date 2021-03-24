@@ -3,10 +3,10 @@ using UnityEngine;
 namespace Clothing.DressUp
 {
     public class LastKnownClothes : MonoBehaviour {
-        public CombinedWearables lastKnownShirt;
-        public CombinedWearables lastKnownJacket;
-        public CombinedWearables lastKnownPants;
-        public CombinedWearables lastKnownSkirt;
-        public CombinedWearables lastKnownShoes;
+        public CombinedWearables Shirts;
+        public CombinedWearables Jackets;
+        public CombinedWearables Pants;
+        public CombinedWearables Skirts;
+        public CombinedWearables Shoes;
     }
 }

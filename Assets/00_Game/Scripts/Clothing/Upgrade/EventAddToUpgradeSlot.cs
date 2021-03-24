@@ -1,13 +1,13 @@
 ﻿using HUD.Clothing;
 
 namespace Clothing.Upgrade {
-    public class EventAddToUpgradeSlot {
+    public class EventAddUpCycleClothes {
         public readonly CombinedWearables combinedWearable;
-        public readonly InventoryButtonScript inventoryButtonScript;
+        public readonly AssignCombinedWearableToUpCycle assignCombinedWearableToUpCycle;
 
-        public EventAddToUpgradeSlot(CombinedWearables combinedWearable, AssignCombinedWearableToUpCycle assignCombinedWearableToUpCycle) {
+        public EventAddUpCycleClothes(CombinedWearables combinedWearable, AssignCombinedWearableToUpCycle assignCombinedWearableToUpCycle) {
             this.combinedWearable = combinedWearable;
-            this.inventoryButtonScript = inventoryButtonScript;
+            this.assignCombinedWearableToUpCycle = assignCombinedWearableToUpCycle;
         }
     }
 }

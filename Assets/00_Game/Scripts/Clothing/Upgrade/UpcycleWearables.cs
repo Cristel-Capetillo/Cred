@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using HUD.Clothing;
 using UnityEngine;
@@ -21,27 +20,19 @@ namespace Clothing.Upgrade {
         public GameObject popupWindowUpCycle;
         public GameObject content;
 
-        List<InventoryButtonScript> buttonScriptList = new List<InventoryButtonScript>();
+        List<AssignCombinedWearableToUpCycle> buttonScriptList = new List<AssignCombinedWearableToUpCycle>();
 
         bool cannotUpcycle;
 
         void Start() {
+            EventBroker.Instance().SubscribeMessage<EventAddUpCycleClothes>(AssignUpCycleSlot);
             popupWindowUpCycleDonate = GetComponent<PopupWindowUpCycleDonate>();
             combineWearablesDic[slot1] = null;
             combineWearablesDic[slot2] = null;
         }
 
-        void OnEnable() {
-            EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
-        }
-
-        void OnDisable() {
-            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
-        }
-
-        public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddToUpgradeSlot) {
-            print("I MADE IT");
-            //buttonScriptList.Add(eventAddUpCycleClothes.assignCombinedWearableToUpCycle);
+        public void AssignUpCycleSlot(EventAddUpCycleClothes eventAddUpCycleClothes) {
+            buttonScriptList.Add(eventAddUpCycleClothes.assignCombinedWearableToUpCycle);
             // if (slot1.sprite == null) {
             //     if (combineWearablesDic[slot2] != null && combineWearablesDic[slot2].BodyPart != eventAddUpCycleClothes.combinedWearable.BodyPart) return;
             //     combineWearablesDic[slot1] = eventAddUpCycleClothes.combinedWearable;
@@ -101,7 +92,7 @@ namespace Clothing.Upgrade {
 
         public void CleanUpOnExitAndConfirm() {
             popupWindowUpCycle.SetActive(false);
-            popupWindowUpCycleDonate.ResetBools();
+            //popupWindowUpCycleDonate.ResetBools();
             slot1.sprite = null;
             slot1.GetComponentInChildren<Text>().text = null;
             slot2.sprite = null;
