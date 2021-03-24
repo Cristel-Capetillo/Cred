@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Utilities;
@@ -8,18 +7,26 @@ using Utilities;
 namespace Clothing.DressUp {
     public class ClothingManager : MonoBehaviour {
         //TODO: put all body parts in a list. make sure the bodyparts have the same names as in code
-        //[SerializeField] List<GameObject> bodyParts; this is probably best, with addition limb identifier scripts on body parts
-        [SerializeField] List<GameObject> clothingCategories;
+        [SerializeField] List<GameObject> bodyParts;
         [SerializeField] List<GameObject> clothingRarities;
         
         LastKnownClothes lastKnownClothes;
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(RemoveClothes);
+            
+            foreach (var rarity in clothingRarities) {
+                foreach (Transform clothingType in rarity.transform) {
+                    foreach (Transform bodyPart in clothingType) {
+                        if(bodyPart!=null)
+                            bodyParts.Add(bodyPart.gameObject);
+                    }
+                }
+            }
+           
         }
 
         void RemoveClothes(RemoveAllClothes obj) {
-            //undress completely
             foreach (var rarity in clothingRarities) {
                 foreach (Transform child in rarity.transform) {
                     child.gameObject.SetActive(false);
@@ -33,8 +40,8 @@ namespace Clothing.DressUp {
             //dress up client in starting clothes
             //TODO! just for testing. remove later. client should only wear swimsuit from the start
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shirts));
-            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
-            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
+            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
+            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
         }
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
@@ -76,7 +83,7 @@ namespace Clothing.DressUp {
                 
             }*/
             //TODO: When putting on a jacket -> Deactivate shirt sleeves
-            if (eventClothesChanged.CombinedWearables.clothingType.SingularName == "Jackets") {
+            if (eventClothesChanged.CombinedWearables.clothingType.name == "Jackets") {
                 //deactivate the correct shirt sleeves
             }
         }
@@ -96,8 +103,8 @@ namespace Clothing.DressUp {
             if (eventClothesChanged.CombinedWearables == null) {
                 throw new Exception("no combined wearables found");
             }
-            var clothingType = eventClothesChanged.CombinedWearables.clothingType.SingularName;
-            PropertyInfo clothesProperty = typeof(LastKnownClothes).GetProperty(clothingType);
+            var clothingType = eventClothesChanged.CombinedWearables.clothingType.name;
+            FieldInfo clothesProperty = typeof(LastKnownClothes).GetField(clothingType);
             if (clothesProperty == null) {
                 throw  new Exception("can't find the clothing type in last known clothes!");
             }
@@ -105,10 +112,13 @@ namespace Clothing.DressUp {
 
             if (lastKnownClothingItem == eventClothesChanged.CombinedWearables) {
                 //remove this piece of clothes
-                //OR change to default ones?
+                var rarity = clothingRarities.Find(i => i.name == eventClothesChanged.CombinedWearables.rarity.name);
+                var clothTransform = rarity.transform.Find(eventClothesChanged.CombinedWearables.clothingType.name);
+                clothTransform.gameObject.SetActive(false);
                 
                 //TODO: Special case: When removing a jacket -> activate shirt sleeves
-                if (eventClothesChanged.CombinedWearables.clothingType.SingularName == "Jackets") {
+                //TODO: but first check if a shirt is currently equipped
+                if (eventClothesChanged.CombinedWearables.clothingType.name == "Jackets") {
                     var shirtRarity = lastKnownClothes.Shirts.rarity.name;
                     //TODO : complete this
                 }
