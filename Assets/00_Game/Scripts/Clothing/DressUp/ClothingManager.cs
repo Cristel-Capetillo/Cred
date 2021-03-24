@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ClientMissions.ClubMissions;
+using ClientMissions.MissionMessages;
 using Clothing.Upgrade;
 using UnityEngine;
 using Utilities;

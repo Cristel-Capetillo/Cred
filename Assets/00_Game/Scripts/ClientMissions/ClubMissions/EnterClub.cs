@@ -5,11 +5,10 @@ using Utilities;
 namespace ClientMissions.ClubMissions {
     public class EnterClub : MonoBehaviour{
         EquippedStylePoints equippedStylePoints;
-        [SerializeField] ClubData clubData;
-        
-            public void Start() {
+
+        public void Start() {
             equippedStylePoints = FindObjectOfType<EquippedStylePoints>();
-            EventBroker.Instance().SendMessage(new EventUpdateRequiredStylePoints(clubData.StylePointsRequired));
+            // EventBroker.Instance().SendMessage(new EventUpdateRequiredStylePoints(clubData.StylePointsRequired));
             }
 
             public void EnterClubReward() {
@@ -17,9 +16,9 @@ namespace ClientMissions.ClubMissions {
                     throw new Exception("cannot find equippedstylepoints");
                 }
                 Debug.Log("Enter club");
-                var reward = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
-                Debug.Log("your reward is " + reward);
-                EventBroker.Instance().SendMessage(new EventShowReward(reward));
+                //var reward = clubData.CalculateReward(equippedStylePoints.CurrentStylePoints);
+                // Debug.Log("your reward is " + reward);
+                // EventBroker.Instance().SendMessage(new EventShowReward(reward));
             }
     }
 }
