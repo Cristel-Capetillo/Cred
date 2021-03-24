@@ -15,12 +15,16 @@ namespace SaveSystem {
         public void Save<T>(ISavable<T> savable) {
             backEndSaveSystem.Save(savable.ToBeSaved());
         }
-
+        
         public async void Load<T>(ISavable<T> savable) {
             var tmp = await backEndSaveSystem.Load<T>(objectID);
             savable.OnLoad(tmp);
             EventBroker.Instance().SendMessage(new EventAfterLoad(objectID));
             //Debug.Log("Object loaded from backEndSaveSystem: " + objectID);
+        }
+
+        public void SetDefaultValue<T>(IDefaultValue<T> defaultValue) {
+            
         }
     }
 }

@@ -1,22 +1,21 @@
-﻿using ClientMissions.Data;
+﻿using System.Linq;
+using ClientMissions.Data;
 using Clothing;
 
 namespace ClientMissions.MissionRequirements{
     public class MatchColorAndClothingType : IMissionRequirement{
-        public MatchColorAndClothingType(ColorData colorData, BodyPart bodyPart){
+        public MatchColorAndClothingType(ColorData colorData, ClothingType clothingType){
             ColorData = colorData;
-            BodyPart = bodyPart;
+            ClothingType = clothingType;
         }
-        public ColorData ColorData { get; private set; }
-        public BodyPart BodyPart{ get; private set; }
+        public ColorData ColorData{ get; }
+        public ClothingType ClothingType{ get;}
         
-        //TODO it's wrong! Should probably be CombinedWearbles + check for all parts?
-        public bool PassedRequirement(Wearable wearable){
-            return wearable.colorData == ColorData && wearable.BodyPart == BodyPart;
+        public bool PassedRequirement(CombinedWearables combinedWearables){
+            return combinedWearables.clothingType == ClothingType && combinedWearables.wearable.Any(wearable => wearable.colorData == ColorData);
         }
-
         public override string ToString(){
-            return $"{ColorData.name} {BodyPart.SingularName.ToLower()}.";
+            return $"{ColorData.name} {ClothingType.SingularName.ToLower()}.";
         }
     }
 }
