@@ -93,19 +93,19 @@ PrefabInstance:
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 276e7c61f8aaa0b47a963018879fd871,
+      objectReference: {fileID: 11400000, guid: 360495ad8a0228c4f8fdbff770b27f7d,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: c712a117386cbe44c978d61596b30482,
+      objectReference: {fileID: 11400000, guid: 4540d8ee12440004ea7702993174dba2,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 7f10da1db45bf2f4dba6d0611dff3e35,
+      objectReference: {fileID: 11400000, guid: 9e523467d642ac64eb1586b66a9a92b1,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2689c02d88ed6414fb7533a4aa434213, type: 3}

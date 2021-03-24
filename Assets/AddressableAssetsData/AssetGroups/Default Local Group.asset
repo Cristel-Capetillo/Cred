@@ -137,6 +137,211 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: f4b3aa0fc4c568649b89780429bc803f
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/DesignerJacket.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Jacket
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0ad3f158bb5e6064b82bb6d3e1a4fb7e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShirtOrange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8b6f27a111736114281f6b392a5f91a4
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerSkirtGrey.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c1d3e38ee1e0a6d49bd8ca1ca99e7050
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerSkirtBrown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 28ce37909a517da42a8cab994b9faf17
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerSkirtBlue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4e0689e8892da7f44a92c692fc9ec886
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShoeYellow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5d3c9dc028e31c245ac502ed5a3efe39
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShirtGreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fa4ce355595f92d41b947ff452a8eb59
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShoeRed.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b3971c6907d5c4344b641060fc2eab28
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerPantsBlack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4880c014819d4cd438ed136fde94598c
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShoeBlack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d45abc9b0d5cf18418c5adfca0aefa06
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerAccessoryGold.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 927f75ee3e81f9b4eb39092256ae3906
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerAccessoryWhite.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d60f3d9e34b73f049b1613d907aa399b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerShirtBlue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: aef37903601d39741be2a641fe044dd2
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerPantsPink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8fe8527189b985749a5f33b10629de5d
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerAccessoryBlack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 419b48dfbbe32c1478c612005119b6b8
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Designer/DesignerPantsBeige.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: e41ed87e20561f440ad964bcbe8561d6
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalJacketYellow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 892badc36ffad7546a19bdd643d82f04
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalPantsBlack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b0968c925f857ab4a9be3bf83d42eaf9
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalAccessoryPink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 84017524485c9994ca594c17ba519546
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalAccessorySilver.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f16809456ca48b94ea973226589be02a
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShirtGreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6c01fb88d2018264bbd4bb1c2f625a05
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalJacketGreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0c28d9d3bfe02964685babdcc518bca3
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalPantsBeige.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2c8d76e7ae9bde445bb7a610afb5eae0
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalJacketOrange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f98d8d46e8f86594e9b75e114831dcf6
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalSkirtBrown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8ee0e47f47d44e34c887b8457a32a25d
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShirtBlue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8a65c460d8159b247be016da78b5f8bd
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalAccessoryGold.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5e9e3504a8fc28648a5c4fc33028e6b4
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalSkirtGrey.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d603d36bcb72ffd4593a847de37baadc
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalPantsPink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 83b0361ba135824428f0252fb10f6476
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShoeRed.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fd82a8e73de1f1645b417b66a11c9fb4
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalSkirtBlue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 1b52b305d208ea04ab7c54c3c5223fe3
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShoeBlack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 49853337dfe29e44b8b802c61404baea
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShoeYellow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9882d590c2494864fa0a156400a55d32
+    m_Address: Assets/00_Game/Data (SO)/Clothes/Combined/Normal/NormalShirtOrange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
   m_SchemaSet:
