@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Basic Shirt Torso Grey
+  m_Name: Basic Shirt Right Blue
   m_EditorClassIdentifier: 
-  clothingType: {fileID: 11400000, guid: 2d770e4a24d2f3748868b7a2daef2028, type: 2}
-  texture: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 8316b5081b9a19c4883a46aa9c3e2c60, type: 3}
-  colorData: {fileID: 11400000, guid: 2a1bc312ec720c44aa73be55900d7c79, type: 2}
+  clothingType: {fileID: 11400000, guid: da7fc0e2c2ed5df49ae8cc799b0be8c2, type: 2}
+  texture: {fileID: 2800000, guid: e9e1d3ee966d53c42a51ce90207d7c67, type: 3}
+  sprite: {fileID: 21300000, guid: 6a4fe57d1cbbaad44a52e5932119fb2f, type: 3}
+  colorData: {fileID: 11400000, guid: d3a9e0248fc8dab4393b41bad83de8b1, type: 2}

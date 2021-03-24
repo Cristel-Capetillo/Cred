@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Basic Shirt Left Green
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: c77069fa49a4b614f8c3a1a466aaa765, type: 2}
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: 078f1a37c31acd340bd0e8ca5afacef0, type: 3}
   sprite: {fileID: 21300000, guid: 955e24ba98251b242b829eb21445a088, type: 3}
   colorData: {fileID: 11400000, guid: ba98bb311a824f44892b37af1cae5a38, type: 2}
