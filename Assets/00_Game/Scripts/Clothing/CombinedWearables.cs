@@ -11,11 +11,14 @@ namespace Clothing {
         public override string ToString() {
             var uID = "";
             foreach (var wearable1 in wearable) {
-                uID += wearable1.ClothingType;
-                uID += wearable1.colorData;
+                uID += wearable1.ClothingType.name;
+                uID += wearable1.colorData.name;
             }
 
-            return uID + rarity + clothingType;
+            if (rarity == null)
+                return "";
+
+            return uID + rarity.name + clothingType.name;
         }
 
         public void AddStylePoint() {

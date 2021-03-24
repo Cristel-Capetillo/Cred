@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using ClientMissions.Data;
-using Club;
 using UnityEngine;
 
 namespace Clothing {
@@ -11,22 +9,13 @@ namespace Clothing {
         [SerializeField] Sprite sprite;
         public ColorData colorData;
 
-        public Texture addedUpcycleTexture;
-
-        ////////////////////*Upcycle Wearables*///////////////////////////
-        [SerializeField ]public bool isUpCycledWearable;
-        
-        [HideInInspector]public bool unlockedUpcycle;
-        /////////////////////////////////////////////////////////////////
-
-        public bool HasUnlockedUpCycledWearable()
-        {
-            return isUpCycledWearable && unlockedUpcycle;
-        }
-
         public Texture Texture => texture;
         public Sprite Sprite => sprite;
         public BodyPart ClothingType => clothingType;
 
+
+        public override string ToString() {
+            return name;
+        }
     }
 }

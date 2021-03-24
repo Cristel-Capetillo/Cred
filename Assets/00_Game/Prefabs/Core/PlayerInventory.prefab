@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2440040163690556269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2440040163690556267}
+  - component: {fileID: 2440040163690556268}
+  m_Layer: 0
+  m_Name: PlayerInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2440040163690556267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440040163690556269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.488191, y: 1.403616, z: 184.98593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2440040163690556268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440040163690556269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3faac2225fa4645b4f02365896f29ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
+    type: 3}
+  inventoryData:
+    rarity:
+    - {fileID: 11400000, guid: 8a9a780ddac906848a33833e0695febc, type: 2}
+    - {fileID: 11400000, guid: 1ebb332f9fadaad4880a5e41728838a3, type: 2}
+    - {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
+    clothingType:
+    - {fileID: 11400000, guid: c64867dc560fccf4487b4bec4c4dd42d, type: 2}
+    - {fileID: 11400000, guid: 00de2a19f27a4104297fdf180c8fe652, type: 2}
+    - {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c, type: 2}
+    - {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d, type: 2}
+    - {fileID: 11400000, guid: 1eacb442ef8452649831bb9b83906d57, type: 2}
+    - {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69, type: 2}
+    wearables:
+    - {fileID: 11400000, guid: 163ab5c9744e6534fba7323d7f7949a7, type: 2}
+    - {fileID: 11400000, guid: 4bf2b6d8b67726c4a82298b0fbe43e6c, type: 2}
+    - {fileID: 11400000, guid: 321df2ca8697d444a85d02813406f755, type: 2}
+    - {fileID: 11400000, guid: 7779e3aa9a4fb564cbf5c4b62c1fbdba, type: 2}
+    - {fileID: 11400000, guid: 1e9a563b5ad80894e81fdae07f681ec4, type: 2}
+    - {fileID: 11400000, guid: 9de431e071b2f8c42a2d969a12e7bc8a, type: 2}
