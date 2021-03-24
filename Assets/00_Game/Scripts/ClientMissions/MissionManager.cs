@@ -5,9 +5,12 @@ using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
 using ClientMissions.MissionMessages;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utilities;
 using Utilities.Time;
+using Scene = UnityEditor.SearchService.Scene;
 
 namespace ClientMissions {
     public class MissionManager : MonoBehaviour{
@@ -61,7 +64,7 @@ namespace ClientMissions {
                 return;
             }
             EventBroker.Instance().SendMessage(new ActiveMissionMessage(currentMission));
-            //TODO: Load dress up scene!
+            SceneManager.LoadScene("DressupScene");
         }
         public void CheckMissions(){
             savableMissionData = TimeCheck(missionHolder.GetMissions());
