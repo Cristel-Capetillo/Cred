@@ -13,12 +13,12 @@ namespace HUD.Clothing {
         [SerializeField] GameObject scrollView;
         [SerializeField] GameObject buttonHolder;
         [SerializeField] Text closeButtonText;
-        public InventoryButtonScript inventoryContentPrefab;
+        public AssignCombinedWearableToUpCycle inventoryContentPrefab;
         [SerializeField] Transform contentParent;
 
         [SerializeField] PopupWindowUpCycleDonate popupWindonwUpcycleDonate;
 
-        readonly List<InventoryButtonScript> inventoryContent = new List<InventoryButtonScript>();
+        readonly List<AssignCombinedWearableToUpCycle> inventoryContent = new List<AssignCombinedWearableToUpCycle>();
         InventoryDataHandler inventoryDataHandler;
 
         public int InventoryContentCount => inventoryContent.Count;

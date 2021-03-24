@@ -23,9 +23,9 @@ namespace ClientMissions.Data{
         [SerializeField] int requirementValue;
         [SerializeField] List<int> requirementsDataIndex;
 
-        public SavableRequirementData(int requirementValue, List<int> requirementsDataIndexIndex){
+        public SavableRequirementData(int requirementValue, List<int> requirementsDataIndex){
             this.requirementValue = requirementValue;
-            this.requirementsDataIndex = requirementsDataIndexIndex;
+            this.requirementsDataIndex = requirementsDataIndex;
         }
 
         public int RequirementValue => requirementValue;

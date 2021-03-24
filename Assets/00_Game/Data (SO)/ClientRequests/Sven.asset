@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c112794dc5b41d28b23a00611afb819, type: 3}
+  m_Name: Sven
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: bc051a448a99e8149a2eff1acc416a62, type: 3}
+  clientDialogData:
+  - {fileID: 11400000, guid: e9bfc08a40ec5754e8f33f7f2f232011, type: 2}
+  - {fileID: 11400000, guid: 189ce0b3a8fbdf74e9f36bf50801b66d, type: 2}
+  - {fileID: 11400000, guid: b48e3c4642face5488c6fc4a426fd53a, type: 2}

@@ -28,11 +28,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1613666290704715218}
-  - {fileID: 1846029165469653895}
-  - {fileID: 1846029164373371038}
   - {fileID: 1846029165885391912}
   - {fileID: 1846029166314376433}
   - {fileID: 1846029166141477200}
+  - {fileID: 1846029165469653895}
+  - {fileID: 1846029164373371038}
   - {fileID: 1846029165973169903}
   m_Father: {fileID: 1846029166105848521}
   m_RootOrder: 0
@@ -64,11 +64,12 @@ Transform:
   m_LocalPosition: {x: -0.025826456, y: -0.37970173, z: 0.77710253}
   m_LocalScale: {x: 0.61242217, y: 0.61242217, z: 0.61242217}
   m_Children:
-  - {fileID: 2167586859646233375}
-  - {fileID: 2167586860539474450}
   - {fileID: 2167586860614665183}
+  - {fileID: 2167586860539474450}
+  - {fileID: 2167586859646233375}
+  - {fileID: 3454615199370717523}
   m_Father: {fileID: 2167586859527912586}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846029165469653894
 GameObject:
@@ -97,12 +98,12 @@ Transform:
   m_LocalPosition: {x: -0.025826456, y: -0.37970173, z: 0.77710253}
   m_LocalScale: {x: 0.61242217, y: 0.61242217, z: 0.61242217}
   m_Children:
-  - {fileID: 2167586858935311409}
   - {fileID: 2167586858776895229}
-  - {fileID: 2167586859482569966}
   - {fileID: 2167586858950139389}
+  - {fileID: 2167586858935311409}
+  - {fileID: 2167586859482569966}
   m_Father: {fileID: 2167586859527912586}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846029165885391915
 GameObject:
@@ -133,7 +134,7 @@ Transform:
   m_Children:
   - {fileID: 2167586860740165923}
   m_Father: {fileID: 2167586859527912586}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846029165973169902
 GameObject:
@@ -145,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846029165973169903}
   m_Layer: 6
-  m_Name: Design Clothes
+  m_Name: DesignClothes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +229,7 @@ Transform:
   m_Children:
   - {fileID: 2167586859143441593}
   m_Father: {fileID: 2167586859527912586}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846029166314376432
 GameObject:
@@ -259,7 +260,7 @@ Transform:
   m_Children:
   - {fileID: 2167586860400454528}
   m_Father: {fileID: 2167586859527912586}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7553323342219189993
 GameObject:
@@ -462,7 +463,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
@@ -537,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
       propertyPath: m_Name
-      value: Accessoires_Normal
+      value: AccessoryNormal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
@@ -547,7 +548,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 2cc1c0ac1139070498032d8c119bf2ea,
         type: 3}
@@ -641,8 +642,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5749152290170737689, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
+      propertyPath: m_Name
+      value: ShirtTorso
+      objectReference: {fileID: 0}
+    - target: {fileID: -5749152290170737689, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
+        type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -620293727029424844, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
+        type: 3}
+      propertyPath: m_Name
+      value: ShirtLeftSleeve
       objectReference: {fileID: 0}
     - target: {fileID: -620293727029424844, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
@@ -652,7 +663,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
       propertyPath: m_Name
-      value: Shirt_Normal
+      value: ShirtNormal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
@@ -679,6 +690,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 5d59f1ad088b12b4da9f7c70e561ef8e, type: 2}
+    - target: {fileID: 6085802795549713556, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
+        type: 3}
+      propertyPath: m_Name
+      value: ShirtRightSleeve
+      objectReference: {fileID: 0}
     - target: {fileID: 6085802795549713556, guid: 8aa7ea2af2a13dd47963cdbc6c0984d2,
         type: 3}
       propertyPath: m_Layer
@@ -772,7 +788,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
       propertyPath: m_Name
-      value: Shoe_Designer
+      value: ShoeDesigner
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
@@ -791,8 +807,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4756638a38305614ba1e5b3976a996e1, type: 2}
     - target: {fileID: 2380837620316036676, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
+      propertyPath: m_Name
+      value: ShoeRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380837620316036676, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
+        type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720595206234347021, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
+        type: 3}
+      propertyPath: m_Name
+      value: ShoeLeft
       objectReference: {fileID: 0}
     - target: {fileID: 2720595206234347021, guid: e2559e2570e42684b8ab08ae0ac2c4e3,
         type: 3}
@@ -927,7 +953,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
@@ -996,8 +1022,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4609783551654132288, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
+      propertyPath: m_Name
+      value: PantLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: -4609783551654132288, guid: ea2d1a9778c77d14790698357fd5c70b,
+        type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3365321995123091662, guid: ea2d1a9778c77d14790698357fd5c70b,
+        type: 3}
+      propertyPath: m_Name
+      value: PantRight
       objectReference: {fileID: 0}
     - target: {fileID: -3365321995123091662, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
@@ -1007,7 +1043,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
       propertyPath: m_Name
-      value: Pants_Normal
+      value: PantsNormal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea2d1a9778c77d14790698357fd5c70b,
         type: 3}
@@ -1047,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
@@ -1146,13 +1182,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834002468403638663, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
+      propertyPath: m_Name
+      value: ShirtLeftSleeve
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834002468403638663, guid: cba2e93a41c989545b148997329701cb,
+        type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4971864506534253061, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
+      propertyPath: m_Name
+      value: ShirtTorso
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971864506534253061, guid: cba2e93a41c989545b148997329701cb,
+        type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441324244284950750, guid: cba2e93a41c989545b148997329701cb,
+        type: 3}
+      propertyPath: m_Name
+      value: ShirtRightSleeve
       objectReference: {fileID: 0}
     - target: {fileID: 7441324244284950750, guid: cba2e93a41c989545b148997329701cb,
         type: 3}
@@ -1287,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
@@ -1372,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4114922828446753926, guid: 45be9340c53c4624aafcc8e369a05138,
         type: 3}
@@ -1477,12 +1528,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc2ace8a77c5a6c488704eab322b7baf,
         type: 3}
       propertyPath: m_Name
-      value: Accessoires_Designer
+      value: AccessoryDesigner
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bc2ace8a77c5a6c488704eab322b7baf,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc2ace8a77c5a6c488704eab322b7baf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: bc2ace8a77c5a6c488704eab322b7baf,
         type: 3}
@@ -1507,7 +1563,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
@@ -1576,6 +1632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1391978422089478992, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
+      propertyPath: m_Name
+      value: PantRight
+      objectReference: {fileID: 0}
+    - target: {fileID: -1391978422089478992, guid: 62629732ebd458b47ac009320962856c,
+        type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -1598,6 +1659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079025719691710374, guid: 62629732ebd458b47ac009320962856c,
+        type: 3}
+      propertyPath: m_Name
+      value: PantLeft
       objectReference: {fileID: 0}
     - target: {fileID: 4079025719691710374, guid: 62629732ebd458b47ac009320962856c,
         type: 3}
@@ -1686,6 +1752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1144838238746316433, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
+      propertyPath: m_Name
+      value: ShirtTorso
+      objectReference: {fileID: 0}
+    - target: {fileID: -1144838238746316433, guid: 4367530e1eff34f48b796727181e7886,
+        type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -1697,7 +1768,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
       propertyPath: m_Name
-      value: Shirt_Designer
+      value: ShirtDesigner
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
@@ -1711,6 +1782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637167344757604467, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
+      propertyPath: m_Name
+      value: ShirtRightSleeve
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637167344757604467, guid: 4367530e1eff34f48b796727181e7886,
+        type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -1719,6 +1795,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 64bf3f9ffbf71c643abf7c105cfbb63d, type: 2}
+    - target: {fileID: 3611709758746021002, guid: 4367530e1eff34f48b796727181e7886,
+        type: 3}
+      propertyPath: m_Name
+      value: ShirtLeftSleeve
+      objectReference: {fileID: 0}
     - target: {fileID: 3611709758746021002, guid: 4367530e1eff34f48b796727181e7886,
         type: 3}
       propertyPath: m_Layer
@@ -1742,7 +1823,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
@@ -1817,12 +1898,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
       propertyPath: m_Name
-      value: AccessoiresBasic
+      value: AccessoryBasic
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c128dfb2679c984ead3aad4fbe5e530,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 8c128dfb2679c984ead3aad4fbe5e530,
         type: 3}
@@ -1836,4 +1922,119 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c128dfb2679c984ead3aad4fbe5e530,
     type: 3}
   m_PrefabInstance: {fileID: 1846029166320744726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2917201457634954936
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1846029164373371038}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6328605
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6328605
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6328605
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.042171
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6862382099462930479, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f99b7ffe59c4b3648abc05e614061bb2, type: 2}
+    - target: {fileID: -6526593635369248603, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0852d22b35a3d3a4a82897109be19cba, type: 2}
+    - target: {fileID: -5988549869555930995, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_Name
+      value: SkirtRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_Name
+      value: SkirtNormal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651303105457552209, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+        type: 3}
+      propertyPath: m_Name
+      value: SkirtLeft
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24c83e999f25bbf41a9e3b1686fa3801, type: 3}
+--- !u!4 &3454615199370717523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24c83e999f25bbf41a9e3b1686fa3801,
+    type: 3}
+  m_PrefabInstance: {fileID: 2917201457634954936}
   m_PrefabAsset: {fileID: 0}

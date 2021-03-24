@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ClientMissions.Data{
     [CreateAssetMenu(fileName = "ScriptableObject/Mission/ClientData")]
     public class ClientTestData : ScriptableObject{
-        [SerializeField] Sprite characterSprite;
+        [SerializeField] Sprite portrait;
         [SerializeField] List<ClientDialogData> clientDialogData;
 
         public List<ClientDialogData> ClientDialogData => clientDialogData;
-        public Sprite CharacterSprite => characterSprite;
+        public Sprite Portrait => portrait;
     }
 }
