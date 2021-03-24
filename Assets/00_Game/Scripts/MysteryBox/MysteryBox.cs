@@ -5,60 +5,32 @@ using UnityEngine;
 namespace MysteryBox {
     public class MysteryBox : MonoBehaviour {
         
+        [SerializeField] Vector3 rewardSpawnOffset;
         [SerializeField] float spawnRewardAfterDelay = 1.5f;
         [SerializeField] float destroyDelay = 5f;
-
+        
         LootTable lootTable;
         
         void Start() {
             StartCoroutine(StartRewardProcess(spawnRewardAfterDelay));
         }
         
-        public void AssignLootTable(LootTable lootTable) {
-            this.lootTable = lootTable;
+        public void LootTable(LootTable pLootTable) {
+            this.lootTable = pLootTable;
         }
 
         IEnumerator StartRewardProcess(float delay) {
             yield return new WaitForSeconds(delay);
-            //ShowReward();
+            ShowReward();
             Destroy(gameObject, destroyDelay);
         }
         
-        
         void ShowReward() {
-            //play animation and spawn visual Representation of loot acquired, perhaps play sound
-            Instantiate(lootTable.Reward()); 
+            Instantiate(lootTable.Reward().gameObject, transform.position + rewardSpawnOffset, Quaternion.identity);
         }
+        
         void OnDestroy() {
             StopCoroutine(nameof(StartRewardProcess));
         }
-
-        
-        
-        // public void StartAnimation() {
-        //     animator.SetTrigger("OpenLootBox");
-        // }
-        //
-        // IEnumerator temp() {
-        //     opened = true;
-        //     StartAnimation();
-        //     yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        //     EventBroker.Instance().SendMessage(new EventMysteryBoxOpened(lootTable.Reward()));
-        //     Debug.Log("Loot Box Opened");
-        //     Destroy(gameObject);
-        // }
-        //
-        // void Update() {
-        //     if (Input.GetMouseButtonDown(0)) {
-        //         RaycastHit hit;
-        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //
-        //         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 6)) {
-        //             if (hit.collider != null) {
-        //                 Destroy(gameObject);
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
