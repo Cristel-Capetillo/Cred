@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace ClientMissions.Data {
     [Serializable]
-    public class LocalPlayerTestData : IPlayer, IMissionHolder{
+    public class LocalPlayerTest : IPlayer, IMissionHolder{
+        const int MaxCurrentMissions = 3;
         [SerializeField] int followers;
         [SerializeField] int maxFollowers;
         [SerializeField] int testCoins;
-        [SerializeField] List<string> missions;
-        [SerializeField] int maxMissions;
-
+        
         public int Followers => followers;
 
         public int MaxFollowers => maxFollowers;
@@ -26,10 +25,10 @@ namespace ClientMissions.Data {
             set => PlayerPrefs.SetInt("ClientIndex", value);
         }
 
-        public int MaxMissions => maxMissions;
+        public int MaxMissions => MaxCurrentMissions;
 
         public bool AddMission(SavableMissionData savableMissionData){
-            for (var i = 0; i < maxMissions; i++){
+            for (var i = 0; i < MaxCurrentMissions; i++){
                 if (PlayerPrefs.GetString($"PlayerMission({i})", "") == ""){
                     PlayerPrefs.SetString($"PlayerMission({i})", JsonUtility.ToJson(savableMissionData));
                     return true;
@@ -37,10 +36,9 @@ namespace ClientMissions.Data {
             }
             return false;
         }
-
         public bool RemoveMission(SavableMissionData savableMissionData){
             var missionDataToJson = JsonUtility.ToJson(savableMissionData);
-            for (var i = 0; i < maxMissions; i++){
+            for (var i = 0; i < MaxCurrentMissions; i++){
                 if (PlayerPrefs.GetString($"PlayerMission({i})", "") == missionDataToJson){
                     PlayerPrefs.SetString($"PlayerMission({i})", "");
                     return true;
@@ -48,20 +46,27 @@ namespace ClientMissions.Data {
             }
             return false;
         }
-
         public List<SavableMissionData> GetMissions(){
-            missions.Clear();
+            var jSonMission = GetMissionsFromPlayerPrefs();
+            return ReturnSavableMissionData(jSonMission);
+        }
+
+        static List<SavableMissionData> ReturnSavableMissionData(List<string> jSonMission){
             var savableMissionData = new List<SavableMissionData>();
-            for (int i = 0; i < maxMissions; i++){
-                var missionInfo = PlayerPrefs.GetString($"PlayerMission({i})", "");
-                if(missionInfo != "") 
-                    missions.Add(missionInfo);
-            }
-            foreach (var mission in missions){
-                if(mission != "")
+            foreach (var mission in jSonMission){
+                if (mission != "")
                     savableMissionData.Add(JsonUtility.FromJson<SavableMissionData>(mission));
             }
             return savableMissionData;
+        }
+        static List<string> GetMissionsFromPlayerPrefs(){
+            var jSonMission = new List<string>();
+            for (var i = 0; i < MaxCurrentMissions; i++){
+                var missionInfo = PlayerPrefs.GetString($"PlayerMission({i})", "");
+                if (missionInfo != "")
+                    jSonMission.Add(missionInfo);
+            }
+            return jSonMission;
         }
     }
 

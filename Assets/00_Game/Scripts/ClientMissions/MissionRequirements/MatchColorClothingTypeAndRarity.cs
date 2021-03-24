@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using Clothing;
 
@@ -10,15 +11,15 @@ namespace ClientMissions.MissionRequirements{
             Rarity = rarity;
         }
 
-        public ColorData ColorData{ get; private set; }
-        public ClothingType ClothingType{ get; private set; }
-        public Rarity Rarity{ get; private set; }
-
-        //TODO it's wrong! Should probably be CombinedWearbles + check for all parts?
+        public ColorData ColorData{ get;}
+        public ClothingType ClothingType{ get;}
+        public Rarity Rarity{ get;}
+        
         public bool PassedRequirement(CombinedWearables combinedWearables){
             return combinedWearables.rarity == Rarity && combinedWearables.clothingType == ClothingType && 
                    combinedWearables.wearable.Any(wearable => wearable.colorData == ColorData);
         }
+
         public override string ToString(){
             return $"{ColorData.name} {Rarity.name.ToLower()} {ClothingType.SingularName.ToLower()}.";
         }

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
+using ClientMissions.MissionRequirements;
+using Club.MissionRequirments;
 using UnityEngine;
 using Utilities.Time;
 using Random = UnityEngine.Random;
@@ -60,23 +62,9 @@ namespace ClientMissions {
                 var requirementValue = Helper.NumberGenerator(Mathf.Min(3,requirementAmountLeft));
                 var colorDataListIndex = GetRandomNonRepeatingIndexFromList(colorDataList);
                 var clothingTypeIndex = GetRandomNonRepeatingIndexFromList(clothingTypeDataList);
-                
-                switch (requirementValue){
-                    case 1:
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
-                            new List<int>{colorDataListIndex}));
-                        break;
-                    case 2:
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
-                            new List<int>{colorDataListIndex, clothingTypeIndex}));
-                        break;
-                    case 3:{
-                        var rarityDataIndex = Random.Range(1, generatorData.Rarities.Count);
-                        savableMissionRequirements.Add(new SavableRequirementData(requirementValue,
-                            new List<int>{colorDataListIndex, clothingTypeIndex, rarityDataIndex}));
-                        break;
-                    }
-                }
+                var rarityDataIndex = Random.Range(1, generatorData.Rarities.Count);
+                savableMissionRequirements.Add(new SavableRequirementData(requirementValue, 
+                    new List<int>{colorDataListIndex, clothingTypeIndex, rarityDataIndex}));
                 requirementAmountLeft -= requirementValue;
             }
             return savableMissionRequirements;
