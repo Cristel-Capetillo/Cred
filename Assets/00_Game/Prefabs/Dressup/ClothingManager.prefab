@@ -44,8 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092bd33318146814fba1d5f3d9b36a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlexTorso: {fileID: 0}
-  AlexPants: {fileID: 0}
+  bodyParts: []
+  clothesCategories: []
+  clothingRarities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  lastKnownClothes: {fileID: 0}
 --- !u!114 &5536570162887534998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +63,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b75204f7bdb41c4b04625c16333cfe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothingTypes:
-  - {fileID: 11400000, guid: 0749319de8169dd478b81d0e0e884e25, type: 2}
-  - {fileID: 11400000, guid: ffb21730177cf77429f70cd6ee85a081, type: 2}

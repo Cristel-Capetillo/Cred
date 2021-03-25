@@ -10,6 +10,7 @@ namespace ClientMissions{
 
         MissionData missionData;
         [SerializeField]Image clientPortrait;
+        [SerializeField] Text nameText;
 
         public MissionData MissionData => missionData;
 
@@ -19,6 +20,7 @@ namespace ClientMissions{
                 return;
             }
             this.missionData = missionData;
+            nameText.text = missionData.ClientTestData.name;
             clientPortrait.sprite = missionData.ClientTestData.Portrait;
         }
         public void OnPointerClick(PointerEventData eventData){
