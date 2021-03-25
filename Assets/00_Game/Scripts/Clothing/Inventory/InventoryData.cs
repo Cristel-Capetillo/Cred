@@ -3,6 +3,8 @@
 namespace Clothing.Inventory {
     [System.Serializable]
     public class InventoryData {
+        public CombinedWearables[] firstSave;
+        
         public Rarity[] rarity;
         public ClothingType[] clothingType;
         public Wearable[] wearables;

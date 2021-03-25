@@ -6,6 +6,8 @@ using Utilities;
 
 namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
+        public Transform[] contents;
+
         public CombinedWearables combinedWearablesTemplate;
 
         public InventoryData inventoryData;
@@ -105,14 +107,21 @@ namespace Clothing.Inventory {
         public void OnLoad(Dictionary<string, object> value) {
             combinedWearableDataToSave = value;
 
-            if (value == null) return;
+            if (value == null) {
+                foreach (var f in inventoryData.firstSave) {
+                    EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(f, 1));
+                    CategoriesWearables(f);
+                }
+
+                return;
+            }
 
             print($"Dictionary size: {value.Count}");
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
-                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
 
+                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
                 for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
                     foreach (var s in inventoryData.wearables) {
                         if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
@@ -121,9 +130,25 @@ namespace Clothing.Inventory {
                         }
                     }
                 }
+
                 combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
                 combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
                 combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
+                CategoriesWearables(combinedWearableInstance);
+            }
+        }
+
+        void CategoriesWearables(CombinedWearables combinedWearables) {
+            for (var i = 0; i < contents.Length; i++) {
+                combinedWearables.transform.parent = combinedWearables.clothingType.name switch {
+                    "Shirts" => contents[0],
+                    "Pants" => contents[1],
+                    "Jackets" => contents[2],
+                    "Shoes" => contents[3],
+                    "Accessories" => contents[4],
+                    "Skirts" => contents[5],
+                    _ => combinedWearables.transform.parent
+                };
             }
         }
     }

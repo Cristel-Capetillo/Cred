@@ -85,9 +85,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7812307072145280411}
   - component: {fileID: 6327582708413130307}
+  - component: {fileID: 8960099781882647010}
   - component: {fileID: 6128540005919646192}
   - component: {fileID: 563741897846871088}
   - component: {fileID: 5512336892720678117}
+  - component: {fileID: 7680957452241324409}
   m_Layer: 0
   m_Name: CombinedWearables
   m_TagString: Untagged
@@ -127,10 +129,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918905075c374c4ebb49e5aeacff4352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wearable: []
-  clothingType: {fileID: 0}
-  rarity: {fileID: 0}
-  stylePoints: 0
+  wearable:
+  - {fileID: 11400000, guid: 72ce59d192b579c4297e6ac02f440250, type: 2}
+  - {fileID: 11400000, guid: bc0a6e74a509775459f1cbaabd4fef7b, type: 2}
+  - {fileID: 11400000, guid: 181bf35484fc42d42a8d1a68c3df94cc, type: 2}
+  clothingType: {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d, type: 2}
+  rarity: {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
+  stylePoints: 3
+--- !u!114 &8960099781882647010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991901679735643709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6af63b109e941b49a3b62c178c6951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images: []
 --- !u!222 &6128540005919646192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -213,6 +231,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7680957452241324409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991901679735643709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efaca38722d3541f2b6a4d9ef374b12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stylePointText: {fileID: 0}
 --- !u!1 &4869062844941136838
 GameObject:
   m_ObjectHideFlags: 0
