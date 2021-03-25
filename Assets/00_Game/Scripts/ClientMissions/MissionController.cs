@@ -36,6 +36,7 @@ namespace ClientMissions {
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
         }
         void OnClothingChanged(EventClothesChanged eventClothesChanged) {
             if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {

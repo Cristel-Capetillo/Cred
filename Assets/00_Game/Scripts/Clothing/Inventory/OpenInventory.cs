@@ -1,4 +1,5 @@
 ﻿using System;
+using Clothing.Upgrade;
 using Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,7 +17,7 @@ namespace Clothing.Inventory {
         void Start() {
             topPosition = categories[0].GetComponent<RectTransform>().localPosition;
             EventBroker.Instance().SubscribeMessage<EventSceneSwap>(ValidateScene);
-            
+
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("DressupScene")) {
                 canvas.enabled = true;
             }
@@ -30,7 +31,9 @@ namespace Clothing.Inventory {
         }
 
         public void ToggleInventory(GameObject scrollView) {
+            EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             scrollView.SetActive(!scrollView.activeSelf);
+            print("doing something");
 
             foreach (var category in categories) {
                 if (EventSystem.current.currentSelectedGameObject != category) {
