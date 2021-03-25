@@ -21,6 +21,10 @@ namespace Utilities.Time {
             return timeHandler.GetTime() >= thisLastOccured.AddSeconds(cooldown);
         }
 
+        public int TimeRemaining(DateTime destinationTime) {
+            return destinationTime.Subtract(timeHandler.GetTime()).Seconds;
+        }
+
         public int HowLongBeforeICan(int cooldown) {
             //var thisLastOccured = new TimeStamp(ID);
             return (timeStamp.Time.AddSeconds(cooldown) - timeHandler.GetTime()).Seconds;
