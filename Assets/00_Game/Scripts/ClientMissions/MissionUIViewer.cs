@@ -1,5 +1,6 @@
 using System;
 using ClientMissions.MissionMessages;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -7,12 +8,13 @@ using Utilities;
 namespace ClientMissions{
     public class MissionUIViewer : MonoBehaviour
     {
-        // Start is called before the first frame update
-        [SerializeField] Text storyText;
-        [SerializeField] Text requirementText;
-        [SerializeField] Image clientPortrait;
-        [SerializeField] Canvas selectedMissionCanvas;
-        [SerializeField] Canvas missionPickerCanvas;
+        [SerializeField] TMP_Text storyText;
+        [SerializeField] TMP_Text clientRequirementHeaderText;
+        [SerializeField] TMP_Text requirementText;
+        
+        [SerializeField] Image clientNarrativePortrait;
+        [SerializeField] GameObject clientMenuUIHolder;
+        [SerializeField] GameObject narrativeMissionHolder;
         void Start(){
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(UpdateMissionUI);
         }
@@ -23,15 +25,16 @@ namespace ClientMissions{
 
         void UpdateMissionUI(SelectMissionMessage selectMissionMessage){
             var missionData = selectMissionMessage.missionData;
-            selectedMissionCanvas.enabled = true;
-            missionPickerCanvas.enabled = false;
-            clientPortrait.sprite = missionData.ClientTestData.Portrait;
+            clientMenuUIHolder.SetActive(false);
+            narrativeMissionHolder.SetActive(true);
+            clientNarrativePortrait.sprite = missionData.ClientTestData.Portrait;
             var clubInfo =  missionData.ClientTestData.ClientDialogData[missionData.SavableDialogData.ClubIndex];
             storyText.text = clubInfo.Dialog[missionData.SavableDialogData.DialogIndex];
             requirementText.text = "";
             foreach (var requirement in missionData.Requirements){
                 requirementText.text += $"\n {requirement}";
             }
+            clientRequirementHeaderText.text = $"{missionData.ClientTestData.name}s requests: ";
         }
     }
 }

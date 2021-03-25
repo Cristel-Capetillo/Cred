@@ -2,90 +2,59 @@ using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.MissionMessages;
+using ClientMissions.MissionRequirements;
 using Clothing;
 using UnityEngine;
+using Utilities;
 
 namespace ClientMissions {
-    public class MissionController : MonoBehaviour {
+    public class MissionController : MonoBehaviour{
 
-        [SerializeField] List<MissionData> missionList = new List<MissionData>();
-        //[SerializeField] PlayerData playerData;
-        [SerializeField] List<CombinedWearables> combinedWearablesList = new List<CombinedWearables>();//TODO: test remove this
-        [SerializeField] int maxFollowers = 1000;
-        [SerializeField] int maxStylePoints = 50;
-        List<Wearable> wearableList = new List<Wearable>();
-        int _currentMinStylepointValue;
-        int _currentMaxStylepointValue;
-        int _currentStylePoints;
-        MissionData _currentMission;
-        void Start(){
-            // EventBroker.Instance().SubscribeMessage<MissionWearableMessage>(GetWearableList);
-            //StartMission();
-            _currentStylePoints = GetStylePoints();
-            //EndMission();
+        MissionData activeMission;
+        [SerializeField] CombinedWearables combinedWearables;
+        List<CombinedWearables> wearablesOnClient = new List<CombinedWearables>();
+        List<IMissionRequirement> requirements = new List<IMissionRequirement>();
+        void Start() {
+            if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
+            activeMission = FindObjectOfType<ActiveMission>().ActiveMissionData;
+            requirements = activeMission.Requirements;
+            Debug.Log(activeMission.ClientTestData.name);
+            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
         }
-        // void OnDestroy(){
-        //     EventBroker.Instance().UnsubscribeMessage<MissionWearableMessage>(GetWearableList);
-        // }
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
+        }
+        void OnClothingChanged(EventClothesChanged eventClothesChanged) {
+            if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
+                AddOrReplaceCombinedWearable(eventClothesChanged.CombinedWearables);
+            }
 
-        /*public void StartMission() {
-            _currentMission = missionList[playerData.CurrentMissionIndex];
-            (_currentMinStylepointValue, _currentMaxStylepointValue) =
-                AdjustStylePoint(_currentMission.MinimumStylePoints, _currentMission.MaximumStylePoints);
-            print($"Min: {_currentMinStylepointValue} Max: {_currentMaxStylepointValue}");
-        }*/
-        // public void EndMission(){
-        //     print("Colors match: " + CheckColors());
-        //     if (_currentStylePoints < _currentMinStylepointValue){
-        //         print("Mission failed!");
-        //         return;
-        //     }
-        //     print(CalculateReword());
-        // }
-
-        //TODO: Get equation from GameDesigner! 
-        /*int CalculateReword(){
-            var t = Mathf.InverseLerp(0, _currentMaxStylepointValue, _currentStylePoints);
-            return Mathf.RoundToInt(Mathf.Lerp(_currentMinStylepointValue, _currentMaxStylepointValue + _currentMission.MaxReward, t));
-        }*/
-        int GetStylePoints(){
-            return combinedWearablesList.Sum(wearable => wearable.stylePoints);
+            if (CheckAllRequirements()) {
+                Debug.Log("User can enter the club " + combinedWearables.wearable[0].colorData.name);
+                // User can enter club, button.IsActive(true) else false;
+            }
         }
 
-        //bool CheckColors(){
-        //    return wearables.Any(wearable => wearable.ColorData.Any(colorData => _currentMission.RequiredColors.Contains(colorData)));
-        //}
-        // void GetWearableList(MissionWearableMessage missionWearableMessage){
-        //     wearableList = missionWearableMessage.wearables;
-        // }
-        // (int, int) AdjustStylePoint(int minValue, int maxValue){
-        //     var t = Mathf.InverseLerp(0, maxFollowers, playerData.Followers);
-        //     minValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, t));
-        //     maxValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, maxStylePoints,t)); 
-        //     return (minValue, maxValue);
-        // }
-        
-        
-
-
-        /*// calculate how many style points this mission requires
-        // Based on a set amount of maximum followers that can be reached.
-        
-        public int CalculateStylePoints(int followers, int maxFollowers) {
-            var t = Mathf.InverseLerp(0, maxFollowers, followers);
-            return Mathf.RoundToInt(Mathf.Lerp(1, maxStylePoints,t)); 
+        bool CheckIfItemExistsInList(CombinedWearables combinedWearable) {
+            return wearablesOnClient.Contains(combinedWearable);
+        }
+        void AddOrReplaceCombinedWearable(CombinedWearables combinedWearable) {
+            for (int i = 0; i < wearablesOnClient.Count; i++) {
+                if (wearablesOnClient[i].clothingType == combinedWearable.clothingType) {
+                    wearablesOnClient[i] = combinedWearable;
+                    return;
+                }
+            }
+            wearablesOnClient.Add(combinedWearable);
         }
 
-        // calculate the percentage of the current selected style.
-        
-        public float CalculateStylePercentage(int stylePoints, float currentMissionStylePoints) {
-            return stylePoints / currentMissionStylePoints;
+        bool CheckAllRequirements() {
+            var completedRequirements = requirements.Count(Passed);
+            return completedRequirements == requirements.Count;
         }
-        
-        // calculate the total reward the user gets from that style percentage
-        public int CalculateTotalReward(float stylePercentage){
-            return (int) (stylePercentage * maxReward);
-        }*/
-       
+
+        bool Passed(IMissionRequirement requirement) {
+            return wearablesOnClient.Any(requirement.PassedRequirement);
+        }
     }
 }
