@@ -5,6 +5,7 @@ using ClientMissions.MissionMessages;
 using ClientMissions.MissionRequirements;
 using Clothing;
 using Clothing.DressUp;
+using Clothing.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
@@ -14,7 +15,6 @@ namespace ClientMissions {
 
         [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>(); 
         MissionData activeMission;
-        [SerializeField] CombinedWearables combinedWearables;
         List<CombinedWearables> wearablesOnClient = new List<CombinedWearables>();
         List<IMissionRequirement> requirements = new List<IMissionRequirement>();
         void Start() {
@@ -37,7 +37,8 @@ namespace ClientMissions {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
         }
-        void OnClothingChanged(EventClothesChanged eventClothesChanged) {
+        void OnClothingChanged(EventClothesChanged eventClothesChanged){
+            Debug.Log(PlayerInventory.GetName(eventClothesChanged.CombinedWearables));
             if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
                 AddOrReplaceCombinedWearable(eventClothesChanged.CombinedWearables);
             }
