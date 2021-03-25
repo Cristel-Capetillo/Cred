@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Clothing;
+﻿using Clothing;
 using Clothing.Inventory;
 using Clothing.Upgrade;
 using Currency.Coins;
@@ -20,6 +18,7 @@ namespace HUD.Donate {
         void Start() {
             playerInventory = FindObjectOfType<PlayerInventory>();
             donationHandler = FindObjectOfType<DonationHandler>();
+            donationHandler.warningPopUp.SetActive(false);
             foreach (var button in donationHandler.alternativesButtons) {
                 button.interactable = false;
             }
@@ -39,17 +38,17 @@ namespace HUD.Donate {
         
         void AssignToSlot(CombinedWearables combinedWearables) {
             donationHandler.qualifiesForDonation(combinedWearables);
-            CheckIfValidForDonation(combinedWearables);
-            Debug.Log(donationHandler.isGood);
-            var instance = Instantiate(combinedWearables, slots.transform, true);
+            if (CheckIfValidForDonation(combinedWearables)) {
+                var instance = Instantiate(combinedWearables, slots.transform, true);
                 var scale = combinedWearables.GetComponent<RectTransform>().localScale;
                 instance.transform.localPosition = Vector2.zero;
                 instance.GetComponent<RectTransform>().localScale = scale;
                 Destroy(instance.GetComponent<AssignCombinedWearableToUpCycle>());
                 Destroy(instance.GetComponent<Button>());
+            }
         }
         
-        void CheckIfValidForDonation(CombinedWearables combinedWearables) {
+        bool CheckIfValidForDonation(CombinedWearables combinedWearables) {
             if (donationHandler.isGood) {
                 for (var buttonToBeActive = 0; buttonToBeActive < donationHandler.stylePointsToUpgrade; buttonToBeActive++) {
                     foreach (var button in donationHandler.alternativesButtons) {
@@ -58,16 +57,20 @@ namespace HUD.Donate {
                 }
             }
             if (!(playerInventory.Amount(PlayerInventory.GetName(combinedWearables)) >= 2)) {
+                donationHandler.warningPopUp.SetActive(true);
                 donationHandler.warningText.text = "This item does not have any duplicate yet. Come back later!";
                 Debug.Log("This item does not have any duplicate yet. Come back later!");
             }
             else if (!(donationHandler.CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
+                donationHandler.warningPopUp.SetActive(true);
+
                 donationHandler.warningText.text = "This item already has its maximum style points";
                 Debug.Log("This item already has its maximum style points");
             }
             else {
                 Debug.Log("Something went wrong..");
             }
+            return false;
         }
         
         public void DonateAlternative1() {

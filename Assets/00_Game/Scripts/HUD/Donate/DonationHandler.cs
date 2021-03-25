@@ -1,11 +1,7 @@
-using System;
-using Ads;
 using Clothing;
 using Clothing.Inventory;
-using Clothing.Upgrade;
 using UnityEngine;
 using UnityEngine.UI;
-using Utilities;
 
 namespace HUD.Donate {
     public class DonationHandler : MonoBehaviour {
@@ -17,6 +13,7 @@ namespace HUD.Donate {
         
         public Button[] alternativesButtons;
         public Text warningText;
+        public GameObject warningPopUp;
 
         void Start() {
             playerInventory = FindObjectOfType<PlayerInventory>();
@@ -24,7 +21,7 @@ namespace HUD.Donate {
         public void DonateMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
             addedStylePoints = stylePointsToAdd;
             // EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, -1));
-            // combinedWearables.stylePoints += addedStylePoints;
+            wearable.stylePoints += addedStylePoints;
             // EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
         }
         public void qualifiesForDonation(CombinedWearables combinedWearables) {
