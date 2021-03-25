@@ -22,7 +22,7 @@ namespace HUD.Donate {
             }
         }
 
-        void CheckIfValidForDonation() {
+        /*void CheckIfValidForDonation() {
             if (qualifiesForDonation) {
                 for (var buttonToBeActive = 0; buttonToBeActive < stylePointsToUpgrade; buttonToBeActive++) {
                     foreach (var button in alternativesButtons) {
@@ -36,7 +36,7 @@ namespace HUD.Donate {
             else if (!(CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
                 warningText.text = "This item already has its maximum style points";
             }
-        }
+        }*/
 
         public void DonateMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
             addedStylePoints = stylePointsToAdd;
@@ -47,8 +47,8 @@ namespace HUD.Donate {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
         }
 
-        bool qualifiesForDonation => CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 
-                       && playerInventory.combineWearablesAmount[combinedWearables] >= 2;
+        /*bool qualifiesForDonation => CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 
+                       && playerInventory.combineWearablesAmount[combinedWearables] >= 2;*/
         
         int CheckIfMaxStylePointsReached(int currentPoints, Rarity rarity) {
             stylePointsToUpgrade = rarity.MaxValue - currentPoints;
