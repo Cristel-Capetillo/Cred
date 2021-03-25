@@ -17,10 +17,9 @@ namespace HUD.Clothing {
         public Text stylePointText;
         //public Text amountText;
 
+        bool popUpWindowIsActive;
         void Start() {
             combinedWearable = GetComponent<CombinedWearables>();
-            
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearable, -1));
             
             //what wearable in "combinedWearable" in slot1 (orange)
             //what wearable in "combinedWearable" in slot2 (black)
@@ -30,6 +29,7 @@ namespace HUD.Clothing {
             //send message new item created
             //send message subtract from slot1
             //send message subtract from slot2
+            EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(ValidateShouldDressUp);
         }
 
         public void Setup(CombinedWearables wearable, PopupWindowUpCycleDonate popupWindow) {
@@ -48,6 +48,10 @@ namespace HUD.Clothing {
             //amountText.text = combinedWearable.stylePoints.ToString();
         }
 
+        void ValidateShouldDressUp(EventTogglePopWindow popUp) {
+            popUpWindowIsActive = popUp.popWindowIsActive;
+        }
+
         public void LockedUpcycledWearables() {
             // if (!wearable.HasUnlockedUpCycledWearable() && wearable.isUpCycledWearable)
             // {
@@ -56,25 +60,13 @@ namespace HUD.Clothing {
         }
 
         public void OnPointerClick(PointerEventData eventData) {
-            // if (!combinedWearable.Unlocked()) {
-            //     Debug.Log("Not unlocked.");
-            //     return;
-            // }
-            // if (!_popupWindow.popupActive) {
-            //     EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
-            //     Debug.Log(combinedWearable.Sprite.name);
-            // }
-            // else {
-            //     if (_popupWindow.isUpCycleWindow && combinedWearable.Amount > 0) {
-            //         EventBroker.Instance().SendMessage(new EventAddUpCycleClothes(combinedWearable, this));
-            //         upcyclingClothingChosen = true;
-            //     }
-            //
-            //     if (_popupWindow.isDonateWindow) {
-            //         Debug.Log("Donate is Active");
-            //         EventBroker.Instance().SendMessage(new MessageDonateClothes(combinedWearable));
-            //     }
-            //}
+            if (!popUpWindowIsActive) {
+                //EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
+                print("I AM CHANGING CLOTHES MAN");
+                return;
+            }
+            
+            EventBroker.Instance().SendMessage(new EventAddToUpgradeSlot(combinedWearable));
         }
     }
 }
