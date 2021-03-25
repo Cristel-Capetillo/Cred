@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
-  m_Name: Basic Skirt Right Brown
+  m_Name: Normal Skirt Right Orange
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: 5c2d92c0c3add5a4b84e6f4f5a61cd80, type: 2}
-  texture: {fileID: 2800000, guid: 09b78a4a8f9d1ac46bbda7b569577ab3, type: 3}
-  sprite: {fileID: 21300000, guid: 09b78a4a8f9d1ac46bbda7b569577ab3, type: 3}
-  colorData: {fileID: 11400000, guid: 57730928a517945428a70b32efeb1367, type: 2}
+  texture: {fileID: 2800000, guid: e5dafc85811d6a649bc1aa591eece1cf, type: 3}
+  sprite: {fileID: 21300000, guid: 32404d6769e769b4693175272ed580ca, type: 3}
+  colorData: {fileID: 11400000, guid: d9977e18cf77f8148ab5d1b5ac809586, type: 2}
