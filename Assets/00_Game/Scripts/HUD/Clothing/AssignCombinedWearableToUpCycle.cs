@@ -61,7 +61,7 @@ namespace HUD.Clothing {
 
         public void OnPointerClick(PointerEventData eventData) {
             if (!popUpWindowIsActive) {
-                //EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
+                EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
                 print("I AM CHANGING CLOTHES MAN");
                 return;
             }
