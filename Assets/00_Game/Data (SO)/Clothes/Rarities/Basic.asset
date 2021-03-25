@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   value: 1
-  maxValue: 3
+  maxValue: 4
