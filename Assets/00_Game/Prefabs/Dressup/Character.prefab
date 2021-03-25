@@ -2315,6 +2315,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6923831885671021344, guid: 2bc1574e5837f574e8d77dad6052b1b1,
+        type: 3}
+      propertyPath: m_Name
+      value: SkirtRightLeg
+      objectReference: {fileID: 0}
     - target: {fileID: -6542633452189707442, guid: 2bc1574e5837f574e8d77dad6052b1b1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2325,10 +2330,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3731410141681140899f30d3ff39b71, type: 2}
+    - target: {fileID: -2455293310503980736, guid: 2bc1574e5837f574e8d77dad6052b1b1,
+        type: 3}
+      propertyPath: m_Name
+      value: SkirtLeftLeg
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2bc1574e5837f574e8d77dad6052b1b1,
         type: 3}
       propertyPath: m_Name
-      value: BasicSkirt
+      value: Skirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc1574e5837f574e8d77dad6052b1b1, type: 3}
