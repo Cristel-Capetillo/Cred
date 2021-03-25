@@ -1,6 +1,6 @@
 using Clothing;
 
-namespace ClientMissions.ClubMissions {
+namespace ClientMissions.MissionMessages {
     public class EventWearableStylePoints {
         public readonly CombinedWearables combinedWearable;
 

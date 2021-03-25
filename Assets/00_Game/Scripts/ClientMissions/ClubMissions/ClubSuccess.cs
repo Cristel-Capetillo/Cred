@@ -1,17 +1,17 @@
+using ClientMissions.MissionMessages;
 using Currency.Coins;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
 
 namespace ClientMissions.ClubMissions {
-    public class ClubSuccessMessage : MonoBehaviour {
+    public class ClubSuccess : MonoBehaviour {
         [SerializeField] Text rewardText;
         [SerializeField] Button collectButton;
         [SerializeField] Button mainMenuButton;
 
         int currentPoints;
-        void Awake() {
+        void Start() {
             EventBroker.Instance().SubscribeMessage<EventShowReward>(ShowReward);
         }
 

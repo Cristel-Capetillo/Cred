@@ -1,4 +1,4 @@
-namespace ClientMissions.ClubMissions {
+namespace ClientMissions.MissionMessages {
     public class EventUpdateStylePoints {
         public readonly int CurrentStylePoints;
 

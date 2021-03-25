@@ -1,4 +1,4 @@
-namespace ClientMissions.ClubMissions {
+namespace ClientMissions.MissionMessages {
     public class EventShowReward {
         public readonly int rewardPoints;
 
