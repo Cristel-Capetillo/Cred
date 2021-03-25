@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3991901679735643709, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: m_Name
-      value: DesignerAccessoryGold
+      value: DesignerSkirtRed
       objectReference: {fileID: 0}
     - target: {fileID: 5181284984146279649, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
@@ -82,23 +82,25 @@ PrefabInstance:
         type: 3}
       propertyPath: clothingType
       value: 
-      objectReference: {fileID: 11400000, guid: c64867dc560fccf4487b4bec4c4dd42d,
+      objectReference: {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 4020f7e40ae414e4cb6a2680f5cd5aed,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: a8208b0c766d2594d98db2100700c753,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[2]

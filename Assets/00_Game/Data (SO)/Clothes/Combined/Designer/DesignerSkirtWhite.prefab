@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3991901679735643709, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: m_Name
-      value: DesignerShirtBlue
+      value: DesignerSkirtWhite
       objectReference: {fileID: 0}
     - target: {fileID: 5181284984146279649, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
@@ -82,23 +82,25 @@ PrefabInstance:
         type: 3}
       propertyPath: clothingType
       value: 
-      objectReference: {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d,
+      objectReference: {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69,
         type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 72c17d2d3b4da6f42889f7fc000c51a4,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 95ba83e8970d08348a960c11bb9b71f1,
+        type: 2}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: wearable.Array.data[2]

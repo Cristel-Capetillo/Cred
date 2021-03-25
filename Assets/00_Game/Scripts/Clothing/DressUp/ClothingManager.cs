@@ -33,11 +33,12 @@ namespace Clothing.DressUp {
                 }
             }
         }
+
         void GetAllBodyParts() {
             foreach (var rarity in clothingRarities) {
                 foreach (Transform clothingType in rarity.transform) {
                     foreach (Transform bodyPart in clothingType) {
-                        if(bodyPart!=null)
+                        if (bodyPart != null)
                             bodyParts.Add(bodyPart.gameObject);
                     }
                 }
@@ -51,6 +52,7 @@ namespace Clothing.DressUp {
             //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
             //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
         }
+        
 
         void UpdateClothes(EventClothesChanged eventClothesChanged) {
             bool clothesRemoved = CompareAndRemoveSelectedClothes(eventClothesChanged.CombinedWearables);
