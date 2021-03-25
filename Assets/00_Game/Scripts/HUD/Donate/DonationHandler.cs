@@ -1,12 +1,14 @@
+using System;
+using Ads;
 using Clothing;
 using Clothing.Inventory;
+using Clothing.Upgrade;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
 namespace HUD.Donate {
     public class DonationHandler : MonoBehaviour {
-        CombinedWearables combinedWearables;
         PlayerInventory playerInventory;
         [HideInInspector]
         public int stylePointsToUpgrade;
@@ -17,17 +19,15 @@ namespace HUD.Donate {
         public Text warningText;
 
         void Start() {
-            combinedWearables = GetComponent<CombinedWearables>();
-            playerInventory = GetComponent<PlayerInventory>();
+            playerInventory = FindObjectOfType<PlayerInventory>();
         }
         public void DonateMeBaby(CombinedWearables wearable, int stylePointsToAdd) {
             addedStylePoints = stylePointsToAdd;
-            combinedWearables = wearable;
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, -1));
-            combinedWearables.stylePoints += addedStylePoints;
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
+            // EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, -1));
+            // combinedWearables.stylePoints += addedStylePoints;
+            // EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(combinedWearables, 1));
         }
-        public void qualifiesForDonation() {
+        public void qualifiesForDonation(CombinedWearables combinedWearables) {
             if (CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1 && playerInventory.Amount(PlayerInventory.GetName(combinedWearables)) >= 2) {
                 isGood = true;
             }

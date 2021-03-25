@@ -38,7 +38,7 @@ namespace HUD.Donate {
         }
         
         void AssignToSlot(CombinedWearables combinedWearables) {
-            donationHandler.qualifiesForDonation();
+            donationHandler.qualifiesForDonation(combinedWearables);
             CheckIfValidForDonation(combinedWearables);
             Debug.Log(donationHandler.isGood);
             var instance = Instantiate(combinedWearables, slots.transform, true);

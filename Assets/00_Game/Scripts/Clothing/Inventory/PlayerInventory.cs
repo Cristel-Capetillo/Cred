@@ -56,7 +56,9 @@ namespace Clothing.Inventory {
         }
 
         Dictionary<string, object> ItemStats(string itemId) {
-            return (Dictionary<string, object>) combinedWearableDataToSave[itemId];
+            var tmp = new Dictionary<string, object>();
+            tmp = (Dictionary<string, object>) combinedWearableDataToSave[itemId];
+            return tmp;
         }
 
         void UpdateAmount(string nameOfCombinedWearable, int amountToUpdate) {
