@@ -1,15 +1,10 @@
 using UnityEngine;
 using Utilities;
 
-namespace Clothing {
+namespace Clothing.DressUp {
     public class SendClothesMessage : MonoBehaviour {
-        [SerializeField] CombinedWearables defaultShirt;
-        [SerializeField] CombinedWearables defaultPants;
-        
-
-        public void ChangeDefaultClothes() {
-            EventBroker.Instance().SendMessage(new EventClothesChanged(defaultShirt));
-            EventBroker.Instance().SendMessage(new EventClothesChanged(defaultPants));
-        }
+    public void ChangeDefaultClothes() {
+            EventBroker.Instance().SendMessage(new RemoveAllClothes());
+    }
     }
 }

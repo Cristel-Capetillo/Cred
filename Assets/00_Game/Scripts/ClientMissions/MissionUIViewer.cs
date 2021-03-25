@@ -10,7 +10,7 @@ namespace ClientMissions{
         // Start is called before the first frame update
         [SerializeField] Text storyText;
         [SerializeField] Text requirementText;
-        [SerializeField] Image clientImage;
+        [SerializeField] Image clientPortrait;
         [SerializeField] Canvas selectedMissionCanvas;
         [SerializeField] Canvas missionPickerCanvas;
         void Start(){
@@ -25,6 +25,7 @@ namespace ClientMissions{
             var missionData = selectMissionMessage.missionData;
             selectedMissionCanvas.enabled = true;
             missionPickerCanvas.enabled = false;
+            clientPortrait.sprite = missionData.ClientTestData.Portrait;
             var clubInfo =  missionData.ClientTestData.ClientDialogData[missionData.SavableDialogData.ClubIndex];
             storyText.text = clubInfo.Dialog[missionData.SavableDialogData.DialogIndex];
             requirementText.text = "";

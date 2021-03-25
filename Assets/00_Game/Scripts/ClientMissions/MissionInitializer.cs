@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.MissionRequirements;
-using Club.MissionRequirments;
 using UnityEngine;
 using Utilities.Time;
 
@@ -9,13 +9,12 @@ namespace ClientMissions{
     public class MissionInitializer : MonoBehaviour
     {
         [SerializeField] MissionGeneratorData generatorData;//TODO: Get this from addressable for possible remote balancing?
-        [SerializeField] LocalPlayerTestData localPlayerTestData;
+        [SerializeField] LocalPlayerTest localPlayerTest;
         public MissionGenerator CreateMissionGenerator(){
-            return new MissionGenerator(generatorData, localPlayerTestData, FindObjectOfType<TimeManager>());
+            return new MissionGenerator(generatorData, localPlayerTest, FindObjectOfType<TimeManager>());
         }
-
         public IMissionHolder GetMissionHolder(){
-            return localPlayerTestData;
+            return localPlayerTest;
         }
         public MissionData GetSavedMission(SavableMissionData savableMissionData){
             var missionDifficulty = generatorData.MissionDifficulties[savableMissionData.MissionDifficultyIndex];
@@ -26,25 +25,9 @@ namespace ClientMissions{
                 missionClient,savableMissionData.SavableDialogData, savableMissionData);
         }
         List<IMissionRequirement> LoadRequirements(IEnumerable<SavableRequirementData> savableRequirementData){
-            var missionRequirements = new List<IMissionRequirement>();
-            foreach (var requirementData in savableRequirementData){
-                switch (requirementData.RequirementValue){
-                    case 1:
-                       missionRequirements.Add(new MatchColor(generatorData.Colors[requirementData.RequirementsDataIndex[0]])); 
-                       //MatchColor.FromSavable(requirementData)
-                        break;
-                    case 2:
-                        missionRequirements.Add(new MatchColorAndClothingType(generatorData.Colors[requirementData.RequirementsDataIndex[0]],
-                            generatorData.ClothingTypes[requirementData.RequirementsDataIndex[1]]));
-                        break;
-                    case 3:
-                        missionRequirements.Add(new MatchColorClothingTypeAndRarity(
-                            generatorData.Colors[requirementData.RequirementsDataIndex[0]],
-                            generatorData.ClothingTypes[requirementData.RequirementsDataIndex[1]], generatorData.Rarities[requirementData.RequirementsDataIndex[2]]));
-                        break;
-                }
-            }
-            return missionRequirements;
+            return savableRequirementData.Select(requirementData => RequirementFactory.FromSavable(requirementData.RequirementValue, 
+                generatorData.Colors[requirementData.RequirementsDataIndex[0]], generatorData.ClothingTypes[requirementData.RequirementsDataIndex[1]], 
+                generatorData.Rarities[requirementData.RequirementsDataIndex[2]])).ToList();
         }
     }
 }

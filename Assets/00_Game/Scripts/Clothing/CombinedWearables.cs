@@ -15,10 +15,7 @@ namespace Clothing {
                 uID += wearable1.colorData.name;
             }
 
-            if (rarity == null)
-                return "";
-
-            return uID + rarity.name + clothingType.name;
+            return uID + rarity.name + clothingType.name + stylePoints;
         }
 
         public void AddStylePoint() {

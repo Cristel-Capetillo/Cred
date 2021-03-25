@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'BPkinder';
+  src: url('BPkinderBold.eot');
+  src: url('BPkinderBold.eot?#iefix') format('embedded-opentype'),
+       url('BPkinderBold.woff') format('woff'),
+       url('BPkinderBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
