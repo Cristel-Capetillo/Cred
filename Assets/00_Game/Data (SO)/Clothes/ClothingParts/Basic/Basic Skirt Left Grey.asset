@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Basic Skirt Left Grey
   m_EditorClassIdentifier: 
   clothingType: {fileID: 11400000, guid: 308f3978fbdc8b24caa2d983a5d40950, type: 2}
-  texture: {fileID: 2800000, guid: 394698dd410b0ec43b13d34cf47d97f3, type: 3}
+  texture: {fileID: 2800000, guid: 538d4a7fd90b62745bf20ae707bbb0d9, type: 3}
   sprite: {fileID: 21300000, guid: 394698dd410b0ec43b13d34cf47d97f3, type: 3}
   colorData: {fileID: 11400000, guid: 2a1bc312ec720c44aa73be55900d7c79, type: 2}

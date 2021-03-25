@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ClientMissions.MissionMessages;
 using Clothing;
 using UnityEngine;
 using Utilities;
@@ -8,7 +9,7 @@ namespace ClientMissions.ClubMissions {
         public int CurrentStylePoints { get; private set; }
         readonly Dictionary<ClothingType, int> dictionary = new Dictionary<ClothingType, int>();
 
-        public void Awake() {
+        public void Start() {
             EventBroker.Instance().SubscribeMessage<EventWearableStylePoints>(UpdateStylePoints);
         }
 
