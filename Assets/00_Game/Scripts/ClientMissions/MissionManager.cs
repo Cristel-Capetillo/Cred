@@ -5,6 +5,7 @@ using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
 using ClientMissions.MissionMessages;
+using Core;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -64,7 +65,7 @@ namespace ClientMissions {
                 return;
             }
             EventBroker.Instance().SendMessage(new ActiveMissionMessage(currentMission));
-            SceneManager.LoadScene("DressupScene");
+            EventBroker.Instance().SendMessage(new EventSceneLoad("DressupScene"));
         }
         public void CheckMissions(){
             savableMissionData = TimeCheck(missionHolder.GetMissions());
