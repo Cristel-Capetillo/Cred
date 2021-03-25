@@ -107,14 +107,20 @@ namespace Clothing.Inventory {
         public void OnLoad(Dictionary<string, object> value) {
             combinedWearableDataToSave = value;
 
-            if (value == null) return;
+            if (value == null) {
+                foreach (var f in inventoryData.firstSave) {
+                    EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(f, 1));
+                }
+
+                return;
+            }
 
             print($"Dictionary size: {value.Count}");
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
-                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
 
+                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
                 for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
                     foreach (var s in inventoryData.wearables) {
                         if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
@@ -123,10 +129,15 @@ namespace Clothing.Inventory {
                         }
                     }
                 }
+
                 combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
                 combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
                 combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
             }
+        }
+
+        void AssignWearable(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance) {
+            
         }
     }
 }
