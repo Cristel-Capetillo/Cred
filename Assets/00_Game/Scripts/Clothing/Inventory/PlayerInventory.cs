@@ -150,6 +150,8 @@ namespace Clothing.Inventory {
                     _ => combinedWearables.transform.parent
                 };
             }
+
+            combinedWearables.transform.localScale = Vector3.one;
         }
     }
 }

@@ -248,7 +248,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8805197581208232419}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -314,6 +314,11 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 5819375879197161}
+    - target: {fileID: 377846359522102343, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1216595516983209200, guid: b2f0c025c3b737f4f8e49598265ee15c,
         type: 3}
       propertyPath: m_Pivot.x
