@@ -39,7 +39,6 @@ namespace ClientMissions {
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
         }
         void OnClothingChanged(EventClothesChanged eventClothesChanged){
-            Debug.Log(PlayerInventory.GetName(eventClothesChanged.CombinedWearables));
             if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
                 AddOrReplaceCombinedWearable(eventClothesChanged.CombinedWearables);
             }
@@ -59,7 +58,8 @@ namespace ClientMissions {
         }
 
         bool CheckIfItemExistsInList(CombinedWearables combinedWearable) {
-            return wearablesOnClient.Contains(combinedWearable);
+            var idOnNewItem = PlayerInventory.GetName(combinedWearable);
+            return wearablesOnClient.Select(clothing => PlayerInventory.GetName(clothing)).Any(idOnClient => idOnClient == idOnNewItem);
         }
         void AddOrReplaceCombinedWearable(CombinedWearables combinedWearable) {
             for (var i = 0; i < wearablesOnClient.Count; i++) {
