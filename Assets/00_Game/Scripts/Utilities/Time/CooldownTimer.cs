@@ -1,41 +1,50 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Utilities.Time {
     public class CooldownTimer : MonoBehaviour {
+        
+        public Action<float> timeRemaining;
+        public Action onComplete;
+        public bool Started { get; private set; }
+        public float Duration { get; private set; }
 
-        float countDown;
-        Action toPerform;
-        public Text timerText;
-
-        public void StartTimer(float countDown) {
-            this.countDown = countDown;
-            StartCoroutine(tickdown(countDown));
+        public void StartTimer(float duration) {
+            Started = true;
+            this.Duration = duration;
+            StartCoroutine(Tick(duration, 1f));
         }
 
-        public void StartTimer(float countDown, Action onComplete) {
-            this.countDown = countDown;
-            toPerform = onComplete;
-            StartCoroutine(tickdown(countDown));
+        public void StartTimer(float duration, Action onComplete) {
+            StartTimer(duration);
+            this.onComplete = onComplete;
         }
 
-        IEnumerator tickdown(float duration) {
-            countDown = duration;
-            while (countDown > 0) {
-                yield return new WaitForSeconds(1f);
-                countDown -= 1f;
-                timerText.text = duration.ToString("000:00");
+        public void RestartTimer() {
+            StopTimer();
+            StartTimer(Duration);
+        }
+        
+        public void StopTimer() {
+            StopCoroutine(nameof(Tick));
+            Started = false;
+        }
+        
+        IEnumerator Tick(float duration, float interval) {
+            
+            while (duration > 0) {
+                yield return new WaitForSeconds(interval);
+                duration -= interval;
+                timeRemaining?.Invoke(duration);
             }
 
-            countDown = 0;
-            timerText.text = "Ready";
-            toPerform?.Invoke();
+            Started = false;
+            onComplete?.Invoke();
         }
 
-        public void OnComplete(Action onComplete) {
-            toPerform = onComplete;
+        void OnDestroy() {
+            CancelInvoke(nameof(Tick));
         }
     }
 }
