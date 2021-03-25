@@ -62,11 +62,10 @@ namespace Clothing.Upgrade {
         void UpdateConfirmButton(EventValidateConfirmButton validateConfirmButton) {
             upCycleConfirmButton.interactable = validateConfirmButton.validateButton;
             if (validateConfirmButton.combinedWearables != null) {
-                
                 combineWearablesDic.Remove(PlayerInventory.GetName(validateConfirmButton.combinedWearables));
             }
         }
-        
+
         public void OnConfirm() {
             var wearableInSlots = new List<CombinedWearables>();
 
@@ -77,11 +76,17 @@ namespace Clothing.Upgrade {
             var instance = Instantiate(FindObjectOfType<PlayerInventory>().combinedWearablesTemplate);
             instance.rarity = wearableInSlots[0].rarity;
             instance.clothingType = wearableInSlots[0].clothingType;
+            instance.isPredefined = false;
 
             AssignWearableSlots(wearableInSlots, instance);
 
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[0], -1));
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
             Destroy(instance.gameObject);
+            foreach (var slot in slots) {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
         }
 
         static void AssignWearableSlots(List<CombinedWearables> wearableInSlots, CombinedWearables instance) {

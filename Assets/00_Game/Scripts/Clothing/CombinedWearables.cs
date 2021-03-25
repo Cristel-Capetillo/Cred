@@ -8,6 +8,7 @@ namespace Clothing {
         public Rarity rarity;
         public int stylePoints;
 
+        public bool isPredefined = true;
         public override string ToString() {
             var uID = "";
             foreach (var wearable1 in wearable) {
