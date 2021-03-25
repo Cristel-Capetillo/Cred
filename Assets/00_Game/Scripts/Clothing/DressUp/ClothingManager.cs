@@ -48,9 +48,9 @@ namespace Clothing.DressUp {
             lastKnownClothes = FindObjectOfType<LastKnownClothes>();
             
             //TODO! just for testing. remove later. client should only wear swimsuit from the start
-            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shirts));
-            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
-            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Skirts));
+            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shirts));
+            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
+            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Skirts));
         }
         
 
