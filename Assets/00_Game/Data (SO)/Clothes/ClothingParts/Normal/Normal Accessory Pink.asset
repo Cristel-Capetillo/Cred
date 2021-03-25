@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
+  m_Name: Normal Accessory Pink
+  m_EditorClassIdentifier: 
+  clothingType: {fileID: 11400000, guid: 27c9f248240fc1d44b9c725d7dbe7a82, type: 2}
+  texture: {fileID: 2800000, guid: 24c092d31f3c4a84ba9be2488ada8d9e, type: 3}
+  sprite: {fileID: 21300000, guid: daf6f8ae88b38c0499b41f8d9fa79d1a, type: 3}
+  colorData: {fileID: 11400000, guid: d8707b35512e0ca4caf40ac61456b09c, type: 2}
