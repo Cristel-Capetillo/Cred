@@ -265,6 +265,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2714555403207521690}
     m_Modifications:
+    - target: {fileID: 3767540952388233849, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397581789859474757, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: warningPopUp
+      value: 
+      objectReference: {fileID: 9193034964286169030}
     - target: {fileID: 8245301298625993226, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_Pivot.x
@@ -380,6 +390,12 @@ PrefabInstance:
 --- !u!224 &4157376366376447925 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8245301298625993226, guid: 5e68133601660534f8b15fbd92667e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 5466461885003183551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9193034964286169030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3767540952388233849, guid: 5e68133601660534f8b15fbd92667e75,
     type: 3}
   m_PrefabInstance: {fileID: 5466461885003183551}
   m_PrefabAsset: {fileID: 0}

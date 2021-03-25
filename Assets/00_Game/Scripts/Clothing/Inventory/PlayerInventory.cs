@@ -58,7 +58,9 @@ namespace Clothing.Inventory {
         }
 
         Dictionary<string, object> ItemStats(string itemId) {
-            return (Dictionary<string, object>) combinedWearableDataToSave[itemId];
+            var tmp = new Dictionary<string, object>();
+            tmp = (Dictionary<string, object>) combinedWearableDataToSave[itemId];
+            return tmp;
         }
 
         void UpdateAmount(string nameOfCombinedWearable, int amountToUpdate) {
@@ -78,18 +80,20 @@ namespace Clothing.Inventory {
             UpdateAmount(id, wearableEvent.addOrSubtractAmount);
 
             if (CombinedWearableAmountIsZero(id)) {
-                combinedWearableDataToSave.Remove(id);
-                return;
+                if (!(bool) combinedWearableDataToSave[InventoryData.IsPredefined]) {
+                    combinedWearableDataToSave.Remove(id);
+                }
             }
 
             saveHandler.Save(this);
         }
 
-        void GenerateNewCombinedWearable(CombinedWearables wearableEvent) {
+        CombinedWearables GenerateNewCombinedWearable(CombinedWearables wearableEvent) {
             var instance = InstantiateCombinedWearables();
             instance.wearable = wearableEvent.wearable;
             instance.rarity = wearableEvent.rarity;
             instance.clothingType = wearableEvent.clothingType;
+            return instance;
         }
 
         CombinedWearables InstantiateCombinedWearables() {
@@ -109,8 +113,9 @@ namespace Clothing.Inventory {
 
             if (value == null) {
                 foreach (var f in inventoryData.firstSave) {
-                    EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(f, 1));
-                    CategoriesWearables(f);
+                    var go = GenerateNewCombinedWearable(f);
+                    UpdateAmount(GetName(go), 1);
+                    CategoriesWearables(go);
                 }
 
                 return;

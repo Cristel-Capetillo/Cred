@@ -285,32 +285,27 @@ PrefabInstance:
         type: 3}
       propertyPath: Pants
       value: 
-      objectReference: {fileID: 2012720251065419812, guid: b66291f3608fd334291ed37b76ce0b97,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7958151361893486898, guid: 164e9339e09d56e4497400ae9652d348,
         type: 3}
       propertyPath: Shoes
       value: 
-      objectReference: {fileID: 2012720251065419812, guid: 81564b2ea8f31c04bb35211380c24ecf,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7958151361893486898, guid: 164e9339e09d56e4497400ae9652d348,
         type: 3}
       propertyPath: Shirts
       value: 
-      objectReference: {fileID: 2012720251065419812, guid: 8ee0e47f47d44e34c887b8457a32a25d,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7958151361893486898, guid: 164e9339e09d56e4497400ae9652d348,
         type: 3}
       propertyPath: Skirts
       value: 
-      objectReference: {fileID: 2012720251065419812, guid: 74b29b7c1730f1b4a9b6ca73f679e572,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7958151361893486898, guid: 164e9339e09d56e4497400ae9652d348,
         type: 3}
       propertyPath: Jackets
       value: 
-      objectReference: {fileID: 2012720251065419812, guid: 8e4abaa5b0075da4a836fbc488f7d70a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7958151361893486898, guid: 164e9339e09d56e4497400ae9652d348,
         type: 3}
       propertyPath: lastKnownJacket
@@ -451,6 +446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462931188334619260, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9159fada2bd74754dad672677b57dbc7, type: 3}
