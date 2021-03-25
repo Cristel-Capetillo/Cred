@@ -15,23 +15,14 @@ namespace ClientMissions {
         List<CombinedWearables> wearablesOnClient = new List<CombinedWearables>();
         List<IMissionRequirement> requirements = new List<IMissionRequirement>();
         void Start() {
-            /*if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
+            if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
             activeMission = FindObjectOfType<ActiveMission>().ActiveMissionData;
-            requirements = activeMission.Requirements;*/ 
-            // Todo change this back when implemented in scene.....
-            
+            requirements = activeMission.Requirements;
+            Debug.Log(activeMission.ClientTestData.name);
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
-            EventBroker.Instance().SubscribeMessage<ActiveMissionMessage>(OnMissionChanged);
         }
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
-            EventBroker.Instance().UnsubscribeMessage<ActiveMissionMessage>(OnMissionChanged);
-        }
-
-        void OnMissionChanged(ActiveMissionMessage activeMissionMessage) {
-            activeMission = activeMissionMessage.missionData;
-            requirements = activeMission.Requirements;
-            EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearables));
         }
         void OnClothingChanged(EventClothesChanged eventClothesChanged) {
             if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
