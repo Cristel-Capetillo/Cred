@@ -10,37 +10,36 @@ using Utilities;
 namespace HUD.Donate {
     public class DonationAlternatives : MonoBehaviour{
         CombinedWearables combinedWearables;
-        public Image itemToDonateSlot;
+        public Image slots;
         int[] donatedCoins = { -1000, -2000, -3000 };
         PlayerInventory playerInventory;
-        DonationValidityCheck donationValidityCheck;
-        
+        DonationHandler donationHandler;
 
         void Start() {
             playerInventory = FindObjectOfType<PlayerInventory>();
-            donationValidityCheck = FindObjectOfType<DonationValidityCheck>();
-            donationValidityCheck.warningPopUp.SetActive(false);
-            foreach (var button in donationValidityCheck.alternativesButtons) {
+            donationHandler = FindObjectOfType<DonationHandler>();
+            donationHandler.warningPopUp.SetActive(false);
+            foreach (var button in donationHandler.alternativesButtons) {
                 button.interactable = false;
             }
         }
 
         void OnEnable() {
-            EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DisplayDonationItemOnSlot);
+            EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
         }
 
         void OnDisable() {
-            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DisplayDonationItemOnSlot);
+            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
         }
 
-        public void DisplayDonationItemOnSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
-            AssignDonationItemToSlot(eventAddUpCycleClothes.combinedWearable);
+        public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
+            AssignToSlot(eventAddUpCycleClothes.combinedWearable);
         }
         
-        void AssignDonationItemToSlot(CombinedWearables combinedWearables) {
-            donationValidityCheck.ItemQualifiesForDonation(combinedWearables);
-            if (ProceedWithDonation(combinedWearables)) {
-                var instance = Instantiate(combinedWearables, itemToDonateSlot.transform, true);
+        void AssignToSlot(CombinedWearables combinedWearables) {
+            donationHandler.qualifiesForDonation(combinedWearables);
+            if (CheckIfValidForDonation(combinedWearables)) {
+                var instance = Instantiate(combinedWearables, slots.transform, true);
                 var scale = combinedWearables.GetComponent<RectTransform>().localScale;
                 instance.transform.localPosition = Vector2.zero;
                 instance.GetComponent<RectTransform>().localScale = scale;
@@ -49,50 +48,43 @@ namespace HUD.Donate {
             }
         }
         
-        bool ProceedWithDonation(CombinedWearables combinedWearables) {
-            if (donationValidityCheck.canBeDonated) {
-                for (var buttonToBeActive = 0; buttonToBeActive < donationValidityCheck.stylePointsToUpgrade; buttonToBeActive++) {
-                    foreach (var button in donationValidityCheck.alternativesButtons) {
+        bool CheckIfValidForDonation(CombinedWearables combinedWearables) {
+            if (donationHandler.isGood) {
+                for (var buttonToBeActive = 0; buttonToBeActive < donationHandler.stylePointsToUpgrade; buttonToBeActive++) {
+                    foreach (var button in donationHandler.alternativesButtons) {
                         button.interactable = true;
                     }
                 }
             }
             if (!(playerInventory.Amount(PlayerInventory.GetName(combinedWearables)) >= 2)) {
-                ToggleNoDuplicatesWarningPopUp();
+                donationHandler.warningPopUp.SetActive(true);
+                donationHandler.warningText.text = "This item does not have any duplicate yet. Come back later!";
+                Debug.Log("This item does not have any duplicate yet. Come back later!");
             }
-            else if (!(donationValidityCheck.MaxStylePointsCheck(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
-                ToggleMaxStylePointsWarningPopUp();
+            else if (!(donationHandler.CheckIfMaxStylePointsReached(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
+                donationHandler.warningPopUp.SetActive(true);
+
+                donationHandler.warningText.text = "This item already has its maximum style points";
+                Debug.Log("This item already has its maximum style points");
             }
             else {
                 Debug.Log("Something went wrong..");
             }
             return false;
         }
-
-        void ToggleNoDuplicatesWarningPopUp() {
-            donationValidityCheck.warningPopUp.SetActive(true);
-            donationValidityCheck.warningText.text = "This item does not have any duplicate yet. Come back later!";
-            Debug.Log("This item does not have any duplicate yet. Come back later!");
-        }
-
-        void ToggleMaxStylePointsWarningPopUp() {
-            donationValidityCheck.warningPopUp.SetActive(true);
-            donationValidityCheck.warningText.text = "This item already has its maximum style points";
-            Debug.Log("This item already has its maximum style points");
-        }
         
         public void DonateAlternative1() {
-            donationValidityCheck.GetDonationUpgrade(combinedWearables, 1);
+            donationHandler.DonateMeBaby(combinedWearables, 1);
             EventBroker.Instance().SendMessage(new EventUpdateCoins(donatedCoins[0]));
         }
 
         public void DonateAlternative2() {
-            donationValidityCheck.GetDonationUpgrade(combinedWearables, 2);
+            donationHandler.DonateMeBaby(combinedWearables, 2);
             EventBroker.Instance().SendMessage(new EventUpdateCoins(donatedCoins[1]));
         }
 
         public void DonateAlternative3() {
-            donationValidityCheck.GetDonationUpgrade(combinedWearables, 3);
+            donationHandler.DonateMeBaby(combinedWearables, 3);
             EventBroker.Instance().SendMessage(new EventUpdateCoins(donatedCoins[2]));
         }
     }
