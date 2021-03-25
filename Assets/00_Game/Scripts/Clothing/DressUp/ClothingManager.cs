@@ -6,9 +6,9 @@ using Utilities;
 
 namespace Clothing.DressUp {
     public class ClothingManager : MonoBehaviour {
-        [SerializeField] List<GameObject> bodyParts;
-        [SerializeField] List<GameObject> clothesCategories;
         [SerializeField] List<GameObject> clothingRarities;
+        [SerializeField] List<GameObject> clothesCategories;
+        [SerializeField] List<GameObject> bodyParts;
         
         [SerializeField] LastKnownClothes lastKnownClothes;
         void Awake() {
@@ -48,9 +48,9 @@ namespace Clothing.DressUp {
             lastKnownClothes = FindObjectOfType<LastKnownClothes>();
             
             //TODO! just for testing. remove later. client should only wear swimsuit from the start
-            EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shirts));
+            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shirts));
             //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Pants));
-            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
+            //EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Skirts));
         }
         
 
@@ -71,7 +71,6 @@ namespace Clothing.DressUp {
 
             DressBodyParts(eventClothesChanged.CombinedWearables);
             
-            //TODO: test that this works
             SetLastKnownItemOfType(eventClothesChanged.CombinedWearables);
         }
 
@@ -95,16 +94,35 @@ namespace Clothing.DressUp {
         void EnableOrDisableCategory(CombinedWearables combinedWearable) {
             //enable/disable the clothes categories, based on the incoming new clothes
             //for example: we get basic pants
-            //first disable all pants
+            //for example:first disable all pants
             foreach (var category in clothesCategories) {
                 if (category.name == combinedWearable.clothingType.name) {
                     category.SetActive(false);
                 }
             }
-            //enable basic pants
+            //for example:enable basic pants
             var rarity = clothingRarities.Find(i => i.name == combinedWearable.rarity.name);
             var categoryToShow = rarity.transform.Find(combinedWearable.clothingType.name);
             categoryToShow.gameObject.SetActive(true);
+            
+            //special case: not able to wear both skirts and pants at the same time
+            //if incoming clothes is pants
+            if (combinedWearable.clothingType.name == "Pants") {
+                //then disable all skirts
+                foreach (var category in clothesCategories) {
+                    if(category.name == "Skirts")
+                        category.SetActive(false);
+                }
+            }
+            
+            //if incoming clothes is skirts
+            if (combinedWearable.clothingType.name == "Skirts") {
+                //then disable all pants
+                foreach (var category in clothesCategories) {
+                    if(category.name == "Pants")
+                        category.SetActive(false);
+                }
+            }
         }
 
         bool CompareAndRemoveSelectedClothes(CombinedWearables combinedWearable) {
