@@ -6,6 +6,8 @@ using Utilities;
 
 namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
+        public Transform[] contents;
+
         public CombinedWearables combinedWearablesTemplate;
 
         public InventoryData inventoryData;
@@ -108,6 +110,7 @@ namespace Clothing.Inventory {
             if (value == null) {
                 foreach (var f in inventoryData.firstSave) {
                     EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(f, 1));
+                    CategoriesWearables(f);
                 }
 
                 return;
@@ -131,11 +134,24 @@ namespace Clothing.Inventory {
                 combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
                 combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
                 combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
+                CategoriesWearables(combinedWearableInstance);
             }
         }
 
-        void AssignWearable(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance) {
-            
+        void CategoriesWearables(CombinedWearables combinedWearables) {
+            for (var i = 0; i < contents.Length; i++) {
+                combinedWearables.transform.parent = combinedWearables.clothingType.name switch {
+                    "Shirts" => contents[0],
+                    "Pants" => contents[1],
+                    "Jackets" => contents[2],
+                    "Shoes" => contents[3],
+                    "Accessories" => contents[4],
+                    "Skirts" => contents[5],
+                    _ => combinedWearables.transform.parent
+                };
+            }
+
+            combinedWearables.transform.localScale = Vector3.one;
         }
     }
 }

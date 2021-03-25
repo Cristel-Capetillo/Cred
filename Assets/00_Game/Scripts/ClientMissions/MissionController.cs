@@ -4,12 +4,15 @@ using ClientMissions.Data;
 using ClientMissions.MissionMessages;
 using ClientMissions.MissionRequirements;
 using Clothing;
+using Clothing.DressUp;
 using UnityEngine;
+using UnityEngine.Events;
 using Utilities;
 
 namespace ClientMissions {
     public class MissionController : MonoBehaviour{
 
+        [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>(); 
         MissionData activeMission;
         [SerializeField] CombinedWearables combinedWearables;
         List<CombinedWearables> wearablesOnClient = new List<CombinedWearables>();
@@ -18,28 +21,47 @@ namespace ClientMissions {
             if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
             activeMission = FindObjectOfType<ActiveMission>().ActiveMissionData;
             requirements = activeMission.Requirements;
-            Debug.Log(activeMission.ClientTestData.name);
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
         }
+
+        void OnReset(RemoveAllClothes obj){
+            onMeetAllRequirements?.Invoke(false);
+            foreach (var requirement in requirements){
+                EventBroker.Instance().SendMessage(new RequirementUIMessage(requirement.ToString(), false));
+            }
+            EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(0));
+            wearablesOnClient.Clear();
+        }
+
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
         }
         void OnClothingChanged(EventClothesChanged eventClothesChanged) {
             if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
                 AddOrReplaceCombinedWearable(eventClothesChanged.CombinedWearables);
             }
-
-            if (CheckAllRequirements()) {
-                Debug.Log("User can enter the club " + combinedWearables.wearable[0].colorData.name);
-                // User can enter club, button.IsActive(true) else false;
+            var checkStylePoints = CheckStylePoints();
+            if (CheckAllRequirements() && checkStylePoints) {
+                Debug.Log("User can enter the club ");
+                onMeetAllRequirements?.Invoke(true);
+                return;
             }
+            onMeetAllRequirements?.Invoke(false);
+        }
+
+        bool CheckStylePoints(){
+            var currentStylePoints = wearablesOnClient.Sum(wearables => wearables.stylePoints);
+            EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(currentStylePoints));
+            return currentStylePoints >= activeMission.StylePointValues.MinStylePoints;
         }
 
         bool CheckIfItemExistsInList(CombinedWearables combinedWearable) {
             return wearablesOnClient.Contains(combinedWearable);
         }
         void AddOrReplaceCombinedWearable(CombinedWearables combinedWearable) {
-            for (int i = 0; i < wearablesOnClient.Count; i++) {
+            for (var i = 0; i < wearablesOnClient.Count; i++) {
                 if (wearablesOnClient[i].clothingType == combinedWearable.clothingType) {
                     wearablesOnClient[i] = combinedWearable;
                     return;
@@ -50,11 +72,17 @@ namespace ClientMissions {
 
         bool CheckAllRequirements() {
             var completedRequirements = requirements.Count(Passed);
-            return completedRequirements == requirements.Count;
+            return completedRequirements >= requirements.Count;
         }
 
         bool Passed(IMissionRequirement requirement) {
-            return wearablesOnClient.Any(requirement.PassedRequirement);
+            
+            if(wearablesOnClient.Any(requirement.PassedRequirement)){
+                EventBroker.Instance().SendMessage(new RequirementUIMessage(requirement.ToString(), true));
+                return true;
+            }
+            EventBroker.Instance().SendMessage(new RequirementUIMessage(requirement.ToString(), false));
+            return false;
         }
     }
 }
