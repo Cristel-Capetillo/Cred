@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &108619725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -407,15 +407,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: DressUpSceneMissionHolder(UnpackToDifferentPrefabsLater)
       objectReference: {fileID: 0}
-    - target: {fileID: 4168075346388467766, guid: 3db1988801641e44b8dcb1d54a07b05c,
+    - target: {fileID: 4090093613947454653, guid: 3db1988801641e44b8dcb1d54a07b05c,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: clientGameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 506685258}
+    - target: {fileID: 4090093613947454653, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 506685257}
+    - target: {fileID: 4090093613947454653, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 506685256}
+    - target: {fileID: 4168075346388467753, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 4168075347155600235, guid: 3db1988801641e44b8dcb1d54a07b05c,
+    - target: {fileID: 4168075346388467753, guid: 3db1988801641e44b8dcb1d54a07b05c,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168075346388467753, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168075347155600234, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3db1988801641e44b8dcb1d54a07b05c, type: 3}
@@ -459,6 +484,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1539950074555856387, guid: ea4e422125235f14499b00edeacc9ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539950076146260889, guid: ea4e422125235f14499b00edeacc9ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1846029166105848520, guid: ea4e422125235f14499b00edeacc9ed2,
         type: 3}
       propertyPath: m_Name
@@ -519,8 +554,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1846029166141477203, guid: ea4e422125235f14499b00edeacc9ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846029166314376432, guid: ea4e422125235f14499b00edeacc9ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea4e422125235f14499b00edeacc9ed2, type: 3}
+--- !u!1 &506685256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1846029166141477203, guid: ea4e422125235f14499b00edeacc9ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 506685255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &506685257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1846029166314376432, guid: ea4e422125235f14499b00edeacc9ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 506685255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &506685258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1846029165885391915, guid: ea4e422125235f14499b00edeacc9ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 506685255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &572433877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -150}
+  m_AnchoredPosition: {x: 50, y: -150}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1001 &6949197219633888828
@@ -1756,6 +1819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Club UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934885141412343058, guid: 769c445cbbba84a06bf88790ad79a3fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7952096032438970349, guid: 769c445cbbba84a06bf88790ad79a3fc,
         type: 3}
