@@ -89,6 +89,10 @@ namespace Clothing.Upgrade {
             }
         }
 
+        public void CloseWindow() {
+            gameObject.SetActive(!gameObject.activeSelf); 
+        }
+
         static void AssignWearableSlots(List<CombinedWearables> wearableInSlots, CombinedWearables instance) {
             var count = wearableInSlots[0].wearable.Count;
 

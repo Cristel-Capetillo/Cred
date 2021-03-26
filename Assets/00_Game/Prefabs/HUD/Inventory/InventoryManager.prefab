@@ -2956,6 +2956,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3969549627344756126, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -21.7878
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207547602123893693, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 614.5217
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745832698465149804, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 614.52
+      objectReference: {fileID: 0}
     - target: {fileID: 5983423029311236093, guid: d3d8f2f690dbeca4da9ba144456419d4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2970,6 +2985,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -48.333332
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992939325784522456, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099272278301028471, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 363.8171
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471001472128631095, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 697.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511601984189593925, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770967689363697668, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d8f2f690dbeca4da9ba144456419d4, type: 3}

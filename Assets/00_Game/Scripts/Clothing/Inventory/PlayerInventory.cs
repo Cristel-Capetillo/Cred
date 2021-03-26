@@ -86,7 +86,7 @@ namespace Clothing.Inventory {
             UpdateAmount(id, wearableEvent.addOrSubtractAmount);
 
             if (CombinedWearableAmountIsZero(id)) {
-                if (!(bool) combinedWearableDataToSave[InventoryData.IsPredefined]) {
+                if (combinedWearableDataToSave.ContainsKey(InventoryData.IsPredefined) && !(bool) combinedWearableDataToSave[InventoryData.IsPredefined]) {
                     combinedWearableDataToSave.Remove(id);
                 }
             }
