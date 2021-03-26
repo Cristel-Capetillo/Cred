@@ -26,6 +26,20 @@ namespace Clothing.DressUp {
                     child.gameObject.SetActive(false);
                 }
             }
+            
+            //reset all last known clothes
+            lastKnownClothes.Shirts = null;
+            lastKnownClothes.Pants = null;
+            lastKnownClothes.Skirts = null;
+            lastKnownClothes.Jackets = null;
+            lastKnownClothes.Shoes = null;
+            lastKnownClothes.Accessories = null;
+            
+            //special case:
+            //re-activate all t-shirt sleeves
+            foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
+                    bodyPart.gameObject.SetActive(true);
+            }
         }
 
         void GetAllClothesCategories() {
@@ -56,6 +70,11 @@ namespace Clothing.DressUp {
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Jackets));
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Shoes));
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Accessories));
+            
+            //re-activate all t-shirt sleeves
+            foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
+                bodyPart.gameObject.SetActive(true);
+            }
         }
 
 
