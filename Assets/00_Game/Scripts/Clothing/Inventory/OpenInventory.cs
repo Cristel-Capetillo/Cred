@@ -32,6 +32,7 @@ namespace Clothing.Inventory {
 
         public void ToggleInventory(GameObject scrollView) {
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
+            EventBroker.Instance().SendMessage(new EventUpdateCombinedUI(null));
             scrollView.SetActive(!scrollView.activeSelf);
             print("doing something");
 

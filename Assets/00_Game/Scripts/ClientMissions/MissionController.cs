@@ -5,6 +5,7 @@ using ClientMissions.MissionMessages;
 using ClientMissions.MissionRequirements;
 using Clothing;
 using Clothing.DressUp;
+using Clothing.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
@@ -12,10 +13,10 @@ using Utilities;
 namespace ClientMissions {
     public class MissionController : MonoBehaviour{
 
-        [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>(); 
+        [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>();
+        [SerializeField] List<ClothingType> legsClothingTypes = new List<ClothingType>(); 
         MissionData activeMission;
-        [SerializeField] CombinedWearables combinedWearables;
-        List<CombinedWearables> wearablesOnClient = new List<CombinedWearables>();
+        Dictionary<ClothingType,CombinedWearables> wearablesOnClient = new Dictionary<ClothingType, CombinedWearables>();
         List<IMissionRequirement> requirements = new List<IMissionRequirement>();
         void Start() {
             if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
@@ -33,18 +34,21 @@ namespace ClientMissions {
             EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(0));
             wearablesOnClient.Clear();
         }
-
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
         }
-        void OnClothingChanged(EventClothesChanged eventClothesChanged) {
-            if (!CheckIfItemExistsInList(eventClothesChanged.CombinedWearables)) {
-                AddOrReplaceCombinedWearable(eventClothesChanged.CombinedWearables);
+        //TODO: Remove debug logs when everything works as intended...
+        void OnClothingChanged(EventClothesChanged eventClothesChanged){
+            print("Before: " + wearablesOnClient.Count);
+            var combinedWearable = eventClothesChanged.CombinedWearables;
+            if (IsNewWearable(combinedWearable)){
+                LegsClothingType(combinedWearable.clothingType);
+                AddOrReplaceClothingType(combinedWearable);
             }
+            print("After: " + wearablesOnClient.Count);
             var checkStylePoints = CheckStylePoints();
             if (CheckAllRequirements() && checkStylePoints) {
-                Debug.Log("User can enter the club ");
                 onMeetAllRequirements?.Invoke(true);
                 return;
             }
@@ -52,22 +56,37 @@ namespace ClientMissions {
         }
 
         bool CheckStylePoints(){
-            var currentStylePoints = wearablesOnClient.Sum(wearables => wearables.stylePoints);
+            var currentStylePoints = wearablesOnClient.Values.Sum(wearables => wearables.stylePoints);
             EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(currentStylePoints));
             return currentStylePoints >= activeMission.StylePointValues.MinStylePoints;
         }
 
-        bool CheckIfItemExistsInList(CombinedWearables combinedWearable) {
-            return wearablesOnClient.Contains(combinedWearable);
+        bool IsNewWearable(CombinedWearables combinedWearables){
+            if (!wearablesOnClient.ContainsKey(combinedWearables.clothingType)) return true;
+            if (PlayerInventory.GetName(wearablesOnClient[combinedWearables.clothingType]) !=
+                PlayerInventory.GetName(combinedWearables)) return true;
+            
+            wearablesOnClient.Remove(combinedWearables.clothingType);
+            print("Remove old clothing");
+            return false;
         }
-        void AddOrReplaceCombinedWearable(CombinedWearables combinedWearable) {
-            for (var i = 0; i < wearablesOnClient.Count; i++) {
-                if (wearablesOnClient[i].clothingType == combinedWearable.clothingType) {
-                    wearablesOnClient[i] = combinedWearable;
-                    return;
+       void LegsClothingType(ClothingType clothingType){
+           if (!legsClothingTypes.Contains(clothingType)) return;
+           foreach (var legsClothingType in legsClothingTypes){
+                if (wearablesOnClient.ContainsKey(legsClothingType)){
+                    wearablesOnClient.Remove(legsClothingType);
+                    print("Remove clothes on legs:" + legsClothingType.name);
                 }
             }
-            wearablesOnClient.Add(combinedWearable);
+       }
+        void AddOrReplaceClothingType(CombinedWearables combinedWearables){
+            if (wearablesOnClient.ContainsKey(combinedWearables.clothingType)){
+                wearablesOnClient[combinedWearables.clothingType] = combinedWearables;
+                print("Replace clothes");
+                return;
+            }
+            wearablesOnClient.Add(combinedWearables.clothingType,combinedWearables);
+            print("Add clothes");
         }
 
         bool CheckAllRequirements() {
@@ -77,7 +96,7 @@ namespace ClientMissions {
 
         bool Passed(IMissionRequirement requirement) {
             
-            if(wearablesOnClient.Any(requirement.PassedRequirement)){
+            if(wearablesOnClient.Values.Any(requirement.PassedRequirement)){
                 EventBroker.Instance().SendMessage(new RequirementUIMessage(requirement.ToString(), true));
                 return true;
             }

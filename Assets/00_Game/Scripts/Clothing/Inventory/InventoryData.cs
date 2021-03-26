@@ -3,8 +3,9 @@
 namespace Clothing.Inventory {
     [System.Serializable]
     public class InventoryData {
+        public List<CombinedWearables> predefinedCombinations;
         public CombinedWearables[] firstSave;
-        
+
         public Rarity[] rarity;
         public ClothingType[] clothingType;
         public Wearable[] wearables;
@@ -17,6 +18,7 @@ namespace Clothing.Inventory {
         public const string ClothingType = "ClothingType";
         public const string Amount = "Amount";
         public const string StylePoints = "StylePoints";
+        public const string IsPredefined = "IsPredefined";
 
         public void Setup() {
             foreach (var r in rarity) {
@@ -42,6 +44,7 @@ namespace Clothing.Inventory {
             statsDictionary[ClothingType] = combinedWearables.clothingType.name;
             statsDictionary[StylePoints] = combinedWearables.stylePoints;
             statsDictionary[Amount] = 0;
+            statsDictionary[IsPredefined] = combinedWearables.isPredefined;
             return statsDictionary;
         }
     }

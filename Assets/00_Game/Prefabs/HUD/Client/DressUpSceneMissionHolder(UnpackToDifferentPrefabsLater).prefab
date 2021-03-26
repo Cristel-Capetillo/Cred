@@ -239,8 +239,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  combinedWearables: {fileID: 2012720251065419812, guid: 4f9c71cacaa405e43893315b584931f6,
-    type: 3}
+  legsClothingTypes:
+  - {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c, type: 2}
+  - {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69, type: 2}
 --- !u!114 &4090093613947454655
 MonoBehaviour:
   m_ObjectHideFlags: 0
