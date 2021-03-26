@@ -25,8 +25,8 @@ namespace ClientMissions {
         
         void Start() {
             if (FindObjectOfType<ActiveMission>()!= null){
-                parentGameObject.SetActive(true);
-                return;
+                if(FindObjectOfType<ActiveMission>().ActiveMissionData != null)
+                    parentGameObject.SetActive(true);
             }
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
