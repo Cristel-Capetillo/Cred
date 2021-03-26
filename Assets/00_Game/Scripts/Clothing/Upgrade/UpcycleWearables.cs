@@ -83,14 +83,18 @@ namespace Clothing.Upgrade {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[0], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
+            EventBroker.Instance().SendMessage(new EventShowReward(instance));
             Destroy(instance.gameObject);
             foreach (var slot in slots) {
                 Destroy(slot.transform.GetChild(0).gameObject);
             }
+
+            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
+            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
         }
 
         public void CloseWindow() {
-            gameObject.SetActive(!gameObject.activeSelf); 
+            gameObject.SetActive(!gameObject.activeSelf);
         }
 
         static void AssignWearableSlots(List<CombinedWearables> wearableInSlots, CombinedWearables instance) {

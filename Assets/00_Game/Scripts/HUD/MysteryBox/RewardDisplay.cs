@@ -18,6 +18,11 @@ public class RewardDisplay : MonoBehaviour {
     void ShowReward(EventShowReward eventShowReward) {
         var reward = eventShowReward.Reward;
         var instance = Instantiate(reward.gameObject, this.transform);
+
+        for (var i = 1; i < instance.transform.childCount; i++) {
+            instance.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         Resize(instance, sizeToDisplayReward);
         instance.GetComponent<AssignCombinedWearableToUpCycle>().enabled = false;
         StartCoroutine(DestroyRewardOnClick(instance));
@@ -27,6 +32,7 @@ public class RewardDisplay : MonoBehaviour {
         while (!Input.GetKeyDown(KeyCode.Mouse0)) {
             yield return null;
         }
+
         Destroy(go);
     }
 
