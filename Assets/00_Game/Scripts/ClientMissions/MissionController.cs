@@ -18,27 +18,34 @@ namespace ClientMissions {
         [SerializeField] List<ClothingType> legsClothingTypes = new List<ClothingType>();
         [SerializeField] List<GameObject> clientGameObjects = new List<GameObject>();
         [SerializeField] GameObject parentGameObject;
-        MissionData activeMission;
+        MissionData activeMissionData;
         Dictionary<ClothingType,CombinedWearables> wearablesOnClient = new Dictionary<ClothingType, CombinedWearables>();
         List<IMissionRequirement> requirements = new List<IMissionRequirement>();
         int currentStylePoints;
         
         void Start() {
+            
             if (FindObjectOfType<ActiveMission>() == null){
                 parentGameObject.SetActive(false);
                 return;
             }
-            if(FindObjectOfType<ActiveMission>().ActiveMissionData == null){
+            var activeMission = FindObjectOfType<ActiveMission>();
+            activeMissionData = activeMission.ActiveMissionData;
+            
+            if(activeMissionData == null){
                 parentGameObject.SetActive(false);
                 return;
             }
-            activeMission = FindObjectOfType<ActiveMission>().ActiveMissionData;
             foreach (var client in clientGameObjects){
-                client.SetActive(client.name == activeMission.ClientTestData.name);
+                client.SetActive(client.name == activeMissionData.ClientTestData.name);
             }
-            requirements = activeMission.Requirements;
+            requirements = activeMissionData.Requirements;
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
+            if (activeMission.IsNewMission){
+                EventBroker.Instance().SendMessage(new RemoveAllClothes());
+            }
+            activeMission.OnStartMission();
         }
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
@@ -46,7 +53,7 @@ namespace ClientMissions {
         }
 
         public void OnClickEnterClub(){
-            var reword = Helper.CalculateReword(activeMission.StylePointValues, currentStylePoints, activeMission.Difficulty.MaxReward);
+            var reword = Helper.CalculateReword(activeMissionData.StylePointValues, currentStylePoints, activeMissionData.Difficulty.MaxReward);
             EventBroker.Instance().SendMessage(reword);
         }
         void OnReset(RemoveAllClothes obj){
@@ -79,7 +86,7 @@ namespace ClientMissions {
         bool CheckStylePoints(){
             currentStylePoints = wearablesOnClient.Values.Sum(wearables => wearables.stylePoints);
             EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(currentStylePoints));
-            return currentStylePoints >= activeMission.StylePointValues.MinStylePoints;
+            return currentStylePoints >= activeMissionData.StylePointValues.MinStylePoints;
         }
 
         bool IsNewWearable(CombinedWearables combinedWearables){
