@@ -1,17 +1,13 @@
-using System;
 using Core;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 namespace HUD {
     public class ClientSelect : MonoBehaviour {
-        
         public GameObject clientGroup;
         public GameObject clientMenuButton;
         public GameObject clientNarrations;
-        public TMP_Text narrationText;
+        public Text narrationText;
 
         [SerializeField] Client selectedClient;
         SelectedClient sc;
@@ -26,10 +22,10 @@ namespace HUD {
         public void ToggleMenu() {
             clientGroup.SetActive(true);
             var clientObjects = GameObject.Find("Clients").GetComponentsInChildren<Button>();
-            foreach (var child in clientObjects)
-            {
+            foreach (var child in clientObjects) {
                 // clients.Add(child.gameObject);
             }
+
             clientMenuButton.SetActive(false);
         }
 
