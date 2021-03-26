@@ -16,6 +16,9 @@ namespace HUD.Donate {
 
         void Start() {
             playerInventory = FindObjectOfType<PlayerInventory>();
+            foreach (var button in alternativesButtons) {
+                button.interactable = false;
+            }
         }
         public void GetDonationUpgrade(CombinedWearables wearable, int stylePointsToAdd) {
             addedStylePoints = stylePointsToAdd;

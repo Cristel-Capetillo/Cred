@@ -387,6 +387,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5603064235057410914}
     m_Modifications:
+    - target: {fileID: 411540747792158724, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8646602780846479688}
+    - target: {fileID: 411540747792158724, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DonateAlternative3
+      objectReference: {fileID: 0}
+    - target: {fileID: 411540747792158724, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUD.Donate.DonationAlternatives, ScriptDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 411540747792158724, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046158427044761654, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: toggleThisWindow
+      value: 
+      objectReference: {fileID: 4942085569526686466}
+    - target: {fileID: 1163711196292804958, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8646602780846479688}
+    - target: {fileID: 1163711196292804958, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DonateAlternative1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163711196292804958, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUD.Donate.DonationAlternatives, ScriptDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163711196292804958, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2440040163690556267, guid: 9159fada2bd74754dad672677b57dbc7,
         type: 3}
       propertyPath: m_RootOrder
@@ -452,11 +497,49 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4527864001119463043, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8646602780846479688}
+    - target: {fileID: 4527864001119463043, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DonateAlternative2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527864001119463043, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUD.Donate.DonationAlternatives, ScriptDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527864001119463043, guid: 9159fada2bd74754dad672677b57dbc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9159fada2bd74754dad672677b57dbc7, type: 3}
 --- !u!4 &5614469484884583417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2440040163690556267, guid: 9159fada2bd74754dad672677b57dbc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7797518375053609106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8646602780846479688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2002059821119214042, guid: 9159fada2bd74754dad672677b57dbc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7797518375053609106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14920b9b8d0a4e9dbffbe932ab81a05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4942085569526686466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2928334824665918352, guid: 9159fada2bd74754dad672677b57dbc7,
     type: 3}
   m_PrefabInstance: {fileID: 7797518375053609106}
   m_PrefabAsset: {fileID: 0}
