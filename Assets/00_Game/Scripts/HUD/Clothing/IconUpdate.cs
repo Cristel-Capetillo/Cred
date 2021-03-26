@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace HUD.Clothing {
     public class IconUpdate : MonoBehaviour {
         CombinedWearables combinedWearables;
-        public Image[] images;
+        Image[] images;
         public Sprite[] sprites;
 
         void Start() {
