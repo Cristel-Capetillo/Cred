@@ -27,18 +27,14 @@ namespace Clothing.DressUp {
                 }
             }
             
-            //reset all last known clothes
-            lastKnownClothes.Shirts = null;
-            lastKnownClothes.Pants = null;
-            lastKnownClothes.Skirts = null;
-            lastKnownClothes.Jackets = null;
-            lastKnownClothes.Shoes = null;
-            lastKnownClothes.Accessories = null;
-            
             //special case:
             //re-activate all t-shirt sleeves
+            EnableDisableTshirtSleeves(true);
+        }
+
+        void EnableDisableTshirtSleeves(bool b) {
             foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
-                    bodyPart.gameObject.SetActive(true);
+                bodyPart.gameObject.SetActive(b);
             }
         }
 
@@ -72,9 +68,7 @@ namespace Clothing.DressUp {
             EventBroker.Instance().SendMessage(new EventClothesChanged(lastKnownClothes.Accessories));
             
             //re-activate all t-shirt sleeves
-            foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
-                bodyPart.gameObject.SetActive(true);
-            }
+            EnableDisableTshirtSleeves(true);
         }
 
 
@@ -113,9 +107,7 @@ namespace Clothing.DressUp {
             //Special case: When putting on a jacket -> Deactivate shirt sleeves
             if (combinedWearable.clothingType.name == "Jackets") {
                 //deactivate the correct shirt sleeves (actually, de-activate all shirt sleeves, no-one will tell a difference)
-                foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
-                    bodyPart.gameObject.SetActive(false);
-                }
+                EnableDisableTshirtSleeves(false);
             }
         }
 
@@ -164,9 +156,7 @@ namespace Clothing.DressUp {
 
                 //Special case: When removing a jacket -> activate shirt sleeves
                 if (combinedWearable.clothingType.name == "Jackets") {
-                    foreach (var bodyPart in bodyParts.Where(bodyPart => bodyPart.name == "ShirtLeftSleeve" || bodyPart.name == "ShirtRightSleeve")) {
-                        bodyPart.gameObject.SetActive(true);
-                    }
+                    EnableDisableTshirtSleeves(true);
                 }
 
                 return true;
