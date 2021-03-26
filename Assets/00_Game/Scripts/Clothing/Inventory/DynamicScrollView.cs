@@ -17,12 +17,10 @@ namespace Clothing.Inventory {
 
         void CalculateHeight() {
             multiplier = 0;
-            for (var i = 6; i < transform.childCount; i += 2) {
-                multiplier++;
-            }
-
+            multiplier = transform.childCount / 2;
+            
             var rect = GetComponent<RectTransform>().sizeDelta;
-            rect.y = rect.y + (multiplier * height);
+            rect.y += multiplier * 121.1f;
             GetComponent<RectTransform>().sizeDelta = rect;
 
         }

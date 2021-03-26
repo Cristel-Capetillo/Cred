@@ -140,7 +140,6 @@ namespace Clothing.Inventory {
             }
 
             SpawnPredefined();
-            
         }
 
         void AssignCombinedWearableData(CombinedWearables combinedWearableInstance, Dictionary<string, object> combinedWearablesStatsDictionary) {
@@ -163,16 +162,28 @@ namespace Clothing.Inventory {
         }
 
         void CategoriesWearables(CombinedWearables combinedWearables) {
-            for (var i = 0; i < contents.Length; i++) {
-                combinedWearables.transform.parent = combinedWearables.clothingType.name switch {
-                    "Shirts" => contents[0],
-                    "Pants" => contents[1],
-                    "Jackets" => contents[2],
-                    "Shoes" => contents[3],
-                    "Accessories" => contents[4],
-                    "Skirts" => contents[5],
-                    _ => combinedWearables.transform.parent
-                };
+            if (combinedWearables.clothingType.name == "Shirts") {
+                combinedWearables.transform.SetParent(contents[0]);
+            }
+
+            if (combinedWearables.clothingType.name == "Pants") {
+                combinedWearables.transform.SetParent(contents[1]);
+            }
+
+            if (combinedWearables.clothingType.name == "Jackets") {
+                combinedWearables.transform.SetParent(contents[2]);
+            }
+
+            if (combinedWearables.clothingType.name == "Shoes") {
+                combinedWearables.transform.SetParent(contents[3]);
+            }
+
+            if (combinedWearables.clothingType.name == "Accessories") {
+                combinedWearables.transform.SetParent(contents[4]);
+            }
+
+            if (combinedWearables.clothingType.name == "Skirts") {
+                combinedWearables.transform.SetParent(contents[5]);
             }
 
             combinedWearables.GetComponent<CombinedUI>().UpdateUI(combinedWearables);

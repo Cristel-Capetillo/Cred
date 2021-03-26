@@ -369,6 +369,11 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 5819375879197161}
+    - target: {fileID: 377846359522102343, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1216595516983209200, guid: b2f0c025c3b737f4f8e49598265ee15c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -478,6 +483,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InventoryManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804937279376899041, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804937279532854200, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804937280008943465, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804937280092423375, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804937280222161142, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336827892599233805, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619395668754913579, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 157.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f0c025c3b737f4f8e49598265ee15c, type: 3}
