@@ -24,13 +24,13 @@ namespace ClientMissions {
         int currentStylePoints;
         
         void Start() {
-            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
-            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
             if (FindObjectOfType<ActiveMission>()== null){
-                if (FindObjectOfType<ActiveMission>().ActiveMissionData == null)
-                    return;
                 return;
             }
+            if (FindObjectOfType<ActiveMission>().ActiveMissionData == null)
+                return;
+            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
             var activeMission = FindObjectOfType<ActiveMission>();
             activeMissionData = activeMission.ActiveMissionData;
             foreach (var client in clientGameObjects){

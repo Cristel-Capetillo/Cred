@@ -407,6 +407,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DressUpSceneMissionHolder(UnpackToDifferentPrefabsLater)
       objectReference: {fileID: 0}
+    - target: {fileID: 77990599387791423, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090093613947454653, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: parentGameObject
+      value: 
+      objectReference: {fileID: 751958392}
     - target: {fileID: 4090093613947454653, guid: 3db1988801641e44b8dcb1d54a07b05c,
         type: 3}
       propertyPath: clientGameObjects.Array.data[0]
@@ -676,6 +686,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &751958392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8165764138338370419, guid: 3db1988801641e44b8dcb1d54a07b05c,
+    type: 3}
+  m_PrefabInstance: {fileID: 417671339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1006440563
 GameObject:
   m_ObjectHideFlags: 0

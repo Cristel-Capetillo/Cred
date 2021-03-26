@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainSceneMissionHolder(UnpackToDifferentPrefabsLater)
       objectReference: {fileID: 0}
+    - target: {fileID: 1551352069231231393, guid: f390a8064f8ed0e4b84c69f6f856a7b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6425342731655621824, guid: f390a8064f8ed0e4b84c69f6f856a7b2,
         type: 3}
       propertyPath: m_RootOrder
@@ -908,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 8309028695578086452, guid: 87858e8e56ab5344f83d55dcd2fad93f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8309028695578086452, guid: 87858e8e56ab5344f83d55dcd2fad93f,
         type: 3}
@@ -1109,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: 5082363613425017759, guid: 9a2d8e94608f4944d8cb9db82385823e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5082363613425017759, guid: 9a2d8e94608f4944d8cb9db82385823e,
         type: 3}
