@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: SiggeNicheDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sigge Niche 0
-  - Sigge Niche 1
-  - Sigge Niche 2
+  - "Oh hey, I didn\u2019t see you there, I was just pondering the great achievements
+    of Greta Thunberg. Damn, what an inspiration. I\u2019m thinking about renaming
+    my 14 y/o daughter after her. So anyway, I\u2019m going to Niche tonight to promote
+    my new podcast \u201CDissecting Dylan''. I\u2019ll need something like a white
+    t-shirt. Say around 200 dollars?"
+  - "Hey there! I\u2019m going to Niche tonight with my colleagues, I need to look
+    better than them. Or rather, smarter than them. I trust you can pull this off."
+  - "Well, Well, Well. Isn\u2019t it my favourite stylist. I\u2019m going to have
+    a drink with my ex tonight at Niche, I know she\u2019s seeing someone new. I
+    need to look so good she\u2019ll go home with me."
+  - "Hello service worker! I looked really good last night, so many complimented
+    on my looks. Maybe your outfit was to thank as well. I\u2019m going to Niche
+    tonight and I want to look even better."
+  - "Sheesh. Women, am I right? This one girl was trying to tell me how to pronounce
+    Hermes. I obviously know it's \u201CHjermis\u201D. Oh well, I need to look good
+    for tonight, I\u2019m going to Niche to talk about my new book."
+  - "Hello. Tonight I\u2019m going to Niche to drink IPA\u2019s while explaining
+    feminism to much, much younger women I\u2019m trying to bring back home. I\u2019m
+    looking for a simple t-shirt, around 400 dollars?"
   clubData: {fileID: 11400000, guid: e03b6481950880c44ba49dd4e8ecb331, type: 2}

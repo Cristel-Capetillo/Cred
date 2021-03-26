@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: SvenTheHoleDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sven the hole 0
-  - Sven the hole 1
-  - Sven the hole 2
-  - Sven the hole 3
+  - "Yo, I took an uber black here straight from a victorian cosplay orgie. I\u2019m
+    heading to a pre-party now before The Hole and need something fresh to wear.
+    Preferably something black."
+  - "Hey. Going back to my favourite place on earth, The Hole. Tonight i\u2019m not
+    working so I want to feel relaxed. I\u2019m feeling like red (wine) tonight."
+  - "I can\u2019t believe it\u2019s finally summer. I\u2019m so happy I could cry.
+    I\u2019m celebrating the 20 degrees with all my friends at The Hole tonight.
+    They might let my DJ for a while as well so make me stand out from the crowd.
+    You know i\u2019ll post about you!"
+  - "SUP! I\u2019m happy to see that it\u2019s going well for you. I might be able
+    to get you some new followers. I have a promotion gig for a champagne company
+    and they\u2019re going to interview me and take some photos, I\u2019ll mention
+    you\u2019re my stylist. Make us both proud!"
+  - "Yo. I\u2019m taking Siggy out for a round of drinks on The Hole, he recently
+    commented on my ants being \u201Ca lot\u201D. So please make it even more this
+    time! You know I\u2019m petty!"
   clubData: {fileID: 11400000, guid: a79c609553e786b4798a5657dcae62ec, type: 2}

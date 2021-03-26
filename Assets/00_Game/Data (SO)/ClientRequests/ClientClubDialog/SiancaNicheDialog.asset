@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: SiancaNicheDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sianca niche 0
-  - Sianca niche 1
-  - Sianca niche 2
-  - Sianca niche 3
+  - I just posted a picture of this outfit and forgot I was supposed to wear it to
+    Niche tonight. Now I desperately need something new to show my followers. Please
+    help me!
+  - "Hi! I just met this older guy who thinks I'm working in human resources. I\u2019m
+    not. Obviously. Help me look the part, I don\u2019t want him to find out I lied
+    about being an influencer\u2026"
+  - "Someone just told me I could never get high enough style points when I\u2019m
+    going out to Niche? I\u2019m furious. Prove them wrong."
+  - "Hi sis! I\u2019m loving your new business, it\u2019s already looking fly! I\u2019m
+    going to the old people place Niche tonight to look for someone who can pay for
+    me and my friends drinks all night. Make me look approachable and not too hot.
+    That will make them feel intimidated."
+  - "Hi! I\u2019m so excited, a new sponsor wanted me to collaborate with them! They
+    saw my latest post on \u201CCred\u201D and now they want me to promote their
+    new alcohol free drink. I\u2019m going to Niche tonight though, no way I'm showing
+    up somewhere else with something alcohol free"
+  - "O-M-G! I just saw your \u201CCred\u201D page, you\u2019re getting so many followers!
+    I\u2019m so proud. Tonight i\u2019m going to Niche to have a drink with a guy
+    named Siggy. Exciting!"
   clubData: {fileID: 11400000, guid: e03b6481950880c44ba49dd4e8ecb331, type: 2}

@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: SvenNicheDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sven Niche 0
-  - Sven Niche 1
-  - Sven Niche 2
-  - Sven Niche 3
+  - "I\u2019ve got a DJ-gig at this old-people place called Niche tonight and need
+    something to blend in. I\u2019m hoping to go home with a cougar tonight. Any
+    suggestions on what I should wear? Preferably something black."
+  - "Sup! I just visited my childhood friend and apparently he\u2019s become a real
+    douchebag. Anyway I\u2019m going out with Siggy tonight at Niche and I don't
+    want to blend in. Give me something that screams \u201CI\u2019m not boring\u201D."
+  - "Heya! I saw that you\u2019ve gotten some more followers since we last saw each
+    other, that\u2019s really cool i\u2019m super excited for you. Let\u2019s say
+    if you style me for my DJ gig on Niche I\u2019ll post you on \u201CCred\u201D
+    and see if more people follow you."
+  - "Suuup. I have the worst hangover EVER, but that doesn\u2019t stop me from having
+    fun. I\u2019m meeting up with my friend to go to Niche, apparently she\u2019s
+    seeing Siggy- my childhood friend. Weird."
+  - "YOO! I\u2019ve missed you, I got so many compliments on my outfit on my latest
+    gig. I need to impress some more people. Apparently Niche is hosting one of the
+    most famous DJs of all time, I NEED to look good. I trust you!"
   clubData: {fileID: 11400000, guid: e03b6481950880c44ba49dd4e8ecb331, type: 2}

@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: SiancaTheHoleDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sianca the hole 0
-  - Sianca the hole 1
-  - Sianca the hole 2
-  - Sianca the hole 3
+  - "I just followed a right-wing politician on Instagram and so my sponsor dropped
+    me. I\u2019m going to The Hole tonight and need something leathery. Something
+    that makes me look like I could kiss a girl - but not enough that someone actually
+    does. I\u2019m not gay\u2026 Not that there\u2019s anything wrong with that!
+    So you got something like that?"
+  - "Hi! I\u2019m so excited, Sven invited me to be his backup when he has a DJ session
+    tonight at The Hole. I need to look cool! Can you hook me up?"
+  - "Hi best stylist ever! I\u2019m going to The Hole tonight and they have a theme
+    night of \u201CSwag 2021\u201D. I need to look super cool! I trust you!"
+  - "Hello! I\u2019m going out with my conservitive cousins tonight, I don\u2019t
+    like them so I\u2019m taking them to The Hole. That will probably make them a
+    bit uncomfortable, serves them right for being closed minded. I\u2019ll post
+    it on \u201CCred\u201D later!"
+  - Hi sis! I got a comment on my latest post yesterday that said I don't care about
+    the environment. Not true! I know you work a lot with upcycling, maybe you have
+    something for me so I can prove them wrong.
   clubData: {fileID: 11400000, guid: a79c609553e786b4798a5657dcae62ec, type: 2}
