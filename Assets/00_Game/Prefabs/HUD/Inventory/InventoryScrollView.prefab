@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2714555403207521690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -119,6 +119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Viewport
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248085728484351920, guid: 5a67e64415c3bff489440f1ce27696c3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 363.8171
       objectReference: {fileID: 0}
     - target: {fileID: 8571368705233392077, guid: 5a67e64415c3bff489440f1ce27696c3,
         type: 3}
@@ -246,22 +251,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2714555403207521690}
     m_Modifications:
+    - target: {fileID: 259004168425676290, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 614.5217
+      objectReference: {fileID: 0}
+    - target: {fileID: 315685708486760147, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 614.52
+      objectReference: {fileID: 0}
     - target: {fileID: 1789518482479469122, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1789518482479469122, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1789518482479469122, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -48.333332
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799175473994484583, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202783218771588232, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 697.7
       objectReference: {fileID: 0}
     - target: {fileID: 3767540952388233849, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450558051248950522, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -269,17 +299,17 @@ PrefabInstance:
     - target: {fileID: 5344375894093126860, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5344375894093126860, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5344375894093126860, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 7397581789859474757, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
@@ -289,17 +319,17 @@ PrefabInstance:
     - target: {fileID: 7923067128267351442, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7923067128267351442, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7923067128267351442, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -81.666664
       objectReference: {fileID: 0}
     - target: {fileID: 8245301298625993226, guid: 5e68133601660534f8b15fbd92667e75,
         type: 3}
@@ -410,6 +440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpgradeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992116454643509281, guid: 5e68133601660534f8b15fbd92667e75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -21.7878
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e68133601660534f8b15fbd92667e75, type: 3}
