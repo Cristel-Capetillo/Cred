@@ -25,12 +25,13 @@ namespace MysteryBox {
             yield return new WaitForSeconds(delay);
             var reward = lootTable.Reward();
             ShowReward(reward);
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(reward, 1));
             Destroy(gameObject, destroyDelay);
         }
         
         void ShowReward(CombinedWearables reward) {
             EventBroker.Instance().SendMessage(new EventShowReward(reward));
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(reward, 1));
+            
         }
         
         // void OnDestroy() {
