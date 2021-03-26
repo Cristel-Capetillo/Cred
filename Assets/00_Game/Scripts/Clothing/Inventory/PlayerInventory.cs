@@ -57,6 +57,14 @@ namespace Clothing.Inventory {
             return combinedWearableDataToSave.ContainsKey(id);
         }
 
+        void SpawnPredefined() {
+            foreach (var combination in inventoryData.predefinedCombinations) {
+                if (combinedWearableDataToSave.ContainsKey(GetName(combination))) continue;
+                var instance = Instantiate(combination);
+                CategoriesWearables(instance);
+            }
+        }
+
         Dictionary<string, object> ItemStats(string itemId) {
             return (Dictionary<string, object>) combinedWearableDataToSave[itemId];
         }
@@ -116,6 +124,7 @@ namespace Clothing.Inventory {
                     CategoriesWearables(go);
                 }
 
+                SpawnPredefined();
                 return;
             }
 
@@ -129,6 +138,8 @@ namespace Clothing.Inventory {
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
                 CategoriesWearables(combinedWearableInstance);
             }
+
+            SpawnPredefined();
         }
 
         void AssignCombinedWearableData(CombinedWearables combinedWearableInstance, Dictionary<string, object> combinedWearablesStatsDictionary) {
