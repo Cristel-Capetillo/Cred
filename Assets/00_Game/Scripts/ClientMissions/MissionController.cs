@@ -24,15 +24,15 @@ namespace ClientMissions {
         int currentStylePoints;
         
         void Start() {
-            if (FindObjectOfType<ActiveMission>()!= null){
-                if(FindObjectOfType<ActiveMission>().ActiveMissionData != null)
-                    parentGameObject.SetActive(true);
-            }
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
+            if (FindObjectOfType<ActiveMission>()== null){
+                if (FindObjectOfType<ActiveMission>().ActiveMissionData == null)
+                    return;
+                return;
+            }
             var activeMission = FindObjectOfType<ActiveMission>();
             activeMissionData = activeMission.ActiveMissionData;
-            
             foreach (var client in clientGameObjects){
                 client.SetActive(client.name == activeMissionData.ClientTestData.name);
             }
@@ -41,6 +41,7 @@ namespace ClientMissions {
             if (activeMission.IsNewMission){
                 EventBroker.Instance().SendMessage(new RemoveAllClothes());
             }
+            parentGameObject.SetActive(true);
             activeMission.OnStartMission();
         }
         void OnDestroy() {
