@@ -26,7 +26,7 @@ namespace ClientMissions{
         void RemoveCurrentMission(EventShowReward eventShowReward){
             new LocalPlayerTest().RemoveMission(ActiveMissionData.SavableMissionData);
             ActiveMissionData = null;
-            IsNewMission = false;
+            IsNewMission = true;
         }
         void SelectMission(ActiveMissionMessage activeMissionMessage){
             ActiveMissionData = activeMissionMessage.missionData;
