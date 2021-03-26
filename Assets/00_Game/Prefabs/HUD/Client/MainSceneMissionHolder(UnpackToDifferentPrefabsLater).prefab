@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6425342731655621824}
   m_Layer: 0
-  m_Name: MainSceneMissionHolder
+  m_Name: MainSceneMissionHolder(UnpackToDifferentPrefabsLater)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

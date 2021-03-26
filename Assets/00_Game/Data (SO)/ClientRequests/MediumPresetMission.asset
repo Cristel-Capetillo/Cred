@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumStylePoints: 5
   maximumStylePoints: 20
-  maxReward: 0
+  maxReward: 50
   numberOfRequirements: 2

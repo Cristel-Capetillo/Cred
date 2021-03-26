@@ -14,7 +14,10 @@ namespace ClientMissions{
         string requiredStylepoints;
         
         void Start(){
-            if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) return;
+            if(FindObjectOfType<ActiveMission>() == null) 
+                return;
+            if (FindObjectOfType<ActiveMission>().ActiveMissionData == null) 
+                return;
             var missionData = FindObjectOfType<ActiveMission>().ActiveMissionData;
             EventBroker.Instance().SubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
             EventBroker.Instance().SubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
