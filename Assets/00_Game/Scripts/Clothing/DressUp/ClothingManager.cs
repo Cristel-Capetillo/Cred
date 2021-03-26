@@ -123,6 +123,8 @@ namespace Clothing.DressUp {
                     if (category.name == "Skirts")
                         category.SetActive(false);
                 }
+                //and remove skirts from last known
+                lastKnownClothes.Skirts = null;
             }
 
             //if incoming clothes is skirts
@@ -132,6 +134,8 @@ namespace Clothing.DressUp {
                     if (category.name == "Pants")
                         category.SetActive(false);
                 }
+                //and remove pants from last known
+                lastKnownClothes.Pants = null;
             }
         }
 
