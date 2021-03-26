@@ -140,6 +140,7 @@ namespace Clothing.Inventory {
             }
 
             SpawnPredefined();
+            
         }
 
         void AssignCombinedWearableData(CombinedWearables combinedWearableInstance, Dictionary<string, object> combinedWearablesStatsDictionary) {
@@ -174,6 +175,7 @@ namespace Clothing.Inventory {
                 };
             }
 
+            combinedWearables.GetComponent<CombinedUI>().UpdateUI(combinedWearables);
             combinedWearables.transform.localScale = Vector3.one;
         }
     }
