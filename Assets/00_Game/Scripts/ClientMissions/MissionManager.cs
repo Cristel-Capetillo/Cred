@@ -41,6 +41,7 @@ namespace ClientMissions {
             missionGenerator = missionInitializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
             yield return new WaitForSeconds(1f);
+            
             InstantiateMissionUI();
             CheckMissions();
         }

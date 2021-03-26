@@ -242,6 +242,11 @@ MonoBehaviour:
   legsClothingTypes:
   - {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c, type: 2}
   - {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69, type: 2}
+  clientGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  parentGameObject: {fileID: 77990599387791423}
 --- !u!114 &4090093613947454655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,11 +297,11 @@ RectTransform:
   m_Father: {fileID: 8165764138338370423}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -953, y: -471}
-  m_SizeDelta: {x: 400, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 20}
+  m_SizeDelta: {x: 250, y: 250}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &4168075346388467754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -325,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0b75a39e1cce4d429df6f566203ab87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 130ae82d33437dd48b2a3754bc129dee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -378,7 +383,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4168075346388467755}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4090093613947454653}
+        m_TargetAssemblyTypeName: ClientMissions.MissionController, ScriptDefinition
+        m_MethodName: OnClickEnterClub
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4168075347155600235
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClientMissions.Data;
+using ClientMissions.MissionMessages;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -45,6 +47,12 @@ namespace ClientMissions.Helpers{
         {
             var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, target.Kind);
             return dateTime.AddSeconds(timestamp);
+        }
+
+        public static EventShowReward CalculateReword(StylePointValues stylePointValues, int currentStylePoints, int maxReword){
+            var percentageValue = Mathf.InverseLerp(stylePointValues.MinStylePoints, stylePointValues.MaxStylePoints, currentStylePoints);
+            var reword = Mathf.RoundToInt(Mathf.Lerp(1,maxReword, percentageValue));
+            return new EventShowReward(reword);
         }
     }
 }
