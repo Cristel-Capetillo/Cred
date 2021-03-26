@@ -5,6 +5,7 @@ using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
 using ClientMissions.MissionMessages;
+using Clothing.DressUp;
 using Core;
 using UnityEditor.SearchService;
 using UnityEngine;
