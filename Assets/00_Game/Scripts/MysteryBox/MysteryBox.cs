@@ -1,14 +1,16 @@
-using System;
 using System.Collections;
+using Clothing;
+using Clothing.Inventory;
 using UnityEngine;
+using Utilities;
 
 namespace MysteryBox {
     public class MysteryBox : MonoBehaviour {
         
         [SerializeField] Vector3 rewardSpawnOffset;
         [SerializeField] float spawnRewardAfterDelay = 1.5f;
-        [SerializeField] float destroyDelay = 5f;
-        
+        [SerializeField] float destroyDelay = 2f;
+
         LootTable lootTable;
         
         void Start() {
@@ -21,12 +23,14 @@ namespace MysteryBox {
 
         IEnumerator StartRewardProcess(float delay) {
             yield return new WaitForSeconds(delay);
-            //ShowReward();
+            var reward = lootTable.Reward();
+            ShowReward(reward);
             Destroy(gameObject, destroyDelay);
         }
         
-        void ShowReward() {
-            Instantiate(lootTable.Reward().gameObject, transform.position + rewardSpawnOffset, Quaternion.identity);
+        void ShowReward(CombinedWearables reward) {
+            EventBroker.Instance().SendMessage(new EventShowReward(reward));
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(reward, 1));
         }
         
         // void OnDestroy() {

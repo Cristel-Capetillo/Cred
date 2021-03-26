@@ -258,6 +258,8 @@ MonoBehaviour:
   rewardSpawnOffset: {x: 0, y: 2, z: 0}
   spawnRewardAfterDelay: 1.5
   destroyDelay: 3
+  templatePrefab: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
+    type: 3}
 --- !u!1 &5301991473930937997
 GameObject:
   m_ObjectHideFlags: 0
