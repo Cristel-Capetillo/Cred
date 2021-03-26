@@ -9,6 +9,9 @@ namespace Clothing {
         public int stylePoints;
 
         public bool isPredefined = true;
+
+        public int Amount { get; set; }
+
         public override string ToString() {
             var uID = "";
             foreach (var wearable1 in wearable) {

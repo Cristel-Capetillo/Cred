@@ -58,9 +58,7 @@ namespace Clothing.Inventory {
         }
 
         Dictionary<string, object> ItemStats(string itemId) {
-            var tmp = new Dictionary<string, object>();
-            tmp = (Dictionary<string, object>) combinedWearableDataToSave[itemId];
-            return tmp;
+            return (Dictionary<string, object>) combinedWearableDataToSave[itemId];
         }
 
         void UpdateAmount(string nameOfCombinedWearable, int amountToUpdate) {
@@ -126,20 +124,29 @@ namespace Clothing.Inventory {
                 var combinedWearableInstance = InstantiateCombinedWearables();
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
 
-                var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
-                for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
-                    foreach (var s in inventoryData.wearables) {
-                        if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
-                            combinedWearableInstance.wearable.Add(s);
-                            break;
-                        }
+                AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance);
+
+                AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
+                CategoriesWearables(combinedWearableInstance);
+            }
+        }
+
+        void AssignCombinedWearableData(CombinedWearables combinedWearableInstance, Dictionary<string, object> combinedWearablesStatsDictionary) {
+            combinedWearableInstance.Amount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.Amount]);
+            combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
+            combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
+            combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
+        }
+
+        void AssignWearables(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance) {
+            var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
+            for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
+                foreach (var s in inventoryData.wearables) {
+                    if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
+                        combinedWearableInstance.wearable.Add(s);
+                        break;
                     }
                 }
-
-                combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
-                combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
-                combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
-                CategoriesWearables(combinedWearableInstance);
             }
         }
 

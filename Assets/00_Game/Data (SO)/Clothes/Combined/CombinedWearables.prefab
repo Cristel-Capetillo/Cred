@@ -136,6 +136,7 @@ MonoBehaviour:
   clothingType: {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d, type: 2}
   rarity: {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
   stylePoints: 3
+  isPredefined: 1
 --- !u!114 &8960099781882647010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images: []
+  sprites:
+  - {fileID: 21300000, guid: fcc470684ab144e4cb4159fb3e835671, type: 3}
+  - {fileID: 21300000, guid: fef7c686181c73349915aaf2b4ee683b, type: 3}
+  - {fileID: 21300000, guid: 07ee7d4bad184334fbe571c9ecde1f42, type: 3}
 --- !u!222 &6128540005919646192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -170,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
