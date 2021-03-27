@@ -10,7 +10,7 @@ namespace Clothing.Inventory {
 
         float height;
 
-        void Start() {
+        void OnEnable() {
             height = combinedWearablesTemplate.GetComponent<RectTransform>().sizeDelta.y;
             CalculateHeight();
         }

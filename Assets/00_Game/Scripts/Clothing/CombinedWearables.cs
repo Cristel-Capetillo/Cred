@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Clothing {
@@ -11,6 +12,10 @@ namespace Clothing {
         public bool isPredefined = true;
 
         public int Amount { get; set; }
+
+        void Start() {
+            transform.localScale = Vector3.one;
+        }
 
         public override string ToString() {
             var uID = "";

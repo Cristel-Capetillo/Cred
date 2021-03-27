@@ -6,8 +6,7 @@ using Utilities;
 
 namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
-        public Transform[] contents;
-
+        public Transform instanceParent;
         public CombinedWearables combinedWearablesTemplate;
 
         public InventoryData inventoryData;
@@ -16,6 +15,7 @@ namespace Clothing.Inventory {
         //value is of type Dictionary<string, object>
         Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
 
+        Dictionary<string, CombinedWearables> combinedWearablesDic = new Dictionary<string, CombinedWearables>();
 
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(UpdatePlayerInventory);
@@ -39,12 +39,20 @@ namespace Clothing.Inventory {
             return combinedWearable.ToString();
         }
 
+        public Dictionary<string, CombinedWearables> GetCombinedWearablesDictionary() {
+            return combinedWearablesDic;
+        }
+
+        public CombinedWearables GetCombinedWearableByID(CombinedWearables combinedWearables) {
+            return combinedWearablesDic[GetName(combinedWearables)];
+        }
+
         /// <summary>
         /// Returns the amount of given items owned as an integer.
         /// Use PlayerInventory.GetName to get the name
         /// </summary>
         public int Amount(string nameOfCombinedWearable) {
-            var tmp = ItemStats(nameOfCombinedWearable);
+            var tmp = GetItemStats(nameOfCombinedWearable);
             return Convert.ToInt32(tmp[InventoryData.Amount]);
         }
 
@@ -57,30 +65,25 @@ namespace Clothing.Inventory {
             return combinedWearableDataToSave.ContainsKey(id);
         }
 
-        void SpawnPredefined() {
-            foreach (var combination in inventoryData.predefinedCombinations) {
-                if (combinedWearableDataToSave.ContainsKey(GetName(combination))) continue;
-                var instance = Instantiate(combination);
-                CategoriesWearables(instance);
-            }
-        }
-
-        Dictionary<string, object> ItemStats(string itemId) {
+        Dictionary<string, object> GetItemStats(string itemId) {
             return (Dictionary<string, object>) combinedWearableDataToSave[itemId];
         }
 
         void UpdateAmount(string nameOfCombinedWearable, int amountToUpdate) {
             var sum = Amount(nameOfCombinedWearable) + amountToUpdate;
-            var itemStatsDictionary = ItemStats(nameOfCombinedWearable);
+            var itemStatsDictionary = GetItemStats(nameOfCombinedWearable);
             itemStatsDictionary[InventoryData.Amount] = sum;
             combinedWearableDataToSave[nameOfCombinedWearable] = itemStatsDictionary;
         }
 
         void UpdatePlayerInventory(EventUpdatePlayerInventory wearableEvent) {
             var id = GetName(wearableEvent.combinedWearable);
+            var wearable = wearableEvent.combinedWearable;
+
             if (!CombinedWearableExists(id)) {
-                GenerateNewCombinedWearable(wearableEvent.combinedWearable);
-                combinedWearableDataToSave.Add(id, inventoryData.StatList(wearableEvent.combinedWearable));
+                GenerateNewCombinedWearable(wearable);
+                combinedWearableDataToSave.Add(id, inventoryData.StatList(wearable));
+                combinedWearablesDic.Add(id, wearable);
             }
 
             UpdateAmount(id, wearableEvent.addOrSubtractAmount);
@@ -91,6 +94,7 @@ namespace Clothing.Inventory {
                 }
             }
 
+            combinedWearablesDic[id] = wearable;
             saveHandler.Save(this);
         }
 
@@ -103,7 +107,7 @@ namespace Clothing.Inventory {
         }
 
         CombinedWearables InstantiateCombinedWearables() {
-            return Instantiate(combinedWearablesTemplate, transform);
+            return Instantiate(combinedWearablesTemplate, instanceParent);
         }
 
         bool CombinedWearableAmountIsZero(string combinedWearablesId) {
@@ -118,16 +122,21 @@ namespace Clothing.Inventory {
             combinedWearableDataToSave = value;
 
             if (value == null) {
-                foreach (var f in inventoryData.firstSave) {
-                    var go = GenerateNewCombinedWearable(f);
-                    UpdateAmount(GetName(go), 1);
-                    CategoriesWearables(go);
-                }
-
-                SpawnPredefined();
+                NoSaveFileFound();
                 return;
             }
 
+            RestoreData(value);
+            EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
+            EventBroker.Instance().SendMessage(new EventOrganiseInventory(true));
+        }
+
+        void NoSaveFileFound() {
+            EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), true));
+            EventBroker.Instance().SendMessage(new EventOrganiseInventory(true));
+        }
+
+        void RestoreData(Dictionary<string, object> value) {
             print($"Dictionary size: {value.Count}");
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
@@ -136,17 +145,15 @@ namespace Clothing.Inventory {
                 AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
-                CategoriesWearables(combinedWearableInstance);
+                EventBroker.Instance().SendMessage(new EventOrganiseInventory(combinedWearableInstance));
             }
-
-            SpawnPredefined();
         }
 
-        void AssignCombinedWearableData(CombinedWearables combinedWearableInstance, Dictionary<string, object> combinedWearablesStatsDictionary) {
-            combinedWearableInstance.Amount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.Amount]);
-            combinedWearableInstance.stylePoints = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.StylePoints]);
-            combinedWearableInstance.rarity = inventoryData.allRarities[combinedWearablesStatsDictionary[InventoryData.Rarity].ToString()];
-            combinedWearableInstance.clothingType = inventoryData.allClothingTypes[combinedWearablesStatsDictionary[InventoryData.ClothingType].ToString()];
+        void AssignCombinedWearableData(CombinedWearables wearableInstance, Dictionary<string, object> wearablesStatsDictionary) {
+            wearableInstance.Amount = Convert.ToInt32(wearablesStatsDictionary[InventoryData.Amount]);
+            wearableInstance.stylePoints = Convert.ToInt32(wearablesStatsDictionary[InventoryData.StylePoints]);
+            wearableInstance.rarity = inventoryData.allRarities[wearablesStatsDictionary[InventoryData.Rarity].ToString()];
+            wearableInstance.clothingType = inventoryData.allClothingTypes[wearablesStatsDictionary[InventoryData.ClothingType].ToString()];
         }
 
         void AssignWearables(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance) {
@@ -159,35 +166,6 @@ namespace Clothing.Inventory {
                     }
                 }
             }
-        }
-
-        void CategoriesWearables(CombinedWearables combinedWearables) {
-            if (combinedWearables.clothingType.name == "Shirts") {
-                combinedWearables.transform.SetParent(contents[0]);
-            }
-
-            if (combinedWearables.clothingType.name == "Pants") {
-                combinedWearables.transform.SetParent(contents[1]);
-            }
-
-            if (combinedWearables.clothingType.name == "Jackets") {
-                combinedWearables.transform.SetParent(contents[2]);
-            }
-
-            if (combinedWearables.clothingType.name == "Shoes") {
-                combinedWearables.transform.SetParent(contents[3]);
-            }
-
-            if (combinedWearables.clothingType.name == "Accessories") {
-                combinedWearables.transform.SetParent(contents[4]);
-            }
-
-            if (combinedWearables.clothingType.name == "Skirts") {
-                combinedWearables.transform.SetParent(contents[5]);
-            }
-
-            combinedWearables.GetComponent<CombinedUI>().UpdateUI(combinedWearables);
-            combinedWearables.transform.localScale = Vector3.one;
         }
     }
 }

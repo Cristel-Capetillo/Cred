@@ -11,7 +11,7 @@ namespace SaveSystem {
         public void Authenticate(string saveID) {
             fbDatabase = FirebaseDatabase.GetInstance(UrlToolSite);
             
-            this.saveID = "JsuJjn1YHZdrgTdsagfdGvz5hsYs3HFkl111" + "/" + saveID;
+            this.saveID = "dgggfdsaddfddsa" + "/" + saveID;
         }
 
         public async void Save<T>(T saveObj) {
