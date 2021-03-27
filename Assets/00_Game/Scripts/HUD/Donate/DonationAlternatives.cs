@@ -57,9 +57,9 @@ namespace HUD.Donate {
                     }
                 }
             }
-            if (!(playerInventory.Amount(PlayerInventory.GetName(combinedWearables)) >= 2)) {
-                ToggleNoDuplicatesWarning();
-            }
+            // if (!(playerInventory.Amount(PlayerInventory.GetName(combinedWearables)) >= 2)) {
+            //     ToggleNoDuplicatesWarning();
+            // }
             else if (!(donationValidityCheck.MaxStylePointsCheck(combinedWearables.stylePoints, combinedWearables.rarity) >= 1)) {
                 ToggleMaxStylePointsWarning();
             }

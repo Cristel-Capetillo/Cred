@@ -10,8 +10,8 @@ namespace Clothing.Inventory {
         public ClothingType[] clothingType;
         public Wearable[] wearables;
 
-        public Dictionary<string, Rarity> allRarities = new Dictionary<string, Rarity>();
-        public Dictionary<string, ClothingType> allClothingTypes = new Dictionary<string, ClothingType>();
+        public Dictionary<Rarity, Rarity> allRarities = new Dictionary<Rarity, Rarity>();
+        public Dictionary<ClothingType, ClothingType> allClothingTypes = new Dictionary<ClothingType, ClothingType>();
 
         public const string WearableCount = "Wearable Count";
         public const string Rarity = "Rarity";
@@ -22,11 +22,11 @@ namespace Clothing.Inventory {
 
         public void Setup() {
             foreach (var r in rarity) {
-                allRarities[r.name] = r;
+                allRarities[r] = r;
             }
 
             foreach (var c in clothingType) {
-                allClothingTypes[c.name] = c;
+                allClothingTypes[c] = c;
             }
         }
 

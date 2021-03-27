@@ -1,5 +1,4 @@
-﻿using System;
-using Clothing.Upgrade;
+﻿using Clothing.Upgrade;
 using Core;
 using UnityEngine;
 using UnityEngine.EventSystems;

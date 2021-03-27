@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 using Utilities;
 
@@ -104,6 +105,7 @@ namespace Clothing.DressUp {
                 }
             }
 
+            
             //Special case: When putting on a jacket -> Deactivate shirt sleeves
             if (combinedWearable.clothingType.name == "Jackets") {
                 //deactivate the correct shirt sleeves (actually, de-activate all shirt sleeves, no-one will tell a difference)
