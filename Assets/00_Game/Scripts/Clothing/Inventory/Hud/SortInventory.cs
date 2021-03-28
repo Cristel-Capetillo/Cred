@@ -9,13 +9,13 @@ namespace Clothing.Inventory {
         public InventoryContents[] contents;
 
         void Start() {
-            EventBroker.Instance().SubscribeMessage<EventOrganiseInventory>(CategoriesWearables);
+            EventBroker.Instance().SubscribeMessage<EventSortInventory>(CategoriesWearables);
         }
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventOrganiseInventory>(CategoriesWearables);
+            EventBroker.Instance().UnsubscribeMessage<EventSortInventory>(CategoriesWearables);
         }
 
-        void CategoriesWearables(EventOrganiseInventory sort) {
+        void CategoriesWearables(EventSortInventory sort) {
             foreach (var wearable in instanceParent.GetComponentsInChildren<CombinedWearables>()) {
                 foreach (var content in contents) {
                     if (wearable.clothingType == content.clothingType) {
@@ -33,9 +33,6 @@ namespace Clothing.Inventory {
                     }
                 }
             }
-            //
-            // combinedWearables.GetComponent<CombinedUI>().UpdateUI(combinedWearables);
-            // combinedWearables.transform.localScale = Vector3.one;
         }
     }
 }

@@ -128,12 +128,13 @@ namespace Clothing.Inventory {
 
             RestoreData(value);
             EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
-            EventBroker.Instance().SendMessage(new EventOrganiseInventory(true));
+            EventBroker.Instance().SendMessage(new EventSortInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
         }
 
         void NoSaveFileFound() {
             EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), true));
-            EventBroker.Instance().SendMessage(new EventOrganiseInventory(true));
+            EventBroker.Instance().SendMessage(new EventSortInventory());
         }
 
         void RestoreData(Dictionary<string, object> value) {
@@ -145,7 +146,7 @@ namespace Clothing.Inventory {
                 AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
-                EventBroker.Instance().SendMessage(new EventOrganiseInventory(combinedWearableInstance));
+                EventBroker.Instance().SendMessage(new EventSortInventory());
             }
         }
 
