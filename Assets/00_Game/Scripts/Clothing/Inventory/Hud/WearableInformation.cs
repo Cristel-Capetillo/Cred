@@ -12,22 +12,20 @@ namespace Clothing.Inventory {
         CombinedWearables wearables;
 
         void Start() {
-            //EventBroker.Instance().SubscribeMessage<EventUpdateWearableInfo>(UpdateInformation);
         }
 
         void OnEnable() {
             wearables = GetComponent<CombinedWearables>();
-
+            EventBroker.Instance().SubscribeMessage<EventUpdateWearableInfo>(UpdateInformation);
             UpdateInformation();
         }
 
-        void OnDestroy() {
-            //EventBroker.Instance().UnsubscribeMessage<EventUpdateWearableInfo>(UpdateInformation);
+        void OnDisable() {
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateWearableInfo>(UpdateInformation);
         }
 
         void UpdateInformation(EventUpdateWearableInfo newInfo) {
-            stylePointsText.text = wearables.stylePoints.ToString();
-            amountText.text = "x" + wearables.Amount;
+            UpdateInformation();
         }
 
         void UpdateInformation() {

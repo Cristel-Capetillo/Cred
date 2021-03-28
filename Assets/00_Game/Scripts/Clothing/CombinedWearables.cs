@@ -18,6 +18,7 @@ namespace Clothing {
             set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
         }
 
+        //TODO some weird bug that sets scale to 0.5f when instantiated. Below is just a temporary fix
         void Start() {
             transform.localScale = Vector3.one;
         }
@@ -26,7 +27,7 @@ namespace Clothing {
             transform.localScale = Vector3.one;
 
             if (Amount <= 0) {
-                GetComponent<Button>().interactable = false;
+                GetComponent<Button>().interactable = false; 
             }
         }
 
