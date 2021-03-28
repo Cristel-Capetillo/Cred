@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86674ffc302a468aa0b6581421f5728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionUiPrefab: {fileID: -2044608161243971125, guid: 1c02794c51b6a324f9db9a8746df6701,
+  clientUiPrefab: {fileID: -2044608161243971125, guid: 1c02794c51b6a324f9db9a8746df6701,
     type: 3}
   contentParent: {fileID: 2021835565623862784}
   missionTimerInSec: 120
@@ -447,10 +447,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
-  localPlayerTest:
+  localPlayer:
     followers: 100
     maxFollowers: 1000
-    testCoins: 0
 --- !u!114 &2021835565888272458
 MonoBehaviour:
   m_ObjectHideFlags: 0

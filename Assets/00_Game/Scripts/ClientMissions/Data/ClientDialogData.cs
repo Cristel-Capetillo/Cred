@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace ClientMissions.Data{
@@ -7,7 +8,7 @@ namespace ClientMissions.Data{
         [SerializeField, TextArea] List<string> dialog = new List<string>();
         [SerializeField] ClubData clubData;
         
-        public List<string> Dialog => dialog;
+        public ReadOnlyCollection<string> Dialog => dialog.AsReadOnly();
         public ClubData ClubData => clubData;
     }
 }
