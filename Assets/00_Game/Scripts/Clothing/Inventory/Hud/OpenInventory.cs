@@ -14,6 +14,7 @@ namespace Clothing.Inventory {
         Vector3 topPosition;
         Vector3 oldPosition;
 
+
         void Start() {
             topPosition = categories[0].GetComponent<RectTransform>().localPosition;
             EventBroker.Instance().SubscribeMessage<EventSceneSwap>(ValidateScene);
@@ -30,18 +31,19 @@ namespace Clothing.Inventory {
             EventBroker.Instance().UnsubscribeMessage<EventSceneSwap>(ValidateScene);
         }
 
-        public void ToggleInventory(GameObject scrollView) {
+        public void ToggleInventory(CanvasGroup scrollView) {
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             EventBroker.Instance().SendMessage(new EventUpdateCombinedUI(null));
-            scrollView.SetActive(!scrollView.activeSelf);
+            ChangeCanvasGroupValues(!scrollView.interactable, scrollView);
+            //scrollView.SetActive(!scrollView.activeSelf);
             print("doing something");
 
             foreach (var category in categories) {
                 if (EventSystem.current.currentSelectedGameObject != category) {
-                    category.SetActive(!scrollView.activeSelf);
+                    category.SetActive(!scrollView.interactable);
                 }
                 else {
-                    if (scrollView.activeSelf) {
+                    if (scrollView.interactable) {
                         oldPosition = category.GetComponent<RectTransform>().localPosition;
                         category.GetComponent<RectTransform>().localPosition = topPosition;
                     }
@@ -53,12 +55,13 @@ namespace Clothing.Inventory {
         }
 
         void ValidateScene(EventSceneSwap sceneSwap) {
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("DressupScene")) {
-                canvas.enabled = true;
-            }
-            else {
-                canvas.enabled = false;
-            }
+            canvas.enabled = SceneManager.GetActiveScene() == SceneManager.GetSceneByName("DressupScene");
+        }
+
+        void ChangeCanvasGroupValues(bool value, CanvasGroup canvasGroup) {
+            canvasGroup.interactable = value;
+            canvasGroup.blocksRaycasts = value;
+            canvasGroup.alpha = canvasGroup.interactable ? 1 : 0;
         }
     }
 }

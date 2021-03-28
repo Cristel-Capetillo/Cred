@@ -2,25 +2,29 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace Clothing.Inventory {
     public class DynamicScrollView : MonoBehaviour {
-        int multiplier;
+        [SerializeField] RectTransform[] childRects;
 
-        [SerializeField] Transform[] rarities;
+        RectTransform thisRect;
 
         void Start() {
-            CalculateHeight();
+            thisRect = GetComponent<RectTransform>();
+            EventBroker.Instance().SubscribeMessage<EventFinishedLoadingPlayerInventory>(CalculateHeight);
         }
 
-        void CalculateHeight() {
-            multiplier = 0;
-            multiplier = rarities.Sum(x => x.transform.childCount);
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventFinishedLoadingPlayerInventory>(CalculateHeight);
+        }
 
-            var rect = GetComponent<RectTransform>().sizeDelta;
-            rect.y = multiplier * 121.1f;
-            rect.y -= 121.1f * 3;
-            GetComponent<RectTransform>().sizeDelta = rect;
+        void CalculateHeight(EventFinishedLoadingPlayerInventory contentHeight) {
+            var rect = thisRect.sizeDelta;
+            rect.y = childRects.Sum(x => x.sizeDelta.y);
+
+
+            thisRect.sizeDelta = rect;
         }
     }
 }

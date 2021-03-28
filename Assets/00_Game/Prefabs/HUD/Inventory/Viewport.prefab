@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 648943565613378372}
   - component: {fileID: 8254849816780933750}
   m_Layer: 5
-  m_Name: Design
+  m_Name: Designer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,9 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6290d94750314afb9a327ebef943aaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
-    type: 3}
-  rarities:
+  childRects:
   - {fileID: 2708185951639854270}
   - {fileID: 483117944579251213}
   - {fileID: 648943565613378372}

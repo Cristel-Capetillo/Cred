@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
@@ -16,19 +14,6 @@ namespace Clothing {
         public int Amount {
             get => _amount;
             set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
-        }
-
-        //TODO some weird bug that sets scale to 0.5f when instantiated. Below is just a temporary fix
-        void Start() {
-            transform.localScale = Vector3.one;
-        }
-
-        void OnEnable() {
-            transform.localScale = Vector3.one;
-
-            if (Amount <= 0) {
-                GetComponent<Button>().interactable = false; 
-            }
         }
 
         public override string ToString() {
