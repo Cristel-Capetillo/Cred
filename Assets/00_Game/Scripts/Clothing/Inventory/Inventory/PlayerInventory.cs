@@ -141,7 +141,7 @@ namespace Clothing.Inventory {
         IEnumerator RestoreData(Dictionary<string, object> value) {
             print($"Dictionary size: {value.Count}");
             var wearableList = new List<Wearable>();
-            Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
+            yield return Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
 
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
@@ -171,10 +171,12 @@ namespace Clothing.Inventory {
                 foreach (var s in wearables) {
                     if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
                         combinedWearableInstance.wearable.Add(s);
-                        yield break;
+                        break;
                     }
                 }
             }
+
+            yield return null;
         }
     }
 }

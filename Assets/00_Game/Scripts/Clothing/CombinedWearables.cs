@@ -23,6 +23,8 @@ namespace Clothing {
         }
 
         void OnEnable() {
+            transform.localScale = Vector3.one;
+
             if (Amount <= 0) {
                 GetComponent<Button>().interactable = false;
             }
