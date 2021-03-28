@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace ClientMissions.Data{
@@ -22,7 +23,7 @@ namespace ClientMissions.Data{
         public int MissionDifficultyIndex => missionDifficultyIndex;
         public int MissionClientIndex => missionClientIndex;
         public SavableDialogData SavableDialogData => savableDialogData;
-        public List<SavableRequirementData> SavableRequirementData => savableRequirementData;
+        public ReadOnlyCollection<SavableRequirementData> SavableRequirementData => savableRequirementData.AsReadOnly();
 
         public long UnixUtcTimeStamp => unixUtcTimeStamp;
     }
