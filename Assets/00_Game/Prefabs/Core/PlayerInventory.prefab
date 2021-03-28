@@ -50,6 +50,8 @@ MonoBehaviour:
   combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
     type: 3}
   inventoryData:
+    wearablesAddress:
+      m_LabelString: Wearable
     rarity:
     - {fileID: 11400000, guid: 8a9a780ddac906848a33833e0695febc, type: 2}
     - {fileID: 11400000, guid: 1ebb332f9fadaad4880a5e41728838a3, type: 2}

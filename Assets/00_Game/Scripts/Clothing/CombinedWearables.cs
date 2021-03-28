@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
@@ -11,10 +12,20 @@ namespace Clothing {
 
         public bool isPredefined = true;
 
-        public int Amount { get; set; }
+        int _amount;
+        public int Amount {
+            get => _amount;
+            set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
+        }
 
         void Start() {
             transform.localScale = Vector3.one;
+        }
+
+        void OnEnable() {
+            if (Amount <= 0) {
+                GetComponent<Button>().interactable = false;
+            }
         }
 
         public override string ToString() {

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 
 namespace Clothing.Inventory {
     [System.Serializable]
     public class InventoryData {
+        public AssetLabelReference wearablesAddress;
+        
         public Rarity[] rarity;
         public ClothingType[] clothingType;
-        public Wearable[] wearables;
 
         public Dictionary<string, Rarity> allRarities = new Dictionary<string, Rarity>();
         public Dictionary<string, ClothingType> allClothingTypes = new Dictionary<string, ClothingType>();

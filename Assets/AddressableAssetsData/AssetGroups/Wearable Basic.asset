@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Wearable Basic
+  m_EditorClassIdentifier: 
+  m_GroupName: Wearable Basic
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 619ae34f53c0854468e5b1ed9e64f7a8
+  m_SerializeEntries:
+  - m_GUID: c99d07e9eff4df64a96ecf366f48e99a
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Accessory
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c99d07e9eff4df64a96ecf366f48e99a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c99d07e9eff4df64a96ecf366f48e99a, type: 2}
+  - m_GUID: e3b93a513b318d04cb437768cb4f8fa7
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Accessory
+      Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: e3b93a513b318d04cb437768cb4f8fa7, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: e3b93a513b318d04cb437768cb4f8fa7, type: 2}
+  - m_GUID: 73fbf4c42112ffe4ab00094b379336ef
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Accessory
+      White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 73fbf4c42112ffe4ab00094b379336ef, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 73fbf4c42112ffe4ab00094b379336ef, type: 2}
+  - m_GUID: 841a1a53ca8c9194f9c6fa7ccb7b5e04
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Left Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 841a1a53ca8c9194f9c6fa7ccb7b5e04, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 841a1a53ca8c9194f9c6fa7ccb7b5e04, type: 2}
+  - m_GUID: 5ad3c1d1c71d59d468484d33b21f95da
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Left Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5ad3c1d1c71d59d468484d33b21f95da, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5ad3c1d1c71d59d468484d33b21f95da, type: 2}
+  - m_GUID: 4c962d8b1160f63428d25dfede78cc6d
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Left Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 4c962d8b1160f63428d25dfede78cc6d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 4c962d8b1160f63428d25dfede78cc6d, type: 2}
+  - m_GUID: 0e3648132d303b642b5d98c27d1bb10c
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Right Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 0e3648132d303b642b5d98c27d1bb10c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0e3648132d303b642b5d98c27d1bb10c, type: 2}
+  - m_GUID: 81cd679efee5adc4d90a2968be002d13
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Right Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 81cd679efee5adc4d90a2968be002d13, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 81cd679efee5adc4d90a2968be002d13, type: 2}
+  - m_GUID: 1602f0980f67d3845b14c5b270d032a8
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Right Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 1602f0980f67d3845b14c5b270d032a8, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 1602f0980f67d3845b14c5b270d032a8, type: 2}
+  - m_GUID: a23a5ce0c10abb14ab34ce17d521e021
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Torso Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: a23a5ce0c10abb14ab34ce17d521e021, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: a23a5ce0c10abb14ab34ce17d521e021, type: 2}
+  - m_GUID: 2be703a0b3f96d146ad46340024d9df5
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Torso Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 2be703a0b3f96d146ad46340024d9df5, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2be703a0b3f96d146ad46340024d9df5, type: 2}
+  - m_GUID: 2f4c1a00017e3214bbf181daecb99206
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Jacket
+      Torso Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 2f4c1a00017e3214bbf181daecb99206, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2f4c1a00017e3214bbf181daecb99206, type: 2}
+  - m_GUID: 9b50f4464ec1cd8498253d68bd0e53f9
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Left
+      Beige.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 9b50f4464ec1cd8498253d68bd0e53f9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 9b50f4464ec1cd8498253d68bd0e53f9, type: 2}
+  - m_GUID: 0effdb5b7010e86418a28143f213101b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Left
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 0effdb5b7010e86418a28143f213101b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0effdb5b7010e86418a28143f213101b, type: 2}
+  - m_GUID: bc17b8e7d10355443bcd84cdeab33fbf
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Left
+      Pink.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: bc17b8e7d10355443bcd84cdeab33fbf, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: bc17b8e7d10355443bcd84cdeab33fbf, type: 2}
+  - m_GUID: 2b6e66575a490bb4ab55582c6942bc7d
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Right
+      Beige.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 2b6e66575a490bb4ab55582c6942bc7d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2b6e66575a490bb4ab55582c6942bc7d, type: 2}
+  - m_GUID: c56fe3cd5e592e446a64cf38a668188b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Right
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c56fe3cd5e592e446a64cf38a668188b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c56fe3cd5e592e446a64cf38a668188b, type: 2}
+  - m_GUID: 0af216834f99fa440951a6426d85b3a5
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Pant Right
+      Pink.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 0af216834f99fa440951a6426d85b3a5, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0af216834f99fa440951a6426d85b3a5, type: 2}
+  - m_GUID: c712a117386cbe44c978d61596b30482
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Left
+      Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c712a117386cbe44c978d61596b30482, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c712a117386cbe44c978d61596b30482, type: 2}
+  - m_GUID: f489b9b7049d7484d925a7050f7ffdbd
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Left
+      Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: f489b9b7049d7484d925a7050f7ffdbd, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f489b9b7049d7484d925a7050f7ffdbd, type: 2}
+  - m_GUID: c7fac67e8b9facf40a87721905046bc3
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Left
+      Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c7fac67e8b9facf40a87721905046bc3, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c7fac67e8b9facf40a87721905046bc3, type: 2}
+  - m_GUID: 7f10da1db45bf2f4dba6d0611dff3e35
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Right
+      Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 7f10da1db45bf2f4dba6d0611dff3e35, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 7f10da1db45bf2f4dba6d0611dff3e35, type: 2}
+  - m_GUID: 6b45423e06702ef4599ca63ba1ea5e48
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Right
+      Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 6b45423e06702ef4599ca63ba1ea5e48, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 6b45423e06702ef4599ca63ba1ea5e48, type: 2}
+  - m_GUID: cec1ffeda5fae074c99d403a28d7320e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Right
+      Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: cec1ffeda5fae074c99d403a28d7320e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: cec1ffeda5fae074c99d403a28d7320e, type: 2}
+  - m_GUID: 276e7c61f8aaa0b47a963018879fd871
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Torso
+      Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 276e7c61f8aaa0b47a963018879fd871, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 276e7c61f8aaa0b47a963018879fd871, type: 2}
+  - m_GUID: 688f7d26365be4e4393f89566c53aa80
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Torso
+      Green.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 688f7d26365be4e4393f89566c53aa80, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 688f7d26365be4e4393f89566c53aa80, type: 2}
+  - m_GUID: 43baa62fb4e3c3d4bac2e04e7fd6e07e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shirt Torso
+      Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 43baa62fb4e3c3d4bac2e04e7fd6e07e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 43baa62fb4e3c3d4bac2e04e7fd6e07e, type: 2}
+  - m_GUID: 1f71b3cd8ab161f4e87839282869d873
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Left
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 1f71b3cd8ab161f4e87839282869d873, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 1f71b3cd8ab161f4e87839282869d873, type: 2}
+  - m_GUID: d91d5ba8e8d7d744badf273c31be5644
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Left
+      Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: d91d5ba8e8d7d744badf273c31be5644, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: d91d5ba8e8d7d744badf273c31be5644, type: 2}
+  - m_GUID: 5150ddbf0532a684684cbea19720e4e1
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Left
+      Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5150ddbf0532a684684cbea19720e4e1, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5150ddbf0532a684684cbea19720e4e1, type: 2}
+  - m_GUID: a5587c88a0278b3479aa0848a8459075
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Right
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: a5587c88a0278b3479aa0848a8459075, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: a5587c88a0278b3479aa0848a8459075, type: 2}
+  - m_GUID: 580a886b4450658428d7c7dfca96589f
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Right
+      Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 580a886b4450658428d7c7dfca96589f, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 580a886b4450658428d7c7dfca96589f, type: 2}
+  - m_GUID: 892e3eddac159de4891275585cb9073a
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Shoe Right
+      Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 892e3eddac159de4891275585cb9073a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 892e3eddac159de4891275585cb9073a, type: 2}
+  - m_GUID: 6616872d9b82a0746b2bf37827deb839
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Left
+      Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 6616872d9b82a0746b2bf37827deb839, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 6616872d9b82a0746b2bf37827deb839, type: 2}
+  - m_GUID: 5030538a39e93354191cf8a4dda562ee
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Left
+      Grey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5030538a39e93354191cf8a4dda562ee, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5030538a39e93354191cf8a4dda562ee, type: 2}
+  - m_GUID: 3ecb249ce677021408cb405f9666e0ae
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Left
+      Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 3ecb249ce677021408cb405f9666e0ae, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3ecb249ce677021408cb405f9666e0ae, type: 2}
+  - m_GUID: f1e64c706385aa34393336197374d597
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Right
+      Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: f1e64c706385aa34393336197374d597, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f1e64c706385aa34393336197374d597, type: 2}
+  - m_GUID: c92df2632536cba47bbf0fcb55a23adf
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Right
+      Grey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c92df2632536cba47bbf0fcb55a23adf, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c92df2632536cba47bbf0fcb55a23adf, type: 2}
+  - m_GUID: 4208eddbd2ad728418f067bcbf8ad045
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Basic/Basic Skirt Right
+      Yellow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Basic
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 4208eddbd2ad728418f067bcbf8ad045, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 4208eddbd2ad728418f067bcbf8ad045, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 640da5843399f824cb37786f50730514, type: 2}
+    - {fileID: 11400000, guid: 415d5753b7fb1fd4386fbfeb10b2ecce, type: 2}

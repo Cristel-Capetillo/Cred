@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SaveSystem;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Utilities;
 
 namespace Clothing.Inventory {
@@ -95,6 +97,8 @@ namespace Clothing.Inventory {
             }
 
             combinedWearablesDic[id] = wearable;
+            EventBroker.Instance().SendMessage(new EventSortInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
             saveHandler.Save(this);
         }
 
@@ -126,10 +130,7 @@ namespace Clothing.Inventory {
                 return;
             }
 
-            RestoreData(value);
-            EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
-            EventBroker.Instance().SendMessage(new EventSortInventory());
-            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
+            StartCoroutine(RestoreData(value));
         }
 
         void NoSaveFileFound() {
@@ -137,17 +138,24 @@ namespace Clothing.Inventory {
             EventBroker.Instance().SendMessage(new EventSortInventory());
         }
 
-        void RestoreData(Dictionary<string, object> value) {
+        IEnumerator RestoreData(Dictionary<string, object> value) {
             print($"Dictionary size: {value.Count}");
+            var wearableList = new List<Wearable>();
+            Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
+
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
+                combinedWearableInstance.transform.localScale = Vector3.one;
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
 
-                AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance);
+                yield return AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance, wearableList);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
                 EventBroker.Instance().SendMessage(new EventSortInventory());
             }
+
+            EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
+            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
         }
 
         void AssignCombinedWearableData(CombinedWearables wearableInstance, Dictionary<string, object> wearablesStatsDictionary) {
@@ -157,13 +165,13 @@ namespace Clothing.Inventory {
             wearableInstance.clothingType = inventoryData.allClothingTypes[wearablesStatsDictionary[InventoryData.ClothingType].ToString()];
         }
 
-        void AssignWearables(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance) {
+        IEnumerator AssignWearables(Dictionary<string, object> combinedWearablesStatsDictionary, CombinedWearables combinedWearableInstance, List<Wearable> wearables) {
             var wearableCount = Convert.ToInt32(combinedWearablesStatsDictionary[InventoryData.WearableCount]);
             for (var sortIndex = 0; sortIndex < wearableCount; sortIndex++) {
-                foreach (var s in inventoryData.wearables) {
+                foreach (var s in wearables) {
                     if (combinedWearablesStatsDictionary.ContainsKey(s.ToString() + sortIndex)) {
                         combinedWearableInstance.wearable.Add(s);
-                        break;
+                        yield break;
                     }
                 }
             }

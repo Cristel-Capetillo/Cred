@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Wearable Designer
+  m_EditorClassIdentifier: 
+  m_GroupName: Wearable Designer
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e2ba30664a06bfd4cbfa5ccc0da175c8
+  m_SerializeEntries:
+  - m_GUID: 5cbbd43a269b16b45b47472141d5b837
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Accessory
+      Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5cbbd43a269b16b45b47472141d5b837, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5cbbd43a269b16b45b47472141d5b837, type: 2}
+  - m_GUID: 5d635980f71e9b44c95f7b9c1f3ab79b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Accessory
+      Brown.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5d635980f71e9b44c95f7b9c1f3ab79b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5d635980f71e9b44c95f7b9c1f3ab79b, type: 2}
+  - m_GUID: 9f24a04899c283e46a3336d907bae022
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Accessory
+      White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 9f24a04899c283e46a3336d907bae022, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 9f24a04899c283e46a3336d907bae022, type: 2}
+  - m_GUID: 163ab5c9744e6534fba7323d7f7949a7
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Left Sleeve Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 163ab5c9744e6534fba7323d7f7949a7, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 163ab5c9744e6534fba7323d7f7949a7, type: 2}
+  - m_GUID: 7779e3aa9a4fb564cbf5c4b62c1fbdba
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Left Sleeve Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 7779e3aa9a4fb564cbf5c4b62c1fbdba, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 7779e3aa9a4fb564cbf5c4b62c1fbdba, type: 2}
+  - m_GUID: d5ee77def8c9cf44fac3d86cc90f26b9
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Left Sleeve Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: d5ee77def8c9cf44fac3d86cc90f26b9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: d5ee77def8c9cf44fac3d86cc90f26b9, type: 2}
+  - m_GUID: 4bf2b6d8b67726c4a82298b0fbe43e6c
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Right Sleeve Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 4bf2b6d8b67726c4a82298b0fbe43e6c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 4bf2b6d8b67726c4a82298b0fbe43e6c, type: 2}
+  - m_GUID: 1e9a563b5ad80894e81fdae07f681ec4
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Right Sleeve Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 1e9a563b5ad80894e81fdae07f681ec4, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 1e9a563b5ad80894e81fdae07f681ec4, type: 2}
+  - m_GUID: 8d8878cee9a77ab41a27bb8243f5295b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Right Sleeve Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 8d8878cee9a77ab41a27bb8243f5295b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8d8878cee9a77ab41a27bb8243f5295b, type: 2}
+  - m_GUID: 321df2ca8697d444a85d02813406f755
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Torso Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 321df2ca8697d444a85d02813406f755, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 321df2ca8697d444a85d02813406f755, type: 2}
+  - m_GUID: 9de431e071b2f8c42a2d969a12e7bc8a
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Torso Orange.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 9de431e071b2f8c42a2d969a12e7bc8a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 9de431e071b2f8c42a2d969a12e7bc8a, type: 2}
+  - m_GUID: 43fc78a2563db304eabc71d5f2ec6573
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Jacket
+      Torso Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 43fc78a2563db304eabc71d5f2ec6573, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 43fc78a2563db304eabc71d5f2ec6573, type: 2}
+  - m_GUID: 9ce00082d49ebef44862fdcf343ab71e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Left Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 9ce00082d49ebef44862fdcf343ab71e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 9ce00082d49ebef44862fdcf343ab71e, type: 2}
+  - m_GUID: bb0305bb18e84a44fb1a46b47bbcbb3c
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Left BlueLight.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: bb0305bb18e84a44fb1a46b47bbcbb3c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: bb0305bb18e84a44fb1a46b47bbcbb3c, type: 2}
+  - m_GUID: 7f46d72122f389744930ebcd0323ee27
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Left White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 7f46d72122f389744930ebcd0323ee27, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 7f46d72122f389744930ebcd0323ee27, type: 2}
+  - m_GUID: 8e65031ed11c6f94db6725c7530f15e3
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Right Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 8e65031ed11c6f94db6725c7530f15e3, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8e65031ed11c6f94db6725c7530f15e3, type: 2}
+  - m_GUID: 509e85eaadf9866409a3f160453aa60f
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Right BlueLight.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 509e85eaadf9866409a3f160453aa60f, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 509e85eaadf9866409a3f160453aa60f, type: 2}
+  - m_GUID: 6a4450247a9c1ae4582d0dd899241078
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Pant
+      Right White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 6a4450247a9c1ae4582d0dd899241078, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 6a4450247a9c1ae4582d0dd899241078, type: 2}
+  - m_GUID: cf8e476fc7c7496419efc3d76bd3949b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Left Grey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: cf8e476fc7c7496419efc3d76bd3949b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: cf8e476fc7c7496419efc3d76bd3949b, type: 2}
+  - m_GUID: bbf11e81b20e8a241addc9c70f0e0d0d
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Left Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: bbf11e81b20e8a241addc9c70f0e0d0d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: bbf11e81b20e8a241addc9c70f0e0d0d, type: 2}
+  - m_GUID: c1eeeb67fa4cf7f44a1f5b7ece089326
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Left Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: c1eeeb67fa4cf7f44a1f5b7ece089326, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c1eeeb67fa4cf7f44a1f5b7ece089326, type: 2}
+  - m_GUID: 8e8c917a7d8bccf469470b06686d9afc
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Right Grey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 8e8c917a7d8bccf469470b06686d9afc, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8e8c917a7d8bccf469470b06686d9afc, type: 2}
+  - m_GUID: 0a4b5653557c43a4b8cf5c650c307a38
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Right Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 0a4b5653557c43a4b8cf5c650c307a38, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0a4b5653557c43a4b8cf5c650c307a38, type: 2}
+  - m_GUID: ac6fc198ab827bc44bc73a6634f3e8f9
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Right Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: ac6fc198ab827bc44bc73a6634f3e8f9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: ac6fc198ab827bc44bc73a6634f3e8f9, type: 2}
+  - m_GUID: 20ada19696768674dae53004a27c25de
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Torso Grey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 20ada19696768674dae53004a27c25de, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 20ada19696768674dae53004a27c25de, type: 2}
+  - m_GUID: 5662de318703d4843a057c2ecdacbc1f
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Torso Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 5662de318703d4843a057c2ecdacbc1f, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 5662de318703d4843a057c2ecdacbc1f, type: 2}
+  - m_GUID: e89f8079f764f5c4188fc006930a2334
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shirt
+      Torso Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: e89f8079f764f5c4188fc006930a2334, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: e89f8079f764f5c4188fc006930a2334, type: 2}
+  - m_GUID: 7cec023605ed37e429459620752a102c
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Left Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 7cec023605ed37e429459620752a102c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 7cec023605ed37e429459620752a102c, type: 2}
+  - m_GUID: d0031b6d7ca432e4eb9d3e13e51048cb
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Left Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: d0031b6d7ca432e4eb9d3e13e51048cb, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: d0031b6d7ca432e4eb9d3e13e51048cb, type: 2}
+  - m_GUID: e283a7dc85edc2f45b97a8da7ac7cd19
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Left White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: e283a7dc85edc2f45b97a8da7ac7cd19, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: e283a7dc85edc2f45b97a8da7ac7cd19, type: 2}
+  - m_GUID: 8d4ce4182f0ddce49afc6a4ae2cf41ed
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Right Black.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 8d4ce4182f0ddce49afc6a4ae2cf41ed, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8d4ce4182f0ddce49afc6a4ae2cf41ed, type: 2}
+  - m_GUID: 2a029203f51cabd4cb340e32035263e9
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Right Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 2a029203f51cabd4cb340e32035263e9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2a029203f51cabd4cb340e32035263e9, type: 2}
+  - m_GUID: 75ff09141ab63b9468318cadebcdc14e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Shoe
+      Right White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 75ff09141ab63b9468318cadebcdc14e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 75ff09141ab63b9468318cadebcdc14e, type: 2}
+  - m_GUID: bedc727f2eec9ed45bc3b6cd06ef6f1e
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Left Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: bedc727f2eec9ed45bc3b6cd06ef6f1e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: bedc727f2eec9ed45bc3b6cd06ef6f1e, type: 2}
+  - m_GUID: 4020f7e40ae414e4cb6a2680f5cd5aed
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Left Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 4020f7e40ae414e4cb6a2680f5cd5aed, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 4020f7e40ae414e4cb6a2680f5cd5aed, type: 2}
+  - m_GUID: 72c17d2d3b4da6f42889f7fc000c51a4
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Left White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 72c17d2d3b4da6f42889f7fc000c51a4, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 72c17d2d3b4da6f42889f7fc000c51a4, type: 2}
+  - m_GUID: 998c9f488660bc54db3953a76fde269b
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Right Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 998c9f488660bc54db3953a76fde269b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 998c9f488660bc54db3953a76fde269b, type: 2}
+  - m_GUID: a8208b0c766d2594d98db2100700c753
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Right Red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: a8208b0c766d2594d98db2100700c753, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: a8208b0c766d2594d98db2100700c753, type: 2}
+  - m_GUID: 95ba83e8970d08348a960c11bb9b71f1
+    m_Address: Assets/00_Game/Data (SO)/Clothes/ClothingParts/Designer/Designer Skirt
+      Right White.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Designer
+    - Wearable
+    m_MainAsset: {fileID: 11400000, guid: 95ba83e8970d08348a960c11bb9b71f1, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 95ba83e8970d08348a960c11bb9b71f1, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cc152017223fdce44a7a851ec0f5a439, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 00108fff81f98494cbe21d6fb3881894, type: 2}
+    - {fileID: 11400000, guid: 44e8d3a58330c064a8c639db7dff70b0, type: 2}
