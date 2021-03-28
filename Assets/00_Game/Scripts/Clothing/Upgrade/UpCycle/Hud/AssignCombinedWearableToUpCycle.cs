@@ -35,19 +35,17 @@ namespace HUD.Clothing {
             UpdateAmountStylePoint();
         }
 
-        public void UpdateAmountStylePoint() {
+        void UpdateAmountStylePoint() {
             stylePointText.text = combinedWearable.stylePoints.ToString();
         }
 
         void ValidateShouldDressUp(EventTogglePopWindow popUp) {
-            print("here");
             popUpWindowIsActive = popUp.popWindowIsActive;
         }
 
         public void OnPointerClick(PointerEventData eventData) {
             if (!popUpWindowIsActive) {
                 EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
-                print("I AM CHANGING CLOTHES MAN");
                 return;
             }
 

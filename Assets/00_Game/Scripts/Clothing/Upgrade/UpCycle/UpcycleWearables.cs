@@ -24,15 +24,7 @@ namespace Clothing.Upgrade {
             EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
         }
 
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.F6)) {
-                foreach (var rarity in combineWearablesDic) {
-                    print($"{rarity.Key}  {rarity.Value}");
-                }
-            }
-        }
-
-        public void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
+        void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
             AssignToSlot(eventAddUpCycleClothes.combinedWearable);
         }
 

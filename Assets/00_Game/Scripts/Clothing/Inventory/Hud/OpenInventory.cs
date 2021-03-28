@@ -35,8 +35,6 @@ namespace Clothing.Inventory {
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             EventBroker.Instance().SendMessage(new EventUpdateCombinedUI(null));
             ChangeCanvasGroupValues(!scrollView.interactable, scrollView);
-            //scrollView.SetActive(!scrollView.activeSelf);
-            print("doing something");
 
             foreach (var category in categories) {
                 if (EventSystem.current.currentSelectedGameObject != category) {
