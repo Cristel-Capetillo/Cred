@@ -1,17 +1,20 @@
 using System.Threading.Tasks;
+using Firebase.Auth;
 using Firebase.Database;
 using UnityEngine;
 
 namespace SaveSystem {
     public class FireBaseSaveHandler : ISaveHandler {
         FirebaseDatabase fbDatabase;
-        string saveID;
+        FirebaseAuth user;
+        string saveID; 
         const string UrlToolSite = "https://cred-2528e-default-rtdb.firebaseio.com/";
 
         public void Authenticate(string saveID) {
             fbDatabase = FirebaseDatabase.GetInstance(UrlToolSite);
-            
-            this.saveID = "dgggfdsaddfddsa" + "/" + saveID;
+
+            user = FirebaseAuth.DefaultInstance;
+            this.saveID = user.CurrentUser.UserId + "/" + saveID;
         }
 
         public async void Save<T>(T saveObj) {
