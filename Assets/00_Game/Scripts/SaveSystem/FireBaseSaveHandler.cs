@@ -26,6 +26,7 @@ namespace SaveSystem {
 
             if (!checkFile) return default;
             var tmp = await fbDatabase.GetReference(saveID).GetValueAsync();
+            Debug.Log($"Loading of type: {tmp.Value.GetType()} from: {loadID}");
             return (T) tmp.Value;
         }
 

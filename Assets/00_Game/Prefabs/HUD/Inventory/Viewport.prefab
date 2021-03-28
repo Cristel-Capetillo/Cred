@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 483117944579251213}
   - component: {fileID: 7623858560523793357}
-  - component: {fileID: 6849171949398889807}
   m_Layer: 5
   m_Name: Normal
   m_TagString: Untagged
@@ -61,20 +60,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &6849171949398889807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3026025067564339765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6290d94750314afb9a327ebef943aaf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
-    type: 3}
 --- !u!1 &4218800088426868687
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 648943565613378372}
   - component: {fileID: 8254849816780933750}
-  - component: {fileID: 148348447743830086}
   m_Layer: 5
   m_Name: Design
   m_TagString: Untagged
@@ -136,20 +120,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &148348447743830086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4218800088426868687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6290d94750314afb9a327ebef943aaf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
-    type: 3}
 --- !u!1 &4388925060639456447
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2708185951639854270}
   - component: {fileID: 4045250654316480493}
-  - component: {fileID: 2631428056345381320}
   m_Layer: 5
   m_Name: Basic
   m_TagString: Untagged
@@ -211,20 +180,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &2631428056345381320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4388925060639456447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6290d94750314afb9a327ebef943aaf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
-    type: 3}
 --- !u!1 &5701148402943196378
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6248085728484351920}
   - component: {fileID: 9038385880904469005}
+  - component: {fileID: 6593315984220267806}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -352,7 +308,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0009774942}
-  m_SizeDelta: {x: 0, y: 121.1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9038385880904469005
 MonoBehaviour:
@@ -380,3 +336,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6593315984220267806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781598734344208647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6290d94750314afb9a327ebef943aaf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinedWearablesTemplate: {fileID: 2012720251065419812, guid: 4742c4ff4101cb6439dedd7c7babf7e4,
+    type: 3}
+  rarities:
+  - {fileID: 2708185951639854270}
+  - {fileID: 483117944579251213}
+  - {fileID: 648943565613378372}

@@ -6,10 +6,10 @@ using UnityEngine;
 using Utilities;
 
 namespace Currency.Coins {
-    public class Coin : MonoBehaviour, ISavable<long> {
+    public class Coin : MonoBehaviour, ISavable<string> {
         SaveHandler saveHandler;
-        public long _coin;
-        public long Coins {
+        public int _coin;
+        public int Coins {
             get => _coin;
             set {
                 _coin = value;
@@ -42,12 +42,12 @@ namespace Currency.Coins {
             saveHandler.Load(this);
         }
 
-        public long ToBeSaved() {
-            return Coins;
+        public string ToBeSaved() {
+            return Coins.ToString();
         }
 
-        public void OnLoad(long value) {
-            Coins = value;
+        public void OnLoad(string value) {
+            Coins = Convert.ToInt32(value);
         }
     }
 }
