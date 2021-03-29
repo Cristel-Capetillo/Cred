@@ -10,7 +10,11 @@ namespace Clothing {
 
         public bool isPredefined = true;
 
-        public int Amount { get; set; }
+        int _amount;
+        public int Amount {
+            get => _amount;
+            set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
+        }
 
         public override string ToString() {
             var uID = "";

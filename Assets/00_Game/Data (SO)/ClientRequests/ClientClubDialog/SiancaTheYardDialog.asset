@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SiancaTheYardDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sianca the yard 0
-  - Sianca the yard 1
-  - Sianca the yard 2
-  - Sianca the yard 3
+  - Hi, I just used my new biker shorts and now I need something brand-new to wear
+    to The Yard tonight. Preferably something eco-friendly
+  - "Ahhh! My rival just stole my outfit for tonight! I\u2019m furious! I need something
+    good and I need it FAST!"
+  - "Hi sis! I need to upgrade my outfit for tonight, something with high style points.
+    I need to impress a photographer who's at The Yard tonight. If I look good I\u2019ll
+    tag you in my story on my \u201CCred\u201D page."
+  - I am so ready for friday. My favourite DJ, Sven, is performing tonight. Do you
+    think Sven is straight? Maybe I should make a move....I could get free drinks
+    then. Anyway, I need to look gorgeous tonight. Maybe something green?
+  - "Hi sis! I\u2019ve missed your sense of style, my friend wanted to style me but
+    I ended up looking like an idiot. I think she tried to set me up. I need to outshine
+    her tonight. Make me look so beautiful that Chris Pratt would kiss me."
+  - "Hello beautiful! So many people asked me where I got my outfit from last night!
+    I\u2019m so happy seeing your business bloom. Tonight i\u2019m going to The Yard
+    to do a promotion and they want me to post it on \u201CCred\u201D. I\u2019m thinking
+    of something that makes me look expensive!"
   clubData: {fileID: 11400000, guid: e2fc4b39446aec645836a9bebbf1f5f2, type: 2}
