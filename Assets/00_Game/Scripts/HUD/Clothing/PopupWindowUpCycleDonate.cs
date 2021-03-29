@@ -7,23 +7,34 @@ namespace HUD.Clothing {
     public class PopupWindowUpCycleDonate : MonoBehaviour {
         UpcycleWearables upCycleWearables;
 
-        [SerializeField] GameObject[] popUpWindows;
+        [SerializeField] CanvasGroup[] popUpWindows;
 
         void Start() {
             upCycleWearables = GetComponent<UpcycleWearables>();
         }
 
-        public void OnClickEnterPopUpWindow(GameObject popupWindow) {
+        public void OnClickEnterPopUpWindow(CanvasGroup popupWindow) {
             foreach (var window in popUpWindows) {
                 if (popupWindow == window) {
-                    window.SetActive(!window.activeSelf);
+                    print(window);
+                    popupWindow.interactable = !popupWindow.interactable;
+                    popupWindow.blocksRaycasts = !popupWindow.blocksRaycasts;
+                    if (popupWindow.interactable) {
+                        popupWindow.alpha = 1;
+                    }
+                    else {
+                        popupWindow.alpha = 0;
+                    }
+
                     continue;
                 }
 
-                window.SetActive(false);
+                window.blocksRaycasts = false;
+                window.alpha = 0;
+                window.interactable = false;
             }
 
-            EventBroker.Instance().SendMessage(new EventTogglePopWindow(popupWindow.activeSelf));
+            EventBroker.Instance().SendMessage(new EventTogglePopWindow(popupWindow.interactable));
         }
     }
 }
