@@ -44,7 +44,7 @@ namespace ClientMissions.Controllers {
                 Debug.Log("CurrentMission == null");
                 return;
             }
-            var anyMissionToRemove = savedMission.RemoveMission(currentMission.SavableMissionData);
+            savedMission.RemoveMission(currentMission.SavableMissionData);
             CheckMissions();
         }
 

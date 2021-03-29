@@ -1,4 +1,5 @@
 ﻿using System;
+using ClientMissions.Data;
 using ClientMissions.Messages;
 using SaveSystem;
 using UnityEngine;
@@ -22,17 +23,21 @@ namespace ClientMissions.Controllers{
         void UpdateFollowers(UpdateFollowersMessage followersMessage){
             followers += followersMessage.amountToUpdate;
             saveHandler.Save(this);
+            EventBroker.Instance().SendMessage(new UpdateUIFollowersMessage(followers,200,0));
         }
 
         public int Followers => followers;
         public int MaxFollowers => maxFollowers;
         
         public string ToBeSaved(){
+            print("Save");
             return followers.ToString();
         }
 
         public void OnLoad(string value){
+            print("Load");
             followers = Convert.ToInt32(value);
+            EventBroker.Instance().SendMessage(new UpdateUIFollowersMessage(followers,200,0));
         }
     }
 }
