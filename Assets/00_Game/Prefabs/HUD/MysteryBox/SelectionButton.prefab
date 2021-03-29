@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb0da627efa4e729bf5a28cbba0030c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MysteryBoxPrefab: {fileID: 2719187585190524458, guid: 6294612d99ce4b94e91e39b020ef2f49,
+  MysteryBoxPrefab: {fileID: 1802649147888067416, guid: 0b6dfcdfda49e8b4c9439c62ebcddbad,
     type: 3}
 --- !u!1 &167405822640075412
 GameObject:
