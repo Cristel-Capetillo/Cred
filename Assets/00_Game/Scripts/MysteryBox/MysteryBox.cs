@@ -1,22 +1,23 @@
+using System;
 using System.Collections;
 using Clothing;
 using Clothing.Inventory;
+using SaveSystem;
 using UnityEngine;
 using Utilities;
 
 namespace MysteryBox {
     public class MysteryBox : MonoBehaviour {
         
-        [SerializeField] Vector3 rewardSpawnOffset;
         [SerializeField] float spawnRewardAfterDelay = 1.5f;
         [SerializeField] float destroyDelay = 2f;
 
         LootTable lootTable;
-        
+
         void Start() {
             StartCoroutine(StartRewardProcess(spawnRewardAfterDelay));
         }
-        
+
         public void LootTable(LootTable pLootTable) {
             this.lootTable = pLootTable;
         }
@@ -31,11 +32,6 @@ namespace MysteryBox {
         
         void ShowReward(CombinedWearables reward) {
             EventBroker.Instance().SendMessage(new EventShowReward(reward));
-            
         }
-        
-        // void OnDestroy() {
-        //     StopCoroutine(nameof(StartRewardProcess));
-        // }
     }
 }
