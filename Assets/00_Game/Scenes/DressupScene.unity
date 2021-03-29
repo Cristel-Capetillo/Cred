@@ -221,6 +221,36 @@ PrefabInstance:
       propertyPath: clientGameObjects.Array.data[2]
       value: 
       objectReference: {fileID: 506685256}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientSkin
+      value: 
+      objectReference: {fileID: 506685259}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 506685257}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 506685256}
+    - target: {fileID: 4090093613947454655, guid: 3db1988801641e44b8dcb1d54a07b05c,
+        type: 3}
+      propertyPath: clientGameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 506685258}
     - target: {fileID: 4168075346388467753, guid: 3db1988801641e44b8dcb1d54a07b05c,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -360,6 +390,12 @@ GameObject:
 --- !u!1 &506685258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1846029165885391915, guid: ea4e422125235f14499b00edeacc9ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 506685255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &506685259 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1123210004644171788, guid: ea4e422125235f14499b00edeacc9ed2,
     type: 3}
   m_PrefabInstance: {fileID: 506685255}
   m_PrefabAsset: {fileID: 0}

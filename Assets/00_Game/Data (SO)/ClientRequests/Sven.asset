@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sven
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: bc051a448a99e8149a2eff1acc416a62, type: 3}
+  skin: {fileID: 2100000, guid: 18e92fbc2497dcb4987196adb7641ce6, type: 2}
   clientDialogData:
   - {fileID: 11400000, guid: e9bfc08a40ec5754e8f33f7f2f232011, type: 2}
   - {fileID: 11400000, guid: 189ce0b3a8fbdf74e9f36bf50801b66d, type: 2}
