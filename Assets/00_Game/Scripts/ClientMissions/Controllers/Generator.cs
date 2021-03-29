@@ -20,7 +20,7 @@ namespace ClientMissions.Controllers {
         public Generator(MissionGeneratorData generatorData, IFollowers followers, ISavedMission savedMission, TimeManager timeManager){
             this.generatorData = generatorData;
             this.savedMission = savedMission;
-             missionCycles = CollectionsHelper.CombineListsToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle.ToList(), 
+            missionCycles = CollectionsHelper.CombineListsToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle.ToList(), 
                  generatorData.MediumModeMissionCycle.ToList(), generatorData.HardModeMissionCycle.ToList()});
              missionCycleCount = CalculationsHelper.GetLowestNumberFromThreeNumbers(generatorData.EasyModeMissionCycle.Count,
                  generatorData.MediumModeMissionCycle.Count, generatorData.HardModeMissionCycle.Count);

@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using Clothing.Inventory;
 using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
+using UnityEngine.Analytics;
 
 namespace Clothing.Upgrade {
     public class UpcycleWearables : MonoBehaviour {
@@ -22,6 +22,7 @@ namespace Clothing.Upgrade {
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
             EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
+            
         }
 
         void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
@@ -58,7 +59,22 @@ namespace Clothing.Upgrade {
             }
         }
 
-        public void OnConfirm() {
+        public void OnConfirm(CanvasGroup upCycleWindow) {
+            var wearableInSlots = GenerateNewItem();
+            foreach (var slot in slots) {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+
+            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
+            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
+            upCycleWindow.interactable = false;
+            upCycleWindow.blocksRaycasts = false;
+            upCycleWindow.alpha = 0;
+            print("confirm!");
+
+        }
+
+        List<CombinedWearables> GenerateNewItem() {
             var wearableInSlots = new List<CombinedWearables>();
 
             foreach (var slot in slots) {
@@ -76,13 +92,19 @@ namespace Clothing.Upgrade {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
             EventBroker.Instance().SendMessage(new EventShowReward(instance));
-            Destroy(instance.gameObject);
-            foreach (var slot in slots) {
-                Destroy(slot.transform.GetChild(0).gameObject);
-            }
 
-            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
-            combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
+            RecordAnalytics(instance);
+
+            Destroy(instance.gameObject);
+            return wearableInSlots;
+        }
+
+        void RecordAnalytics(CombinedWearables instance) {
+            var result = UnityEngine.Analytics.Analytics.CustomEvent(
+                "Confirm up cycle",
+                new Dictionary<string, object> {
+                    {"Confirm", instance.clothingType.name}
+                });
         }
 
         public void CloseWindow() {

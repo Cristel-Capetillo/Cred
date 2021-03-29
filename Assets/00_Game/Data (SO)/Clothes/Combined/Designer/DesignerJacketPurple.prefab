@@ -107,5 +107,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8d8878cee9a77ab41a27bb8243f5295b,
         type: 2}
+    - target: {fileID: 6691914469624754001, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691914469624754001, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691914469624754001, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2689c02d88ed6414fb7533a4aa434213, type: 3}
