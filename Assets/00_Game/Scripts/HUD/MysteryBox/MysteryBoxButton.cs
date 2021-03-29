@@ -19,11 +19,11 @@ namespace HUD.MysteryBox {
         
         void Update() {
 #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.Plus)) {
+            if (Input.GetKeyDown(KeyCode.C)) {
                 EventBroker.Instance().SendMessage(new EventUpdateCoins(300));
             }
 
-            if (Input.GetKeyDown(KeyCode.Minus)) {
+            if (Input.GetKeyDown(KeyCode.L)) {
                 EventBroker.Instance().SendMessage(new EventMysteryBoxBought());
             }
 #endif
