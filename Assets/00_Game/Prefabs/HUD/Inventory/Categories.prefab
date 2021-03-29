@@ -115,7 +115,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6548222257854516150}
   m_OnClick:
     m_PersistentCalls:
@@ -1475,6 +1475,7 @@ GameObject:
   - component: {fileID: 4982278974558738790}
   - component: {fileID: 4982278974558738788}
   - component: {fileID: 4982278974558738789}
+  - component: {fileID: 4576534493306314108}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1522,7 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.53333336, g: 0.6862745, b: 0.8431373, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1531,7 +1532,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a88df1da1f9edd042b34b075b05ef2f4, type: 3}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1543,6 +1544,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Shirts
+--- !u!114 &4576534493306314108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982278974558738791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &4982278976357367653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,12 +2886,12 @@ PrefabInstance:
     - target: {fileID: 100341832249979259, guid: 790c225e4488c714aa65942d7c89361b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -513.7548
+      value: -546
       objectReference: {fileID: 0}
     - target: {fileID: 100341832249979259, guid: 790c225e4488c714aa65942d7c89361b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -39
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 100341832249979259, guid: 790c225e4488c714aa65942d7c89361b,
         type: 3}
@@ -2892,10 +2908,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1913385001991731059, guid: 790c225e4488c714aa65942d7c89361b,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2266037082814758984, guid: 790c225e4488c714aa65942d7c89361b,
         type: 3}
       propertyPath: m_Name
       value: UpCyclePopupWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179205824019662048, guid: 790c225e4488c714aa65942d7c89361b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179205824019662048, guid: 790c225e4488c714aa65942d7c89361b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179205824019662048, guid: 790c225e4488c714aa65942d7c89361b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790c225e4488c714aa65942d7c89361b, type: 3}
@@ -3103,6 +3139,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7695077916500382395, guid: d3d8f2f690dbeca4da9ba144456419d4,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d8f2f690dbeca4da9ba144456419d4, type: 3}
 --- !u!225 &4093987154014910654 stripped
@@ -3217,7 +3258,7 @@ PrefabInstance:
     - target: {fileID: 5082363613425017759, guid: 9a2d8e94608f4944d8cb9db82385823e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -154
       objectReference: {fileID: 0}
     - target: {fileID: 5082363613425017759, guid: 9a2d8e94608f4944d8cb9db82385823e,
         type: 3}
