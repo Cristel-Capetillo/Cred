@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
@@ -10,7 +12,12 @@ namespace Clothing {
 
         public bool isPredefined = true;
 
-        public int Amount { get; set; }
+        [SerializeField] CanvasGroup canvasGroup;
+        int _amount;
+        public int Amount {
+            get => _amount;
+            set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
+        }
 
         public override string ToString() {
             var uID = "";
@@ -20,6 +27,19 @@ namespace Clothing {
             }
 
             return uID + rarity.name + clothingType.name + stylePoints;
+        }
+
+        public void ShouldBeInteractable() {
+            if (Amount > 0) {
+                canvasGroup.alpha = 1;
+                canvasGroup.interactable = true;
+                canvasGroup.blocksRaycasts = true;
+            }
+            else {
+                canvasGroup.alpha = .5f;
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
+            }
         }
 
         public void AddStylePoint() {

@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: SvenTheYardDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sven The Yard 0
-  - Sven The Yard 1
-  - Sven The Yard 2
-  - Sven The Yard 3
+  - "Hey, I didn\u2019t sleep tonight - I need something to cover the bags under
+    my eyes before heading to The Yard, even though the music is totally basic. Preferably
+    something black. Any suggestions?"
+  - "The influencer Scianca is all over me every time I\u2019m at The Yard, how is
+    it not obvious I'm not straight\u2026 She\u2019s really sweet though and if she
+    posts me, I could get some new fans\u2026 Make me look like an influencer!"
+  - "Tonight is the night! I\u2019m performing at The Yard and I have a new act I
+    haven\u2019t done before, it\u2019s going to be a lot of photographers so I need
+    to look my best. Give me something that makes me feel like I\u2019m on FIRE!"
+  - "The weekly magazine just wrote an article about me! They say i\u2019m the best
+    dressed DJ of all time! THANK YOU! This has to be celebrated with an even better
+    look!"
+  - "Yo Yo Yo! Guess who is going to play at The Yard tonight. I just got back from
+    France, a good old M\xE9nage \xE0 trois made my weekend even better. I really
+    feel like a new person, can you give me something that makes everyone turn their
+    heads."
   clubData: {fileID: 11400000, guid: e2fc4b39446aec645836a9bebbf1f5f2, type: 2}

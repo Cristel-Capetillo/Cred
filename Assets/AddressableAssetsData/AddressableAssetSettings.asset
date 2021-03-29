@@ -31,6 +31,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e5b4a0b73c7c2d4ea087f1cfc2d31ac, type: 2}
   - {fileID: 11400000, guid: bd00806e198d67845b4acb6ff1a7170b, type: 2}
   - {fileID: 11400000, guid: a26fbd5af399242498d3972f81ec9709, type: 2}
+  - {fileID: 11400000, guid: 3d4cefd710200c64c8ab4dca5a62e96a, type: 2}
+  - {fileID: 11400000, guid: 31b3fc393e8aaeb49ba2cf4de6e78cb6, type: 2}
+  - {fileID: 11400000, guid: 8ec18771ee0fe0d4baa4a31fa3680097, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -120,6 +123,7 @@ MonoBehaviour:
     - Skirt
     - Accessory
     - Shoes
+    - Wearable
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 070b552c9e30c4947b8e995a1945e6d5, type: 2}

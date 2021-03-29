@@ -25,7 +25,7 @@ namespace Editor.UnitTests.PlayModeTests {
         public void TestLoading() {
             var gameObject = new GameObject("GameObject");
             var coin = gameObject.AddComponent<Coin>();
-            coin.OnLoad(3);
+            //coin.OnLoad(3);
             Assert.AreEqual(coin.Coins, 3);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Clothing;
 using UnityEngine;
 
@@ -16,17 +17,17 @@ namespace ClientMissions.Data{
         [SerializeField] List<ColorData> colors;
         [SerializeField] List<Rarity> rarities;
         [SerializeField] List<ClothingType> clothingTypes;
-        [SerializeField] List<ClientTestData> clientData = new List<ClientTestData>();
+        [SerializeField] List<ClientData> clientData = new List<ClientData>();
         
         
-        public List<MissionDifficulty> MissionDifficulties => missionDifficulties;
-        public List<int> EasyModeMissionCycle => easyModeMissionCycle;
-        public List<int> MediumModeMissionCycle => mediumModeMissionCycle;
-        public List<int> HardModeMissionCycle => hardModeMissionCycle;
-        public List<ColorData> Colors => colors;
-        public List<Rarity> Rarities => rarities;
-        public List<ClothingType> ClothingTypes => clothingTypes;
-        public List<ClientTestData> ClientData => clientData;
+        public ReadOnlyCollection<MissionDifficulty> MissionDifficulties => missionDifficulties.AsReadOnly();
+        public ReadOnlyCollection<int> EasyModeMissionCycle => easyModeMissionCycle.AsReadOnly();
+        public ReadOnlyCollection<int> MediumModeMissionCycle => mediumModeMissionCycle.AsReadOnly();
+        public ReadOnlyCollection<int> HardModeMissionCycle => hardModeMissionCycle.AsReadOnly();
+        public ReadOnlyCollection<ColorData> Colors => colors.AsReadOnly();
+        public ReadOnlyCollection<Rarity> Rarities => rarities.AsReadOnly();
+        public ReadOnlyCollection<ClothingType> ClothingTypes => clothingTypes.AsReadOnly();
+        public ReadOnlyCollection<ClientData> ClientData => clientData.AsReadOnly();
         public int EasyModeEndValue => easyModeEndValue;
         public int HardModeStartValue => hardModeStartValue;
         
