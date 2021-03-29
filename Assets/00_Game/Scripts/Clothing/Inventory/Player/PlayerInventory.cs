@@ -156,7 +156,7 @@ namespace Clothing.Inventory {
             }
 
             yield return CallVariousEvents();
-            EventBroker.Instance().SendMessage(new EventFinishedLoadingPlayerInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         }
 
         IEnumerator CallVariousEvents() {
