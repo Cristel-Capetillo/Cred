@@ -8,6 +8,7 @@ namespace ClientMissions.Hud{
         [SerializeField]Slider followerSlider;
         [SerializeField]int easyModeEndValue;
         [SerializeField]int hardModeStartValue;
+        [SerializeField] int maxFollowers = 5000;
         bool isActive;
         
         void Awake(){
@@ -34,7 +35,7 @@ namespace ClientMissions.Hud{
             }
             if (updateUIFollowersMessage.Followers >= hardModeStartValue){
                 followerSlider.minValue = hardModeStartValue;
-                followerSlider.maxValue = 1000;
+                followerSlider.maxValue = maxFollowers;
                 followerSlider.value = updateUIFollowersMessage.Followers;
                 return;
             }

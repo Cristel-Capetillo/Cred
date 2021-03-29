@@ -37,9 +37,12 @@ namespace ClientMissions.Controllers{
             EventBroker.Instance().SendMessage(new SendActiveMissionMessage(missionData, currentWearables));
         }
         void RemoveCurrentMission(ShowRewardMessage showRewardMessage){
+            if (missionData == null){
+                Debug.LogWarning("No missionData activeClient");
+                return;
+            }
             new LocalMissions().RemoveMission(missionData.SavableMissionData);
             missionData = null;
-            currentWearables.Clear();
         }
         void SelectMission(ActiveMissionMessage activeMissionMessage){
             missionData = activeMissionMessage.MissionData;
