@@ -12,14 +12,14 @@ namespace Clothing.Inventory {
 
         void Start() {
             thisRect = GetComponent<RectTransform>();
-            EventBroker.Instance().SubscribeMessage<EventFinishedLoadingPlayerInventory>(CalculateHeight);
+            EventBroker.Instance().SubscribeMessage<EventUpdateWearableHud>(CalculateHeight);
         }
 
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventFinishedLoadingPlayerInventory>(CalculateHeight);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateWearableHud>(CalculateHeight);
         }
 
-        void CalculateHeight(EventFinishedLoadingPlayerInventory contentHeight) {
+        void CalculateHeight(EventUpdateWearableHud contentHeight) {
             var rect = thisRect.sizeDelta;
             rect.y = childRects.Sum(x => x.sizeDelta.y);
 

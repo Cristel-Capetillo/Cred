@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Clothing.Inventory;
+using Clothing.Upgrade.UpCycle;
 using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ namespace Clothing.Upgrade {
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
             EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
+            
         }
 
         void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
@@ -58,7 +60,7 @@ namespace Clothing.Upgrade {
             }
         }
 
-        public void OnConfirm() {
+        public void OnConfirm(CanvasGroup upCycleWindow) {
             var wearableInSlots = GenerateNewItem();
             foreach (var slot in slots) {
                 Destroy(slot.transform.GetChild(0).gameObject);
@@ -66,6 +68,10 @@ namespace Clothing.Upgrade {
 
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
+            upCycleWindow.interactable = false;
+            upCycleWindow.blocksRaycasts = false;
+            upCycleWindow.alpha = 0;
+
         }
 
         List<CombinedWearables> GenerateNewItem() {
@@ -101,8 +107,10 @@ namespace Clothing.Upgrade {
                 });
         }
 
-        public void CloseWindow() {
-            gameObject.SetActive(!gameObject.activeSelf);
+        public void CloseWindow(CanvasGroup canvasGroup) {
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.alpha = 0;
         }
 
         static void AssignWearableSlots(List<CombinedWearables> wearableInSlots, CombinedWearables instance) {

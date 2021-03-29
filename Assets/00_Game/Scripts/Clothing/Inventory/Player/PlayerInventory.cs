@@ -156,12 +156,13 @@ namespace Clothing.Inventory {
             }
 
             yield return CallVariousEvents();
-            EventBroker.Instance().SendMessage(new EventFinishedLoadingPlayerInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         }
 
         IEnumerator CallVariousEvents() {
             EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
             EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
+            yield return new WaitForSeconds(1f);
             EventBroker.Instance().SendMessage(new EventSortInventory());
             yield return null;
         }

@@ -26,6 +26,7 @@ namespace HUD.MysteryBox {
             titleText.text = title;
             descriptionText.text = description;
             GenerateMysteryBoxes(6);
+            
         }
 
         public void GenerateMysteryBoxes(int quantity) {
