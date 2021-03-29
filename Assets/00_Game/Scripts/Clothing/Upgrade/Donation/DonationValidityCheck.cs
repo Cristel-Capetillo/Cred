@@ -48,7 +48,7 @@ namespace Clothing.Upgrade.Donation {
                 foreach (var test in FindObjectsOfType<CombinedWearables>()) {
                     test.Amount++;
                 }
-                EventBroker.Instance().SendMessage(new EventFinishedLoadingPlayerInventory());
+                EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             }
         }
     }
