@@ -4,5 +4,6 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cinventory_005Cevents/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cinventory_005Chud/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cinventory_005Cinventory/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cinventory_005Cinventory_005Cevents/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cupgrade_005Cevents/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005C00_005Fgame_005Cscripts_005Cclothing_005Cupgrade_005Cupcycle_005Chud/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
