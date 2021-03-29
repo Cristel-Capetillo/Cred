@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Clothing.Inventory;
+using Clothing.Upgrade.UpCycle;
 using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,7 +71,6 @@ namespace Clothing.Upgrade {
             upCycleWindow.interactable = false;
             upCycleWindow.blocksRaycasts = false;
             upCycleWindow.alpha = 0;
-            print("confirm!");
 
         }
 
@@ -107,8 +107,10 @@ namespace Clothing.Upgrade {
                 });
         }
 
-        public void CloseWindow() {
-            gameObject.SetActive(!gameObject.activeSelf);
+        public void CloseWindow(CanvasGroup canvasGroup) {
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.alpha = 0;
         }
 
         static void AssignWearableSlots(List<CombinedWearables> wearableInSlots, CombinedWearables instance) {

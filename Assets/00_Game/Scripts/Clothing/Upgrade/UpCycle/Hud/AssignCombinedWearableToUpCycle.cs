@@ -1,14 +1,11 @@
-using System;
-using Clothing;
-using Clothing.Inventory;
-using Clothing.Upgrade;
+using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utilities;
 
-namespace HUD.Clothing {
+namespace Clothing.Upgrade.UpCycle {
     public class AssignCombinedWearableToUpCycle : MonoBehaviour, IPointerClickHandler {
         [FormerlySerializedAs("combineWearable")]
         CombinedWearables combinedWearable;
@@ -49,6 +46,7 @@ namespace HUD.Clothing {
                 return;
             }
 
+            
             EventBroker.Instance().SendMessage(new EventAddToUpgradeSlot(combinedWearable));
         }
     }
