@@ -97,6 +97,7 @@ namespace Clothing.Inventory {
             }
 
             combinedWearablesDic[id] = wearable;
+            wearable.ShouldBeInteractable();
             EventBroker.Instance().SendMessage(new EventSortInventory());
             EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
             saveHandler.Save(this);
@@ -151,11 +152,18 @@ namespace Clothing.Inventory {
                 yield return AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance, wearableList);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
-                EventBroker.Instance().SendMessage(new EventSortInventory());
+                combinedWearableInstance.ShouldBeInteractable();
             }
 
+            yield return CallVariousEvents();
+            EventBroker.Instance().SendMessage(new EventFinishedLoadingPlayerInventory());
+        }
+
+        IEnumerator CallVariousEvents() {
             EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
             EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
+            EventBroker.Instance().SendMessage(new EventSortInventory());
+            yield return null;
         }
 
         void AssignCombinedWearableData(CombinedWearables wearableInstance, Dictionary<string, object> wearablesStatsDictionary) {

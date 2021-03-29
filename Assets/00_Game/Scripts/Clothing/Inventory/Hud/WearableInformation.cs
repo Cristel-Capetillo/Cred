@@ -11,9 +11,6 @@ namespace Clothing.Inventory {
 
         CombinedWearables wearables;
 
-        void Start() {
-        }
-
         void OnEnable() {
             wearables = GetComponent<CombinedWearables>();
             EventBroker.Instance().SubscribeMessage<EventUpdateWearableInfo>(UpdateInformation);

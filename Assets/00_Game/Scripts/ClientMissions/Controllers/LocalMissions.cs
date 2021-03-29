@@ -1,17 +1,10 @@
-using System;
 using System.Collections.Generic;
 using ClientMissions.Data;
 using UnityEngine;
 
 namespace ClientMissions.Controllers {
-    [Serializable] public class LocalPlayer : IPlayer, ISavedMission{
+    public class LocalMissions : ISavedMission{
         const int MaxCurrentMissions = 3;
-        [SerializeField] int followers;
-        [SerializeField] int maxFollowers;
-
-        public int Followers => followers;
-
-        public int MaxFollowers => maxFollowers;
         public int MissionIndex{
             get => PlayerPrefs.GetInt("MissionIndex",0);
             set => PlayerPrefs.SetInt("MissionIndex", value);

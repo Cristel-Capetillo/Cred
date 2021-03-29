@@ -20,8 +20,7 @@ namespace Clothing.Inventory {
                 }
 
                 if (defined.wearables.ContainsKey(PlayerInventory.GetName(combination))) continue;
-                var instance = Instantiate(combination);
-                EventBroker.Instance().SendMessage(new EventSortInventory());
+                Instantiate(combination);
             }
         }
 

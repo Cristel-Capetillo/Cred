@@ -41,8 +41,12 @@ namespace ClientMissions {
             parentGameObject.SetActive(true);
         }
         public void OnClickEnterClub(){
-            var reword = CalculationsHelper.CalculateReword(activeMissionData.StylePointValues, currentStylePoints, activeMissionData.Difficulty.MaxReward);
-            EventBroker.Instance().SendMessage(reword);
+            var difficulty = activeMissionData.Difficulty;
+            var currencyReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues, 
+                currentStylePoints, difficulty.MaxCurrencyReward, difficulty.MINCurrencyReward);
+            var followersReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues,
+                currentStylePoints, difficulty.MAXFollowersReward, difficulty.MINFollowersReward);
+            EventBroker.Instance().SendMessage(new ShowRewardMessage(currencyReward, followersReward));
         }
         void OnReset(RemoveAllClothes obj){
             onMeetAllRequirements?.Invoke(false);
@@ -54,15 +58,12 @@ namespace ClientMissions {
             wearablesOnClient.Clear();
         }
         
-        //TODO: Remove debug logs when everything works as intended...
         void OnClothingChanged(EventClothesChanged eventClothesChanged){
-            print("Before: " + wearablesOnClient.Count);
             var combinedWearable = eventClothesChanged.CombinedWearables;
             if (IsNewWearable(combinedWearable)){
                 LegsClothingType(combinedWearable.clothingType);
                 AddOrReplaceClothingType(combinedWearable);
             }
-            print("After: " + wearablesOnClient.Count);
             var checkStylePoints = CheckStylePoints();
             if (CheckAllRequirements() && checkStylePoints) {
                 onMeetAllRequirements?.Invoke(true);
@@ -91,18 +92,15 @@ namespace ClientMissions {
            foreach (var legsClothingType in legsClothingTypes){
                 if (wearablesOnClient.ContainsKey(legsClothingType)){
                     wearablesOnClient.Remove(legsClothingType);
-                    print("Remove clothes on legs:" + legsClothingType.name);
                 }
             }
        }
         void AddOrReplaceClothingType(CombinedWearables combinedWearables){
             if (wearablesOnClient.ContainsKey(combinedWearables.clothingType)){
                 wearablesOnClient[combinedWearables.clothingType] = combinedWearables;
-                print("Replace clothes");
                 return;
             }
             wearablesOnClient.Add(combinedWearables.clothingType,combinedWearables);
-            print("Add clothes");
         }
 
         bool CheckAllRequirements() {

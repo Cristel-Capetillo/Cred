@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace Clothing.Inventory {
     public class IconUpdate : MonoBehaviour {
@@ -7,11 +9,17 @@ namespace Clothing.Inventory {
         public Image[] images;
         public Sprite[] sprites;
 
+        Image backgroundImage;
+
         void Start() {
             combinedWearables = GetComponent<CombinedWearables>();
             images = GetComponentsInChildren<Image>();
-            DisableImages();
-            UpdateImages();
+            backgroundImage = GetComponent<Image>();
+            EventBroker.Instance().SubscribeMessage<EventFinishedLoadingPlayerInventory>(UpdateImages);
+        }
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventFinishedLoadingPlayerInventory>(UpdateImages);
         }
 
         void DisableImages() {
@@ -20,25 +28,25 @@ namespace Clothing.Inventory {
             images[3].enabled = false;
         }
 
-        void UpdateImages() {
+        void UpdateImages(EventFinishedLoadingPlayerInventory afterInventoryLoad) {
+            DisableImages();
+            ValidateRarity();
+
             switch (combinedWearables.wearable.Count) {
                 case 1:
                     images[1].sprite = combinedWearables.wearable[0].Sprite;
                     ActivateImage(1);
-                    ValidateRarity();
                     break;
                 case 2:
                     images[2].sprite = combinedWearables.wearable[1].Sprite;
                     images[3].sprite = combinedWearables.wearable[0].Sprite;
                     ActivateImage(2);
-                    ValidateRarity();
                     break;
                 case 3:
                     images[1].sprite = combinedWearables.wearable[0].Sprite;
                     images[2].sprite = combinedWearables.wearable[2].Sprite;
                     images[3].sprite = combinedWearables.wearable[1].Sprite;
                     ActivateImage(3);
-                    ValidateRarity();
                     break;
             }
         }
@@ -62,15 +70,15 @@ namespace Clothing.Inventory {
 
         void ValidateRarity() {
             if (combinedWearables.rarity.name == "Basic") {
-                images[0].sprite = sprites[0];
+                backgroundImage.sprite = sprites[0];
             }
 
             if (combinedWearables.rarity.name == "Normal") {
-                images[0].sprite = sprites[1];
+                backgroundImage.sprite = sprites[1];
             }
 
             if (combinedWearables.rarity.name == "Designer") {
-                images[0].sprite = sprites[2];
+                backgroundImage.sprite = sprites[2];
             }
         }
     }

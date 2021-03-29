@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Utilities;
 
 namespace Clothing.Inventory {
@@ -11,6 +10,7 @@ namespace Clothing.Inventory {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventSortInventory>(CategoriesWearables);
         }
+
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventSortInventory>(CategoriesWearables);
         }
@@ -21,17 +21,22 @@ namespace Clothing.Inventory {
                     if (wearable.clothingType == content.clothingType) {
                         if (wearable.rarity.name == "Basic") {
                             wearable.transform.SetParent(content.basic);
+                            break;
                         }
 
                         if (wearable.rarity.name == "Normal") {
                             wearable.transform.SetParent(content.normal);
+                            break;
                         }
 
                         if (wearable.rarity.name == "Designer") {
                             wearable.transform.SetParent(content.design);
+                            break;
                         }
                     }
                 }
+
+                wearable.transform.localScale = Vector3.one;
             }
         }
     }

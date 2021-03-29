@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
@@ -8,13 +9,15 @@ using Utilities.Time;
 namespace ClientMissions.Controllers{
     public class Initializer : MonoBehaviour
     {
-        [SerializeField] MissionGeneratorData generatorData;//TODO: Get this from addressable for possible remote balancing?
-        [SerializeField] LocalPlayer localPlayer;
+        [SerializeField] MissionGeneratorData generatorData;
+        [SerializeField] PlayerFollowers playerFollowers;
+        LocalMissions localMissions = new LocalMissions();
+        
         public Generator CreateMissionGenerator(){
-            return new Generator(generatorData, localPlayer, FindObjectOfType<TimeManager>());
+            return new Generator(generatorData, playerFollowers,localMissions, FindObjectOfType<TimeManager>());
         }
         public ISavedMission GetMissionHolder(){
-            return localPlayer;
+            return localMissions;
         }
         public MissionData GetSavedMission(SavableMissionData savableMissionData){
             var missionDifficulty = generatorData.MissionDifficulties[savableMissionData.MissionDifficultyIndex];
