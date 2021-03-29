@@ -1,7 +1,14 @@
-﻿using ClientMissions.Data;
+﻿using System.Collections.Generic;
+using ClientMissions.Data;
+using Clothing;
 
 namespace ClientMissions.Messages{
-    public class SendActiveMissionMessage : SelectMissionMessage{
-        public SendActiveMissionMessage(MissionData missionData) : base(missionData){ }
+    public class SendActiveMissionMessage{
+        public readonly MissionData MissionData;
+        public readonly Dictionary<ClothingType, CombinedWearables> CurrentWearables;
+        public SendActiveMissionMessage(MissionData missionData, Dictionary<ClothingType, CombinedWearables> currentWearables){
+            MissionData = missionData;
+            CurrentWearables = currentWearables;
+        }
     }
 }

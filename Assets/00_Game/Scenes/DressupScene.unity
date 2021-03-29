@@ -1118,6 +1118,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClubSuccessMessage
       objectReference: {fileID: 0}
+    - target: {fileID: 4330753930360817980, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330753930360817980, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330753930360817980, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330753930360817980, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10eb7e2150f9ff145a08f01027f54d4a, type: 3}
 --- !u!1001 &1614541774

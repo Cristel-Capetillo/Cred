@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ClientMissions.Controllers;
+using ClientMissions.Data;
 using ClientMissions.Messages;
 using TMPro;
 using UnityEngine;
@@ -16,19 +17,16 @@ namespace ClientMissions.Hud{
         [SerializeField] MeshRenderer clientSkin;
         string requiredStylepoints;
         
-        void Start(){
+        void Awake(){
             EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
-            EventBroker.Instance().SubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
-            EventBroker.Instance().SubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
-            print(requirements.Values.Count);
         }
         void OnDestroy(){
-            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().UnsubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
             EventBroker.Instance().UnsubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
         }
         void OnGetMissionData(SendActiveMissionMessage sendActiveMissionMessage){
-            requirements.Clear();
+            EventBroker.Instance().SubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
+            EventBroker.Instance().SubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
             var missionData = sendActiveMissionMessage.MissionData;
             requiredStylepoints = $"/{missionData.StylePointValues.MinStylePoints.ToString()}";
             requirementHeader.text = $"{missionData.ClientData.name}s requirements:";
@@ -42,6 +40,7 @@ namespace ClientMissions.Hud{
                 temp.text = requirement.ToString();
                 requirements.Add(requirement.ToString(),temp);
             }
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
         }
         void UpdateStylePointsUI(CurrentStylePointsMessage currentStylePoints){
             stylePoints.text = $"Style points: {currentStylePoints.CurrentStylePoints}{requiredStylepoints}";

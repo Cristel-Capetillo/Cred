@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using ClientMissions.Controllers;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
-using ClientMissions.Hud;
 using ClientMissions.Messages;
 using ClientMissions.Requirements;
 using Clothing;
@@ -13,7 +11,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace ClientMissions {
+namespace ClientMissions.Controllers {
     public class RequirementsVerifier : MonoBehaviour{
         
         [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>();
@@ -26,19 +24,25 @@ namespace ClientMissions {
         
         void Start() {
             EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
-            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
-            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
             EventBroker.Instance().SendMessage(new SceneChangeMessage());
         }
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
+            if(activeMissionData == null || wearablesOnClient.Count == 0)
+                return;
+            EventBroker.Instance().SendMessage(new CurrentMissionClothesMessage(wearablesOnClient));
         }
         void OnGetMissionData(SendActiveMissionMessage missionMessage){
+            wearablesOnClient.Clear();
+            wearablesOnClient = missionMessage.CurrentWearables;
+            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
             activeMissionData = missionMessage.MissionData;
             requirements = activeMissionData.Requirements.ToList();
             parentGameObject.SetActive(true);
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            CheckRequirements();//TODO: invoke in 0.1f?????
         }
         public void OnClickEnterClub(){
             var difficulty = activeMissionData.Difficulty;
@@ -64,11 +68,15 @@ namespace ClientMissions {
                 LegsClothingType(combinedWearable.clothingType);
                 AddOrReplaceClothingType(combinedWearable);
             }
+            CheckRequirements();
+        }
+        void CheckRequirements(){
             var checkStylePoints = CheckStylePoints();
-            if (CheckAllRequirements() && checkStylePoints) {
+            if (CheckAllRequirements() && checkStylePoints){
                 onMeetAllRequirements?.Invoke(true);
                 return;
             }
+
             onMeetAllRequirements?.Invoke(false);
         }
 
