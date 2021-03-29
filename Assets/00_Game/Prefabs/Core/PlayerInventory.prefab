@@ -792,6 +792,11 @@ PrefabInstance:
       propertyPath: temp
       value: 
       objectReference: {fileID: 5125319029344003944}
+    - target: {fileID: 7275621343632404658, guid: b2f0c025c3b737f4f8e49598265ee15c,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8496661257541296841, guid: b2f0c025c3b737f4f8e49598265ee15c,
         type: 3}
       propertyPath: m_AnchorMax.y

@@ -27,10 +27,9 @@ namespace ClientMissions.Controllers {
         IEnumerator Start(){
             initializer = GetComponent<Initializer>();
             savedMission = initializer.GetMissionHolder();
+            yield return new WaitForSeconds(1f);
             generator = initializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
-            yield return new WaitForSeconds(1f);
-            
             InstantiateMissionUI();
             CheckMissions();
         }

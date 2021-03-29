@@ -97,6 +97,7 @@ namespace Clothing.Inventory {
             }
 
             combinedWearablesDic[id] = wearable;
+            wearable.ShouldBeInteractable();
             EventBroker.Instance().SendMessage(new EventSortInventory());
             EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
             saveHandler.Save(this);
@@ -151,7 +152,7 @@ namespace Clothing.Inventory {
                 yield return AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance, wearableList);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
-
+                combinedWearableInstance.ShouldBeInteractable();
             }
 
             yield return CallVariousEvents();
