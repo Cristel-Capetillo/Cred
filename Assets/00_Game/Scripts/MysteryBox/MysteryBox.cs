@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Clothing;
 using Clothing.Inventory;
-using SaveSystem;
 using UnityEngine;
 using Utilities;
 
@@ -31,6 +30,7 @@ namespace MysteryBox {
         }
         
         void ShowReward(CombinedWearables reward) {
+            EventBroker.Instance().SendMessage(new EventMysteryBoxOpened());
             EventBroker.Instance().SendMessage(new EventShowReward(reward));
         }
     }

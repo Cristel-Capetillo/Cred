@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 4361993898112424835}
   - component: {fileID: 3591353231589881177}
   - component: {fileID: 323197794970766369}
+  - component: {fileID: 3437978856214997002}
   m_Layer: 0
   m_Name: Payment Button
   m_TagString: Untagged
@@ -729,7 +730,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3591353231589881177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3437978856214997002}
+        m_TargetAssemblyTypeName: HUD.MysteryBox.PurchaseMysteryBox, ScriptDefinition
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3437978856214997002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111118725526614534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0386fb203fa0432584fa6bd1e2c1c86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mysteryBoxPrice: 300
 --- !u!1 &7277075292625849129
 GameObject:
   m_ObjectHideFlags: 0

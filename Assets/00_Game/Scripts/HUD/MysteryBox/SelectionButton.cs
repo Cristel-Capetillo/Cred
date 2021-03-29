@@ -9,14 +9,24 @@ namespace HUD.MysteryBox {
 
         Button button;
         LootTable lootTable;
+        MysteryBoxInventory mysteryBoxInventory;
         [SerializeField] GameObject MysteryBoxPrefab;
 
         void Start() {
+            button = GetComponent<Button>();
+            mysteryBoxInventory = FindObjectOfType<MysteryBoxInventory>();
+            button.interactable = mysteryBoxInventory.Owned > 0;
             EventBroker.Instance().SubscribeMessage<EventMysteryBoxBought>(ShouldBeActive);
+            
+            Debug.Log("Selection Menu Spawned, Mystery Boxes Owned : " +mysteryBoxInventory.Owned);
+        }
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventMysteryBoxBought>(ShouldBeActive);
         }
 
         void ShouldBeActive(EventMysteryBoxBought eventMysteryBoxBought) {
-            button.interactable = FindObjectOfType<MysteryBoxInventory>().Owned > 0;
+            button.interactable = mysteryBoxInventory.Owned > 0;
         }
 
         public void SpawnMysteryBox() {

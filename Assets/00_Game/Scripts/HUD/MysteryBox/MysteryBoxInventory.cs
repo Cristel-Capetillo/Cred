@@ -22,14 +22,20 @@ namespace HUD.MysteryBox {
             saveHandler = new SaveHandler("MysteryBoxInventory");
             saveHandler.Load(this);
             EventBroker.Instance().SubscribeMessage<EventMysteryBoxBought>(OnMysteryBoxPurchase);
+            EventBroker.Instance().SubscribeMessage<EventMysteryBoxOpened>(OnMysteryBoxOpened);
         }
 
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventMysteryBoxBought>(OnMysteryBoxPurchase);
+            EventBroker.Instance().UnsubscribeMessage<EventMysteryBoxOpened>(OnMysteryBoxOpened);
         }
 
         void OnMysteryBoxPurchase(EventMysteryBoxBought eventMysteryBoxBought) {
             Owned++;
+        }
+
+        void OnMysteryBoxOpened(EventMysteryBoxOpened eventMysteryBoxOpened) {
+            Owned--;
         }
 
         public long ToBeSaved() {
