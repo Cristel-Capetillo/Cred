@@ -7,6 +7,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2032129839896121639, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000965328
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093987154014910654, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowUpgradeIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Clothing.Inventory.OpenInventory, ScriptDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 5937673071618011906}
+    - target: {fileID: 4982278976357367643, guid: 7587c354dc976d640b2d06bafaf7448a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.CanvasGroup, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -25,22 +70,22 @@ PrefabInstance:
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
@@ -50,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
@@ -90,12 +135,12 @@ PrefabInstance:
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 898.42993
+      value: 361.6845
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 643.69604
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4982278976357367652, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
@@ -115,7 +160,13 @@ PrefabInstance:
     - target: {fileID: 4982278976357367653, guid: 7587c354dc976d640b2d06bafaf7448a,
         type: 3}
       propertyPath: m_Name
-      value: Categories
+      value: Shirts
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7587c354dc976d640b2d06bafaf7448a, type: 3}
+--- !u!225 &5937673071618011906 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 8390119821072353689, guid: 7587c354dc976d640b2d06bafaf7448a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2740840274837830299}
+  m_PrefabAsset: {fileID: 0}

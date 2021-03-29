@@ -5,14 +5,10 @@ using Utilities;
 
 namespace HUD.Clothing {
     public class PopupWindowUpCycleDonate : MonoBehaviour {
-        UpcycleWearables upCycleWearables;
 
         [SerializeField] CanvasGroup[] popUpWindows;
 
-        void Start() {
-            upCycleWearables = GetComponent<UpcycleWearables>();
-        }
-
+        
         public void OnClickEnterPopUpWindow(CanvasGroup popupWindow) {
             foreach (var window in popUpWindows) {
                 if (popupWindow == window) {

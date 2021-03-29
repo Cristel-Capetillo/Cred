@@ -51,6 +51,10 @@ namespace Clothing.Inventory {
             }
         }
 
+        public void ShowUpgradeIcons(CanvasGroup canvasGroup) {
+            ChangeCanvasGroupValues(!canvasGroup.interactable, canvasGroup);
+        }
+
         void ValidateScene(EventSceneSwap sceneSwap) {
             canvas.enabled = SceneManager.GetActiveScene() == SceneManager.GetSceneByName("DressupScene");
         }
