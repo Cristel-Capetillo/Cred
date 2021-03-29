@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardText: {fileID: 4002724889229761092}
+  followersRewardText: {fileID: 37462334092921835}
   collectButton: {fileID: 7266134349622209929}
   mainMenuButton: {fileID: 4002724889599470076}
 --- !u!1 &4002724888286329638
