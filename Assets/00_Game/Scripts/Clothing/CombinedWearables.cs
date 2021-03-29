@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
@@ -28,7 +29,7 @@ namespace Clothing {
 
             return uID + rarity.name + clothingType.name + stylePoints;
         }
-
+        
         public void ShouldBeInteractable() {
             // if (Amount > 0) {
             //     canvasGroup.alpha = 1;
