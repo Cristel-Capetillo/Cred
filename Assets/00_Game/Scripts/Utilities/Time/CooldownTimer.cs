@@ -31,6 +31,7 @@ namespace Utilities.Time {
             Started = false;
         }
         
+        
         IEnumerator Tick(float duration, float interval) {
             
             while (duration > 0) {

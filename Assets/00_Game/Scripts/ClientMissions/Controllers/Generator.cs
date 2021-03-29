@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
@@ -34,9 +35,11 @@ namespace ClientMissions.Controllers {
             var randomDialog = Random.Range(0, missionClient.ClientDialogData[randomClub].Dialog.Count);
             var dataTimeStart1 = timeManager.timeHandler.GetTime();
             var unixTime = TimeDateConverter.ToUnixTimestamp(dataTimeStart1);
+            
             return new SavableMissionData(missionDifficultyIndex, clientIndex, 
                 new SavableDialogData(randomClub, randomDialog), savableRequirementData, unixTime);
         }
+
         int GetDifficultyIndex(int difficultyIndex){
             return missionCycles[GetDifficultyCycleKey()][difficultyIndex];
         }
