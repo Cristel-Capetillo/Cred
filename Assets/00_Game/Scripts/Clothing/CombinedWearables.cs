@@ -30,16 +30,16 @@ namespace Clothing {
         }
 
         public void ShouldBeInteractable() {
-            if (Amount > 0) {
-                canvasGroup.alpha = 1;
-                canvasGroup.interactable = true;
-                canvasGroup.blocksRaycasts = true;
-            }
-            else {
-                canvasGroup.alpha = .5f;
-                canvasGroup.interactable = false;
-                canvasGroup.blocksRaycasts = false;
-            }
+            // if (Amount > 0) {
+            //     canvasGroup.alpha = 1;
+            //     canvasGroup.interactable = true;
+            //     canvasGroup.blocksRaycasts = true;
+            // }
+            // else {
+            //     canvasGroup.alpha = .5f;
+            //     canvasGroup.interactable = false;
+            //     canvasGroup.blocksRaycasts = false;
+            // }
         }
 
         public void AddStylePoint() {
