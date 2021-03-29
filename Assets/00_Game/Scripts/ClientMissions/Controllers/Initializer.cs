@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
+using ClientMissions.Messages;
 using ClientMissions.Requirements;
 using UnityEngine;
+using Utilities;
 using Utilities.Time;
 
 namespace ClientMissions.Controllers{
@@ -12,7 +14,11 @@ namespace ClientMissions.Controllers{
         [SerializeField] MissionGeneratorData generatorData;
         [SerializeField] PlayerFollowers playerFollowers;
         LocalMissions localMissions = new LocalMissions();
-        
+
+        public void Start(){
+            EventBroker.Instance().SendMessage(new FollowersDifficultyMessage(generatorData.EasyModeEndValue,generatorData.HardModeStartValue));
+        }
+
         public Generator CreateMissionGenerator(){
             return new Generator(generatorData, playerFollowers,localMissions, FindObjectOfType<TimeManager>());
         }

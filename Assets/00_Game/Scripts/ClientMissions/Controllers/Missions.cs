@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.Messages;
+using Clothing.DressUp;
 using Core;
 using UnityEngine;
 using Utilities;
@@ -27,9 +28,9 @@ namespace ClientMissions.Controllers {
         IEnumerator Start(){
             initializer = GetComponent<Initializer>();
             savedMission = initializer.GetMissionHolder();
-            yield return new WaitForSeconds(1f);
             generator = initializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
+            yield return new WaitForSeconds(1f);
             InstantiateMissionUI();
             CheckMissions();
         }
@@ -43,8 +44,7 @@ namespace ClientMissions.Controllers {
                 Debug.Log("CurrentMission == null");
                 return;
             }
-            var anyMissionToRemove = savedMission.RemoveMission(currentMission.SavableMissionData);
-            Debug.Log("Any mission to remove? " + anyMissionToRemove);
+            savedMission.RemoveMission(currentMission.SavableMissionData);
             CheckMissions();
         }
 
@@ -55,6 +55,7 @@ namespace ClientMissions.Controllers {
             }
             EventBroker.Instance().SendMessage(new ActiveMissionMessage(currentMission));
             EventBroker.Instance().SendMessage(new EventSceneLoad("DressupScene"));
+            EventBroker.Instance().SendMessage(new RemoveAllClothes());
         }
         public void CheckMissions(){
             savableMissionData = TimeCheck(savedMission.GetMissions());
