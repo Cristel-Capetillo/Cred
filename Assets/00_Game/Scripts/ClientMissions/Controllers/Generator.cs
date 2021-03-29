@@ -11,25 +11,28 @@ namespace ClientMissions.Controllers {
     public class Generator{
         readonly Dictionary<int, List<int>> missionCycles;
         MissionGeneratorData generatorData;
-        IPlayer playerData;
+        IFollowers followers;
+        ISavedMission savedMission;
+        
         int missionCycleCount;
         TimeManager timeManager;
 
-        public Generator(MissionGeneratorData generatorData, IPlayer player, TimeManager timeManager){
+        public Generator(MissionGeneratorData generatorData, IFollowers followers, ISavedMission savedMission, TimeManager timeManager){
             this.generatorData = generatorData;
+            this.savedMission = savedMission;
              missionCycles = CollectionsHelper.CombineListsToDictionary(new List<List<int>>{generatorData.EasyModeMissionCycle.ToList(), 
                  generatorData.MediumModeMissionCycle.ToList(), generatorData.HardModeMissionCycle.ToList()});
              missionCycleCount = CalculationsHelper.GetLowestNumberFromThreeNumbers(generatorData.EasyModeMissionCycle.Count,
                  generatorData.MediumModeMissionCycle.Count, generatorData.HardModeMissionCycle.Count);
-             playerData = player;
+             this.followers = followers;
              this.timeManager = timeManager;
         }
         public SavableMissionData GenerateSavableMissionData(){
-            var missionDifficultyIndex = GetDifficultyIndex(playerData.MissionIndex);
+            var missionDifficultyIndex = GetDifficultyIndex(savedMission.MissionIndex);
             var missionRequirements = generatorData.MissionDifficulties[missionDifficultyIndex].NumberOfRequirements;
             var savableRequirementData = GenerateNewRequirements(missionRequirements);
-            var missionClient = generatorData.ClientData[playerData.ClientIndex];
-            var clientIndex = playerData.ClientIndex;
+            var missionClient = generatorData.ClientData[savedMission.ClientIndex];
+            var clientIndex = savedMission.ClientIndex;
             CycleIndexes();
             var randomClub = Random.Range(0, missionClient.ClientDialogData.Count);
             var randomDialog = Random.Range(0, missionClient.ClientDialogData[randomClub].Dialog.Count);
@@ -44,13 +47,13 @@ namespace ClientMissions.Controllers {
             return missionCycles[GetDifficultyCycleKey()][difficultyIndex];
         }
         int GetDifficultyCycleKey(){
-            if (playerData.Followers <= generatorData.EasyModeEndValue)
+            if (followers.Followers <= generatorData.EasyModeEndValue)
                 return 0;
-            return playerData.Followers >= generatorData.HardModeStartValue ? 2 : 1;
+            return followers.Followers >= generatorData.HardModeStartValue ? 2 : 1;
         }
         void CycleIndexes(){
-            playerData.ClientIndex = CollectionsHelper.CycleListIndex(playerData.ClientIndex, generatorData.ClientData.Count);
-            playerData.MissionIndex = CollectionsHelper.CycleListIndex(playerData.MissionIndex, missionCycleCount);
+            savedMission.ClientIndex = CollectionsHelper.CycleListIndex(savedMission.ClientIndex, generatorData.ClientData.Count);
+            savedMission.MissionIndex = CollectionsHelper.CycleListIndex(savedMission.MissionIndex, missionCycleCount);
         }
         List<SavableRequirementData> GenerateNewRequirements(int requirementAmount){
             var savableMissionRequirements = new List<SavableRequirementData>();

@@ -23,7 +23,7 @@ namespace ClientMissions.Controllers{
             IsNewMission = false;
         }
         void RemoveCurrentMission(ShowRewardMessage showRewardMessage){
-            new LocalPlayer().RemoveMission(ActiveMissionData.SavableMissionData);
+            new LocalMissions().RemoveMission(ActiveMissionData.SavableMissionData);
             ActiveMissionData = null;
             IsNewMission = true;
         }

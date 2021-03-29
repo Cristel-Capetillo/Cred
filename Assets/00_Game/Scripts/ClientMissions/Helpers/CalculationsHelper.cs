@@ -11,10 +11,10 @@ namespace ClientMissions.Helpers{
         public static int GetLowestNumberFromThreeNumbers(int numberOne, int numberTwo, int numberThree){
             return Mathf.Min(Mathf.Min(numberOne,numberTwo), numberThree);
         }
-        public static ShowRewardMessage CalculateReword(StylePointValues stylePointValues, int currentStylePoints, int maxReword){
+        public static int CalculateReward(StylePointValues stylePointValues, int currentStylePoints, int maxReward, int minReward){
             var percentageValue = Mathf.InverseLerp(stylePointValues.MinStylePoints, stylePointValues.MaxStylePoints, currentStylePoints);
-            var reword = Mathf.RoundToInt(Mathf.Lerp(1,maxReword, percentageValue));
-            return new ShowRewardMessage(reword);
+            var reward = Mathf.RoundToInt(Mathf.Lerp(minReward,maxReward, percentageValue));
+            return reward;
         }
     }
 }

@@ -1,5 +1,6 @@
 using ClientMissions.Messages;
 using Currency.Coins;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -10,7 +11,8 @@ namespace ClientMissions.Hud {
         [SerializeField] Button collectButton;
         [SerializeField] Button mainMenuButton;
 
-        int currentPoints;
+        int currencyReward;
+        int followersReward;
         void Start() {
             EventBroker.Instance().SubscribeMessage<ShowRewardMessage>(ShowReward);
         }
@@ -21,12 +23,15 @@ namespace ClientMissions.Hud {
 
         void ShowReward(ShowRewardMessage rewardMessage) {
             GetComponent<Canvas>().enabled = true;
-            currentPoints = rewardMessage.RewardPoints;
-            rewardText.text = "Reward: " + rewardMessage.RewardPoints;
+            currencyReward = rewardMessage.CurrencyReward;
+            followersReward = rewardMessage.FollowersReward;
+            //TODO: Currency and Followers!
+            rewardText.text = "Reward: " + rewardMessage.CurrencyReward;
         }
         //TODO: Separate View and controller logic!
         public void CollectReward() {
-            EventBroker.Instance().SendMessage(new EventUpdateCoins(currentPoints));
+            EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
+            EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
             mainMenuButton.gameObject.SetActive(true);
             collectButton.gameObject.SetActive(false);
         }
