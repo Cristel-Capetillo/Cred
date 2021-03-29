@@ -447,9 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generatorData: {fileID: 11400000, guid: eeb02f889ba727f44973acde0cd72430, type: 2}
-  localPlayer:
-    followers: 100
-    maxFollowers: 1000
+  playerFollowers: {fileID: 0}
 --- !u!114 &2021835565888272458
 MonoBehaviour:
   m_ObjectHideFlags: 0
