@@ -37,6 +37,7 @@ namespace ClientMissions.Controllers {
         void OnGetMissionData(SendActiveMissionMessage missionMessage){
             if (missionMessage.MissionData.ClientData == null){
                 Debug.Log("No missionData");
+                EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
                 return;
             }
             wearablesOnClient = missionMessage.CurrentWearables;
