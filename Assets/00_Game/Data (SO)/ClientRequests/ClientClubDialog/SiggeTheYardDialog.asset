@@ -13,7 +13,25 @@ MonoBehaviour:
   m_Name: SiggeTheYardDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sigge The Yard 0
-  - Sigge The Yard 1
-  - Sigge The Yard 2
+  - "Oh hi I didn\u2019t see you there, I was busy tweeting my support for Black
+    Lives Matter. Damn, we\u2019re doing a good job with that. I\u2019m going to
+    The Yard tonight to drink IPA\u2019s while explaining feminism to much, much
+    younger women I\u2019m trying to bring back home. I\u2019m looking for cheap
+    basic pants for around 400 dollars."
+  - "Hey! I\u2019ve met this lovely young woman called Sianca, she works with human
+    resources. I love a woman with ambition. I\u2019m going to meet her and her friends
+    at The Yard tonight, I need to look cool. They can't know I'm that much older
+    than her."
+  - "Sup! I\u2019m going on a date tonight with my colleague's daughter, she just
+    turned 18. She probably has no idea how inflation works, I'll take my time to
+    explain it to her. I need something that makes me look young, biker pants\u2026?"
+  - "What a demonstration! More people should really get involved in women's rights,
+    I had to explain some things to the woman who chanted nursery rhymes. I think
+    she appreciated it. Do what you can for other people! My motto is: Learn something
+    new everyday. Now we\u2019re off to celebrate on The Yard, make me look how I
+    feel- successful."
+  - "Well hello there. Need something fresh, clean and hot for this girl I'm seeing.
+    She\u2019s apparently studying to become a nurse. Hot. Help me find something
+    she\u2019ll like! I can ask her to post us on her \u201CCred\u201D account, i\u2019ll
+    make sure you're tagged."
   clubData: {fileID: 11400000, guid: e2fc4b39446aec645836a9bebbf1f5f2, type: 2}

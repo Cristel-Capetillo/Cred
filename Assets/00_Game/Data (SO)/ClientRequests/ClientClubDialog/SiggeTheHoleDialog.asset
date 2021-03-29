@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: SiggeTheHoleDialog
   m_EditorClassIdentifier: 
   dialog:
-  - Sigge The hole 0
-  - Sigge The hole 1
-  - Sigge The hole 2
-  - Sigge The hole 3
+  - "So I\u2019m meeting this 20 y/o goth chick at The Hole tonight. It\u2019s a
+    gay club. I love her inclusivity! I want to look gay, but not TOO gay. I don\u2019t
+    want to have another experience like tha\u2026 I-I- mean I don\u2019t want AN
+    experience like that\u2026 So I\u2019m thinking like a pink baseball cap and\u2026
+    A choker? For a total of 850 dollars?"
+  - "Heartbroken. Again. I can never seem to find the right woman. Maybe it\u2019s
+    time I try something new\u2026 I\u2019m going to the Hole tonight, my friend
+    is a regular there I need to fit in. Make it work genius."
+  - "Hey! I\u2019m happy to see your business growing! Thanks to me I\u2019d say,
+    I talk about you all the time. Only good things of course. I\u2019m going to
+    The Hole tonight, I'm thinking all black, like Batman."
+  - Oh well, friday once again. Time to spice things up. I want to go to The Hole
+    tonight, they always deliver a good time.
+  - "Hello there! It\u2019s time to get my FREAK on tonight at The Hole! Oh no..
+    I didn\u2019t mean it like that\u2026 I\u2019m seeing a girl named Sianca\u2026.
+    Just make me look good."
   clubData: {fileID: 11400000, guid: a79c609553e786b4798a5657dcae62ec, type: 2}

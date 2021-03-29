@@ -88,4 +88,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7c71b80b43b4e49952454fb1287f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeToDisplayReward: 4
+  sizeToDisplayReward: 2
