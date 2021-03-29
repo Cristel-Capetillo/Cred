@@ -12,9 +12,10 @@ namespace HUD.Clothing {
         public void OnClickEnterPopUpWindow(CanvasGroup popupWindow) {
             foreach (var window in popUpWindows) {
                 if (popupWindow == window) {
-                    print(window);
+                    
                     popupWindow.interactable = !popupWindow.interactable;
                     popupWindow.blocksRaycasts = !popupWindow.blocksRaycasts;
+                    EventBroker.Instance().SendMessage(new EventHideUpdateWindows(!popupWindow.interactable));
                     if (popupWindow.interactable) {
                         popupWindow.alpha = 1;
                     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,7 +16,6 @@ namespace Clothing.Upgrade.UpCycle {
 
         void Start() {
             combinedWearable = GetComponent<CombinedWearables>();
-
         }
 
         void OnEnable() {
@@ -43,10 +43,13 @@ namespace Clothing.Upgrade.UpCycle {
         public void OnPointerClick(PointerEventData eventData) {
             if (!popUpWindowIsActive) {
                 EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
+                UnityEngine.Analytics.Analytics.CustomEvent("Equip Cloths", new Dictionary<string, object> {
+                    {"New Cloth", combinedWearable.ToString()}
+                });
                 return;
             }
 
-            
+
             EventBroker.Instance().SendMessage(new EventAddToUpgradeSlot(combinedWearable));
         }
     }
