@@ -1,4 +1,4 @@
-using ClientMissions.Data;
+using ClientMissions.Messages;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -6,23 +6,41 @@ using Utilities;
 namespace ClientMissions.Hud{
     public class FollowersUI : MonoBehaviour{
         [SerializeField]Slider followerSlider;
+        [SerializeField]int easyModeEndValue;
+        [SerializeField]int hardModeStartValue;
         bool isActive;
         
-        void Start(){
+        void Awake(){
             if(isActive)
                 return;
-            EventBroker.Instance().SubscribeMessage<UpdateUIFollowersMessage>(OnUpdateSliderUI);
+            EventBroker.Instance().SubscribeMessage<FollowersDifficultyMessage>(OnChangeDifficultyValues);
+            EventBroker.Instance().SubscribeMessage<UpdateUIFollowersMessage>(OnSliderUIValueChange);
             isActive = true;
         }
-
         void OnDestroy(){
-            EventBroker.Instance().UnsubscribeMessage<UpdateUIFollowersMessage>(OnUpdateSliderUI);
+            EventBroker.Instance().UnsubscribeMessage<UpdateUIFollowersMessage>(OnSliderUIValueChange);
+            EventBroker.Instance().UnsubscribeMessage<FollowersDifficultyMessage>(OnChangeDifficultyValues);
         }
-
-        void OnUpdateSliderUI(UpdateUIFollowersMessage obj){
-            followerSlider.maxValue = obj.MaxFollowers;
-            followerSlider.minValue = obj.MinFollowers;
-            followerSlider.value = obj.Followers;
+        void OnChangeDifficultyValues(FollowersDifficultyMessage followersDifficultyMessage){
+            easyModeEndValue = followersDifficultyMessage.EasyModeEndValue;
+            hardModeStartValue = followersDifficultyMessage.HardModeStartValue;
+        }
+        void OnSliderUIValueChange(UpdateUIFollowersMessage updateUIFollowersMessage){
+            if (updateUIFollowersMessage.Followers <= easyModeEndValue){
+                followerSlider.maxValue = easyModeEndValue;
+                followerSlider.minValue = 0;
+                followerSlider.value = updateUIFollowersMessage.Followers;
+                return;
+            }
+            if (updateUIFollowersMessage.Followers >= hardModeStartValue){
+                followerSlider.minValue = hardModeStartValue;
+                followerSlider.maxValue = 1000;
+                followerSlider.value = updateUIFollowersMessage.Followers;
+                return;
+            }
+            followerSlider.minValue = easyModeEndValue;
+            followerSlider.maxValue = hardModeStartValue;
+            followerSlider.value = updateUIFollowersMessage.Followers;
         }
     }
 }
