@@ -15,7 +15,6 @@ namespace Clothing.Inventory {
             combinedWearables = GetComponent<CombinedWearables>();
             images = GetComponentsInChildren<Image>();
             backgroundImage = GetComponent<Image>();
-            DisableImages();
             EventBroker.Instance().SubscribeMessage<EventFinishedLoadingPlayerInventory>(UpdateImages);
         }
 
@@ -30,6 +29,7 @@ namespace Clothing.Inventory {
         }
 
         void UpdateImages(EventFinishedLoadingPlayerInventory afterInventoryLoad) {
+            DisableImages();
             ValidateRarity();
 
             switch (combinedWearables.wearable.Count) {
