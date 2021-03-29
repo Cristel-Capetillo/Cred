@@ -100,7 +100,9 @@ namespace Clothing.DressUp {
             //put on the different clothing parts on the different body parts
             foreach (var wearable in combinedWearable.wearable) {
                 foreach (var bodyPart in bodyParts.Where(bodyPart => wearable.ClothingType.name == bodyPart.name)) {
-                    bodyPart.GetComponent<MeshRenderer>().material.mainTexture = wearable.Texture;
+                    foreach (var material in bodyPart.GetComponent<MeshRenderer>().materials) {
+                        material.mainTexture = wearable.Texture;
+                    }
                 }
             }
 

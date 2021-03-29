@@ -22,6 +22,7 @@ namespace Clothing.Upgrade {
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
             EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
+            
         }
 
         void AssignUpCycleSlot(EventAddToUpgradeSlot eventAddUpCycleClothes) {
@@ -58,7 +59,7 @@ namespace Clothing.Upgrade {
             }
         }
 
-        public void OnConfirm() {
+        public void OnConfirm(GameObject upCycleWindow) {
             var wearableInSlots = GenerateNewItem();
             foreach (var slot in slots) {
                 Destroy(slot.transform.GetChild(0).gameObject);
@@ -66,6 +67,8 @@ namespace Clothing.Upgrade {
 
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
+            upCycleWindow.SetActive(false);
+
         }
 
         List<CombinedWearables> GenerateNewItem() {

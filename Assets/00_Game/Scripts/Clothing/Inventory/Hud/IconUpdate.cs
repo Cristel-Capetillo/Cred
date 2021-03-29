@@ -15,11 +15,16 @@ namespace Clothing.Inventory {
             combinedWearables = GetComponent<CombinedWearables>();
             images = GetComponentsInChildren<Image>();
             backgroundImage = GetComponent<Image>();
-            EventBroker.Instance().SubscribeMessage<EventFinishedLoadingPlayerInventory>(UpdateImages);
+            EventBroker.Instance().SubscribeMessage<EventUpdateWearableHud>(UpdateImagesEvent);
+            UpdateImages();
         }
 
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventFinishedLoadingPlayerInventory>(UpdateImages);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateWearableHud>(UpdateImagesEvent);
+        }
+
+        void UpdateImagesEvent(EventUpdateWearableHud afterInventoryLoad) {
+            UpdateImages();
         }
 
         void DisableImages() {
@@ -28,7 +33,7 @@ namespace Clothing.Inventory {
             images[3].enabled = false;
         }
 
-        void UpdateImages(EventFinishedLoadingPlayerInventory afterInventoryLoad) {
+        void UpdateImages() {
             DisableImages();
             ValidateRarity();
 
