@@ -1,5 +1,6 @@
 using System.Collections;
 using Clothing.Inventory;
+using Clothing.Upgrade.UpCycle;
 using HUD.Clothing;
 using UnityEngine;
 using Utilities;

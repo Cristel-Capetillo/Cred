@@ -14,7 +14,6 @@ namespace Clothing.Inventory {
         Vector3 topPosition;
         Vector3 oldPosition;
 
-
         void Start() {
             topPosition = categories[0].GetComponent<RectTransform>().localPosition;
             EventBroker.Instance().SubscribeMessage<EventSceneSwap>(ValidateScene);

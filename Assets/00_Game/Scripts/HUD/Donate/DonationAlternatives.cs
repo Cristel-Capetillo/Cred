@@ -1,6 +1,7 @@
 ﻿using Clothing;
 using Clothing.Inventory;
 using Clothing.Upgrade;
+using Clothing.Upgrade.UpCycle;
 using Currency.Coins;
 using HUD.Clothing;
 using UnityEngine;
