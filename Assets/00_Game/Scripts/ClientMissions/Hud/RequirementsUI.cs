@@ -12,29 +12,37 @@ namespace ClientMissions.Hud{
         [SerializeField] TMP_Text requirementTMPTextPrefab;
         [SerializeField] Transform requirementTextParent;
         Dictionary<string,TMP_Text> requirements = new Dictionary<string, TMP_Text>();
+        [SerializeField] List<GameObject> clientGameObjects = new List<GameObject>();
+        [SerializeField] MeshRenderer clientSkin;
         string requiredStylepoints;
         
         void Start(){
-            if(FindObjectOfType<ActiveClient>() == null) 
-                return;
-            if (FindObjectOfType<ActiveClient>().ActiveMissionData == null) 
-                return;
-            var missionData = FindObjectOfType<ActiveClient>().ActiveMissionData;
+            EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().SubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
             EventBroker.Instance().SubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
+            print(requirements.Values.Count);
+        }
+        void OnDestroy(){
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            EventBroker.Instance().UnsubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
+            EventBroker.Instance().UnsubscribeMessage<CurrentStylePointsMessage>(UpdateStylePointsUI);
+        }
+        void OnGetMissionData(SendActiveMissionMessage sendActiveMissionMessage){
+            requirements.Clear();
+            var missionData = sendActiveMissionMessage.MissionData;
             requiredStylepoints = $"/{missionData.StylePointValues.MinStylePoints.ToString()}";
             requirementHeader.text = $"{missionData.ClientData.name}s requirements:";
             stylePoints.text = $"Style points: 0{requiredStylepoints}";
+            foreach (var client in clientGameObjects){
+                client.SetActive(client.name == missionData.ClientData.name);
+            }
+            clientSkin.material = missionData.ClientData.Skin;
             foreach (var requirement in missionData.Requirements){
                 var temp = Instantiate(requirementTMPTextPrefab, requirementTextParent);
                 temp.text = requirement.ToString();
                 requirements.Add(requirement.ToString(),temp);
             }
         }
-        void OnDestroy(){
-            EventBroker.Instance().UnsubscribeMessage<RequirementUIMessage>(UpdateRequirementUI);
-        }
-
         void UpdateStylePointsUI(CurrentStylePointsMessage currentStylePoints){
             stylePoints.text = $"Style points: {currentStylePoints.CurrentStylePoints}{requiredStylepoints}";
         }

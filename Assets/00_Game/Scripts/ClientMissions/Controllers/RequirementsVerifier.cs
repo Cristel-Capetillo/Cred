@@ -18,7 +18,6 @@ namespace ClientMissions {
         
         [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>();
         [SerializeField] List<ClothingType> legsClothingTypes = new List<ClothingType>();
-        [SerializeField] List<GameObject> clientGameObjects = new List<GameObject>();
         [SerializeField] GameObject parentGameObject;
         MissionData activeMissionData;
         Dictionary<ClothingType,CombinedWearables> wearablesOnClient = new Dictionary<ClothingType, CombinedWearables>();
@@ -26,31 +25,21 @@ namespace ClientMissions {
         int currentStylePoints;
         
         void Start() {
-            if (FindObjectOfType<ActiveClient>()== null){
-                return;
-            }
-            if (FindObjectOfType<ActiveClient>().ActiveMissionData == null)
-                return;
+            EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
-            var activeMission = FindObjectOfType<ActiveClient>();
-            activeMissionData = activeMission.ActiveMissionData;
-            foreach (var client in clientGameObjects){
-                client.SetActive(client.name == activeMissionData.ClientData.name);
-            }
-            requirements = activeMissionData.Requirements.ToList();
-            
-            if (activeMission.IsNewMission){
-                EventBroker.Instance().SendMessage(new RemoveAllClothes());
-            }
-            parentGameObject.SetActive(true);
-            activeMission.OnStartMission();
+            EventBroker.Instance().SendMessage(new SceneChangeMessage());
         }
         void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
         }
-
+        void OnGetMissionData(SendActiveMissionMessage missionMessage){
+            activeMissionData = missionMessage.MissionData;
+            requirements = activeMissionData.Requirements.ToList();
+            parentGameObject.SetActive(true);
+        }
         public void OnClickEnterClub(){
             var reword = CalculationsHelper.CalculateReword(activeMissionData.StylePointValues, currentStylePoints, activeMissionData.Difficulty.MaxReward);
             EventBroker.Instance().SendMessage(reword);
