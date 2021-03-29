@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -36}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -460, y: -72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1238677412
@@ -135,7 +135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0.8}
   m_AnchorMax: {x: 0.75, y: 0.95}
-  m_AnchoredPosition: {x: -0.000045776367, y: 11}
+  m_AnchoredPosition: {x: -0.000045776367, y: -0}
   m_SizeDelta: {x: 411.9485, y: 97.33771}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1802649147715816190
@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 6917174712673156890}
   - component: {fileID: 920263908471885333}
   - component: {fileID: 1058037956925674314}
+  - component: {fileID: 5411108880963622768}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -355,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: 7}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &920263908471885333
@@ -399,7 +400,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Open for 300 coins
+  m_Text: PURCHASE MYSTERY BOX 300 COINS
+--- !u!114 &5411108880963622768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906869448574126450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.29411766, g: 0.50980395, b: 0.7490196, a: 0.5}
+  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5001835116083621809
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: 50}
-  m_SizeDelta: {x: 857.5105, y: 479}
+  m_AnchoredPosition: {x: 23, y: 54}
+  m_SizeDelta: {x: 887.524, y: 502.694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8889805085797779165
 CanvasRenderer:
@@ -510,7 +526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -242, y: 35}
+  m_AnchoredPosition: {x: -365, y: 93}
   m_SizeDelta: {x: 234, y: 238}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2434024103300549854
@@ -644,8 +660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.2}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 48.51, y: -21}
+  m_SizeDelta: {x: 173.3557, y: 86.6764}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4361993898112424835
 CanvasRenderer:
@@ -675,7 +691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4d552bf813d3bc4890cd52a2c0f1bef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8f997a913a7cf84092e94f5a60d1164, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -789,8 +805,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: 357}
-  m_SizeDelta: {x: 751.4, y: 173.1596}
+  m_AnchoredPosition: {x: 23, y: 433}
+  m_SizeDelta: {x: 685.1759, y: 170.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7169082050827667553
 CanvasRenderer:
