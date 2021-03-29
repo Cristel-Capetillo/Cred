@@ -59,7 +59,7 @@ namespace Clothing.Upgrade {
             }
         }
 
-        public void OnConfirm(GameObject upCycleWindow) {
+        public void OnConfirm(CanvasGroup upCycleWindow) {
             var wearableInSlots = GenerateNewItem();
             foreach (var slot in slots) {
                 Destroy(slot.transform.GetChild(0).gameObject);
@@ -67,7 +67,10 @@ namespace Clothing.Upgrade {
 
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[0]));
             combineWearablesDic.Remove(PlayerInventory.GetName(wearableInSlots[1]));
-            upCycleWindow.SetActive(false);
+            upCycleWindow.interactable = false;
+            upCycleWindow.blocksRaycasts = false;
+            upCycleWindow.alpha = 0;
+            print("confirm!");
 
         }
 
