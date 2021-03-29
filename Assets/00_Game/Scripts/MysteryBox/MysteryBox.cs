@@ -30,7 +30,7 @@ namespace MysteryBox {
         }
         
         void ShowReward(CombinedWearables reward) {
-            EventBroker.Instance().SendMessage(new EventMysteryBoxOpened());
+            EventBroker.Instance().SendMessage(new EventMysteryBoxOpened(reward));
             EventBroker.Instance().SendMessage(new EventShowReward(reward));
         }
     }
