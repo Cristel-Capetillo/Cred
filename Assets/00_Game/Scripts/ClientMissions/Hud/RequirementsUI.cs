@@ -33,7 +33,7 @@ namespace ClientMissions.Hud{
             }
             requiredStylepoints = $"/{missionData.StylePointValues.MinStylePoints.ToString()}";
             requirementHeader.text = $"{missionData.ClientData.name}s requirements:";
-            stylePoints.text = $"Style points: 0{requiredStylepoints}";
+            stylePoints.text = $"0{requiredStylepoints}";
             foreach (var client in clientGameObjects){
                 client.SetActive(client.name == missionData.ClientData.name);
             }
@@ -48,7 +48,7 @@ namespace ClientMissions.Hud{
             EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
         }
         void UpdateStylePointsUI(CurrentStylePointsMessage currentStylePoints){
-            stylePoints.text = $"Style points: {currentStylePoints.CurrentStylePoints}{requiredStylepoints}";
+            stylePoints.text = $"{currentStylePoints.CurrentStylePoints}{requiredStylepoints}";
         }
         void UpdateRequirementUI(RequirementUIMessage requirementUIMessage){
             if (requirements.ContainsKey(requirementUIMessage.RequirementName)){
