@@ -1,22 +1,19 @@
 using Clothing.Inventory;
+using Currency.Coins;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
 namespace Clothing.Upgrade.Donation {
     public class DonationValidityCheck : MonoBehaviour {
-        PlayerInventory playerInventory;
-        [HideInInspector] public int stylePointsToUpgrade;
-        int addedStylePoints;
         public Image itemToDonateSlot;
+        public Image upgradedItemSlot;
         DonationPopUpWarnings donationPopUpWarnings;
         public Button[] alternativesButtons;
-        public Text warningText;
-        public GameObject warningPopUp;
 
         void Start() {
-            playerInventory = FindObjectOfType<PlayerInventory>();
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
+            donationPopUpWarnings = GetComponent<DonationPopUpWarnings>();
             foreach (var button in alternativesButtons) {
                 button.interactable = false;
             }
@@ -31,10 +28,17 @@ namespace Clothing.Upgrade.Donation {
             if (itemToDonateSlot.transform.childCount > 0) {
                 Destroy(itemToDonateSlot.transform.GetChild(0).gameObject);
             }
+
             var instance = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
             var scale = itemToDonateSlot.GetComponent<RectTransform>().localScale;
             instance.transform.localPosition = Vector2.zero;
             instance.GetComponent<RectTransform>().localScale = scale;
+            Destroy(instance.GetComponent<Button>());
+            
+            var instance2 = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
+            var scale2 = itemToDonateSlot.GetComponent<RectTransform>().localScale;
+            instance2.transform.localPosition = Vector2.zero;
+            instance2.GetComponent<RectTransform>().localScale = scale2;
             Destroy(instance.GetComponent<Button>());
         }
 
