@@ -106,9 +106,9 @@ namespace Clothing.Upgrade.Donation {
             instance.isPredefined = false;
             instance.GetComponent<IconUpdate>().UpdateImages();
             instance.GetComponent<IconUpdate>().UpdateInformation();
-            var text = upgradedWearable.GetComponent<Text>();
-            text.gameObject.SetActive(true);
-            text.text = "+" + upgradedStylePoints;
+
+            instance.rewardMessage = "+" + (upgradedWearable.stylePoints - upgradedOriginalStylePoints);
+            instance.showText = true;
             
             
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));

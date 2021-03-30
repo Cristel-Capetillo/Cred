@@ -10,6 +10,9 @@ namespace Clothing {
         public ClothingType clothingType;
         public Rarity rarity;
         public int stylePoints;
+        
+        public string rewardMessage;
+        public bool showText;
 
         public bool isPredefined = true;
 
