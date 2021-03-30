@@ -278,6 +278,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 985290087}
     m_Modifications:
+    - target: {fileID: 885349680, guid: 03e3e2a7b052c9340a39dfd855ff610a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -982
+      objectReference: {fileID: 0}
     - target: {fileID: 931595501, guid: 03e3e2a7b052c9340a39dfd855ff610a, type: 3}
       propertyPath: parentCanvas
       value: 

@@ -93,12 +93,11 @@ namespace Clothing.Upgrade.UpCycle {
             instance.rarity = wearableInSlots[0].rarity;
             instance.clothingType = wearableInSlots[0].clothingType;
             instance.stylePoints = wearableInSlots[0].stylePoints;
-            instance.stylePoints = wearableInSlots[0].Amount;
+            instance.Amount = wearableInSlots[0].Amount;
             instance.isPredefined = false;
             instance.GetComponent<IconUpdate>().UpdateImages();
 
             AssignWearableSlots(wearableInSlots, instance);
-
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[0], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
@@ -127,6 +126,7 @@ namespace Clothing.Upgrade.UpCycle {
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0;
 
+            wearableInSlots.Clear();
             combineWearablesDic.Clear();
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
 

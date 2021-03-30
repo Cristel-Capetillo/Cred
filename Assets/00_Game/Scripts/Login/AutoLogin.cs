@@ -36,7 +36,7 @@ namespace Login {
             }
 
             var loginTask = LogIn();
-            while (loginTask.IsCompleted) {
+            while (!loginTask.IsCompleted) {
                 yield return null;
             }
 
