@@ -43,6 +43,10 @@ namespace Clothing.Upgrade.UpCycle {
 
         public void OnPointerClick(PointerEventData eventData) {
             if (!popUpWindowIsActive) {
+                if (GetComponent<CombinedWearables>().Amount == 0) {
+                    EventBroker.Instance().SendMessage(new EventBuyNotOwnedClothes(combinedWearable));
+                    return;
+                }
                 EventBroker.Instance().SendMessage(new EventClothesChanged(combinedWearable));
                 UnityEngine.Analytics.Analytics.CustomEvent("Equip Cloths", new Dictionary<string, object> {
                     {"New Cloth", combinedWearable.ToString()}

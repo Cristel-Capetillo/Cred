@@ -26,6 +26,7 @@ namespace Clothing.Inventory {
             if (coins.Coins >= price) {
                 coins.Coins -= price;
                 EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearable, 1));
+                EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             }
         }
         
