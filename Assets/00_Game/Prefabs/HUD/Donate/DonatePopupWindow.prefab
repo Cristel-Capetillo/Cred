@@ -104,7 +104,6 @@ MonoBehaviour:
   - {fileID: 383083020892821441}
   - {fileID: 4481320818697953606}
   confirmButton: {fileID: 3723743968072022717}
-  upgradedStylePointsText: {fileID: 0}
 --- !u!114 &79621796259647640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,7 +1795,7 @@ PrefabInstance:
     - target: {fileID: 6618433958724945616, guid: c5dcae8cc0ae17941907f97338242618,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6618433958724945617, guid: c5dcae8cc0ae17941907f97338242618,
         type: 3}
