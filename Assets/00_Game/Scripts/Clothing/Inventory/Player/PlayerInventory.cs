@@ -140,7 +140,7 @@ namespace Clothing.Inventory {
         }
 
         IEnumerator RestoreData(Dictionary<string, object> value) {
-            print($"Dictionary size: {value.Count}");
+            print($"[PlayerInventory_RestoreData]\nDictionary size: {value.Count}");
             var wearableList = new List<Wearable>();
             yield return Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
 

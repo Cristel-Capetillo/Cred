@@ -7,7 +7,7 @@ namespace SaveSystem {
     public class FireBaseSaveHandler : ISaveHandler {
         FirebaseDatabase fbDatabase;
         FirebaseAuth user;
-        string saveID; 
+        string saveID;
         const string UrlToolSite = "https://cred-2528e-default-rtdb.firebaseio.com/";
 
         public void Authenticate(string saveID) {
@@ -26,14 +26,13 @@ namespace SaveSystem {
 
             if (!checkFile) return default;
             var tmp = await fbDatabase.GetReference(saveID).GetValueAsync();
-            Debug.Log($"Loading of type: {tmp.Value.GetType()} from: {loadID}");
+            Debug.Log($"[FireBaseSaveHandler_Load]\nLoading of type: {tmp.Value.GetType()} from: {loadID}");
             return (T) tmp.Value;
         }
 
         async Task<bool> CheckExisting() {
             var existing = await fbDatabase.GetReference(saveID).GetValueAsync();
             return existing.Exists;
-            
         }
     }
 }
