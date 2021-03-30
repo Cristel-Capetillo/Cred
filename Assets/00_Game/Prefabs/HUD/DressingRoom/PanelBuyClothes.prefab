@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 3137857224894687705}
   - component: {fileID: 1446055252706396067}
   - component: {fileID: 5821263464797154696}
+  - component: {fileID: -2976717449347672695}
   m_Layer: 5
   m_Name: PanelBuyClothes
   m_TagString: Untagged
@@ -415,6 +416,29 @@ MonoBehaviour:
   closeButton: {fileID: 8346391536928757136}
   purchaseItemText: {fileID: 6404522417416577650}
   purchaseTextPrefix: Would you like to purchase
+--- !u!114 &-2976717449347672695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6208024844321349222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundClothes
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &6448493312559674762
 GameObject:
   m_ObjectHideFlags: 0

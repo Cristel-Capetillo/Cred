@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/SFX/buttonSoundClothes
+  Event: event:/SFX/buttonSoundMenu
   PlayEvent: 11
   StopEvent: 12
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
