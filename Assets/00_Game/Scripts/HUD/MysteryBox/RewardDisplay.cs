@@ -33,7 +33,7 @@ public class RewardDisplay : MonoBehaviour {
         while (!Input.GetKeyDown(KeyCode.Mouse0)) {
             yield return null;
         }
-
+        EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         Destroy(go);
     }
 

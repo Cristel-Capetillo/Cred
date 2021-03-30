@@ -19,8 +19,8 @@ namespace Clothing.Inventory {
                     break;
                 }
 
-                if (defined.wearables.ContainsKey(PlayerInventory.GetName(combination))) continue;
-                Instantiate(combination);
+                // if (defined.wearables.ContainsKey(PlayerInventory.GetName(combination))) continue;
+                // Instantiate(combination);
             }
         }
 

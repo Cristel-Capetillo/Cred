@@ -8,12 +8,9 @@ namespace Clothing.Inventory {
         [SerializeField] Text stylePointsText;
         [SerializeField] Text amountText;
         [SerializeField] Image[] colorDataImages;
-
         CombinedWearables wearables;
-
-        public Image[] images;
         public Sprite[] sprites;
-
+        public Image[] images;
         Image backgroundImage;
 
         void Start() {
