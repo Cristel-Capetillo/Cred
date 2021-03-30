@@ -1,4 +1,5 @@
-﻿using Currency.Coins;
+﻿using System;
+using Currency.Coins;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,8 +18,24 @@ namespace Clothing.Upgrade.Donation {
             coin = FindObjectOfType<Coin>();
             button = GetComponent<Button>();
             confirmButton.interactable = false;
+            EventBroker.Instance().SubscribeMessage<EventUpdateAlternativesButtons>(OnButtonsInteractable);
+            EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
         }
-        void Update() {
+        
+        void OnClosePopUpWindow(EventTogglePopWindow obj) {
+            print("Started!");
+            if (!obj.popWindowIsActive)
+                button.interactable = false;
+            print("Success!");
+        }
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateAlternativesButtons>(OnButtonsInteractable);
+            EventBroker.Instance().UnsubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
+        }
+        
+
+        void OnButtonsInteractable(EventUpdateAlternativesButtons eventUpdateAlternativesButtons) {
             button.interactable = coin.Coins >= coinsToSpend;
         }
 

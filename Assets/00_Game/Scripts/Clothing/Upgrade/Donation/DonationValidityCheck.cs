@@ -25,7 +25,13 @@ namespace Clothing.Upgrade.Donation {
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
             EventBroker.Instance().SubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
+            EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
         }
+        void OnClosePopUpWindow(EventTogglePopWindow obj) {
+            if(!obj.popWindowIsActive)
+                TryRemoveChildren();
+        }
+        
         void Start() {
             donationPopUpWarnings = GetComponent<DonationPopUpWarnings>();
             canvasGroup = GetComponent<CanvasGroup>();
@@ -47,12 +53,8 @@ namespace Clothing.Upgrade.Donation {
                 donationPopUpWarnings.ShowWarningPopUp(eventAddToUpgradeSlot.combinedWearable);
                 return;
             }
-            if (itemToDonateSlot.transform.childCount > 0 ) {
-                Destroy(itemToDonateSlot.transform.GetChild(0).gameObject);
-            }
-            if (upgradedItemSlot.transform.childCount > 0 ) {
-                Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
-            }
+            
+            TryRemoveChildren();
 
             originalWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
             originalWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
@@ -72,7 +74,20 @@ namespace Clothing.Upgrade.Donation {
             upgradedWearable.transform.localPosition = Vector2.zero;
             upgradedWearable.GetComponent<RectTransform>().localScale = scale2;
             Destroy(upgradedItemSlot.GetComponent<Button>());
+
+            EventBroker.Instance().SendMessage(new EventUpdateAlternativesButtons());
         }
+        
+        
+        void TryRemoveChildren() {
+            if (itemToDonateSlot.transform.childCount > 0) {
+                Destroy(itemToDonateSlot.transform.GetChild(0).gameObject);
+            }
+            if (upgradedItemSlot.transform.childCount > 0) {
+                Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
+            }
+        }
+
 
         public bool ValidateItem(CombinedWearables combinedWearables) {
             return combinedWearables.stylePoints < combinedWearables.rarity.MaxValue && 
@@ -101,6 +116,7 @@ namespace Clothing.Upgrade.Donation {
             GenerateNewItem();
             DeactivateWindow();
         }
+        
         void GenerateNewItem() {
             var instance = Instantiate(upgradedWearable);
             instance.isPredefined = false;
@@ -118,6 +134,7 @@ namespace Clothing.Upgrade.Donation {
             
             Destroy(instance.gameObject);
         }
+        
         void DeactivateWindow() {
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
