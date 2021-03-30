@@ -12,7 +12,7 @@ namespace ClientMissions.Hud{
         [SerializeField] TMP_Text requirementText;
         
         [SerializeField] Image clientNarrativePortrait;
-        [SerializeField] GameObject clientMenuUIHolder;
+        [SerializeField] GameObject clientMenuCanvas;
         [SerializeField] GameObject narrativeMissionHolder;
         void Start(){
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(UpdateMissionUI);
@@ -24,7 +24,7 @@ namespace ClientMissions.Hud{
 
         void UpdateMissionUI(SelectMissionMessage selectMissionMessage){
             var missionData = selectMissionMessage.MissionData;
-            clientMenuUIHolder.SetActive(false);
+            clientMenuCanvas.SetActive(false);
             narrativeMissionHolder.SetActive(true);
             clientNarrativePortrait.sprite = missionData.ClientData.Portrait;
             var clubInfo =  missionData.ClientData.ClientDialogData[missionData.SavableDialogData.ClubIndex];
