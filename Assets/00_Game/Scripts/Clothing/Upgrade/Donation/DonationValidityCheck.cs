@@ -1,3 +1,4 @@
+using System;
 using Clothing.Inventory;
 using Currency.Coins;
 using UnityEngine;
@@ -10,17 +11,28 @@ namespace Clothing.Upgrade.Donation {
         public Image upgradedItemSlot;
         DonationPopUpWarnings donationPopUpWarnings;
         public Button[] alternativesButtons;
+        Coin coin;
 
-        void Start() {
+        CombinedWearables originalWearable;
+        CombinedWearables UpgradedWearable;
+        
+        void Awake() {
+            EventBroker.Instance().SubscribeMessage<EventUpdateStylePoints>(UpdateStylePoints);
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
+        }
+        void Start() {
             donationPopUpWarnings = GetComponent<DonationPopUpWarnings>();
+            coin = FindObjectOfType<Coin>();
             foreach (var button in alternativesButtons) {
                 button.interactable = false;
             }
         }
 
+        void UpdateStylePoints(EventUpdateStylePoints eventUpdateStylePoints) {
+            UpgradedWearable.stylePoints += eventUpdateStylePoints.stylePoints;
+        }
+
         public void DoesItemQualifyForDonation(EventAddToUpgradeSlot eventAddToUpgradeSlot) {
-            Debug.Log(eventAddToUpgradeSlot.combinedWearable.Amount);
             if (!ValidateItem(eventAddToUpgradeSlot.combinedWearable)) {
                 donationPopUpWarnings.ShowWarningPopUp(eventAddToUpgradeSlot.combinedWearable);
                 return;
@@ -38,10 +50,10 @@ namespace Clothing.Upgrade.Donation {
             instance.GetComponent<RectTransform>().localScale = scale;
             Destroy(instance.GetComponent<Button>());
             
-            var instance2 = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
+            UpgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
             var scale2 = itemToDonateSlot.GetComponent<RectTransform>().localScale;
-            instance2.transform.localPosition = Vector2.zero;
-            instance2.GetComponent<RectTransform>().localScale = scale2;
+            UpgradedWearable.transform.localPosition = Vector2.zero;
+            UpgradedWearable.GetComponent<RectTransform>().localScale = scale2;
             Destroy(instance.GetComponent<Button>());
         }
 
@@ -49,7 +61,7 @@ namespace Clothing.Upgrade.Donation {
             return combinedWearables.stylePoints < combinedWearables.rarity.MaxValue && 
                    combinedWearables.Amount > 1;
         }
-        
+
         void Update() {
             if (Input.GetKeyDown(KeyCode.C)) {
                 foreach (var test in FindObjectsOfType<CombinedWearables>()) {
@@ -57,6 +69,14 @@ namespace Clothing.Upgrade.Donation {
                 }
                 EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             }
+
+            if (Input.GetKeyDown(KeyCode.G)) {
+                coin.Coins += 1000;
+            }
         }
+
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateStylePoints>(UpdateStylePoints);
+            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);        }
     }
 }

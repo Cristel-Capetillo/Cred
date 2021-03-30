@@ -1,4 +1,5 @@
 ﻿using Currency.Coins;
+using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -31,6 +32,7 @@ namespace Clothing.Upgrade.Donation {
         }
 
         public void ConfirmDonation() {
+            EventBroker.Instance().SendMessage(new EventTogglePopWindow(true));
             coin.Coins -= coins;
             combinedWearables.stylePoints += stylePoints;
         }

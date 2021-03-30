@@ -1,4 +1,5 @@
-﻿using Currency.Coins;
+﻿using System;
+using Currency.Coins;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +8,8 @@ using Utilities;
 namespace Clothing.Upgrade.Donation {
     public class CoinsSpend : MonoBehaviour, IPointerClickHandler {
         [SerializeField] int coinsToSpend;
-        [SerializeField] int stylePointsReward;
+        public int stylePointsReward;
+        DonationValidityCheck donationValidityCheck;
         Coin coin;
         Button button;
 
@@ -17,12 +19,21 @@ namespace Clothing.Upgrade.Donation {
             EventBroker.Instance().SubscribeMessage<EventCoinsDropDown>(ValidateCoins);
         }
 
+        // Put this somewhere else
+        void Update() {
+            if (coin.Coins >= coinsToSpend) {
+                button.interactable = true;
+            }
+        }
+
         void ValidateCoins(EventCoinsDropDown eventCoinsDropDown) {
             button.interactable = coin.Coins > coinsToSpend;
         }
 
         public void OnPointerClick(PointerEventData eventData) {
             EventBroker.Instance().SendMessage(new EventCoinsToSpend(coinsToSpend, stylePointsReward));
+            EventBroker.Instance().SendMessage(new EventUpdateStylePoints(stylePointsReward));
+            button.interactable = false;
         }
 
         void OnDestroy() {

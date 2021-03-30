@@ -35,21 +35,8 @@ namespace Clothing.Inventory {
 
             for (var i = 0; i < wearables.wearable.Count; i++) {
                 var wearable = wearables.wearable[i];
-                switch (i) {
-                    case 0:
-                        colorDataImages[i].enabled = true;
-                        colorDataImages[i].color = wearable.colorData.color;
-                        break;
-                    case 1:
-                        colorDataImages[i].enabled = true;
-                        colorDataImages[i].color = wearable.colorData.color;
-                        break;
-
-                    case 2:
-                        colorDataImages[i].enabled = true;
-                        colorDataImages[i].color = wearable.colorData.color;
-                        break;
-                }
+                colorDataImages[i].enabled = true;
+                colorDataImages[i].color = wearable.colorData.color;
             }
         }
     }
