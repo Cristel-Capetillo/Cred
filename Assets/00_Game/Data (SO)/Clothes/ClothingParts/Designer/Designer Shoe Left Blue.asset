@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b68ed8d3946ac48b6cd95ee8779fed, type: 3}
+  m_Name: Designer Shoe Left Blue
+  m_EditorClassIdentifier: 
+  clothingType: {fileID: 11400000, guid: b814973d171b98648b0a232bb51db6b5, type: 2}
+  texture: {fileID: 2800000, guid: 7ce8ab365244f4047beaed0ffebde421, type: 3}
+  sprite: {fileID: 21300000, guid: 80fe99b88cca9064c84a2c7dfabbe223, type: 3}
+  colorData: {fileID: 11400000, guid: d3a9e0248fc8dab4393b41bad83de8b1, type: 2}
