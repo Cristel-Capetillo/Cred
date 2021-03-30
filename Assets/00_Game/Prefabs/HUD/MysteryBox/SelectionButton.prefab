@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 167405822144678414}
   - component: {fileID: 6615626746500473580}
   - component: {fileID: 7952541250645393383}
-  - component: {fileID: 4411215970920318748}
   m_Layer: 0
   m_Name: SelectionButton
   m_TagString: Untagged
@@ -158,29 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MysteryBoxPrefab: {fileID: 2719187585190524458, guid: 6294612d99ce4b94e91e39b020ef2f49,
     type: 3}
---- !u!114 &4411215970920318748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167405822144678400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/SFX/buttonSoundMenu
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &167405822640075412
 GameObject:
   m_ObjectHideFlags: 0
