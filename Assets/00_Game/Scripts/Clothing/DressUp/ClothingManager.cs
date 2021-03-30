@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Clothing.Inventory;
 using UnityEngine;
 using Utilities;
 
@@ -9,7 +10,6 @@ namespace Clothing.DressUp {
         [SerializeField] List<GameObject> clothingRarities;
         [SerializeField] List<GameObject> clothesCategories;
         [SerializeField] List<GameObject> bodyParts;
-
         [SerializeField] LastKnownClothes lastKnownClothes;
 
         void Awake() {
@@ -97,6 +97,9 @@ namespace Clothing.DressUp {
 
         void DressBodyParts(CombinedWearables combinedWearable) {
             if (combinedWearable == null) return;
+            if (FindObjectOfType<PlayerInventory>().Amount(PlayerInventory.GetName(combinedWearable)) == 0) {
+                EventBroker.Instance().SendMessage(new EventBuyNotOwnedClothes(combinedWearable));
+            }
             //put on the different clothing parts on the different body parts
             foreach (var wearable in combinedWearable.wearable) {
                 foreach (var bodyPart in bodyParts.Where(bodyPart => wearable.ClothingType.name == bodyPart.name)) {

@@ -5,13 +5,12 @@ using Utilities;
 
 namespace Clothing.Inventory {
     public class IconUpdate : MonoBehaviour {
-        CombinedWearables combinedWearables;
-        Image[] images;
         [SerializeField] Text stylePointsText;
         [SerializeField] Text amountText;
         [SerializeField] Image[] colorDataImages;
         CombinedWearables wearables;
         public Sprite[] sprites;
+        public Image[] images;
         Image backgroundImage;
 
         void Start() {

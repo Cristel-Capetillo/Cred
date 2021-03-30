@@ -11,7 +11,6 @@ namespace Clothing.Inventory {
     public class PlayerInventory : MonoBehaviour, ISavable<Dictionary<string, object>> {
         public Transform instanceParent;
         public CombinedWearables combinedWearablesTemplate;
-
         public InventoryData inventoryData;
         SaveHandler saveHandler;
 
