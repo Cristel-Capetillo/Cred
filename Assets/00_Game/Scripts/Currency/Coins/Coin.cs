@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Core;
 using HUD;
 using SaveSystem;
@@ -7,6 +9,8 @@ using Utilities;
 
 namespace Currency.Coins {
     public class Coin : MonoBehaviour, ISavable<string> {
+        [SerializeField] int startingValue = 1000;
+
         SaveHandler saveHandler;
         public int _coin;
         public int Coins {
@@ -47,6 +51,11 @@ namespace Currency.Coins {
         }
 
         public void OnLoad(string value) {
+            if (string.IsNullOrEmpty(value)) {
+                Coins = startingValue;
+                return;
+            }
+            
             Coins = Convert.ToInt32(value);
         }
     }
