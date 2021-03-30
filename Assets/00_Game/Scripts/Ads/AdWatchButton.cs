@@ -23,7 +23,7 @@ namespace Ads {
 
         void AfterLoad(EventAfterLoad afterLoad) {
             if (afterLoad.loadedEventID != LastAdWatched) return;
-            Debug.Log($"{afterLoad.loadedEventID} loading complete.");
+            Debug.Log($"[AdWatchButton_AfterLoad]\n{afterLoad.loadedEventID} loading complete.");
             button.onClick.AddListener(() => FindObjectOfType<AdsManager>().ShowRewardedAd(false));
             button.interactable = timeManager.CanIPlay(durationBetweenAdWatches);
             //Debug.Log("Button interactability set.");

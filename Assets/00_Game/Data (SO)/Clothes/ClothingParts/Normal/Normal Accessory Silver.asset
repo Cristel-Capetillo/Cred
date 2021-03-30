@@ -15,4 +15,4 @@ MonoBehaviour:
   clothingType: {fileID: 11400000, guid: 27c9f248240fc1d44b9c725d7dbe7a82, type: 2}
   texture: {fileID: 2800000, guid: eb46e6f133d62744a8537bff43db56e2, type: 3}
   sprite: {fileID: 21300000, guid: e2c823c8148447f4691ba8b6554c2e63, type: 3}
-  colorData: {fileID: 11400000, guid: 8723060954c91204c953f53a2b469f8b, type: 2}
+  colorData: {fileID: 11400000, guid: 2a1bc312ec720c44aa73be55900d7c79, type: 2}

@@ -447,7 +447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -305, y: -53}
+  m_AnchoredPosition: {x: -305, y: -68}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5279744057832441539
@@ -473,6 +473,7 @@ MonoBehaviour:
   followerSlider: {fileID: 5279744057791954235}
   easyModeEndValue: 0
   hardModeStartValue: 0
+  maxFollowers: 5000
 --- !u!1 &5279744058573268902
 GameObject:
   m_ObjectHideFlags: 0

@@ -521,7 +521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1132, y: -74}
+  m_AnchoredPosition: {x: 1097, y: -116}
   m_SizeDelta: {x: 413.9574, y: 337.6222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6694361601793037907
@@ -1188,6 +1188,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6608751278762654351}
     m_Modifications:
+    - target: {fileID: 1225890040, guid: 1d56202dea76fb24e97d812eb3af3d94, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.86274517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225890040, guid: 1d56202dea76fb24e97d812eb3af3d94, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 0.7019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225890040, guid: 1d56202dea76fb24e97d812eb3af3d94, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0.5647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225890040, guid: 1d56202dea76fb24e97d812eb3af3d94, type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225890040, guid: 1d56202dea76fb24e97d812eb3af3d94, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5364197396290087830, guid: 1d56202dea76fb24e97d812eb3af3d94,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1352,7 +1372,7 @@ PrefabInstance:
     - target: {fileID: 607242705396815413, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -266
+      value: -309
       objectReference: {fileID: 0}
     - target: {fileID: 1328727218923156554, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
@@ -1382,12 +1402,12 @@ PrefabInstance:
     - target: {fileID: 1328727218923156554, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
       propertyPath: m_EffectDistance.x
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1328727218923156554, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
       propertyPath: m_EffectDistance.y
-      value: -2
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3120824091936573957, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
@@ -1573,7 +1593,7 @@ PrefabInstance:
     - target: {fileID: 3120824093629377589, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1139.8
+      value: 1090
       objectReference: {fileID: 0}
     - target: {fileID: 3120824093629377589, guid: b1edbf94d43605642a15f737655f06d8,
         type: 3}
