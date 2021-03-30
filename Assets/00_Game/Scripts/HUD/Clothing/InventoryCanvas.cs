@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Clothing;
 using Clothing.Inventory;
 using Clothing.Upgrade;
+using Clothing.Upgrade.UpCycle;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;

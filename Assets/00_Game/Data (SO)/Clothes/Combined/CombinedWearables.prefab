@@ -659,8 +659,6 @@ GameObject:
   - component: {fileID: 6327582708413130307}
   - component: {fileID: 8960099781882647010}
   - component: {fileID: 7680957452241324409}
-  - component: {fileID: 1859583722209369468}
-  - component: {fileID: 7101229760189856112}
   - component: {fileID: 6128540005919646192}
   - component: {fileID: 563741897846871088}
   - component: {fileID: 5512336892720678117}
@@ -728,7 +726,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6af63b109e941b49a3b62c178c6951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  images: []
+  stylePointsText: {fileID: 8192755302057603611}
+  amountText: {fileID: 2119902803264908992}
+  colorDataImages:
+  - {fileID: 376029294542849438}
+  - {fileID: 7116906927709729947}
+  - {fileID: 5750307777551850683}
+  images:
+  - {fileID: 2332772405122278546}
+  - {fileID: 7151136030502274442}
+  - {fileID: 1319543214285567040}
   sprites:
   - {fileID: 21300000, guid: fcc470684ab144e4cb4159fb3e835671, type: 3}
   - {fileID: 21300000, guid: fef7c686181c73349915aaf2b4ee683b, type: 3}
@@ -746,42 +753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stylePointText: {fileID: 0}
---- !u!114 &1859583722209369468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3991901679735643709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f1dac9cb09415a85261b8796043f70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlockImage: {fileID: 0}
-  amountText: {fileID: 2119902803264908992}
-  colorData:
-  - {fileID: 376029294542849438}
-  - {fileID: 7116906927709729947}
-  - {fileID: 5750307777551850683}
---- !u!114 &7101229760189856112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3991901679735643709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16c967ca6a24900a57aff019e818071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stylePointsText: {fileID: 8192755302057603611}
-  amountText: {fileID: 2119902803264908992}
-  colorDataImages:
-  - {fileID: 376029294542849438}
-  - {fileID: 7116906927709729947}
-  - {fileID: 5750307777551850683}
 --- !u!222 &6128540005919646192
 CanvasRenderer:
   m_ObjectHideFlags: 0

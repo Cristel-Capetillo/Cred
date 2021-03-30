@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using ClientMissions.Controllers;
 using ClientMissions.Data;
 using ClientMissions.Helpers;
-using ClientMissions.Hud;
 using ClientMissions.Messages;
 using ClientMissions.Requirements;
 using Clothing;
@@ -13,12 +11,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace ClientMissions {
+namespace ClientMissions.Controllers {
     public class RequirementsVerifier : MonoBehaviour{
         
         [SerializeField]UnityEvent<bool> onMeetAllRequirements = new UnityEvent<bool>();
         [SerializeField] List<ClothingType> legsClothingTypes = new List<ClothingType>();
-        [SerializeField] List<GameObject> clientGameObjects = new List<GameObject>();
         [SerializeField] GameObject parentGameObject;
         MissionData activeMissionData;
         Dictionary<ClothingType,CombinedWearables> wearablesOnClient = new Dictionary<ClothingType, CombinedWearables>();
@@ -26,31 +23,33 @@ namespace ClientMissions {
         int currentStylePoints;
         
         void Start() {
-            if (FindObjectOfType<ActiveClient>()== null){
-                return;
-            }
-            if (FindObjectOfType<ActiveClient>().ActiveMissionData == null)
-                return;
-            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
-            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
-            var activeMission = FindObjectOfType<ActiveClient>();
-            activeMissionData = activeMission.ActiveMissionData;
-            foreach (var client in clientGameObjects){
-                client.SetActive(client.name == activeMissionData.ClientData.name);
-            }
-            requirements = activeMissionData.Requirements.ToList();
-            
-            if (activeMission.IsNewMission){
-                EventBroker.Instance().SendMessage(new RemoveAllClothes());
-            }
-            parentGameObject.SetActive(true);
-            activeMission.OnStartMission();
+            EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            EventBroker.Instance().SendMessage(new SceneChangeMessage());
         }
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            if(activeMissionData == null || wearablesOnClient.Count == 0)
+                return;
+            EventBroker.Instance().SendMessage(new CurrentMissionClothesMessage(wearablesOnClient));
         }
-
+        void OnGetMissionData(SendActiveMissionMessage missionMessage){
+            if (missionMessage.MissionData.ClientData == null){
+                Debug.Log("No missionData");
+                EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+                return;
+            }
+            wearablesOnClient = missionMessage.CurrentWearables;
+            EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
+            EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            
+            activeMissionData = missionMessage.MissionData;
+            requirements = activeMissionData.Requirements.ToList();
+            parentGameObject.SetActive(true);
+            Invoke(nameof(CheckRequirements), 0.1f);
+        }
         public void OnClickEnterClub(){
             var difficulty = activeMissionData.Difficulty;
             var currencyReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues, 
@@ -75,11 +74,17 @@ namespace ClientMissions {
                 LegsClothingType(combinedWearable.clothingType);
                 AddOrReplaceClothingType(combinedWearable);
             }
+            if(requirements.Count == 0)
+                return;
+            CheckRequirements();
+        }
+        void CheckRequirements(){
             var checkStylePoints = CheckStylePoints();
-            if (CheckAllRequirements() && checkStylePoints) {
+            if (CheckAllRequirements() && checkStylePoints){
                 onMeetAllRequirements?.Invoke(true);
                 return;
             }
+
             onMeetAllRequirements?.Invoke(false);
         }
 

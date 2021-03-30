@@ -8,6 +8,7 @@ using Utilities;
 namespace ClientMissions.Hud {
     public class ClubSuccess : MonoBehaviour {
         [SerializeField] Text rewardText;
+        [SerializeField] Text followersRewardText;
         [SerializeField] Button collectButton;
         [SerializeField] Button mainMenuButton;
 
@@ -26,9 +27,9 @@ namespace ClientMissions.Hud {
             currencyReward = rewardMessage.CurrencyReward;
             followersReward = rewardMessage.FollowersReward;
             //TODO: Currency and Followers!
-            rewardText.text = "Reward: " + rewardMessage.CurrencyReward;
+            rewardText.text = rewardMessage.CurrencyReward.ToString();
+            followersRewardText.text = rewardMessage.FollowersReward.ToString();
         }
-        //TODO: Separate View and controller logic!
         public void CollectReward() {
             EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
             EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));

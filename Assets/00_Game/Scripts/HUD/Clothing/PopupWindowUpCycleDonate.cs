@@ -5,20 +5,17 @@ using Utilities;
 
 namespace HUD.Clothing {
     public class PopupWindowUpCycleDonate : MonoBehaviour {
-        UpcycleWearables upCycleWearables;
 
         [SerializeField] CanvasGroup[] popUpWindows;
 
-        void Start() {
-            upCycleWearables = GetComponent<UpcycleWearables>();
-        }
-
+        
         public void OnClickEnterPopUpWindow(CanvasGroup popupWindow) {
             foreach (var window in popUpWindows) {
                 if (popupWindow == window) {
-                    print(window);
+                    
                     popupWindow.interactable = !popupWindow.interactable;
                     popupWindow.blocksRaycasts = !popupWindow.blocksRaycasts;
+                    EventBroker.Instance().SendMessage(new EventHideUpdateWindows(!popupWindow.interactable));
                     if (popupWindow.interactable) {
                         popupWindow.alpha = 1;
                     }

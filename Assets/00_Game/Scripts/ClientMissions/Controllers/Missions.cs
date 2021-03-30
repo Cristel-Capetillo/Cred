@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
 using ClientMissions.Messages;
+using Clothing.DressUp;
 using Core;
+using UnityEditor.XR;
 using UnityEngine;
+using UnityEngine.Events;
 using Utilities;
 using Utilities.Time;
 
@@ -12,6 +15,7 @@ namespace ClientMissions.Controllers {
     public class Missions : MonoBehaviour{
         
         const int MaxCurrentMissions = 3;
+        [SerializeField] UnityEvent<bool> activateButtons = new UnityEvent<bool>();
         [SerializeField] ClientButton clientUiPrefab;
         [SerializeField] Transform contentParent;
         [SerializeField] int missionTimerInSec = 60;
@@ -21,17 +25,20 @@ namespace ClientMissions.Controllers {
         ISavedMission savedMission;
         Initializer initializer;
         Generator generator;
+        static int firstStartTime = 1;
         
         List<MissionData> activeMissions = new List<MissionData>();
 
         IEnumerator Start(){
             initializer = GetComponent<Initializer>();
             savedMission = initializer.GetMissionHolder();
-            yield return new WaitForSeconds(1f);
             generator = initializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
+            yield return new WaitForSeconds(firstStartTime);//TODO: Change to wait for time manager to complete...
             InstantiateMissionUI();
             CheckMissions();
+            activateButtons?.Invoke(true);
+            firstStartTime = 0;
         }
 
         void OnDestroy(){
@@ -43,16 +50,16 @@ namespace ClientMissions.Controllers {
                 Debug.Log("CurrentMission == null");
                 return;
             }
-            var anyMissionToRemove = savedMission.RemoveMission(currentMission.SavableMissionData);
-            Debug.Log("Any mission to remove? " + anyMissionToRemove);
+            savedMission.RemoveMission(currentMission.SavableMissionData);
             CheckMissions();
         }
 
         public void OnStartMission(){
-            if (currentMission == null){
+            if (currentMission.ClientData == null){
                 Debug.LogWarning("CurrentMission is null!");
                 return;
             }
+            EventBroker.Instance().SendMessage(new RemoveAllClothes());
             EventBroker.Instance().SendMessage(new ActiveMissionMessage(currentMission));
             EventBroker.Instance().SendMessage(new EventSceneLoad("DressupScene"));
         }
