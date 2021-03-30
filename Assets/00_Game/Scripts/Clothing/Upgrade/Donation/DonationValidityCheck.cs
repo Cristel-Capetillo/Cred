@@ -25,8 +25,11 @@ namespace Clothing.Upgrade.Donation {
                 donationPopUpWarnings.ShowWarningPopUp(eventAddToUpgradeSlot.combinedWearable);
                 return;
             }
-            if (itemToDonateSlot.transform.childCount > 0) {
+            if (itemToDonateSlot.transform.childCount > 0 ) {
                 Destroy(itemToDonateSlot.transform.GetChild(0).gameObject);
+            }
+            if (upgradedItemSlot.transform.childCount > 0 ) {
+                Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
             }
 
             var instance = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
