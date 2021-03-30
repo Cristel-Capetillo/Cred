@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa42e0a9ec24e49912c133ae3d2756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsToSpend: 1000
+  coinsToSpend: 500
   stylePointsReward: 1
   confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &2549068346804787412
@@ -779,7 +779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "1000 for \n1 stylepoint"
+  m_Text: "500 for \n1 stylepoint"
 --- !u!1 &4275651007614679675
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,14 +966,14 @@ RectTransform:
   m_GameObject: {fileID: 5692537098205303855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.0490811, y: 1.0490811, z: 1.0490811}
   m_Children: []
   m_Father: {fileID: 5997847193396813078}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -511, y: -106}
+  m_AnchoredPosition: {x: -520, y: -106}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2936889164872138739
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa42e0a9ec24e49912c133ae3d2756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsToSpend: 2000
+  coinsToSpend: 1000
   stylePointsReward: 2
   confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &7403202188177995942
@@ -1285,7 +1285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "3000 for\n 3 stylepoint"
+  m_Text: "1500 for\n 3 stylepoint"
 --- !u!1 &7485032035604805426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa42e0a9ec24e49912c133ae3d2756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsToSpend: 3000
+  coinsToSpend: 1500
   stylePointsReward: 3
   confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &7633893612794707281
@@ -1648,7 +1648,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2000 for \n2 stylepoint"
+  m_Text: "1000 for \n2 stylepoint"
 --- !u!1 &8283611491594646559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,14 +1677,14 @@ RectTransform:
   m_GameObject: {fileID: 8283611491594646559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.0490811, y: 1.0490811, z: 1.0490811}
   m_Children: []
   m_Father: {fileID: 5997847193396813078}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -316, y: -106}
+  m_AnchoredPosition: {x: -323, y: -106}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &689402847501003590
