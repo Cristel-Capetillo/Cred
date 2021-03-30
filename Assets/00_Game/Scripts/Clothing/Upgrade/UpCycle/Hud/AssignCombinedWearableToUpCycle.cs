@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Clothing.Inventory;
 using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -51,6 +52,7 @@ namespace Clothing.Upgrade.UpCycle {
 
 
             EventBroker.Instance().SendMessage(new EventAddToUpgradeSlot(combinedWearable));
+            //EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         }
     }
 }

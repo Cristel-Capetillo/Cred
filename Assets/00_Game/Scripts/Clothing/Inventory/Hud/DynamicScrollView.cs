@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using Utilities;
 
 namespace Clothing.Inventory {
@@ -21,7 +19,11 @@ namespace Clothing.Inventory {
 
         void CalculateHeight(EventUpdateWearableHud contentHeight) {
             var rect = thisRect.sizeDelta;
-            rect.y = childRects.Sum(x => x.sizeDelta.y);
+            var tmp = 0;
+            foreach (var t in childRects) {
+                tmp += t.childCount;
+            }
+            rect.y = childRects.Sum(x => x.sizeDelta.y + tmp);
 
 
             thisRect.sizeDelta = rect;

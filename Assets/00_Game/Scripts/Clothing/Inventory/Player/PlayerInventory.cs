@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SaveSystem;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 using Utilities;
 
 namespace Clothing.Inventory {
@@ -99,7 +100,6 @@ namespace Clothing.Inventory {
             combinedWearablesDic[id] = wearable;
             wearable.ShouldBeInteractable();
             EventBroker.Instance().SendMessage(new EventSortInventory());
-            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
             saveHandler.Save(this);
         }
 
@@ -161,7 +161,6 @@ namespace Clothing.Inventory {
 
         IEnumerator CallVariousEvents() {
             EventBroker.Instance().SendMessage(new EventSpawnPredefinedWearables(GetCombinedWearablesDictionary(), false));
-            EventBroker.Instance().SendMessage(new EventUpdateWearableInfo());
             yield return new WaitForSeconds(1f);
             EventBroker.Instance().SendMessage(new EventSortInventory());
             yield return null;
