@@ -7,8 +7,6 @@ using Utilities;
 namespace Clothing.Upgrade.Donation {
     public class Donate : MonoBehaviour {
         CombinedWearables combinedWearables;
-        int coins;
-        int stylePoints;
         Coin coin;
         Button button;
 
@@ -26,15 +24,7 @@ namespace Clothing.Upgrade.Donation {
         }
 
         void AssignedCoins(EventCoinsToSpend eventCoinsToSpend) {
-            coins = eventCoinsToSpend.coins;
-            stylePoints = eventCoinsToSpend.stylePoints;
             ActivateButton();
-        }
-
-        public void ConfirmDonation() {
-            EventBroker.Instance().SendMessage(new EventTogglePopWindow(true));
-            coin.Coins -= coins;
-            combinedWearables.stylePoints += stylePoints;
         }
 
         void ActivateButton() {

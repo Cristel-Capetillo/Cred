@@ -1,4 +1,3 @@
-using System;
 using Clothing.Inventory;
 using Currency.Coins;
 using UnityEngine;
@@ -7,15 +6,18 @@ using Utilities;
 
 namespace Clothing.Upgrade.Donation {
     public class DonationValidityCheck : MonoBehaviour {
+        DonationPopUpWarnings donationPopUpWarnings;
+        Coin coin;
         public Image itemToDonateSlot;
         public Image upgradedItemSlot;
-        DonationPopUpWarnings donationPopUpWarnings;
+        
         public Button[] alternativesButtons;
-        Coin coin;
         int upgradedOriginalStylePoints;
+        CanvasGroup canvasGroup;
+        int costOfDonation;
 
         CombinedWearables originalWearable;
-        CombinedWearables UpgradedWearable;
+        CombinedWearables upgradedWearable;
         
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
@@ -23,6 +25,7 @@ namespace Clothing.Upgrade.Donation {
         }
         void Start() {
             donationPopUpWarnings = GetComponent<DonationPopUpWarnings>();
+            canvasGroup = GetComponent<CanvasGroup>();
             coin = FindObjectOfType<Coin>();
             foreach (var button in alternativesButtons) {
                 button.interactable = false;
@@ -30,8 +33,9 @@ namespace Clothing.Upgrade.Donation {
         }
 
         void UpdateStylePoints(EventCoinsToSpend eventCoinsToSpend) {
-            UpgradedWearable.stylePoints = eventCoinsToSpend.stylePoints + upgradedOriginalStylePoints;
-            UpgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
+            costOfDonation = eventCoinsToSpend.coins;
+            upgradedWearable.stylePoints = eventCoinsToSpend.stylePoints + upgradedOriginalStylePoints;
+            upgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
         }
 
         public void DoesItemQualifyForDonation(EventAddToUpgradeSlot eventAddToUpgradeSlot) {
@@ -46,24 +50,24 @@ namespace Clothing.Upgrade.Donation {
                 Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
             }
 
-            var instance = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
-            instance.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
-            instance.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
-            instance.GetComponent<IconUpdate>().UpdateInformation();
+            originalWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
+            originalWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
+            originalWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
+            originalWearable.GetComponent<IconUpdate>().UpdateInformation();
             var scale = itemToDonateSlot.GetComponent<RectTransform>().localScale;
-            instance.transform.localPosition = Vector2.zero;
-            instance.GetComponent<RectTransform>().localScale = scale;
-            Destroy(instance.GetComponent<Button>());
+            originalWearable.transform.localPosition = Vector2.zero;
+            originalWearable.GetComponent<RectTransform>().localScale = scale;
+            Destroy(originalWearable.GetComponent<Button>());
             
-            UpgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
-            UpgradedWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
-            UpgradedWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
-            upgradedOriginalStylePoints = UpgradedWearable.stylePoints;
-            UpgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
+            upgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
+            upgradedWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
+            upgradedWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
+            upgradedOriginalStylePoints = upgradedWearable.stylePoints;
+            upgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
             var scale2 = itemToDonateSlot.GetComponent<RectTransform>().localScale;
-            UpgradedWearable.transform.localPosition = Vector2.zero;
-            UpgradedWearable.GetComponent<RectTransform>().localScale = scale2;
-            Destroy(instance.GetComponent<Button>());
+            upgradedWearable.transform.localPosition = Vector2.zero;
+            upgradedWearable.GetComponent<RectTransform>().localScale = scale2;
+            Destroy(upgradedItemSlot.GetComponent<Button>());
         }
 
         public bool ValidateItem(CombinedWearables combinedWearables) {
@@ -87,6 +91,38 @@ namespace Clothing.Upgrade.Donation {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
             EventBroker.Instance().UnsubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
+        }
+        public void OnConfirm() {
+            coin.Coins -= costOfDonation;
+            GenerateNewItem();
+            DeactivateWindow();
+        }
+        void GenerateNewItem() {
+            var instance = Instantiate(upgradedWearable);
+            instance.isPredefined = false;
+            instance.GetComponent<IconUpdate>().UpdateImages();
+            instance.GetComponent<IconUpdate>().UpdateInformation();
+            
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(upgradedWearable, 1));
+            EventBroker.Instance().SendMessage(new EventShowReward(instance));
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
+            
+            Destroy(instance.gameObject);
+        }
+        void DeactivateWindow() {
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.alpha = 0;
+
+            EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
+            Debug.Log(gameObject.name);
+            if (itemToDonateSlot.transform.childCount > 0) {
+                Destroy(itemToDonateSlot.transform.GetChild(0).gameObject);
+            }
+            if (upgradedItemSlot.transform.childCount > 0) {
+                Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
+            }
         }
     }
 }

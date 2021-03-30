@@ -13,13 +13,12 @@ namespace Clothing.Upgrade.Donation {
         Coin coin;
         Button button;
 
-        void Start() { 
+        void Start() {
             coin = FindObjectOfType<Coin>();
             button = GetComponent<Button>();
             EventBroker.Instance().SubscribeMessage<EventCoinsDropDown>(ValidateCoins);
         }
 
-        // Put this somewhere else
         void Update() {
             if (coin.Coins >= coinsToSpend) {
                 button.interactable = true;

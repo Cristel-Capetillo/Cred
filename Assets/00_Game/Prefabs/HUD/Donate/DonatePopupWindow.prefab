@@ -476,7 +476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 1000
   stylePointsReward: 1
-  newStylePointsText: {fileID: 6657219027605014377}
 --- !u!1 &2549068346804787412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 2000
   stylePointsReward: 2
-  newStylePointsText: {fileID: 6657219027605014377}
 --- !u!1 &7403202188177995942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 3000
   stylePointsReward: 3
-  newStylePointsText: {fileID: 6657219027605014377}
 --- !u!1 &7633893612794707281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,9 +1540,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7782899448275855386}
-        m_TargetAssemblyTypeName: Clothing.Upgrade.Donation.Donate, ScriptDefinition
-        m_MethodName: ConfirmDonation
+      - m_Target: {fileID: 3181361459326931019}
+        m_TargetAssemblyTypeName: Clothing.Upgrade.Donation.DonationValidityCheck,
+          ScriptDefinition
+        m_MethodName: OnConfirm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
