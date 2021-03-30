@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Currency.Coins;
 using UnityEngine;
 using Utilities;
@@ -25,6 +26,9 @@ namespace Clothing.Inventory {
             var price = GetPrice(wearable.rarity);
             if (coins.Coins >= price) {
                 coins.Coins -= price;
+                UnityEngine.Analytics.Analytics.CustomEvent("Store", new Dictionary<string, object> {
+                    {"Purchased", wearable.ToString()}
+                });
                 EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearable, 1));
                 EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             }
