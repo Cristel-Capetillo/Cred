@@ -114,10 +114,7 @@ namespace Clothing.Inventory {
         }
 
         public void OnLoad(Dictionary<string, object> value) {
-            //combinedWearableDataToSave = value;
-            
-            NoSaveFileFound();
-            return;
+            combinedWearableDataToSave = value;
 
             if (value == null) {
                 NoSaveFileFound();
