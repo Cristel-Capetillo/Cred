@@ -28,12 +28,10 @@ namespace Ads {
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult) {
             if (showResult == ShowResult.Finished) {
                 EventBroker.Instance().SendMessage(new EventAdWatched(doubleMyRewards)); //watch ad to earn coins
-            }
-            else if (showResult == ShowResult.Failed) {
-                Debug.Log("Error while trying to watch ad");
-            }
-            else if (showResult == ShowResult.Skipped) {
-                Debug.Log("Ha ha u tried to skip the ad I see.. no reward for u p*ssy");
+            } else if (showResult == ShowResult.Failed) {
+                Debug.Log("[AdsManager_OnUnityAdsDidFinish]\nError while trying to watch ad");
+            } else if (showResult == ShowResult.Skipped) {
+                Debug.Log("[AdsManager_OnUnityAdsDidFinish]\nHa ha u tried to skip the ad I see.. no reward for u p*ssy");
             }
         }
 
@@ -42,12 +40,12 @@ namespace Ads {
         }
 
         public void OnUnityAdsDidError(string message) {
-            Debug.Log("Ad got an error");
+            Debug.Log("[AdsManager_OnUnityAdsDidError]\nAd got an error");
         }
 
         public void OnUnityAdsDidStart(string placementId) {
             // Stuff to do when the ad starts
-            Debug.Log("Ad started");
+            Debug.Log("[AdsManager_OnUnityAdsDidStart]\nAd started");
         }
     }
 }

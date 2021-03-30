@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
 using Clothing.Inventory;
-using Clothing.Upgrade.UpCycle;
-using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
-using UnityEngine.Analytics;
 
-namespace Clothing.Upgrade {
+namespace Clothing.Upgrade.UpCycle {
     public class UpcycleWearables : MonoBehaviour {
         readonly Dictionary<string, Rarity> combineWearablesDic = new Dictionary<string, Rarity>();
 
@@ -18,6 +14,7 @@ namespace Clothing.Upgrade {
 
         List<CombinedWearables> wearableInSlots = new List<CombinedWearables>();
         CanvasGroup canvasGroup;
+
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignUpCycleSlot);
@@ -53,9 +50,13 @@ namespace Clothing.Upgrade {
 
                 if (slots[i].transform.childCount < 1) {
                     var instance = Instantiate(combinedWearables, slots[i].transform, true);
+                    instance.Amount = combinedWearables.Amount;
+                    instance.stylePoints = combinedWearables.stylePoints;
                     var scale = combinedWearables.GetComponent<RectTransform>().localScale;
                     instance.transform.localPosition = Vector2.zero;
                     instance.GetComponent<RectTransform>().localScale = scale;
+
+                    instance.GetComponent<IconUpdate>().UpdateInformation();
                     Destroy(instance.GetComponent<AssignCombinedWearableToUpCycle>());
                     Destroy(instance.GetComponent<Button>());
                     combineWearablesDic[PlayerInventory.GetName(combinedWearables)] = combinedWearables.rarity;
@@ -92,7 +93,9 @@ namespace Clothing.Upgrade {
             instance.rarity = wearableInSlots[0].rarity;
             instance.clothingType = wearableInSlots[0].clothingType;
             instance.stylePoints = wearableInSlots[0].stylePoints;
+            instance.stylePoints = wearableInSlots[0].Amount;
             instance.isPredefined = false;
+            instance.GetComponent<IconUpdate>().UpdateImages();
 
             AssignWearableSlots(wearableInSlots, instance);
 
@@ -100,6 +103,7 @@ namespace Clothing.Upgrade {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
             EventBroker.Instance().SendMessage(new EventShowReward(instance));
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
 
             RecordAnalytics(instance);
 

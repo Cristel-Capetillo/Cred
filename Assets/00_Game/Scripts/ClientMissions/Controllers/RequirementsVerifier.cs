@@ -29,20 +29,26 @@ namespace ClientMissions.Controllers {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             if(activeMissionData == null || wearablesOnClient.Count == 0)
                 return;
             EventBroker.Instance().SendMessage(new CurrentMissionClothesMessage(wearablesOnClient));
         }
         void OnGetMissionData(SendActiveMissionMessage missionMessage){
-            wearablesOnClient.Clear();
+            if (missionMessage.MissionData.ClientData == null){
+                Debug.Log("No missionData");
+                EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+                return;
+            }
             wearablesOnClient = missionMessage.CurrentWearables;
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(OnReset);
+            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
+            
             activeMissionData = missionMessage.MissionData;
             requirements = activeMissionData.Requirements.ToList();
             parentGameObject.SetActive(true);
-            EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
-            CheckRequirements();//TODO: invoke in 0.1f?????
+            Invoke(nameof(CheckRequirements), 0.1f);
         }
         public void OnClickEnterClub(){
             var difficulty = activeMissionData.Difficulty;
@@ -68,6 +74,8 @@ namespace ClientMissions.Controllers {
                 LegsClothingType(combinedWearable.clothingType);
                 AddOrReplaceClothingType(combinedWearable);
             }
+            if(requirements.Count == 0)
+                return;
             CheckRequirements();
         }
         void CheckRequirements(){

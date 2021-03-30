@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ClientMissions.Requirements;
 
+
 namespace ClientMissions.Data {
     public class MissionData {
         public MissionDifficulty Difficulty{ get; }

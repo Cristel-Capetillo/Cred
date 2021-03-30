@@ -1,5 +1,4 @@
-﻿using System;
-using Clothing.Upgrade;
+﻿using Clothing.Upgrade;
 using Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -32,6 +31,7 @@ namespace Clothing.Inventory {
 
         public void ToggleInventory(CanvasGroup scrollView) {
             EventBroker.Instance().SendMessage(new EventHideUpdateWindows(true));
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             EventBroker.Instance().SendMessage(new EventUpdateCombinedUI(null));
             ChangeCanvasGroupValues(!scrollView.interactable, scrollView);
