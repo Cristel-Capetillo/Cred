@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4427bd674e184da6a5ceef49f64c03de, type: 3}
   m_Name: HardPresetMission
   m_EditorClassIdentifier: 
-  minimumStylePoints: 10
+  minimumStylePoints: 7
   maximumStylePoints: 50
-  maxCurrencyReward: 500
-  minCurrencyReward: 300
+  maxCurrencyReward: 900
+  minCurrencyReward: 700
   maxFollowersReward: 70
   minFollowersReward: 25
   numberOfRequirements: 3
