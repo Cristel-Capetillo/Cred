@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 476751378931537043}
   - component: {fileID: 5198916694241875168}
   - component: {fileID: 2873371242401039170}
+  - component: {fileID: 4590011741055610536}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -307,6 +308,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4590011741055610536}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4590011741055610536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540632356301227453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 0
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1781317946886046827
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +435,7 @@ GameObject:
   - component: {fileID: 5159268907010207110}
   - component: {fileID: 3143682420052623388}
   - component: {fileID: 8179104320012791741}
+  - component: {fileID: 8498169850873550113}
   m_Layer: 5
   m_Name: Donate1000Button
   m_TagString: Untagged
@@ -507,7 +544,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5159268907010207110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8498169850873550113}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8179104320012791741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +572,29 @@ MonoBehaviour:
   coinsToSpend: 500
   stylePointsReward: 1
   confirmButton: {fileID: 3723743968072022717}
+--- !u!114 &8498169850873550113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946168899439141353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &2549068346804787412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1200,7 @@ GameObject:
   - component: {fileID: 6877416158597121497}
   - component: {fileID: 383083020892821441}
   - component: {fileID: 5831079243261472898}
+  - component: {fileID: 7161145457549506934}
   m_Layer: 5
   m_Name: Donate2000Button
   m_TagString: Untagged
@@ -1236,7 +1309,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6877416158597121497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7161145457549506934}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5831079243261472898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,6 +1337,29 @@ MonoBehaviour:
   coinsToSpend: 1000
   stylePointsReward: 2
   confirmButton: {fileID: 3723743968072022717}
+--- !u!114 &7161145457549506934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247949624457843410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7403202188177995942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1452,7 @@ GameObject:
   - component: {fileID: 7222334546099341592}
   - component: {fileID: 4481320818697953606}
   - component: {fileID: 469221178949308679}
+  - component: {fileID: 8011273501754137888}
   m_Layer: 5
   m_Name: Donate3000Button
   m_TagString: Untagged
@@ -1452,7 +1561,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7222334546099341592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8011273501754137888}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &469221178949308679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,6 +1589,29 @@ MonoBehaviour:
   coinsToSpend: 1500
   stylePointsReward: 3
   confirmButton: {fileID: 3723743968072022717}
+--- !u!114 &8011273501754137888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485032035604805426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7633893612794707281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1625,7 @@ GameObject:
   - component: {fileID: 1352196014405877786}
   - component: {fileID: 3723743968072022717}
   - component: {fileID: 7782899448275855386}
+  - component: {fileID: 3625623468662883201}
   m_Layer: 5
   m_Name: DonateConfirmButton
   m_TagString: Untagged
@@ -1603,6 +1748,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3625623468662883201}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7782899448275855386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1772,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b41f5368d144309fcaf54e7e7cb221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3625623468662883201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633893612794707281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/donateButton
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &8188675365827479414
 GameObject:
   m_ObjectHideFlags: 0

@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 563741897846871088}
   - component: {fileID: 5512336892720678117}
   - component: {fileID: 6691914469624754001}
+  - component: {fileID: -4871826639316774428}
   m_Layer: 0
   m_Name: CombinedWearables
   m_TagString: Untagged
@@ -712,6 +713,8 @@ MonoBehaviour:
   clothingType: {fileID: 11400000, guid: 286fd214d89c28345b050181bdf2979d, type: 2}
   rarity: {fileID: 11400000, guid: c582d3ff7f618144c84e8b879158c6bb, type: 2}
   stylePoints: 3
+  rewardMessage: 
+  showText: 0
   isPredefined: 1
   canvasGroup: {fileID: 6691914469624754001}
 --- !u!114 &8960099781882647010
@@ -732,14 +735,14 @@ MonoBehaviour:
   - {fileID: 376029294542849438}
   - {fileID: 7116906927709729947}
   - {fileID: 5750307777551850683}
-  images:
-  - {fileID: 2332772405122278546}
-  - {fileID: 7151136030502274442}
-  - {fileID: 1319543214285567040}
   sprites:
   - {fileID: 21300000, guid: fcc470684ab144e4cb4159fb3e835671, type: 3}
   - {fileID: 21300000, guid: fef7c686181c73349915aaf2b4ee683b, type: 3}
   - {fileID: 21300000, guid: 07ee7d4bad184334fbe571c9ecde1f42, type: 3}
+  images:
+  - {fileID: 2332772405122278546}
+  - {fileID: 7151136030502274442}
+  - {fileID: 1319543214285567040}
 --- !u!114 &7680957452241324409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +837,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 563741897846871088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4871826639316774428}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &6691914469624754001
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -847,6 +862,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-4871826639316774428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991901679735643709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundClothes
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &4869062844941136838
 GameObject:
   m_ObjectHideFlags: 0
