@@ -5,7 +5,6 @@ using ClientMissions.Data;
 using ClientMissions.Messages;
 using Clothing.DressUp;
 using Core;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;

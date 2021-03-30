@@ -18,7 +18,7 @@ namespace ClientMissions.Requirements{
             return combinedWearables.rarity == Rarity && combinedWearables.clothingType == ClothingType && 
                    combinedWearables.wearable.Any(wearable => wearable.colorData == ColorData);
         }
-
+ 
         public override string ToString(){
             return $"{ColorData.name} {Rarity.name.ToLower()} {ClothingType.SingularName.ToLower()}.";
         }
