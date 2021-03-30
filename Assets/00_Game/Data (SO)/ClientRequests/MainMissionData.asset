@@ -22,19 +22,13 @@ MonoBehaviour:
   easyModeEndValue: 200
   hardModeStartValue: 1000
   colors:
-  - {fileID: 11400000, guid: d53ff53941cdcbb4fa2f4c245a980c34, type: 2}
   - {fileID: 11400000, guid: 86ca8bf00e5f82e4a82fffcf22db6307, type: 2}
   - {fileID: 11400000, guid: d3a9e0248fc8dab4393b41bad83de8b1, type: 2}
-  - {fileID: 11400000, guid: 9053a0a44287916418d6488e2ba54697, type: 2}
-  - {fileID: 11400000, guid: 57730928a517945428a70b32efeb1367, type: 2}
-  - {fileID: 11400000, guid: 9d35b25ee60319245b10489f235b5263, type: 2}
   - {fileID: 11400000, guid: ba98bb311a824f44892b37af1cae5a38, type: 2}
   - {fileID: 11400000, guid: 2a1bc312ec720c44aa73be55900d7c79, type: 2}
   - {fileID: 11400000, guid: d9977e18cf77f8148ab5d1b5ac809586, type: 2}
-  - {fileID: 11400000, guid: d8707b35512e0ca4caf40ac61456b09c, type: 2}
   - {fileID: 11400000, guid: ed86d007de9f5814b98db8882cfa1aeb, type: 2}
   - {fileID: 11400000, guid: e3fafea2feaebf44da5cef039104a41d, type: 2}
-  - {fileID: 11400000, guid: 8723060954c91204c953f53a2b469f8b, type: 2}
   - {fileID: 11400000, guid: bd266e6369b4b16459e5fd40438afeb4, type: 2}
   - {fileID: 11400000, guid: 2e924441e43957a479205bbf573e0e28, type: 2}
   rarities:
