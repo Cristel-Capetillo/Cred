@@ -1,5 +1,4 @@
 ﻿using Currency.Coins;
-using HUD.Clothing;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -7,15 +6,16 @@ using Utilities;
 namespace Clothing.Upgrade.Donation {
     public class Donate : MonoBehaviour {
         CombinedWearables combinedWearables;
+        CoinsSpend coinsSpend;
         Coin coin;
         Button button;
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(AssignedWearable);
             EventBroker.Instance().SubscribeMessage<EventCoinsToSpend>(AssignedCoins);
+            coinsSpend = FindObjectOfType<CoinsSpend>();
             coin = FindObjectOfType<Coin>();
             button = GetComponent<Button>();
-
         }
 
         void AssignedWearable(EventAddToUpgradeSlot eventAddToUpgradeSlot) {
@@ -26,9 +26,9 @@ namespace Clothing.Upgrade.Donation {
         void AssignedCoins(EventCoinsToSpend eventCoinsToSpend) {
             ActivateButton();
         }
-
+        
         void ActivateButton() {
-            button.interactable = coin.Coins > 0 && combinedWearables != null;
+            button.interactable = coin.Coins >= coinsSpend.coinsToSpend && combinedWearables != null;
         }
 
         void OnDestroy() {
