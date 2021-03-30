@@ -129,7 +129,7 @@ namespace Clothing.Upgrade.UpCycle {
 
             combineWearablesDic.Clear();
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
-
+            Debug.Log(gameObject.name);
             if (slots[0].transform.childCount > 0) {
                 Destroy(slots[0].transform.GetChild(0).gameObject);
             }

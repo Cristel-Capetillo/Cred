@@ -32,8 +32,6 @@ namespace Clothing.Upgrade.Donation {
 
         public void OnPointerClick(PointerEventData eventData) {
             EventBroker.Instance().SendMessage(new EventCoinsToSpend(coinsToSpend, stylePointsReward));
-            EventBroker.Instance().SendMessage(new EventUpdateStylePoints(stylePointsReward));
-            button.interactable = false;
         }
 
         void OnDestroy() {
