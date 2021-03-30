@@ -103,6 +103,8 @@ MonoBehaviour:
   - {fileID: 3143682420052623388}
   - {fileID: 383083020892821441}
   - {fileID: 4481320818697953606}
+  confirmButton: {fileID: 3723743968072022717}
+  upgradedStylePointsText: {fileID: 0}
 --- !u!114 &79621796259647640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 1000
   stylePointsReward: 1
+  confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &2549068346804787412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 2000
   stylePointsReward: 2
+  confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &7403202188177995942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsToSpend: 3000
   stylePointsReward: 3
+  confirmButton: {fileID: 3723743968072022717}
 --- !u!1 &7633893612794707281
 GameObject:
   m_ObjectHideFlags: 0

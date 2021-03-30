@@ -15,6 +15,9 @@ namespace Clothing.Upgrade.Donation {
         int upgradedOriginalStylePoints;
         CanvasGroup canvasGroup;
         int costOfDonation;
+        int upgradedStylePoints;
+
+        public Button confirmButton;
 
         CombinedWearables originalWearable;
         CombinedWearables upgradedWearable;
@@ -34,6 +37,7 @@ namespace Clothing.Upgrade.Donation {
 
         void UpdateStylePoints(EventCoinsToSpend eventCoinsToSpend) {
             costOfDonation = eventCoinsToSpend.coins;
+            upgradedStylePoints = upgradedWearable.stylePoints;
             upgradedWearable.stylePoints = eventCoinsToSpend.stylePoints + upgradedOriginalStylePoints;
             upgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
         }
@@ -102,6 +106,10 @@ namespace Clothing.Upgrade.Donation {
             instance.isPredefined = false;
             instance.GetComponent<IconUpdate>().UpdateImages();
             instance.GetComponent<IconUpdate>().UpdateInformation();
+            var text = upgradedWearable.GetComponent<Text>();
+            text.gameObject.SetActive(true);
+            text.text = "+" + upgradedStylePoints;
+            
             
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(upgradedWearable, 1));
@@ -114,6 +122,7 @@ namespace Clothing.Upgrade.Donation {
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0;
+            confirmButton.interactable = false;
 
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             Debug.Log(gameObject.name);

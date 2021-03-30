@@ -16,6 +16,7 @@ namespace Clothing.Upgrade.Donation {
         void Start() {
             coin = FindObjectOfType<Coin>();
             button = GetComponent<Button>();
+            confirmButton.interactable = false;
         }
         void Update() {
             button.interactable = coin.Coins >= coinsToSpend;
