@@ -12,6 +12,8 @@ namespace Clothing.Inventory {
         public Image[] images;
         Image backgroundImage;
 
+        int imagesToHaveActive;
+
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventUpdateWearableHud>(UpdateImagesEvent);
         }
@@ -31,6 +33,7 @@ namespace Clothing.Inventory {
         }
 
         void DisableImages() {
+            imagesToHaveActive = 0;
             images[0].enabled = false;
             images[1].enabled = false;
             images[2].enabled = false;
@@ -110,11 +113,27 @@ namespace Clothing.Inventory {
                         break;
                     case 1:
                         colorDataImages[i].enabled = true;
+                        if (wearable.colorData == wearables.wearable[i - 1].colorData) {
+                            colorDataImages[i].enabled = false;
+                            continue;
+                        }
+
                         colorDataImages[i].color = wearable.colorData.color;
                         break;
 
                     case 2:
                         colorDataImages[i].enabled = true;
+                        if (wearable.colorData == wearables.wearable[i - 1].colorData) {
+                            colorDataImages[i].enabled = false;
+                            continue;
+                        }
+
+                        if (!colorDataImages[i - 1].enabled) {
+                            colorDataImages[i - 1].enabled = true;
+                            colorDataImages[i - 1].color = wearable.colorData.color;
+                            break;
+                        }
+
                         colorDataImages[i].color = wearable.colorData.color;
                         break;
                 }

@@ -26,6 +26,7 @@ namespace ClientMissions.Controllers {
         Initializer initializer;
         Generator generator;
         static int firstStartTime = 1;
+        TimeManager timeManager;
         
         List<MissionData> activeMissions = new List<MissionData>();
 
@@ -35,6 +36,7 @@ namespace ClientMissions.Controllers {
             generator = initializer.CreateMissionGenerator();
             EventBroker.Instance().SubscribeMessage<SelectMissionMessage>(SelectMission);
             yield return new WaitForSeconds(firstStartTime);//TODO: Change to wait for time manager to complete...
+            timeManager = FindObjectOfType<TimeManager>();
             InstantiateMissionUI();
             CheckMissions();
             activateButtons?.Invoke(true);
@@ -85,7 +87,7 @@ namespace ClientMissions.Controllers {
         }
 
         List<SavableMissionData> TimeCheck(List<SavableMissionData> savableMissionDatas){
-            var dateTime = FindObjectOfType<TimeManager>().timeHandler.GetTime();
+            var dateTime = timeManager.timeHandler.GetTime();
             var unixTimestamp = TimeDateConverter.ToUnixTimestamp(dateTime);
             var tempList = savableMissionDatas.ToArray();
             foreach (var savableMission in tempList){
@@ -107,9 +109,12 @@ namespace ClientMissions.Controllers {
                 clientButtons.Add(Instantiate(clientUiPrefab, contentParent));
             }
         }
-        void SendMissionData(List<MissionData> missionData){
+        void SendMissionData(List<MissionData> missionData) {
+            var dateTime = timeManager.timeHandler.GetTime();
+            var currentUnixTime = TimeDateConverter.ToUnixTimestamp(dateTime);
             for (var i = 0; i < clientButtons.Count; i++){
-                clientButtons[i].Setup(missionData[i]);
+                clientButtons[i].Setup(missionData[i], missionTimerInSec, currentUnixTime);
+                
             }
         }
     }

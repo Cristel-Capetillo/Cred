@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9369c43edb448eaeb2349af6acd81d, type: 3}
   m_Name: Yellow
   m_EditorClassIdentifier: 
-  color: {r: 0.9921569, g: 0.97647065, b: 0.06666667, a: 1}
+  color: {r: 0.9245283, g: 0.8194711, b: 0.2843361, a: 1}
