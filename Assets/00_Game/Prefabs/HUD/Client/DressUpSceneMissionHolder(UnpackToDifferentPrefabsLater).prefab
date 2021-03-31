@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 4168075346388467755}
   - component: {fileID: 4168075346388467752}
   - component: {fileID: 4618513577221719958}
+  - component: {fileID: 1909427004970387704}
   m_Layer: 5
   m_Name: EnterClubButton
   m_TagString: Untagged
@@ -586,6 +587,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &1909427004970387704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168075346388467766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4168075347155600235
 GameObject:
   m_ObjectHideFlags: 0

@@ -1583,6 +1583,7 @@ GameObject:
   - component: {fileID: 7895579537093705436}
   - component: {fileID: 448263545801561139}
   - component: {fileID: 3342051152686602368}
+  - component: {fileID: 3342051152686602369}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -1649,6 +1650,18 @@ MonoBehaviour:
             m_Type: System.String
             m_EnumType: 
     m_Name: MYEvent
+--- !u!114 &3342051152686602369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342051152686602367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6243065444108816886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1921,7 +1934,7 @@ PrefabInstance:
     - target: {fileID: 2228005476428263278, guid: 32406e18d90f2a5419a0cb694649efca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 454.41
+      value: 434
       objectReference: {fileID: 0}
     - target: {fileID: 2228005476428263278, guid: 32406e18d90f2a5419a0cb694649efca,
         type: 3}

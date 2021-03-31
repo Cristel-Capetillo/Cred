@@ -400,7 +400,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PURCHASE MYSTERY BOX 300 COINS
+  m_Text: PURCHASE MYSTERY BOX 200 COINS
 --- !u!114 &5411108880963622768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 2434024103300549854}
   - component: {fileID: 6227794578218534079}
   - component: {fileID: 3038929155172391248}
+  - component: {fileID: 1178889105772811052}
   m_Layer: 0
   m_Name: Exit button
   m_TagString: Untagged
@@ -623,6 +624,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1178889105772811052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046411336754786046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7111118725526614534
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +649,7 @@ GameObject:
   - component: {fileID: 3591353231589881177}
   - component: {fileID: 323197794970766369}
   - component: {fileID: 3437978856214997002}
+  - component: {fileID: 3134632886943081803}
   m_Layer: 0
   m_Name: Payment Button
   m_TagString: Untagged
@@ -769,7 +783,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0386fb203fa0432584fa6bd1e2c1c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysteryBoxPrice: 300
+  mysteryBoxPrice: 200
+--- !u!114 &3134632886943081803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111118725526614534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7277075292625849129
 GameObject:
   m_ObjectHideFlags: 0

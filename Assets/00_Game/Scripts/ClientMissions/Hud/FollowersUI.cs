@@ -1,4 +1,5 @@
 using ClientMissions.Messages;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -6,6 +7,7 @@ using Utilities;
 namespace ClientMissions.Hud{
     public class FollowersUI : MonoBehaviour{
         [SerializeField]Slider followerSlider;
+        [SerializeField] TMP_Text followersText;
         [SerializeField]int easyModeEndValue;
         [SerializeField]int hardModeStartValue;
         [SerializeField] int maxFollowers = 5000;
@@ -27,21 +29,25 @@ namespace ClientMissions.Hud{
             hardModeStartValue = followersDifficultyMessage.HardModeStartValue;
         }
         void OnSliderUIValueChange(UpdateUIFollowersMessage updateUIFollowersMessage){
+            var currentFollowersText = updateUIFollowersMessage.Followers.ToString("Followers: 0");
             if (updateUIFollowersMessage.Followers <= easyModeEndValue){
                 followerSlider.maxValue = easyModeEndValue;
                 followerSlider.minValue = 0;
                 followerSlider.value = updateUIFollowersMessage.Followers;
+                followersText.text = $"{currentFollowersText}/{easyModeEndValue}";
                 return;
             }
             if (updateUIFollowersMessage.Followers >= hardModeStartValue){
                 followerSlider.minValue = hardModeStartValue;
                 followerSlider.maxValue = maxFollowers;
                 followerSlider.value = updateUIFollowersMessage.Followers;
+                followersText.text = $"{currentFollowersText}/{maxFollowers}";
                 return;
             }
             followerSlider.minValue = easyModeEndValue;
             followerSlider.maxValue = hardModeStartValue;
             followerSlider.value = updateUIFollowersMessage.Followers;
+            followersText.text = $"{currentFollowersText}/{hardModeStartValue}";
         }
     }
 }

@@ -31,7 +31,7 @@ namespace ClientMissions.Hud{
             storyText.text = clubInfo.Dialog[missionData.SavableDialogData.DialogIndex];
             requirementText.text = "";
             foreach (var requirement in missionData.Requirements){
-                requirementText.text += $"\n {requirement}";
+                requirementText.text += $"\n{requirement}";
             }
             clientRequirementHeaderText.text = $"{missionData.ClientData.name}s requests: ";
         }

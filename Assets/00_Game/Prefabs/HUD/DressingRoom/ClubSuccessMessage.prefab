@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 4237401935138790614}
   - component: {fileID: 7266134349622209929}
   - component: {fileID: 8216926038047480005}
+  - component: {fileID: 4198987332659291144}
   m_Layer: 5
   m_Name: CollectButton
   m_TagString: Untagged
@@ -422,6 +423,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &4198987332659291144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817088969335701303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4002724888028039231
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +956,7 @@ GameObject:
   - component: {fileID: 4002724889599470076}
   - component: {fileID: 2952732418980562836}
   - component: {fileID: 7661917811055745416}
+  - component: {fileID: 1304478950664261161}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -1111,6 +1125,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &1304478950664261161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002724889599470074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4020736330539485920
 GameObject:
   m_ObjectHideFlags: 0
