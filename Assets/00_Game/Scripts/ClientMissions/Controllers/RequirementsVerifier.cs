@@ -12,6 +12,7 @@ using Clothing.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
+using FMODUnity;
 
 namespace ClientMissions.Controllers {
     public class RequirementsVerifier : MonoBehaviour {
@@ -22,7 +23,7 @@ namespace ClientMissions.Controllers {
         Dictionary<ClothingType, CombinedWearables> wearablesOnClient = new Dictionary<ClothingType, CombinedWearables>();
         List<IMissionRequirement> requirements = new List<IMissionRequirement>();
         int currentStylePoints;
-        public GameObject testBgMusic;
+        public GameObject testBgMusic;//
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
@@ -55,18 +56,17 @@ namespace ClientMissions.Controllers {
             Invoke(nameof(CheckRequirements), 0.1f);
         }
 
-        public void OnClickEnterClub(GameObject gameObject) {
+        public void OnClickEnterClub() {
             var difficulty = activeMissionData.Difficulty;
             var currencyReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues,
                 currentStylePoints, difficulty.MaxCurrencyReward, difficulty.MINCurrencyReward);
             var followersReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues,
                 currentStylePoints, difficulty.MAXFollowersReward, difficulty.MINFollowersReward);
-            gameObject.SetActive(true);
-            testBgMusic.SetActive(false);
-            FindObjectOfType<ClubSuccess>().ShowReward(currencyReward, followersReward);
+            
             foreach (var client in wearablesOnClient) {
                 EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(client.Value, -1));
             }
+            EventBroker.Instance().SendMessage(new ShowRewardMessage(currencyReward, followersReward));
         }
 
         void OnReset(RemoveAllClothes obj) {

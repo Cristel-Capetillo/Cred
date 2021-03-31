@@ -24,32 +24,19 @@ namespace ClientMissions.Hud {
 
       
         void Start() {
-            //EventBroker.Instance().SubscribeMessage<ShowRewardMessage>(ShowReward);
+            EventBroker.Instance().SubscribeMessage<ShowRewardMessage>(ShowReward);
         }
 
         void OnDestroy() {
-            //EventBroker.Instance().UnsubscribeMessage<ShowRewardMessage>(ShowReward);
+            EventBroker.Instance().UnsubscribeMessage<ShowRewardMessage>(ShowReward);
         }
-        
-        public void ShowReward(int currencyReward, int followersMessage) {
+        void ShowReward(ShowRewardMessage rewardMessage) {
             GetComponent<Canvas>().enabled = true;
-            this.currencyReward = currencyReward;
-            followersReward = followersMessage;
-            //TODO: Currency and Followers!
-            rewardText.text = currencyReward.ToString();
-            followersRewardText.text = followersMessage.ToString();
+            currencyReward = rewardMessage.CurrencyReward;
+            followersReward = rewardMessage.FollowersReward;
+            rewardText.text = rewardMessage.CurrencyReward.ToString();
+            followersRewardText.text = rewardMessage.FollowersReward.ToString();
         }
-        
-        // void ShowReward(ShowRewardMessage rewardMessage) {
-        //     GetComponent<Canvas>().enabled = true;
-        //     currencyReward = rewardMessage.CurrencyReward;
-        //     followersReward = rewardMessage.FollowersReward;
-        //     //TODO: Currency and Followers!
-        //     rewardText.text = rewardMessage.CurrencyReward.ToString();
-        //     followersRewardText.text = rewardMessage.FollowersReward.ToString();
-        // }
-
-     
         public void CollectReward() {
             EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
             EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
