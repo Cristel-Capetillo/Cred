@@ -15,7 +15,9 @@ namespace ClientMissions.Hud {
 
         int currencyReward;
         int followersReward;
-        public int divider = 10;
+        
+        [SerializeField] [Tooltip("Set the amount of coins to be displayed when pressing collect button")]
+        float animatedCoinsDivider = 10f;
         public float secondsBetweenCoins = .05f;
         public GameObject coinItem;
         public Transform coinFeatures;
@@ -28,6 +30,7 @@ namespace ClientMissions.Hud {
         void OnDestroy() {
             //EventBroker.Instance().UnsubscribeMessage<ShowRewardMessage>(ShowReward);
         }
+        
         public void ShowReward(int currencyReward, int followersMessage) {
             GetComponent<Canvas>().enabled = true;
             this.currencyReward = currencyReward;
@@ -36,6 +39,7 @@ namespace ClientMissions.Hud {
             rewardText.text = currencyReward.ToString();
             followersRewardText.text = followersMessage.ToString();
         }
+        
         // void ShowReward(ShowRewardMessage rewardMessage) {
         //     GetComponent<Canvas>().enabled = true;
         //     currencyReward = rewardMessage.CurrencyReward;
@@ -52,11 +56,11 @@ namespace ClientMissions.Hud {
             EventBroker.Instance().SendMessage(new RemoveAllClothes());
             mainMenuButton.gameObject.SetActive(true);
             collectButton.gameObject.SetActive(false);
-            StartCoroutine(SpawnCoins(currencyReward/divider));
-           
+            StartCoroutine(SpawnCoins(currencyReward/animatedCoinsDivider));
         }
+        
 
-        IEnumerator SpawnCoins(int quantity)
+        IEnumerator SpawnCoins(float quantity)
         {
             for(int i = 0; i < quantity; i++)
             {
