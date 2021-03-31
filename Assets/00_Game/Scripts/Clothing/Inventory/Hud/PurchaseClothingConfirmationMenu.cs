@@ -1,4 +1,5 @@
 using System;
+using Clothing.DressUp;
 using Clothing.Upgrade;
 using Clothing.Upgrade.UpCycle;
 using UnityEngine;
@@ -14,14 +15,16 @@ namespace Clothing.Inventory {
         [SerializeField] string purchaseTextPrefix;
         [SerializeField] float sizeToDisplayReward = 4f;
         [SerializeField] RectTransform rectTransform;
+        ClothingManager clothingManager;
 
-        void Start() {
+        void Awake() {
             foreach (var clothingsInConfirmationMenu in FindObjectsOfType<PurchaseClothingConfirmationMenu>()) {
                 if (clothingsInConfirmationMenu != this) {
                     Destroy(clothingsInConfirmationMenu.gameObject);
                 }
             }
 
+            clothingManager = FindObjectOfType<ClothingManager>();
             closeButton.onClick.AddListener(() => Destroy(gameObject));
             EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(OnEventUpdateInventory);
             EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(OnHideMenu);
@@ -29,7 +32,7 @@ namespace Clothing.Inventory {
 
         public void Setup(CombinedWearables combinedWearables) {
             purchaseItemText.text = $"{purchaseTextPrefix} {combinedWearables.rarity.name} {combinedWearables.clothingType.SingularName}?";
-            buyButton.GetComponentInChildren<Text>().text = BuyNotOwnedClothes.GetPrice(combinedWearables.rarity).ToString();
+            buyButton.GetComponentInChildren<Text>().text = clothingManager.GetPrice(combinedWearables.rarity).ToString();
             ShowItemToBuy(combinedWearables);
         }
 
