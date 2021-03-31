@@ -85,6 +85,7 @@ namespace Clothing.Inventory {
 
             combinedWearableDataToSave[id] = temporaryData[id];
             EventBroker.Instance().SendMessage(new EventSortInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateAmount(id, Convert.ToInt32(temporaryData[id][InventoryData.Amount])));
             saveHandler.Save(this);
         }
 
