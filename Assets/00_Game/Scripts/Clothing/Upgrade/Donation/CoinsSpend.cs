@@ -24,10 +24,8 @@ namespace Clothing.Upgrade.Donation {
         }
         
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
-            print("Started!");
             if (!obj.popWindowIsActive)
                 button.interactable = false;
-            print("Success!");
         }
 
         void OnDestroy() {

@@ -29,6 +29,13 @@ namespace Clothing.Upgrade.Donation {
             EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
             EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(HideWindow);
         }
+        
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
+            EventBroker.Instance().UnsubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
+            EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(HideWindow);
+        }
+        
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
             if(!obj.popWindowIsActive)
                 TryRemoveChildren();
@@ -102,9 +109,9 @@ namespace Clothing.Upgrade.Donation {
                    combinedWearables.Amount > 1;
         }
         
-        public bool CheckForMaxStylePoints(int ButtonStylePoints) {
+        public bool CheckForMaxStylePoints(int buttonStylePoints) {
             if (originalWearable == null) return false;
-            return ButtonStylePoints + originalWearable.stylePoints <= originalWearable.rarity.MaxValue;
+            return buttonStylePoints + originalWearable.stylePoints <= originalWearable.rarity.MaxValue;
         }
 
         public void OnConfirm() {
@@ -146,14 +153,9 @@ namespace Clothing.Upgrade.Donation {
                 Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
             }
         }
+        
         public void CloseWindow() {
             DeactivateWindow();
-        }
-        
-        void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
-            EventBroker.Instance().UnsubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
-            EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(HideWindow);
         }
     }
 }
