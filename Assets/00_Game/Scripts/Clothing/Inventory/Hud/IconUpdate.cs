@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -12,6 +13,7 @@ namespace Clothing.Inventory {
         public Image[] images;
         Image backgroundImage;
 
+        public int theAmount;
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventUpdateWearableHud>(UpdateImagesEvent);
         }
@@ -37,6 +39,8 @@ namespace Clothing.Inventory {
         public void UpdateImages() {
             wearables = GetComponent<CombinedWearables>();
             backgroundImage = GetComponent<Image>();
+            theAmount = wearables.Amount;
+            //print($"{wearables.ToString()}  the amount is {wearables.Amount}");
             DisableImages();
             ValidateRarity();
 
