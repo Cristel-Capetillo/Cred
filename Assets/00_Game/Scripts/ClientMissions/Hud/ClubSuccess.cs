@@ -4,6 +4,7 @@ using Currency.Coins;
 using UnityEngine; 
 using UnityEngine.UI;
 using Utilities;
+using System.Collections;
 
 namespace ClientMissions.Hud {
     public class ClubSuccess : MonoBehaviour {
@@ -14,6 +15,12 @@ namespace ClientMissions.Hud {
 
         int currencyReward;
         int followersReward;
+        public int divider = 10;
+        public float secondsBetweenCoins = .05f;
+        public GameObject coinItem;
+        public Transform coinFeatures;
+
+      
         void Start() {
             //EventBroker.Instance().SubscribeMessage<ShowRewardMessage>(ShowReward);
         }
@@ -37,12 +44,26 @@ namespace ClientMissions.Hud {
         //     rewardText.text = rewardMessage.CurrencyReward.ToString();
         //     followersRewardText.text = rewardMessage.FollowersReward.ToString();
         // }
+
+     
         public void CollectReward() {
             EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
             EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
             EventBroker.Instance().SendMessage(new RemoveAllClothes());
             mainMenuButton.gameObject.SetActive(true);
             collectButton.gameObject.SetActive(false);
+            StartCoroutine(SpawnCoins(currencyReward/divider));
+           
+        }
+
+        IEnumerator SpawnCoins(int quantity)
+        {
+            for(int i = 0; i < quantity; i++)
+            {
+                GameObject go = Instantiate(coinItem, coinFeatures);
+                go.transform.SetParent(coinFeatures);
+                yield return new WaitForSeconds(secondsBetweenCoins);
+            }
         }
     }
 }
