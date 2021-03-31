@@ -13,6 +13,7 @@ namespace Clothing.Upgrade.Donation {
         Coin coin;
         Button button;
         public Button confirmButton;
+        public Text equalSignText;
 
         void Start() {
             coin = FindObjectOfType<Coin>();
@@ -24,8 +25,10 @@ namespace Clothing.Upgrade.Donation {
         }
         
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
-            if (!obj.popWindowIsActive)
+            if (!obj.popWindowIsActive) {
                 button.interactable = false;
+                equalSignText.gameObject.SetActive(false);
+            }
         }
 
         void OnDestroy() {
@@ -40,6 +43,7 @@ namespace Clothing.Upgrade.Donation {
 
         public void OnPointerClick(PointerEventData eventData) {
             if (coin.Coins >= coinsToSpend && button.interactable) {
+                equalSignText.gameObject.SetActive(true);
                 confirmButton.interactable = true;
                 EventBroker.Instance().SendMessage(new EventCoinsToSpend(coinsToSpend, stylePointsReward));
             }

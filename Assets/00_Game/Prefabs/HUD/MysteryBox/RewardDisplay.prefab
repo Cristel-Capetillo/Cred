@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2238348709274651118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeToDisplayReward: 2
   rewardText: {fileID: 4373392689809986199}
+  rewardMessage: 
 --- !u!1001 &2549340618952524031
 PrefabInstance:
   m_ObjectHideFlags: 0

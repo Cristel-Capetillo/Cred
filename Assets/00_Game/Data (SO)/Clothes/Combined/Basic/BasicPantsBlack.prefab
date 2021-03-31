@@ -7,6 +7,43 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 376029294542849438, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.15220721
+      objectReference: {fileID: 0}
+    - target: {fileID: 376029294542849438, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.15220721
+      objectReference: {fileID: 0}
+    - target: {fileID: 376029294542849438, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.16037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 563741897846871088, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcc470684ab144e4cb4159fb3e835671,
+        type: 3}
+    - target: {fileID: 1319543214285567040, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34d853395537d494685303696abd0810,
+        type: 3}
+    - target: {fileID: 2119902803264908992, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Text
+      value: x3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332772405122278546, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3991901679735643709, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: m_Name
@@ -67,6 +104,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5750307777551850683, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6327582708413130307, guid: 2689c02d88ed6414fb7533a4aa434213,
         type: 3}
       propertyPath: rarity
@@ -105,6 +147,27 @@ PrefabInstance:
         type: 3}
       propertyPath: wearable.Array.data[2]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116906927709729947, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151136030502274442, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6491894a11a521b448da668f73537728,
+        type: 3}
+    - target: {fileID: 8192755302057603611, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960099781882647010, guid: 2689c02d88ed6414fb7533a4aa434213,
+        type: 3}
+      propertyPath: theAmount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2689c02d88ed6414fb7533a4aa434213, type: 3}

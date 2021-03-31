@@ -11,9 +11,11 @@ namespace HUD.MysteryBox {
         [SerializeField] float sizeToDisplayReward = 4f;
         [SerializeField] Text rewardText;
         DonationValidityCheck donationValidityCheck;
+        public string rewardMessage;
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventShowReward>(ShowReward);
+            rewardText.text = "";
         }
 
         void OnDisable() {
@@ -23,9 +25,11 @@ namespace HUD.MysteryBox {
         void ShowReward(EventShowReward eventShowReward) {
             var reward = eventShowReward.Reward;
             var instance = Instantiate(reward.gameObject, this.transform);
-            if (reward.showText) {
-                rewardText.text = reward.rewardMessage;
-                rewardText.gameObject.SetActive(true);
+            if (eventShowReward.textAmount > 0) {
+                rewardText.text = rewardMessage + eventShowReward.textAmount;
+            }
+            else {
+                rewardText.text = rewardMessage;
             }
 
             for (var i = 1; i < instance.transform.childCount; i++) {
@@ -41,8 +45,8 @@ namespace HUD.MysteryBox {
             while (!Input.GetKeyDown(KeyCode.Mouse0)) {
                 yield return null;
             }
+            rewardText.text = "";
             donationValidityCheck = FindObjectOfType<DonationValidityCheck>();
-            rewardText.gameObject.SetActive(false);
             donationValidityCheck.stylePointsBackground.gameObject.SetActive(false);
             EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             Destroy(go);

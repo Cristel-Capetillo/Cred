@@ -1,5 +1,6 @@
 using Clothing.Inventory;
 using Currency.Coins;
+using HUD.MysteryBox;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -7,22 +8,23 @@ using Utilities;
 namespace Clothing.Upgrade.Donation {
     public class DonationValidityCheck : MonoBehaviour {
         DonationPopUpWarnings donationPopUpWarnings;
+        CoinsSpend coinsSpend;
         Coin coin;
+        
+        public RewardDisplay rewardDisplay;
         public Image itemToDonateSlot;
         public Image upgradedItemSlot;
         public Image stylePointsBackground;
-
+        
+        public Button confirmButton;
         public Button[] alternativesButtons;
         int upgradedOriginalStylePoints;
-        CanvasGroup canvasGroup;
         int costOfDonation;
         int upgradedStylePoints;
-
-        public Button confirmButton;
+        CanvasGroup canvasGroup;
 
         CombinedWearables originalWearable;
-        [HideInInspector]
-        public CombinedWearables upgradedWearable;
+        CombinedWearables upgradedWearable;
         
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
@@ -38,6 +40,9 @@ namespace Clothing.Upgrade.Donation {
         }
         
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
+            if(rewardDisplay != null) {
+                rewardDisplay.gameObject.SetActive(obj.popWindowIsActive);
+            }
             if(!obj.popWindowIsActive)
                 TryRemoveChildren();
         }
@@ -51,6 +56,7 @@ namespace Clothing.Upgrade.Donation {
         void Start() {
             donationPopUpWarnings = GetComponent<DonationPopUpWarnings>();
             canvasGroup = GetComponent<CanvasGroup>();
+            coinsSpend = FindObjectOfType<CoinsSpend>();
             coin = FindObjectOfType<Coin>();
             foreach (var button in alternativesButtons) {
                 button.interactable = false;
@@ -70,8 +76,9 @@ namespace Clothing.Upgrade.Donation {
                 return;
             }
             
+            donationPopUpWarnings.DisableWarning();
             TryRemoveChildren();
-
+            
             originalWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, itemToDonateSlot.transform, true);
             originalWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
             originalWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
@@ -83,7 +90,7 @@ namespace Clothing.Upgrade.Donation {
             originalWearable.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
             upgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
-            upgradedWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
+            upgradedWearable.Amount = 1;
             upgradedWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
             upgradedOriginalStylePoints = upgradedWearable.stylePoints;
             upgradedWearable.GetComponent<IconUpdate>().UpdateInformation();
@@ -119,6 +126,7 @@ namespace Clothing.Upgrade.Donation {
             coin.Coins -= costOfDonation;
             GenerateNewItem();
             DeactivateWindow();
+            Debug.Log(coinsSpend.equalSignText.gameObject.activeSelf);
         }
         
         void GenerateNewItem() {
@@ -126,15 +134,11 @@ namespace Clothing.Upgrade.Donation {
             instance.isPredefined = false;
             instance.GetComponent<IconUpdate>().UpdateImages();
             instance.GetComponent<IconUpdate>().UpdateInformation();
-
-            instance.rewardMessage = "+" + (upgradedWearable.stylePoints - upgradedOriginalStylePoints);
-            instance.showText = true;
             stylePointsBackground.gameObject.SetActive(true);
-            
-            
+
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
-            EventBroker.Instance().SendMessage(new EventShowReward(instance));
+            EventBroker.Instance().SendMessage(new EventShowReward(instance,upgradedWearable.stylePoints - upgradedOriginalStylePoints));
             EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             
             Destroy(instance.gameObject);
@@ -145,6 +149,7 @@ namespace Clothing.Upgrade.Donation {
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0;
             confirmButton.interactable = false;
+            coinsSpend.equalSignText.gameObject.SetActive(false);
 
             EventBroker.Instance().SendMessage(new EventTogglePopWindow(false));
             Debug.Log(gameObject.name);

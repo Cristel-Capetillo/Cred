@@ -14,9 +14,6 @@ namespace Clothing {
         public Rarity rarity;
         public int stylePoints;
 
-        public string rewardMessage;
-        public bool showText;
-
         public bool isPredefined = true;
 
         [SerializeField] CanvasGroup canvasGroup;
