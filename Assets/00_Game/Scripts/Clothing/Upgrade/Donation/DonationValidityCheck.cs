@@ -20,7 +20,8 @@ namespace Clothing.Upgrade.Donation {
         public Button confirmButton;
 
         CombinedWearables originalWearable;
-        CombinedWearables upgradedWearable;
+        [HideInInspector]
+        public CombinedWearables upgradedWearable;
         
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
@@ -71,7 +72,8 @@ namespace Clothing.Upgrade.Donation {
             originalWearable.transform.localPosition = Vector2.zero;
             originalWearable.GetComponent<RectTransform>().localScale = scale;
             Destroy(originalWearable.GetComponent<Button>());
-            
+            originalWearable.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
             upgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
             upgradedWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
             upgradedWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
@@ -80,11 +82,11 @@ namespace Clothing.Upgrade.Donation {
             var scale2 = itemToDonateSlot.GetComponent<RectTransform>().localScale;
             upgradedWearable.transform.localPosition = Vector2.zero;
             upgradedWearable.GetComponent<RectTransform>().localScale = scale2;
+            upgradedWearable.GetComponent<CanvasGroup>().blocksRaycasts = false;
             Destroy(upgradedItemSlot.GetComponent<Button>());
 
             EventBroker.Instance().SendMessage(new EventUpdateAlternativesButtons());
         }
-        
         
         void TryRemoveChildren() {
             if (itemToDonateSlot.transform.childCount > 0) {
@@ -105,18 +107,6 @@ namespace Clothing.Upgrade.Donation {
             return ButtonStylePoints + originalWearable.stylePoints <= originalWearable.rarity.MaxValue;
         }
 
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.C)) {
-                foreach (var test in FindObjectsOfType<CombinedWearables>()) {
-                    test.Amount++;
-                }
-                EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
-            }
-
-            if (Input.GetKeyDown(KeyCode.G)) {
-                coin.Coins += 1000;
-            }
-        }
         public void OnConfirm() {
             coin.Coins -= costOfDonation;
             GenerateNewItem();
@@ -134,7 +124,7 @@ namespace Clothing.Upgrade.Donation {
             
             
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));
-            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(upgradedWearable, 1));
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
             EventBroker.Instance().SendMessage(new EventShowReward(instance));
             EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             

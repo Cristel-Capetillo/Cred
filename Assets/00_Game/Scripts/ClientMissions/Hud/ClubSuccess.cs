@@ -1,4 +1,5 @@
 using ClientMissions.Messages;
+using Clothing.DressUp;
 using Currency.Coins;
 using UnityEngine; 
 using UnityEngine.UI;
@@ -32,6 +33,7 @@ namespace ClientMissions.Hud {
         public void CollectReward() {
             EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
             EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
+            EventBroker.Instance().SendMessage(new RemoveAllClothes());
             mainMenuButton.gameObject.SetActive(true);
             collectButton.gameObject.SetActive(false);
         }
