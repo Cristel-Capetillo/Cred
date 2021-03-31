@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6548222257854516150}
   - component: {fileID: 3446214196095727129}
   - component: {fileID: 1032539317506726336}
-  - component: {fileID: 7746112397704483099}
   m_Layer: 5
   m_Name: DonateButton
   m_TagString: Untagged
@@ -169,18 +168,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
---- !u!114 &7746112397704483099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497385297460255136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1401580019087964995
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +580,6 @@ GameObject:
   - component: {fileID: 4982278976357367642}
   - component: {fileID: 4982278976357367643}
   - component: {fileID: 3123319135674148002}
-  - component: {fileID: 2653063302853175894}
   m_Layer: 5
   m_Name: Categories
   m_TagString: InventoryButtons
@@ -752,18 +738,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
---- !u!114 &2653063302853175894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4982278976357367653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5118281687988113121
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +815,6 @@ GameObject:
   - component: {fileID: 7598840616605331537}
   - component: {fileID: 6628080061962604803}
   - component: {fileID: 1083025266026477007}
-  - component: {fileID: 825931744961937128}
   m_Layer: 5
   m_Name: UpcycleButton
   m_TagString: Untagged
@@ -997,18 +970,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
---- !u!114 &825931744961937128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8248691506846594734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1764309105015066908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,15 +1332,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d8f2f690dbeca4da9ba144456419d4, type: 3}
---- !u!225 &4093987154014910654 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 7695077916500382395, guid: d3d8f2f690dbeca4da9ba144456419d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 5916229319354968581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6564616673135875274 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 648693362856672975, guid: d3d8f2f690dbeca4da9ba144456419d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5916229319354968581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &4093987154014910654 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7695077916500382395, guid: d3d8f2f690dbeca4da9ba144456419d4,
     type: 3}
   m_PrefabInstance: {fileID: 5916229319354968581}
   m_PrefabAsset: {fileID: 0}
