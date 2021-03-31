@@ -29,4 +29,12 @@ MonoBehaviour:
   - "Hello there! It\u2019s time to get my FREAK on tonight at The Hole! Oh no..
     I didn\u2019t mean it like that\u2026 I\u2019m seeing a girl named Sianca\u2026.
     Just make me look good."
+  - "Hello. I\u2019m very upset at every club. Apparently only ONE argument can get
+    you banned for a month, I\u2019ll go undercover at The Hole tonight they won\u2019t
+    recognize me. Give me something to blend in with"
+  - "Oh well. I can\u2019t say I\u2019m happy with my new colleague, but since I\u2019m
+    SUCH a nice guy I have to buy him a drink. Make me look better than him."
+  - "Well Well Well, I see your business is growing. Thanks to me. You\u2019re welcome.
+    To celebrate your success, create a look that will leave everyone shook. I\u2019m
+    thinking choker?"
   clubData: {fileID: 11400000, guid: a79c609553e786b4798a5657dcae62ec, type: 2}
