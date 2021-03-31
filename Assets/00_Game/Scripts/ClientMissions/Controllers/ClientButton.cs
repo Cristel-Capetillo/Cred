@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using ClientMissions.Data;
-using ClientMissions.Hud;
 using ClientMissions.Messages;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
 using FMODUnity;
-using Random = UnityEngine.Random;
 
 namespace ClientMissions.Controllers{
     public class ClientButton : MonoBehaviour, IPointerClickHandler{
@@ -18,6 +14,7 @@ namespace ClientMissions.Controllers{
         [SerializeField] Image timerImage;
         [SerializeField] TextMeshProUGUI nameText;
         [SerializeField, Range(1,60)] int updateFrequency = 10;
+        const string fmodEventPath = "event:/Menu/";
         long maxTime;
         long currentTime;
         public MissionData MissionData{ get; private set; }
@@ -49,7 +46,7 @@ namespace ClientMissions.Controllers{
         }
         public void OnPointerClick(PointerEventData eventData){
             EventBroker.Instance().SendMessage(new SelectMissionMessage(MissionData));
-            RuntimeManager.PlayOneShot($"event:/{MissionData.ClientData.name}VO");
+            RuntimeManager.PlayOneShot($"{fmodEventPath}{MissionData.ClientData.name}VO");
         }
     }
 }
