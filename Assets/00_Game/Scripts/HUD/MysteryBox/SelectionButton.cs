@@ -17,8 +17,6 @@ namespace HUD.MysteryBox {
             mysteryBoxInventory = FindObjectOfType<MysteryBoxInventory>();
             button.interactable = mysteryBoxInventory.Owned > 0;
             EventBroker.Instance().SubscribeMessage<EventMysteryBoxBought>(ShouldBeActive);
-            
-            Debug.Log("Selection Menu Spawned, Mystery Boxes Owned : " +mysteryBoxInventory.Owned);
         }
 
         void OnDestroy() {

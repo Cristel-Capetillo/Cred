@@ -53,16 +53,17 @@ namespace HUD.MysteryBox {
             Destroy(this.gameObject);
         }
         
-        static List<int> GenerateRandomNumbers(int quantity, int rangeMin, int rangeMax) {
+        List<int> GenerateRandomNumbers(int quantity, int rangeMin, int rangeMax) {
             var randomNumbers = new List<int>();
 
-            for (int i = 0; i < quantity; i++) {
+            while (randomNumbers.Count < quantity) {
                 var tmpRandom = Random.Range(rangeMin, rangeMax);
-                if (randomNumbers.Contains(tmpRandom)) {
-                    i--;
-                    break;
-                }
-                randomNumbers.Add(tmpRandom);
+                if(!randomNumbers.Contains(tmpRandom))
+                    randomNumbers.Add(tmpRandom);
+            }
+
+            foreach (var number in randomNumbers) {
+                Debug.Log("Normal Loot in box : " +(number+1));
             }
             return randomNumbers;
         }
