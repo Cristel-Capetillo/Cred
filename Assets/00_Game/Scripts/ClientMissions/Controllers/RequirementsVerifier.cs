@@ -64,7 +64,9 @@ namespace ClientMissions.Controllers {
             gameObject.SetActive(true);
             testBgMusic.SetActive(false);
             FindObjectOfType<ClubSuccess>().ShowReward(currencyReward, followersReward);
-            //EventBroker.Instance().SendMessage(new ShowRewardMessage(currencyReward, followersReward));
+            foreach (var client in wearablesOnClient) {
+                EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(client.Value, -1));
+            }
         }
 
         void OnReset(RemoveAllClothes obj) {
