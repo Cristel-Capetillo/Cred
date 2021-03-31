@@ -50,6 +50,7 @@ namespace Clothing.Upgrade.Donation {
         void HideWindow(EventHideUpdateWindows window) {
             if (window.shouldHide) {
                 DeactivateWindow();
+                donationPopUpWarnings.DisableWarning();
             }
         }
         
@@ -163,6 +164,7 @@ namespace Clothing.Upgrade.Donation {
         
         public void CloseWindow() {
             DeactivateWindow();
+            donationPopUpWarnings.DisableWarning();
         }
     }
 }

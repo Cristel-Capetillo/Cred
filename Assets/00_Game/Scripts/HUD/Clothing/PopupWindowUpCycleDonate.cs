@@ -1,4 +1,6 @@
-﻿using Clothing.Upgrade;
+﻿using System;
+using Clothing.Upgrade;
+using Clothing.Upgrade.Donation;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities;
@@ -7,12 +9,17 @@ namespace HUD.Clothing {
     public class PopupWindowUpCycleDonate : MonoBehaviour {
 
         [SerializeField] CanvasGroup[] popUpWindows;
+        DonationPopUpWarnings donationPopUpWarnings;
 
-        
+        void OnEnable() {
+            donationPopUpWarnings = FindObjectOfType<DonationPopUpWarnings>();
+        }
+
         public void OnClickEnterPopUpWindow(CanvasGroup popupWindow) {
             foreach (var window in popUpWindows) {
                 if (popupWindow == window) {
                     
+                    donationPopUpWarnings.DisableWarning();
                     popupWindow.interactable = !popupWindow.interactable;
                     popupWindow.blocksRaycasts = !popupWindow.blocksRaycasts;
                     EventBroker.Instance().SendMessage(new EventHideUpdateWindows(!popupWindow.interactable));
