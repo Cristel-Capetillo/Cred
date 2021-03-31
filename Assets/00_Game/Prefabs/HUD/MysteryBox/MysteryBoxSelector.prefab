@@ -402,7 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PURCHASE MYSTERY BOX 200 COINS
+  m_Text: PURCHASE MYSTERY BOX 100 COINS
 --- !u!114 &5411108880963622768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0386fb203fa0432584fa6bd1e2c1c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysteryBoxPrice: 200
+  mysteryBoxPrice: 100
 --- !u!114 &3134632886943081803
 MonoBehaviour:
   m_ObjectHideFlags: 0
