@@ -11,7 +11,7 @@ namespace Clothing.Upgrade.Donation {
         CoinsSpend coinsSpend;
         Coin coin;
         
-        public RewardDisplay rewardDisplay;
+        //public RewardDisplay rewardDisplay;
         public Image itemToDonateSlot;
         public Image upgradedItemSlot;
         public Image stylePointsBackground;
@@ -40,9 +40,9 @@ namespace Clothing.Upgrade.Donation {
         }
         
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
-            if(rewardDisplay != null) {
-                rewardDisplay.gameObject.SetActive(obj.popWindowIsActive);
-            }
+            // if(rewardDisplay != null) {
+            //     rewardDisplay.gameObject.SetActive(obj.popWindowIsActive);
+            // }
             if(!obj.popWindowIsActive)
                 TryRemoveChildren();
         }

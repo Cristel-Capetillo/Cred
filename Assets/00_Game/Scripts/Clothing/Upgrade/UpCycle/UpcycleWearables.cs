@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using Clothing.Inventory;
+using HUD.MysteryBox;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
 namespace Clothing.Upgrade.UpCycle {
     public class UpcycleWearables : MonoBehaviour {
+        public RewardDisplay rewardDisplay;
         readonly Dictionary<string, Rarity> combineWearablesDic = new Dictionary<string, Rarity>();
 
         public Image[] slots;
@@ -28,7 +30,6 @@ namespace Clothing.Upgrade.UpCycle {
             EventBroker.Instance().UnsubscribeMessage<EventValidateConfirmButton>(UpdateConfirmButton);
             EventBroker.Instance().UnsubscribeMessage<EventHideUpdateWindows>(ResetWindow);
         }
-
 
         void ResetWindow(EventHideUpdateWindows window) {
             if (window.shouldHide) {
