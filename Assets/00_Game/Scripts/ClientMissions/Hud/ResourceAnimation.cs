@@ -1,26 +1,28 @@
 using UnityEngine;
+
 namespace ClientMissions.Hud {
-    public class CoinAnimation : MonoBehaviour
-    {
-        [SerializeField] [Range(0f, 4f)] float lerpTime;
+    public class ResourceAnimation : MonoBehaviour {
+        [SerializeField, Range(0f, 4f)]
+        float lerpTime;
         public Transform finalDestination;
+        float movement;
         Vector3 vectorFinalDes;
-        float movement = 0f;
 
         void Start() {
-            SetCoinImagePosition();
+            SetResourceSpritePosition();
         }
 
         void Update() {
-            DoCoinAnimation();
+            DoResourceAnimation();
         }
 
-        void SetCoinImagePosition() {
-            vectorFinalDes = 
-                new Vector3(finalDestination.localPosition.x, finalDestination.localPosition.y, finalDestination.localPosition.z);
+        void SetResourceSpritePosition() {
+            var localPosition = finalDestination.localPosition;
+            vectorFinalDes =
+                new Vector3(localPosition.x, localPosition.y, localPosition.z);
         }
-        
-        void DoCoinAnimation() {
+
+        void DoResourceAnimation() {
             transform.localPosition = Vector3.Lerp(transform.localPosition, vectorFinalDes, lerpTime * Time.deltaTime);
 
             movement = Mathf.Lerp(movement, 1f, lerpTime * Time.deltaTime);

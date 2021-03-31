@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 4002724888028039169}
   - component: {fileID: 4002724888028039168}
   - component: {fileID: 6449858321872035447}
+  - component: {fileID: 1602601564577344124}
   m_Layer: 5
   m_Name: ClubSuccessMessage
   m_TagString: Untagged
@@ -552,6 +553,38 @@ MonoBehaviour:
   followersRewardText: {fileID: 37462334092921835}
   collectButton: {fileID: 7266134349622209929}
   mainMenuButton: {fileID: 4002724889599470076}
+  animatedCoinsDivider: 10
+  secondsBetweenResource: 0.05
+  coinSprite: {fileID: 95126878284534996, guid: 46c7580b1bd9cf141b7815ba77e65d8b,
+    type: 3}
+  followerSprite: {fileID: 95126878284534996, guid: 784422b5a3aaf164d93523d54c92b4ed,
+    type: 3}
+  coinFeatures: {fileID: 0}
+  followerTransform: {fileID: 8484106503488368085, guid: 061c55105f583644899244166cfba991,
+    type: 3}
+--- !u!114 &1602601564577344124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002724888028039231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/musicClubVariation
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &4002724888286329638
 GameObject:
   m_ObjectHideFlags: 0

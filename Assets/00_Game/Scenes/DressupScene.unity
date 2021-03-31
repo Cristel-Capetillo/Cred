@@ -1446,6 +1446,18 @@ PrefabInstance:
       propertyPath: coinFeatures
       value: 
       objectReference: {fileID: 5436499582039844705}
+    - target: {fileID: 6449858321872035447, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: coinUITransform
+      value: 
+      objectReference: {fileID: 1078032047531971204, guid: 81afcd348bfd80b43be649166abefcae,
+        type: 3}
+    - target: {fileID: 6449858321872035447, guid: 10eb7e2150f9ff145a08f01027f54d4a,
+        type: 3}
+      propertyPath: followerUITransform
+      value: 
+      objectReference: {fileID: 8484106503488368085, guid: 061c55105f583644899244166cfba991,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10eb7e2150f9ff145a08f01027f54d4a, type: 3}
 --- !u!1001 &1614541774
