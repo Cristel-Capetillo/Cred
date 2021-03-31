@@ -953,24 +953,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "EULA, End-User License Agreement\nTo protect our game and our community
-    we have established some rules for you to download and play our game. This license
-    is a legal agreement between you and the owners of the app and has some requirements
-    for using this game. If you agree to our requirements you can download and use
-    our game. \n\n1. You can\u2019t profit from our game and what we have made.\n2.
-    If you have downloaded the game to your phone you can play it how much as you
-    want, this is personal. You can\u2019t distribute the game to someone else.\n3.
-    You\u2019re allowed to take screenshots, picture and show them to others as long
-    as it\u2019s not in a commercial way. \n4. All updates are collected from us,
-    and not to use other plugins or other modifications. \n5. We can change the requirements
-    as time goes.\n\n______________________________________________________\n\nTOS,
-    Terms of Service\n1. You will be accountable for your actions if they are under
-    the owners influence.\n2. Coins are the in-game currency.\n3. The owners of the
-    app always have the right to delete your account if needed.\n4. The owners of
-    the app can maintain ownership of all aspects of the app.\n\n______________________________________________________\n\nSLA,
-    Service-level agreement\n1. If the game crashes we have a week to get it up and
-    running again.\n2. By accepting you agree to every requirement and can be held
-    accountable if you break any of these."
+  m_Text: "Last updated: March 31, 2021.\n\nEnd-User License Agreement (EULA) of
+    Cred\nThe EULA is a legal agreement between you and the owners of the game. To
+    protect our game and our community, we have established some rules. If you agree
+    to these rules, you can download and play our game.\n\n1. You\u2019re allowed
+    to play the game how much as you want.\n2. You\u2019re allowed to take screenshots
+    for personal use and show them to others.\n3. You're not allowed to use anything
+    created by us outside the game.\n4. You're not allowed to make money from the
+    game or parts of the game.\n5. You're not allowed to make any modifications to
+    the game or use other apps that would do that.\n6. We have the right to change
+    these rules if needed.\n\n______________________________________________________\n\nTerms
+    of Service (TOS) of Cred\n1. Coins are the in-game currency and are only used
+    in the game.\n2. We have the right to delete your account if needed.\n3. We have
+    the right to maintain ownership of everything created for the game.\n\n______________________________________________________\n\nService-level
+    agreement (SLA) of Cred\n1. If the game crashes, and we are responsible, we have
+    a week to get it up and running again.\n2. By accepting, you agree to every rule
+    and are accountable if you break any of these.\n\n______________________________________________________\n\nPrivacy
+    policy (PP) of Cred\n1. Advertising funds our game and enables us to make our
+    game available free of charge.\n2. When you see ads in our game, we may share
+    your Advertising ID and IP address with our advertising partners."
 --- !u!222 &1165413993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1231,7 +1232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: User Agreements
+  m_Text: User Agreements of Cred
 --- !u!222 &1362707704
 CanvasRenderer:
   m_ObjectHideFlags: 0
