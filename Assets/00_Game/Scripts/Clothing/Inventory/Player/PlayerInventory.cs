@@ -70,8 +70,7 @@ namespace Clothing.Inventory {
                     temporaryData.Remove(id);
                     UpdateHud(wearable);
                     saveHandler.Save(this);
-                    Destroy(wearable.gameObject);
-
+                    EventBroker.Instance().SendMessage(new EventDestroyCombinedWearable(id));
                     return;
                 }
             }
