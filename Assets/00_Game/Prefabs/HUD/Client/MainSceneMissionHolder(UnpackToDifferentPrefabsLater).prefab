@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 4887606134630213401}
   - component: {fileID: 4887606134630213406}
   - component: {fileID: 3996481721030139736}
+  - component: {fileID: 3053501643552235198}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1012,6 +1013,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &3053501643552235198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887606134630213404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4887606134986885936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1173,7 @@ GameObject:
   - component: {fileID: 4887606135004277985}
   - component: {fileID: 4887606135004277990}
   - component: {fileID: 4957846649224996977}
+  - component: {fileID: 6670174609452177681}
   m_Layer: 5
   m_Name: ClientSelectButton
   m_TagString: Untagged
@@ -1327,6 +1341,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &6670174609452177681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887606135004277988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4887606135269906087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +1874,7 @@ GameObject:
   - component: {fileID: 6907188525297143631}
   - component: {fileID: 6907188525297143628}
   - component: {fileID: 6907188525297143629}
+  - component: {fileID: 4143422000683050870}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1981,6 +2008,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &4143422000683050870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907188525297143627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6907188525392276167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +2033,7 @@ GameObject:
   - component: {fileID: 6907188525392276168}
   - component: {fileID: 6907188525392276169}
   - component: {fileID: 8224255671808818982}
+  - component: {fileID: 7899244916663531399}
   m_Layer: 5
   m_Name: DoneButton
   m_TagString: Untagged
@@ -2150,6 +2190,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &7899244916663531399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907188525392276167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6907188525587771421
 GameObject:
   m_ObjectHideFlags: 0

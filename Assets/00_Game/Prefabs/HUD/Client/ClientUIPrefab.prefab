@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 9051819575323723503}
   - component: {fileID: -2044608161243971125}
   - component: {fileID: 3357754393825623304}
+  - component: {fileID: 5113188439299346179}
   m_Layer: 5
   m_Name: ClientUIPrefab
   m_TagString: Untagged
@@ -314,6 +315,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &5113188439299346179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805445845565175997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8097944488551708026
 GameObject:
   m_ObjectHideFlags: 0
