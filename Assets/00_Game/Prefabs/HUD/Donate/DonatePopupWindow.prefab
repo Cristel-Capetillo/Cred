@@ -36,6 +36,7 @@ RectTransform:
   m_Children:
   - {fileID: 2171944571228153046}
   - {fileID: 309616671604912180}
+  - {fileID: 3053847301884091829}
   - {fileID: 4333729466301979265}
   - {fileID: 534537030479427618}
   - {fileID: 1652936087496861410}
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e8b949bb7590c4abf0bf3a3861327e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardDisplay: {fileID: 0}
   itemToDonateSlot: {fileID: 3855434817005687316}
   upgradedItemSlot: {fileID: 8790161134215227085}
   stylePointsBackground: {fileID: 1786313085067055787, guid: 1d13cc498d8f9384f98a83e9cc2f9342,
@@ -108,7 +110,6 @@ MonoBehaviour:
   - {fileID: 383083020892821441}
   - {fileID: 4481320818697953606}
   confirmButton: {fileID: 3723743968072022717}
-  upgradedWearable: {fileID: 0}
 --- !u!114 &79621796259647640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +361,85 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!1 &1694214800988345706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3053847301884091829}
+  - component: {fileID: 7233317194044185481}
+  - component: {fileID: 3167585109781372577}
+  m_Layer: 5
+  m_Name: =
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3053847301884091829
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694214800988345706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5997847193396813078}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 14, y: -100.1}
+  m_SizeDelta: {x: 160, y: 88.7661}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7233317194044185481
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694214800988345706}
+  m_CullTransparentMesh: 1
+--- !u!114 &3167585109781372577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694214800988345706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.57254905, g: 0.7058824, b: 0.86274517, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 70
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: =
 --- !u!1 &1781317946886046827
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +669,7 @@ MonoBehaviour:
   coinsToSpend: 500
   stylePointsReward: 1
   confirmButton: {fileID: 3723743968072022717}
+  equalSignText: {fileID: 3167585109781372577}
 --- !u!114 &8498169850873550113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +883,7 @@ RectTransform:
   - {fileID: 2557869272405771654}
   - {fileID: 6223594847370900054}
   m_Father: {fileID: 5997847193396813078}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1023,7 +1104,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5997847193396813078}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1108,7 +1189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: -106}
+  m_AnchoredPosition: {x: -580, y: -106}
   m_SizeDelta: {x: 157.5, y: 121.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2936889164872138739
@@ -1367,6 +1448,7 @@ MonoBehaviour:
   coinsToSpend: 1000
   stylePointsReward: 2
   confirmButton: {fileID: 3723743968072022717}
+  equalSignText: {fileID: 3167585109781372577}
 --- !u!114 &7161145457549506934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,6 +1701,7 @@ MonoBehaviour:
   coinsToSpend: 1500
   stylePointsReward: 3
   confirmButton: {fileID: 3723743968072022717}
+  equalSignText: {fileID: 3167585109781372577}
 --- !u!114 &8011273501754137888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1759,7 @@ RectTransform:
   m_Children:
   - {fileID: 1068526033662807035}
   m_Father: {fileID: 5997847193396813078}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1934,11 +2017,11 @@ RectTransform:
   m_LocalScale: {x: 1.0490811, y: 1.0490811, z: 1.0490811}
   m_Children: []
   m_Father: {fileID: 5997847193396813078}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -323, y: -106}
+  m_AnchoredPosition: {x: -250, y: -106}
   m_SizeDelta: {x: 157.5, y: 121.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &689402847501003590
@@ -2009,7 +2092,7 @@ PrefabInstance:
     - target: {fileID: 6618433958724945617, guid: c5dcae8cc0ae17941907f97338242618,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6618433958724945617, guid: c5dcae8cc0ae17941907f97338242618,
         type: 3}

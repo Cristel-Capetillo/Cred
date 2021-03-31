@@ -1,4 +1,5 @@
 ﻿using System;
+using HUD.MysteryBox;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,10 @@ namespace Clothing.Upgrade.Donation {
             if (combinedWearables.stylePoints >= combinedWearables.rarity.MaxValue) {
                 ToggleMaxStylePointsWarning();
             }
+        }
+
+        public void DisableWarning() {
+            warningPopUp.SetActive(false);
         }
 
         void ToggleNoDuplicatesWarning() {
