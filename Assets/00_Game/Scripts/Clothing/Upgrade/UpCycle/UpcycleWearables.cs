@@ -41,6 +41,8 @@ namespace Clothing.Upgrade.UpCycle {
         }
 
         void AssignToSlot(CombinedWearables combinedWearables) {
+            if (combinedWearables.Amount <= 0) return;
+
             for (var i = 0; i < slots.Length; i++) {
                 if (slots[i].transform.childCount > 0) {
                     if (!combineWearablesDic.ContainsValue(combinedWearables.rarity) || combineWearablesDic.ContainsKey(PlayerInventory.GetName(combinedWearables))) {
