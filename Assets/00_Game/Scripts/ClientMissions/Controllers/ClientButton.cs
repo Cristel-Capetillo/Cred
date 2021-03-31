@@ -5,9 +5,12 @@ using ClientMissions.Hud;
 using ClientMissions.Messages;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Utilities;
+using FMODUnity;
+using Random = UnityEngine.Random;
 
 namespace ClientMissions.Controllers{
     public class ClientButton : MonoBehaviour, IPointerClickHandler{
@@ -46,6 +49,7 @@ namespace ClientMissions.Controllers{
         }
         public void OnPointerClick(PointerEventData eventData){
             EventBroker.Instance().SendMessage(new SelectMissionMessage(MissionData));
+            RuntimeManager.PlayOneShot($"event:/{MissionData.ClientData.name}VO");
         }
     }
 }
