@@ -15,7 +15,7 @@ namespace Clothing.Inventory {
 
         //value is of type Dictionary<string, object>
         Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
-        Dictionary<string, Dictionary<string, object>> temporaryData = new Dictionary<string, Dictionary<string, object>>();
+        public Dictionary<string, Dictionary<string, object>> temporaryData = new Dictionary<string, Dictionary<string, object>>();
 
         PredefinedAssets predefinedAssets;
 
@@ -54,8 +54,7 @@ namespace Clothing.Inventory {
         void UpdatePlayerInventory(EventUpdatePlayerInventory wearableEvent) {
             var id = GetName(wearableEvent.combinedWearable);
             var wearable = wearableEvent.combinedWearable;
-
-
+            
             if (!CombinedWearableExists(id)) {
                 wearable = GenerateNewCombinedWearable(wearable);
                 combinedWearableDataToSave.Add(id, inventoryData.StatList(wearable));
@@ -63,9 +62,10 @@ namespace Clothing.Inventory {
             }
 
             wearable.Amount += wearableEvent.addOrSubtractAmount;
+            
             EventBroker.Instance().SendMessage(new EventUpdateAmount(id, wearable.Amount));
             if (CombinedWearableAmountIsZero(wearable)) {
-                if (!ValidatePredefined(id)) {
+                if (!Predefined(id)) {
                     combinedWearableDataToSave.Remove(id);
                     temporaryData.Remove(id);
                     UpdateHud(wearable);
@@ -87,7 +87,7 @@ namespace Clothing.Inventory {
             saveHandler.Save(this);
         }
 
-        bool ValidatePredefined(string id) {
+        bool Predefined(string id) {
             return predefinedAssets.predefinedDictionary.ContainsKey(id);
         }
 
