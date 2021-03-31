@@ -102,7 +102,6 @@ namespace Clothing.Upgrade.UpCycle {
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearableInSlots[1], -1));
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(instance, 1));
             EventBroker.Instance().SendMessage(new EventShowReward(instance));
-            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
 
             RecordAnalytics(instance);
 
