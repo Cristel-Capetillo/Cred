@@ -20,7 +20,8 @@ namespace Clothing.Upgrade.Donation {
         public Button confirmButton;
 
         CombinedWearables originalWearable;
-        CombinedWearables upgradedWearable;
+        [HideInInspector]
+        public CombinedWearables upgradedWearable;
         
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
@@ -71,7 +72,8 @@ namespace Clothing.Upgrade.Donation {
             originalWearable.transform.localPosition = Vector2.zero;
             originalWearable.GetComponent<RectTransform>().localScale = scale;
             Destroy(originalWearable.GetComponent<Button>());
-            
+            originalWearable.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
             upgradedWearable = Instantiate(eventAddToUpgradeSlot.combinedWearable, upgradedItemSlot.transform, true);
             upgradedWearable.Amount = eventAddToUpgradeSlot.combinedWearable.Amount;
             upgradedWearable.stylePoints = eventAddToUpgradeSlot.combinedWearable.stylePoints;
