@@ -12,6 +12,7 @@ namespace Clothing.Inventory {
 
         void Awake() {
             clothingManager = FindObjectOfType<ClothingManager>();
+            print("Cloth Manager is:" + clothingManager);
         }
 
         void OnDisable() {
