@@ -46,6 +46,10 @@ namespace Clothing {
             // }
         }
 
+        void DestroyMe(EventDestroyCombinedWearable destroy) {
+            Destroy(gameObject);
+        }
+
         public void AddStylePoint() {
             if (stylePoints < rarity.MaxValue) {
                 stylePoints++;
@@ -55,5 +59,9 @@ namespace Clothing {
         public void SetStylePoints(int sp) {
             stylePoints = sp - rarity.Value;
         }
+    }
+
+    public class EventDestroyCombinedWearable {
+        
     }
 }
