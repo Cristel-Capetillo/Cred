@@ -27,6 +27,7 @@ namespace Clothing {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
             EventBroker.Instance().SubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
+            ReduceAlpha();
         }
 
         void OnDestroy() {
