@@ -27,7 +27,6 @@ namespace Clothing {
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
             EventBroker.Instance().SubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
-            ReduceAlpha();
         }
 
         void OnDestroy() {
@@ -42,7 +41,7 @@ namespace Clothing {
             }
         }
 
-        void ReduceAlpha() {
+        public void ReduceAlpha() {
             buyText.enabled = Amount <= 0;
             
             if (Amount <= 0) {

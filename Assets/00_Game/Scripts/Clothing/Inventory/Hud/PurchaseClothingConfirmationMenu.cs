@@ -1,4 +1,5 @@
 using System;
+using Clothing.Upgrade;
 using Clothing.Upgrade.UpCycle;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,8 @@ namespace Clothing.Inventory {
             }
 
             closeButton.onClick.AddListener(() => Destroy(gameObject));
-            EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(CloseThis);
+            EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(OnEventUpdateInventory);
+            EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(OnHideMenu);
         }
 
         public void Setup(CombinedWearables combinedWearables) {
@@ -31,12 +33,20 @@ namespace Clothing.Inventory {
             ShowItemToBuy(combinedWearables);
         }
 
-        void CloseThis(EventUpdatePlayerInventory eventUpdatePlayerInventory) {
+        void CloseThis() {
             Destroy(gameObject);
         }
 
+        void OnHideMenu(EventHideUpdateWindows hide)
+            => CloseThis();
+
+
+        void OnEventUpdateInventory(EventUpdatePlayerInventory eventUpdatePlayerInventory)
+            => CloseThis();
+
         void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventUpdatePlayerInventory>(CloseThis);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdatePlayerInventory>(OnEventUpdateInventory);
+            EventBroker.Instance().UnsubscribeMessage<EventHideUpdateWindows>(OnHideMenu);
         }
 
         void ShowItemToBuy(CombinedWearables reward) {
@@ -49,11 +59,11 @@ namespace Clothing.Inventory {
                 instance.transform.GetChild(i).gameObject.SetActive(false);
             }
 
-            Resize(instance.gameObject, sizeToDisplayReward);
+            Resize(instance, sizeToDisplayReward);
             instance.GetComponent<AssignCombinedWearableToUpCycle>().enabled = false;
         }
 
-        void Resize(GameObject go, float newScale) {
+        void Resize(CombinedWearables go, float newScale) {
             var newSize = new Vector2(newScale, newScale);
             go.GetComponent<RectTransform>().localScale = newSize;
         }

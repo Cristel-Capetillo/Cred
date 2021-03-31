@@ -79,6 +79,7 @@ namespace Clothing.Inventory {
 
             AssignNewValues(id, wearable);
 
+            wearable.ReduceAlpha();
 
             UpdateHud(wearable);
 
