@@ -40,7 +40,7 @@ namespace Login {
                 yield return null;
             }
 
-            SceneManager.LoadScene("MainScene");
+            //SceneManager.LoadScene("MainScene");
         }
     }
 }
