@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 610205335}
   - component: {fileID: 610205334}
   - component: {fileID: 610205333}
+  - component: {fileID: 610205336}
   m_Layer: 0
   m_Name: Accept
   m_TagString: Untagged
@@ -544,7 +545,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 610205334}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 610205336}
+        m_TargetAssemblyTypeName: HUD.SwapScene, ScriptDefinition
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &610205334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +596,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610205331}
   m_CullTransparentMesh: 1
+--- !u!114 &610205336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610205331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31164157feeecf40a2ccc94f4be2f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721161269
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +685,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721161269}
   m_CullTransparentMesh: 1
+--- !u!1001 &960622556
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 683461554156775796, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_Name
+      value: Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371181046063303732, guid: 699410cf4873ffa4da5671ff84ab9b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 699410cf4873ffa4da5671ff84ab9b97, type: 3}
 --- !u!1 &1029356511
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +917,7 @@ MonoBehaviour:
     We can change the requirements as time goes.\r\n6. Our agreements are based on
     the law and we can't take responsibility for something outside of that. Nothing
     in this licence limits our responsibilities of cause of death or personal injury
-    that occurs because of our carelessness and false tasks made \r\n\r\n\r\nTOS,
+    that occurs because of our carelessness and false tasks made \r\n\r\n\r___________________\r\n------------------------------\n\r\nTOS,
     Terms of Service\r\n1. Paying in-game is non refundable\r\n2. You will be accountable
     for your actions if they are on the company's influence\r\n3. Diamonds are paid
     for with real money\r\n4. Coins are in-game currency \r\n5. We always have right
@@ -1509,6 +1603,7 @@ GameObject:
   - component: {fileID: 2054479410}
   - component: {fileID: 2054479409}
   - component: {fileID: 2054479408}
+  - component: {fileID: 2054479411}
   m_Layer: 0
   m_Name: Decline
   m_TagString: Untagged
@@ -1579,7 +1674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2054479409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2054479411}
+        m_TargetAssemblyTypeName: Utilities.ExitGame, ScriptDefinition
+        m_MethodName: ExitGameOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2054479409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,3 +1725,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054479406}
   m_CullTransparentMesh: 1
+--- !u!114 &2054479411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054479406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad063805cb34d1ea07b6571f4326d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

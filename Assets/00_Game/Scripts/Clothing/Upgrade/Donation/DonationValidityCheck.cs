@@ -26,10 +26,17 @@ namespace Clothing.Upgrade.Donation {
             EventBroker.Instance().SubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
             EventBroker.Instance().SubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
             EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
+            EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(HideWindow);
         }
         void OnClosePopUpWindow(EventTogglePopWindow obj) {
             if(!obj.popWindowIsActive)
                 TryRemoveChildren();
+        }
+
+        void HideWindow(EventHideUpdateWindows window) {
+            if (window.shouldHide) {
+                DeactivateWindow();
+            }
         }
         
         void Start() {
@@ -88,10 +95,14 @@ namespace Clothing.Upgrade.Donation {
             }
         }
 
-
         public bool ValidateItem(CombinedWearables combinedWearables) {
             return combinedWearables.stylePoints < combinedWearables.rarity.MaxValue && 
                    combinedWearables.Amount > 1;
+        }
+        
+        public bool CheckForMaxStylePoints(int ButtonStylePoints) {
+            if (originalWearable == null) return false;
+            return ButtonStylePoints + originalWearable.stylePoints <= originalWearable.rarity.MaxValue;
         }
 
         void Update() {
@@ -105,11 +116,6 @@ namespace Clothing.Upgrade.Donation {
             if (Input.GetKeyDown(KeyCode.G)) {
                 coin.Coins += 1000;
             }
-        }
-
-        void OnDestroy() {
-            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
-            EventBroker.Instance().UnsubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
         }
         public void OnConfirm() {
             coin.Coins -= costOfDonation;
@@ -150,9 +156,14 @@ namespace Clothing.Upgrade.Donation {
                 Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
             }
         }
-
         public void CloseWindow() {
             DeactivateWindow();
+        }
+        
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventAddToUpgradeSlot>(DoesItemQualifyForDonation);
+            EventBroker.Instance().UnsubscribeMessage<EventCoinsToSpend>(UpdateStylePoints);
+            EventBroker.Instance().SubscribeMessage<EventHideUpdateWindows>(HideWindow);
         }
     }
 }

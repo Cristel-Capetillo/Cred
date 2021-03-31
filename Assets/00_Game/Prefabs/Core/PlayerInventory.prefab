@@ -165,6 +165,7 @@ MonoBehaviour:
   - {fileID: 2012720251065419812, guid: 1f3994ea352bf8d42b35d6f950813f44, type: 3}
   - {fileID: 2012720251065419812, guid: 9d2d7f7f7c5d52541aee9051f25aa9f7, type: 3}
   - {fileID: 2012720251065419812, guid: ba162eff02672934d80cfbdb9ac065a9, type: 3}
+  - {fileID: 2012720251065419812, guid: dc90c87830a1ab54aa2ae207d9c294fc, type: 3}
   - {fileID: 2012720251065419812, guid: d6885aeb34bd11e42b0328d2416009cb, type: 3}
   - {fileID: 2012720251065419812, guid: e725c5566a0087e4a985e2428eff8692, type: 3}
   - {fileID: 2012720251065419812, guid: 1bec281ead5b2f740a2aa0bb0ce5a5a3, type: 3}
@@ -215,7 +216,6 @@ MonoBehaviour:
   - {fileID: 2012720251065419812, guid: 28ce37909a517da42a8cab994b9faf17, type: 3}
   - {fileID: 2012720251065419812, guid: c1d3e38ee1e0a6d49bd8ca1ca99e7050, type: 3}
   - {fileID: 2012720251065419812, guid: 8b6f27a111736114281f6b392a5f91a4, type: 3}
-  - {fileID: 2012720251065419812, guid: dc90c87830a1ab54aa2ae207d9c294fc, type: 3}
 --- !u!1 &3902080046205657403
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +522,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8758435729274214037}
     m_Modifications:
+    - target: {fileID: 709882331442924674, guid: 92c50378fdc8d3b47b782072cc2ac8b6,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843921263186803766, guid: 92c50378fdc8d3b47b782072cc2ac8b6,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -892,6 +897,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8758435729274214037}
     m_Modifications:
+    - target: {fileID: 709882331442924674, guid: 4860557b74f3b34419a5b7420dafea78,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 843921263186803766, guid: 4860557b74f3b34419a5b7420dafea78,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1263,6 +1273,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8758435729274214037}
     m_Modifications:
+    - target: {fileID: 709882331442924674, guid: 48c559ae17c7813468ae18f68ef8f55c,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843921263186803766, guid: 48c559ae17c7813468ae18f68ef8f55c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1628,6 +1643,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8758435729274214037}
     m_Modifications:
+    - target: {fileID: 709882331442924674, guid: 72b495263853b694fa2b4e6c98a46e26,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843921263186803766, guid: 72b495263853b694fa2b4e6c98a46e26,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2388,6 +2408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8758435729274214037}
     m_Modifications:
+    - target: {fileID: 709882331442924674, guid: 558bf4d8634692f409ba54763105818b,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843921263186803766, guid: 558bf4d8634692f409ba54763105818b,
         type: 3}
       propertyPath: m_AnchorMax.y

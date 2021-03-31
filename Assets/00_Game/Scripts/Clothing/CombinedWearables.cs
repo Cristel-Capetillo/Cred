@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
+using Utilities;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
@@ -10,7 +11,7 @@ namespace Clothing {
         public ClothingType clothingType;
         public Rarity rarity;
         public int stylePoints;
-        
+
         public string rewardMessage;
         public bool showText;
 
@@ -23,6 +24,13 @@ namespace Clothing {
             set => _amount = Mathf.Clamp(value, 0, int.MaxValue);
         }
 
+        void Start() {
+            EventBroker.Instance().SubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
+        }
+        void OnDestroy() {
+            EventBroker.Instance().UnsubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
+        }
+
         public override string ToString() {
             var uID = "";
             foreach (var wearable1 in wearable) {
@@ -32,7 +40,7 @@ namespace Clothing {
 
             return uID + rarity.name + clothingType.name + stylePoints;
         }
-        
+
         public void ShouldBeInteractable() {
             // if (Amount > 0) {
             //     canvasGroup.alpha = 1;
@@ -46,6 +54,11 @@ namespace Clothing {
             // }
         }
 
+        void DestroyMe(EventDestroyCombinedWearable destroy) {
+            if (destroy.id == ToString())
+                Destroy(gameObject);
+        }
+
         public void AddStylePoint() {
             if (stylePoints < rarity.MaxValue) {
                 stylePoints++;
@@ -54,6 +67,14 @@ namespace Clothing {
 
         public void SetStylePoints(int sp) {
             stylePoints = sp - rarity.Value;
+        }
+    }
+
+    public class EventDestroyCombinedWearable {
+        public readonly string id;
+
+        public EventDestroyCombinedWearable(string id) {
+            this.id = id;
         }
     }
 }

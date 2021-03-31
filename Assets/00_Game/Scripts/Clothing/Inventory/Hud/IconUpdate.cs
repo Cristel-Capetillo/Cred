@@ -12,15 +12,11 @@ namespace Clothing.Inventory {
         public Image[] images;
         Image backgroundImage;
 
-        int imagesToHaveActive;
-
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventUpdateWearableHud>(UpdateImagesEvent);
         }
 
         void OnEnable() {
-            wearables = GetComponent<CombinedWearables>();
-            backgroundImage = GetComponent<Image>();
             UpdateImages();
         }
 
@@ -33,13 +29,14 @@ namespace Clothing.Inventory {
         }
 
         void DisableImages() {
-            imagesToHaveActive = 0;
             images[0].enabled = false;
             images[1].enabled = false;
             images[2].enabled = false;
         }
 
         public void UpdateImages() {
+            wearables = GetComponent<CombinedWearables>();
+            backgroundImage = GetComponent<Image>();
             DisableImages();
             ValidateRarity();
 

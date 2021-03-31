@@ -7,20 +7,24 @@ namespace Clothing.Inventory {
     public class PredefinedAssets : MonoBehaviour {
         public List<CombinedWearables> predefinedCombinations;
 
+        public readonly Dictionary<string, CombinedWearables> predefinedDictionary = new Dictionary<string, CombinedWearables>();
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventSpawnPredefinedWearables>(SpawnPredefined);
+            foreach (var combination in predefinedCombinations) {
+                predefinedDictionary[combination.ToString()] = combination;
+            }
         }
 
         void SpawnPredefined(EventSpawnPredefinedWearables defined) {
-            foreach (var combination in predefinedCombinations) {
+            foreach (var combination in predefinedDictionary) {
                 if (defined.isFirstSave) {
                     FirstSave();
                     break;
                 }
 
-                // if (defined.wearables.ContainsKey(PlayerInventory.GetName(combination))) continue;
-                // Instantiate(combination);
+                if (defined.inventory.ContainsKey(combination.Key)) continue;
+                Instantiate(combination.Value);
             }
         }
 
