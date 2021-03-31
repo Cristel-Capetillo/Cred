@@ -35,6 +35,15 @@ namespace ClientMissions.Controllers{
             if(missionData == null)
                 return;
             EventBroker.Instance().SendMessage(new SendActiveMissionMessage(missionData, currentWearables));
+            RecordAnalytics(missionData.Difficulty);
+        }
+        void RecordAnalytics(MissionDifficulty missionDifficulty) {
+            var analyticsResult = UnityEngine.Analytics.Analytics.CustomEvent(
+                "Confirm start mission",
+                new Dictionary<string, object> {
+                    {"Started mission mode: ", missionDifficulty.name}
+                });
+            print(analyticsResult);
         }
         void RemoveCurrentMission(ShowRewardMessage showRewardMessage){
             if (missionData == null){

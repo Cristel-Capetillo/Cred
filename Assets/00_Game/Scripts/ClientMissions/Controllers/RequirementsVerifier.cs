@@ -36,7 +36,6 @@ namespace ClientMissions.Controllers {
         }
         void OnGetMissionData(SendActiveMissionMessage missionMessage){
             if (missionMessage.MissionData.ClientData == null){
-                Debug.Log("No missionData");
                 EventBroker.Instance().UnsubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
                 return;
             }
@@ -57,6 +56,7 @@ namespace ClientMissions.Controllers {
             var followersReward = CalculationsHelper.CalculateReward(activeMissionData.StylePointValues,
                 currentStylePoints, difficulty.MAXFollowersReward, difficulty.MINFollowersReward);
             EventBroker.Instance().SendMessage(new ShowRewardMessage(currencyReward, followersReward));
+            RecordAnalytics(difficulty);
         }
         void OnReset(RemoveAllClothes obj){
             onMeetAllRequirements?.Invoke(false);
@@ -87,7 +87,6 @@ namespace ClientMissions.Controllers {
 
             onMeetAllRequirements?.Invoke(false);
         }
-
         bool CheckStylePoints(){
             currentStylePoints = wearablesOnClient.Values.Sum(wearables => wearables.stylePoints);
             EventBroker.Instance().SendMessage(new CurrentStylePointsMessage(currentStylePoints));
@@ -100,7 +99,6 @@ namespace ClientMissions.Controllers {
                 PlayerInventory.GetName(combinedWearables)) return true;
             
             wearablesOnClient.Remove(combinedWearables.clothingType);
-            print("Remove old clothing");
             return false;
         }
        void LegsClothingType(ClothingType clothingType){
@@ -123,7 +121,6 @@ namespace ClientMissions.Controllers {
             var completedRequirements = requirements.Count(Passed);
             return completedRequirements >= requirements.Count;
         }
-
         bool Passed(IMissionRequirement requirement) {
             
             if(wearablesOnClient.Values.Any(requirement.PassedRequirement)){
@@ -132,6 +129,14 @@ namespace ClientMissions.Controllers {
             }
             EventBroker.Instance().SendMessage(new RequirementUIMessage(requirement.ToString(), false));
             return false;
+        }
+        void RecordAnalytics(MissionDifficulty missionDifficulty) {
+            var analyticsResult = UnityEngine.Analytics.Analytics.CustomEvent(
+                "Confirm mission complete",
+                new Dictionary<string, object> {
+                    {"Completed mission", missionDifficulty.name}
+                });
+            print(analyticsResult);
         }
     }
 }

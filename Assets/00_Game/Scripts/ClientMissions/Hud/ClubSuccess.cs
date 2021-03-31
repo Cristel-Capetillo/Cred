@@ -21,7 +21,13 @@ namespace ClientMissions.Hud {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<ShowRewardMessage>(ShowReward);
         }
-
+        public void CollectReward() {
+            EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
+            EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
+            EventBroker.Instance().SendMessage(new RemoveAllClothes());
+            mainMenuButton.gameObject.SetActive(true);
+            collectButton.gameObject.SetActive(false);
+        }
         void ShowReward(ShowRewardMessage rewardMessage) {
             GetComponent<Canvas>().enabled = true;
             currencyReward = rewardMessage.CurrencyReward;
@@ -29,13 +35,6 @@ namespace ClientMissions.Hud {
             //TODO: Currency and Followers!
             rewardText.text = rewardMessage.CurrencyReward.ToString();
             followersRewardText.text = rewardMessage.FollowersReward.ToString();
-        }
-        public void CollectReward() {
-            EventBroker.Instance().SendMessage(new EventUpdateCoins(currencyReward));
-            EventBroker.Instance().SendMessage(new UpdateFollowersMessage(followersReward));
-            EventBroker.Instance().SendMessage(new RemoveAllClothes());
-            mainMenuButton.gameObject.SetActive(true);
-            collectButton.gameObject.SetActive(false);
         }
     }
 }
