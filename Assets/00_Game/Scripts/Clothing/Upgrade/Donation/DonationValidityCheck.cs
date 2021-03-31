@@ -134,7 +134,7 @@ namespace Clothing.Upgrade.Donation {
             
             Destroy(instance.gameObject);
         }
-        
+
         void DeactivateWindow() {
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
@@ -149,6 +149,10 @@ namespace Clothing.Upgrade.Donation {
             if (upgradedItemSlot.transform.childCount > 0) {
                 Destroy(upgradedItemSlot.transform.GetChild(0).gameObject);
             }
+        }
+
+        public void CloseWindow() {
+            DeactivateWindow();
         }
     }
 }
