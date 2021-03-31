@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ClientMissions.Data;
@@ -27,7 +28,6 @@ namespace ClientMissions.Controllers {
             EventBroker.Instance().SubscribeMessage<SendActiveMissionMessage>(OnGetMissionData);
             EventBroker.Instance().SendMessage(new SceneChangeMessage());
         }
-
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(OnClothingChanged);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(OnReset);

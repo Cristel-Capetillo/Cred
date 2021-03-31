@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Currency.Coins;
 using MysteryBox;
@@ -10,13 +11,18 @@ namespace HUD.MysteryBox {
         public GameObject selectorMenuPrefab;
         public Text amountText;
         public RectTransform parentCanvas;
-
+        MysteryBoxInventory mysteryBoxInventory;
         IEnumerator Start() {
             yield return new WaitForSeconds(3f);
-            var amount = FindObjectOfType<MysteryBoxInventory>().Owned;
+            mysteryBoxInventory = FindObjectOfType<MysteryBoxInventory>();
+            var amount = mysteryBoxInventory.Owned;
             amountText.text = amount > 0 ? $"{amount}" : " ";
             EventBroker.Instance().SubscribeMessage<EventMysteryBoxBought>(OnLootBoxPurchased);
             EventBroker.Instance().SubscribeMessage<EventMysteryBoxOpened>(OnLootBoxOpened);
+        }
+        void OnDestroy(){
+            EventBroker.Instance().UnsubscribeMessage<EventMysteryBoxBought>(OnLootBoxPurchased);
+            EventBroker.Instance().UnsubscribeMessage<EventMysteryBoxOpened>(OnLootBoxOpened);
         }
 
         void OnLootBoxOpened(EventMysteryBoxOpened eventMysteryBoxOpened) => UpdateLootBoxAmount();
@@ -25,7 +31,7 @@ namespace HUD.MysteryBox {
         
 
         void UpdateLootBoxAmount() {
-            var amount = FindObjectOfType<MysteryBoxInventory>().Owned;
+            var amount = mysteryBoxInventory.Owned;
             amountText.text = amount > 0 ? $"{amount}" : " ";
         }
 
