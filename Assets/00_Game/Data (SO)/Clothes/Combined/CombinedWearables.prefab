@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 563741897846871088}
   - component: {fileID: 5512336892720678117}
   - component: {fileID: -4871826639316774428}
+  - component: {fileID: 3367044957094649703}
   m_Layer: 0
   m_Name: CombinedWearables
   m_TagString: Untagged
@@ -982,6 +983,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!225 &3367044957094649703
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991901679735643709}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4869062844941136838
 GameObject:
   m_ObjectHideFlags: 0

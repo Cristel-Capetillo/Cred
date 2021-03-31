@@ -1092,6 +1092,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpCyclePopupWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 3249045878953903149, guid: 790c225e4488c714aa65942d7c89361b,
+        type: 3}
+      propertyPath: rewardDisplay
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8179205824019662048, guid: 790c225e4488c714aa65942d7c89361b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

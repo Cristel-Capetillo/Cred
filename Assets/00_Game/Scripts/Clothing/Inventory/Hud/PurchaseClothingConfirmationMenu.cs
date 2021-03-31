@@ -51,6 +51,7 @@ namespace Clothing.Inventory {
 
         void ShowItemToBuy(CombinedWearables reward) {
             var instance = Instantiate(reward, rectTransform);
+            instance.GetComponent<RectTransform>().localPosition = Vector3.zero;
             foreach (var canvasGroup in instance.canvasGroups) {
                 canvasGroup.alpha = 1;
             }
