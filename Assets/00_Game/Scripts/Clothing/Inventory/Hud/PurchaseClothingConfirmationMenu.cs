@@ -6,20 +6,21 @@ using Utilities;
 using Random = UnityEngine.Random;
 
 namespace Clothing.Inventory {
-    public class PurchaseClothingConfirmationMenu : MonoBehaviour{
+    public class PurchaseClothingConfirmationMenu : MonoBehaviour {
         public Button buyButton;
         [SerializeField] Button closeButton;
         [SerializeField] Text purchaseItemText;
         [SerializeField] string purchaseTextPrefix;
         [SerializeField] float sizeToDisplayReward = 4f;
         [SerializeField] RectTransform rectTransform;
-        
+
         void Start() {
             foreach (var clothingsInConfirmationMenu in FindObjectsOfType<PurchaseClothingConfirmationMenu>()) {
                 if (clothingsInConfirmationMenu != this) {
                     Destroy(clothingsInConfirmationMenu.gameObject);
                 }
             }
+
             closeButton.onClick.AddListener(() => Destroy(gameObject));
             EventBroker.Instance().SubscribeMessage<EventUpdatePlayerInventory>(CloseThis);
         }
@@ -39,11 +40,16 @@ namespace Clothing.Inventory {
         }
 
         void ShowItemToBuy(CombinedWearables reward) {
-            var instance = Instantiate(reward.gameObject, rectTransform);
+            var instance = Instantiate(reward, rectTransform);
+            foreach (var canvasGroup in instance.canvasGroups) {
+                canvasGroup.alpha = 1;
+            }
+
             for (var i = 1; i < instance.transform.childCount; i++) {
                 instance.transform.GetChild(i).gameObject.SetActive(false);
             }
-            Resize(instance, sizeToDisplayReward);
+
+            Resize(instance.gameObject, sizeToDisplayReward);
             instance.GetComponent<AssignCombinedWearableToUpCycle>().enabled = false;
         }
 
