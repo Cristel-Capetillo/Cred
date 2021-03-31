@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Clothing.Inventory;
+using Clothing.Upgrade.Donation;
 using Clothing.Upgrade.UpCycle;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +10,7 @@ namespace HUD.MysteryBox {
     public class RewardDisplay : MonoBehaviour {
         [SerializeField] float sizeToDisplayReward = 4f;
         [SerializeField] Text rewardText;
+        DonationValidityCheck donationValidityCheck;
 
         void OnEnable() {
             EventBroker.Instance().SubscribeMessage<EventShowReward>(ShowReward);
@@ -38,7 +41,9 @@ namespace HUD.MysteryBox {
             while (!Input.GetKeyDown(KeyCode.Mouse0)) {
                 yield return null;
             }
+            donationValidityCheck = FindObjectOfType<DonationValidityCheck>();
             rewardText.gameObject.SetActive(false);
+            donationValidityCheck.stylePointsBackground.gameObject.SetActive(false);
             EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
             Destroy(go);
         }
