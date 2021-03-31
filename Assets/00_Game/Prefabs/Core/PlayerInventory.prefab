@@ -165,6 +165,7 @@ MonoBehaviour:
   - {fileID: 2012720251065419812, guid: 1f3994ea352bf8d42b35d6f950813f44, type: 3}
   - {fileID: 2012720251065419812, guid: 9d2d7f7f7c5d52541aee9051f25aa9f7, type: 3}
   - {fileID: 2012720251065419812, guid: ba162eff02672934d80cfbdb9ac065a9, type: 3}
+  - {fileID: 2012720251065419812, guid: dc90c87830a1ab54aa2ae207d9c294fc, type: 3}
   - {fileID: 2012720251065419812, guid: d6885aeb34bd11e42b0328d2416009cb, type: 3}
   - {fileID: 2012720251065419812, guid: e725c5566a0087e4a985e2428eff8692, type: 3}
   - {fileID: 2012720251065419812, guid: 1bec281ead5b2f740a2aa0bb0ce5a5a3, type: 3}
@@ -215,7 +216,6 @@ MonoBehaviour:
   - {fileID: 2012720251065419812, guid: 28ce37909a517da42a8cab994b9faf17, type: 3}
   - {fileID: 2012720251065419812, guid: c1d3e38ee1e0a6d49bd8ca1ca99e7050, type: 3}
   - {fileID: 2012720251065419812, guid: 8b6f27a111736114281f6b392a5f91a4, type: 3}
-  - {fileID: 2012720251065419812, guid: dc90c87830a1ab54aa2ae207d9c294fc, type: 3}
 --- !u!1 &3902080046205657403
 GameObject:
   m_ObjectHideFlags: 0
