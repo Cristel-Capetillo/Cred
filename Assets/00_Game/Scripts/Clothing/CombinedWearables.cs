@@ -9,6 +9,7 @@ using Utilities;
 
 namespace Clothing {
     public class CombinedWearables : MonoBehaviour {
+        [SerializeField] Text buyText;
         public List<Wearable> wearable;
         public ClothingType clothingType;
         public Rarity rarity;
@@ -16,7 +17,7 @@ namespace Clothing {
 
         public bool isPredefined = true;
 
-        [SerializeField] CanvasGroup canvasGroup;
+        public CanvasGroup[] canvasGroups;
         int _amount;
         public int Amount {
             get => _amount;
@@ -27,6 +28,7 @@ namespace Clothing {
             EventBroker.Instance().SubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
             EventBroker.Instance().SubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
         }
+
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
             EventBroker.Instance().UnsubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
@@ -34,7 +36,24 @@ namespace Clothing {
 
         void UpdateZeAmount(EventUpdateAmount amount) {
             if (amount.id == ToString()) {
+                ReduceAlpha();
                 Amount = amount.amount;
+            }
+        }
+
+        void ReduceAlpha() {
+            buyText.enabled = Amount <= 0;
+            
+            if (Amount <= 0) {
+                foreach (var canvasGroup in canvasGroups) {
+                    canvasGroup.alpha = .5f;    
+                }
+                
+            }
+            else {
+                foreach (var canvasGroup in canvasGroups) {
+                    canvasGroup.alpha = 1f;    
+                }
             }
         }
 

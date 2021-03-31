@@ -54,7 +54,7 @@ namespace Clothing.Inventory {
         void UpdatePlayerInventory(EventUpdatePlayerInventory wearableEvent) {
             var id = GetName(wearableEvent.combinedWearable);
             var wearable = wearableEvent.combinedWearable;
-            
+
             if (!CombinedWearableExists(id)) {
                 wearable = GenerateNewCombinedWearable(wearable);
                 combinedWearableDataToSave.Add(id, inventoryData.StatList(wearable));
@@ -62,7 +62,7 @@ namespace Clothing.Inventory {
             }
 
             wearable.Amount += wearableEvent.addOrSubtractAmount;
-            
+
             EventBroker.Instance().SendMessage(new EventUpdateAmount(id, wearable.Amount));
             if (CombinedWearableAmountIsZero(wearable)) {
                 if (!Predefined(id)) {
@@ -153,6 +153,8 @@ namespace Clothing.Inventory {
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
                 combinedWearableInstance.ShouldBeInteractable();
                 temporaryData[combinedWearableInstance.ToString()] = combinedWearablesStatsDictionary;
+                EventBroker.Instance().SendMessage(new EventUpdateAmount(combinedWearableInstance.ToString(),
+                    Convert.ToInt32(temporaryData[combinedWearableInstance.ToString()][InventoryData.Amount])));
             }
 
             yield return CallVariousEvents();
