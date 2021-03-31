@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 187505516905430572}
   - component: {fileID: 187505516905430739}
   m_Layer: 0
-  m_Name: MysteryBoxCamera
+  m_Name: 3DObjectsCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 3f39ecfcebc7d9e4aa0c5421dd071284, type: 2}
   m_TargetDisplay: 0
