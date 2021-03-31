@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpWindows:
   - {fileID: 676450515174345226}
-  - {fileID: 8239173150533172323}
+  - {fileID: 0}
 --- !u!1 &2353389553650693677
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 1650635091425098145}
   - component: {fileID: 8949675715939465794}
   - component: {fileID: 1155841361978447832}
+  - component: {fileID: 4598045737620205097}
   m_Layer: 5
   m_Name: Donate1000Button
   m_TagString: Untagged
@@ -593,6 +594,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4598045737620205097}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4598045737620205097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353389553650693677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &2527159466318009263
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +799,7 @@ GameObject:
   - component: {fileID: 4411002895808922455}
   - component: {fileID: 8326177322586587940}
   - component: {fileID: 2038590158964413574}
+  - component: {fileID: 2570170932486869685}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -883,6 +920,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2570170932486869685}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2570170932486869685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371975586460439161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &3714883108929965391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14920b9b8d0a4e9dbffbe932ab81a05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToDonateSlot: {fileID: 1021055507605046736}
+  warningPopUp: {fileID: 0}
+  warningText: {fileID: 0}
 --- !u!114 &1696927410857019279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,14 +1347,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e8b949bb7590c4abf0bf3a3861327e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stylePointsToUpgrade: 0
-  canBeDonated: 0
+  itemToDonateSlot: {fileID: 0}
+  upgradedItemSlot: {fileID: 0}
+  stylePointsBackground: {fileID: 0}
+  confirmButton: {fileID: 0}
   alternativesButtons:
   - {fileID: 1155841361978447832}
   - {fileID: 4538008720738713605}
   - {fileID: 403666537166190210}
-  warningText: {fileID: 9037411034627004853}
-  warningPopUp: {fileID: 9037411034761367599}
 --- !u!225 &676450515174345226
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1420,7 +1493,7 @@ MonoBehaviour:
         m_MethodName: OnClickEnterPopUpWindow
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8239173150533172323}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1651,6 +1724,7 @@ GameObject:
   - component: {fileID: 538674881903907610}
   - component: {fileID: 2983971226941249502}
   - component: {fileID: 578607488289664377}
+  - component: {fileID: 911579410573264186}
   m_Layer: 5
   m_Name: DonateConfirmButton
   m_TagString: Untagged
@@ -1772,6 +1846,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 911579410573264186}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &911579410573264186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5934562138374613653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/donateButton
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &6650384963452133622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1893,7 @@ GameObject:
   - component: {fileID: 870462745133148020}
   - component: {fileID: 6886045714867412700}
   - component: {fileID: 403666537166190210}
+  - component: {fileID: 1821214585796420209}
   m_Layer: 5
   m_Name: Donate3000Button
   m_TagString: Untagged
@@ -1905,6 +2015,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1821214585796420209}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1821214585796420209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650384963452133622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &6708023905668509538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +2141,7 @@ GameObject:
   - component: {fileID: 2381238263038746118}
   - component: {fileID: 7267605386285011485}
   - component: {fileID: 4538008720738713605}
+  - component: {fileID: 2858702737241193719}
   m_Layer: 5
   m_Name: Donate2000Button
   m_TagString: Untagged
@@ -2117,6 +2263,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2858702737241193719}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2858702737241193719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863258619575600406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &8245301298625993230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,30 +2673,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5dcae8cc0ae17941907f97338242618, type: 3}
---- !u!1 &9037411034761367599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6618433958724945616, guid: c5dcae8cc0ae17941907f97338242618,
-    type: 3}
-  m_PrefabInstance: {fileID: 2788348202213660415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9037411034761367598 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6618433958724945617, guid: c5dcae8cc0ae17941907f97338242618,
     type: 3}
   m_PrefabInstance: {fileID: 2788348202213660415}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9037411034627004853 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6618433958590287690, guid: c5dcae8cc0ae17941907f97338242618,
-    type: 3}
-  m_PrefabInstance: {fileID: 2788348202213660415}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3249045878587606515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2638,12 +2801,6 @@ PrefabInstance:
 --- !u!224 &3202783218771588232 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 100341832249979259, guid: 790c225e4488c714aa65942d7c89361b,
-    type: 3}
-  m_PrefabInstance: {fileID: 3249045878587606515}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &8239173150533172323 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 6863910591432391056, guid: 790c225e4488c714aa65942d7c89361b,
     type: 3}
   m_PrefabInstance: {fileID: 3249045878587606515}
   m_PrefabAsset: {fileID: 0}
