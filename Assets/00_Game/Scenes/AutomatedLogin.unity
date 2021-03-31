@@ -955,7 +955,7 @@ MonoBehaviour:
     m_LineSpacing: 1.2
   m_Text: "EULA, End-User License Agreement\nTo protect our game and our community
     we have established some rules for you to download and play our game. This license
-    is a legal agreement between you and us (Forsbergsskola) and has some requirements
+    is a legal agreement between you and the owners of the app and has some requirements
     for using this game. If you agree to our requirements you can download and use
     our game. \n\n1. You can\u2019t profit from our game and what we have made.\n2.
     If you have downloaded the game to your phone you can play it how much as you
@@ -963,14 +963,11 @@ MonoBehaviour:
     You\u2019re allowed to take screenshots, picture and show them to others as long
     as it\u2019s not in a commercial way. \n4. All updates are collected from us,
     and not to use other plugins or other modifications. \n5. We can change the requirements
-    as time goes.\n6. Our agreements are based on the law and we can't take responsibility
-    for something outside of that. Nothing in this license limits our responsibilities
-    of the cause of death or personal injury that occurs because of our carelessness
-    and false tasks made.\n\n______________________________________________________\n\nTOS,
+    as time goes.\n\n______________________________________________________\n\nTOS,
     Terms of Service\n1. You will be accountable for your actions if they are under
-    the company's influence.\n2. Coins are the in-game currency.\n3. We always have
-    the right to delete your account if needed.\n4. The owners of the app can maintain
-    ownership of all aspects of the app.\n\n______________________________________________________\n\nSLA,
+    the owners influence.\n2. Coins are the in-game currency.\n3. The owners of the
+    app always have the right to delete your account if needed.\n4. The owners of
+    the app can maintain ownership of all aspects of the app.\n\n______________________________________________________\n\nSLA,
     Service-level agreement\n1. If the game crashes we have a week to get it up and
     running again.\n2. By accepting you agree to every requirement and can be held
     accountable if you break any of these."
