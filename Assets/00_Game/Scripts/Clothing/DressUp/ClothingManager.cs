@@ -12,6 +12,11 @@ namespace Clothing.DressUp {
         [SerializeField] List<GameObject> bodyParts;
         [SerializeField] LastKnownClothes lastKnownClothes;
 
+        [Space] [Header("Clothing purchase costs")] 
+        [SerializeField] int basic = 100;
+        [SerializeField] int normal = 300;
+        [SerializeField] int designer = 500;
+
         void Awake() {
             EventBroker.Instance().SubscribeMessage<EventClothesChanged>(UpdateClothes);
             EventBroker.Instance().SubscribeMessage<RemoveAllClothes>(RemoveClothes);
@@ -199,6 +204,15 @@ namespace Clothing.DressUp {
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventClothesChanged>(UpdateClothes);
             EventBroker.Instance().UnsubscribeMessage<RemoveAllClothes>(RemoveClothes);
+        }
+        
+        public int GetPrice(Rarity rarity) {
+            return rarity.name switch {
+                "Basic" => basic,
+                "Normal" => normal,
+                "Designer" => designer,
+                _ => -1
+            };
         }
     }
 }

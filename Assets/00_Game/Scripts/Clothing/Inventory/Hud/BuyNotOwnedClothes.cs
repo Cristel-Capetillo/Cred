@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Clothing.DressUp;
 using Currency.Coins;
 using UnityEngine;
 using Utilities;
@@ -6,6 +8,11 @@ using Utilities;
 namespace Clothing.Inventory {
     public class BuyNotOwnedClothes : MonoBehaviour {
         [SerializeField] GameObject buyNotOwnedClothes;
+        ClothingManager clothingManager;
+
+        void Awake() {
+            clothingManager = FindObjectOfType<ClothingManager>();
+        }
 
         void OnDisable() {
             EventBroker.Instance().UnsubscribeMessage<EventBuyNotOwnedClothes>(OpenBuyClothesMenu);
@@ -24,7 +31,7 @@ namespace Clothing.Inventory {
         void BuyClothes(CombinedWearables wearable) {
   
             var coins = FindObjectOfType<Coin>();
-            var price = GetPrice(wearable.rarity);
+            var price = clothingManager.GetPrice(wearable.rarity);
             if (coins.Coins >= price) {
                 coins.Coins -= price;
                 UnityEngine.Analytics.Analytics.CustomEvent("Store", new Dictionary<string, object> {
@@ -36,13 +43,6 @@ namespace Clothing.Inventory {
         }
 
         //TODO: MOVE TO A MAKE SENSE PLACE
-        public static int GetPrice(Rarity rarity) {
-            return rarity.name switch {
-                "Basic" => 300,
-                "Normal" => 500,
-                "Designer" => 800,
-                _ => -1
-            };
-        }
+        
     }
 }
