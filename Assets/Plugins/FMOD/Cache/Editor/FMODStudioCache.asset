@@ -23,6 +23,75 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-7801426635225946557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/SvenVO
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/SvenVO
+  guid: db899cea3a869d4c9553a010b407c6dd
+  Banks:
+  - {fileID: -3582765516004110873}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2625
+--- !u!114 &-7139796131365960142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/SiggyVO
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/SiggyVO
+  guid: 7072d5cc692c584986694ab69d0a86f6
+  Banks:
+  - {fileID: -3582765516004110873}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3875
+--- !u!114 &-7102316264100534299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/SiancaVO
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/SiancaVO
+  guid: 50d80489ef33ee4aab58c7ff6b0dec26
+  Banks:
+  - {fileID: -3582765516004110873}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4250
 --- !u!114 &-5700559382914838780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,11 +153,11 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637527840135778635
+  lastModified: 637528120995719159
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1354
+    Value: 1412
   Exists: 1
 --- !u!114 &-3757864718311668869
 MonoBehaviour:
@@ -128,7 +197,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637527840135609088
+  lastModified: 637528120995699214
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -196,23 +265,24 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -3757864718311668869}
   - {fileID: -4518338063233695302}
-  - {fileID: -2162889283433467997}
   - {fileID: 649870312571926910}
-  - {fileID: 789949230567232806}
   - {fileID: 1276274034622828222}
   - {fileID: 1398980886268070388}
   - {fileID: 4387281138008214075}
   - {fileID: -5700559382914838780}
-  - {fileID: 2086371920192003728}
   - {fileID: 7214222824024255391}
   - {fileID: -8117856093408299547}
   - {fileID: 8504641521472084508}
-  EditorParameters: []
+  - {fileID: -7102316264100534299}
+  - {fileID: -7139796131365960142}
+  - {fileID: -7801426635225946557}
+  EditorParameters:
+  - {fileID: 849975320279262777}
   MasterBanks:
   - {fileID: -3582765516004110873}
   StringsBanks:
   - {fileID: -4031834446378880706}
-  stringsBankWriteTime: 637527840135778635
+  stringsBankWriteTime: 637528120995719159
   cacheVersion: 6
 --- !u!114 &649870312571926910
 MonoBehaviour:
@@ -260,6 +330,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 20000
+--- !u!114 &849975320279262777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/clubSuccess
+  m_EditorClassIdentifier: 
+  Name: clubSuccess
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 531561344
+    data2: 3084409251
+  Exists: 1
 --- !u!114 &1276274034622828222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +441,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 153600
+  Length: 269192
 --- !u!114 &4902340602042669796
 MonoBehaviour:
   m_ObjectHideFlags: 0
