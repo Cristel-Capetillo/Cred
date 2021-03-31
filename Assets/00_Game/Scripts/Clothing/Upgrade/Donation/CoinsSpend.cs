@@ -1,5 +1,4 @@
-﻿using System;
-using Currency.Coins;
+﻿using Currency.Coins;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +9,7 @@ namespace Clothing.Upgrade.Donation {
         public int coinsToSpend;
         public int stylePointsReward;
         DonationValidityCheck donationValidityCheck;
+        CombinedWearables combinedWearables;
         Coin coin;
         Button button;
         public Button confirmButton;
@@ -17,6 +17,7 @@ namespace Clothing.Upgrade.Donation {
         void Start() {
             coin = FindObjectOfType<Coin>();
             button = GetComponent<Button>();
+            donationValidityCheck = FindObjectOfType<DonationValidityCheck>();
             confirmButton.interactable = false;
             EventBroker.Instance().SubscribeMessage<EventUpdateAlternativesButtons>(OnButtonsInteractable);
             EventBroker.Instance().SubscribeMessage<EventTogglePopWindow>(OnClosePopUpWindow);
@@ -36,11 +37,11 @@ namespace Clothing.Upgrade.Donation {
         
 
         void OnButtonsInteractable(EventUpdateAlternativesButtons eventUpdateAlternativesButtons) {
-            button.interactable = coin.Coins >= coinsToSpend;
+            button.interactable = coin.Coins >= coinsToSpend && donationValidityCheck.CheckForMaxStylePoints(stylePointsReward);
         }
 
         public void OnPointerClick(PointerEventData eventData) {
-            if (coin.Coins >= coinsToSpend) {
+            if (coin.Coins >= coinsToSpend && button.interactable) {
                 confirmButton.interactable = true;
                 EventBroker.Instance().SendMessage(new EventCoinsToSpend(coinsToSpend, stylePointsReward));
             }
