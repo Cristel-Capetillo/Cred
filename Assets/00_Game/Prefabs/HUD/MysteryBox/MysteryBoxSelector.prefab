@@ -240,6 +240,8 @@ MonoBehaviour:
   selectionArea: {fileID: 1238677409}
   selectionButtonPrefab: {fileID: 167405822144678400, guid: 1b93b9e2a6758a84eab9f3af7a87a2bc,
     type: 3}
+  howManyMysteryBoxesToSpawn: 6
+  howManyHigherTierMysteryBoxes: 2
   basicLootTable: {fileID: 11400000, guid: 06b1c439d0c5da443abf2c8b3db7c738, type: 2}
   normalLootTable: {fileID: 11400000, guid: ae3f81ae0e2601e4f9179daaebaca397, type: 2}
 --- !u!1 &1802649148204804666
@@ -504,6 +506,7 @@ GameObject:
   - component: {fileID: 6227794578218534079}
   - component: {fileID: 3038929155172391248}
   - component: {fileID: 1178889105772811052}
+  - component: {fileID: 2348866894983234596}
   m_Layer: 0
   m_Name: Exit button
   m_TagString: Untagged
@@ -624,6 +627,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2348866894983234596}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1178889105772811052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +651,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2348866894983234596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046411336754786046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7111118725526614534
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +688,7 @@ GameObject:
   - component: {fileID: 323197794970766369}
   - component: {fileID: 3437978856214997002}
   - component: {fileID: 3134632886943081803}
+  - component: {fileID: 1211082293150740403}
   m_Layer: 0
   m_Name: Payment Button
   m_TagString: Untagged
@@ -771,6 +810,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1211082293150740403}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3437978856214997002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +847,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1211082293150740403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111118725526614534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/purchaseNewItem
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7277075292625849129
 GameObject:
   m_ObjectHideFlags: 0
