@@ -101,11 +101,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToDonateSlot: {fileID: 3855434817005687316}
   upgradedItemSlot: {fileID: 8790161134215227085}
+  stylePointsBackground: {fileID: 1786313085067055787, guid: 1d13cc498d8f9384f98a83e9cc2f9342,
+    type: 3}
   alternativesButtons:
   - {fileID: 3143682420052623388}
   - {fileID: 383083020892821441}
   - {fileID: 4481320818697953606}
   confirmButton: {fileID: 3723743968072022717}
+  upgradedWearable: {fileID: 0}
 --- !u!114 &79621796259647640
 MonoBehaviour:
   m_ObjectHideFlags: 0

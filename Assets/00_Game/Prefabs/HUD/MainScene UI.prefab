@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 6694361601793037909}
   - component: {fileID: 931595501}
   - component: {fileID: 950003345564047422}
+  - component: {fileID: 901672829326302766}
   m_Layer: 5
   m_Name: MysteryBox
   m_TagString: Untagged
@@ -669,6 +670,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &901672829326302766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694361601793037911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6694361602006368992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1099,7 @@ GameObject:
   - component: {fileID: 7396391288774582502}
   - component: {fileID: 7396391288774582425}
   - component: {fileID: 7192919756362362901}
+  - component: {fileID: 8983475571619525869}
   m_Layer: 5
   m_Name: WardrobeButton
   m_TagString: Untagged
@@ -1253,6 +1267,30 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &8983475571619525869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396391288774582500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &926073950414716204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630696730621336833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5364197395405436582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,6 +1730,12 @@ PrefabInstance:
 --- !u!224 &8630696730621336832 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3120824093629377589, guid: b1edbf94d43605642a15f737655f06d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6667860759999754549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8630696730621336833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3120824093629377588, guid: b1edbf94d43605642a15f737655f06d8,
     type: 3}
   m_PrefabInstance: {fileID: 6667860759999754549}
   m_PrefabAsset: {fileID: 0}

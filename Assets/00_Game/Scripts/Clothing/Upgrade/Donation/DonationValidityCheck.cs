@@ -10,7 +10,8 @@ namespace Clothing.Upgrade.Donation {
         Coin coin;
         public Image itemToDonateSlot;
         public Image upgradedItemSlot;
-        
+        public Image stylePointsBackground;
+
         public Button[] alternativesButtons;
         int upgradedOriginalStylePoints;
         CanvasGroup canvasGroup;
@@ -128,6 +129,7 @@ namespace Clothing.Upgrade.Donation {
 
             instance.rewardMessage = "+" + (upgradedWearable.stylePoints - upgradedOriginalStylePoints);
             instance.showText = true;
+            stylePointsBackground.gameObject.SetActive(true);
             
             
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(originalWearable, -2));
