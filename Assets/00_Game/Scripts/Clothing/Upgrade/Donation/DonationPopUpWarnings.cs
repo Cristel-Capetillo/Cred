@@ -19,7 +19,9 @@ namespace Clothing.Upgrade.Donation {
         }
 
         public void DisableWarning() {
-            warningPopUp.SetActive(false);
+            if (warningPopUp.activeSelf) {
+                warningPopUp.SetActive(false);
+            } 
         }
 
         void ToggleNoDuplicatesWarning() {
