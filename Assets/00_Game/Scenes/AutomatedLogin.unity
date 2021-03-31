@@ -266,7 +266,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -130624531
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &177538010
@@ -409,8 +409,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -17}
-  m_Pivot: {x: 0, y: 1}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537199339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1505.542, y: 873.792}
+  m_SizeDelta: {x: 2160, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721161271
 MonoBehaviour:
@@ -884,18 +884,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165413990}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2026405335}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000011921, y: 85}
-  m_SizeDelta: {x: 1369.008, y: 1226.902}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1520, y: 3000}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1165413992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -929,29 +929,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "EULA, End-User License Agreement\r\nTo protect our game and our community
-    we have established some rules for you to download and play our game. This licence
+  m_Text: "EULA, End-User License Agreement\nTo protect our game and our community
+    we have established some rules for you to download and play our game. This license
     is a legal agreement between you and us (Forsbergsskola) and has some requirements
     for using this game. If you agree to our requirements you can buy, download and
-    use our game. \r\n\r\n1. You can\u2019t profit from our game and what we have
-    made.\r\n2. If you have downloaded the game to your phone you can play it how
-    much as you want, this is personal. You can\u2019t distribute the game to someone
-    else.\r\n3. You\u2019re allowed to take screenshots, picture and show them to
-    others as long as it\u2019s not in a commercial way. \r\n4. All updates are to
-    be collected from us, and not to use other plugins or other modifications. \r\n5.
-    We can change the requirements as time goes.\r\n6. Our agreements are based on
-    the law and we can't take responsibility for something outside of that. Nothing
-    in this licence limits our responsibilities of cause of death or personal injury
-    that occurs because of our carelessness and false tasks made \r\n\r\n\r___________________\r\n------------------------------\n\r\nTOS,
-    Terms of Service\r\n1. Paying in-game is non refundable\r\n2. You will be accountable
-    for your actions if they are on the company's influence\r\n3. Diamonds are paid
-    for with real money\r\n4. Coins are in-game currency \r\n5. We always have right
-    to terminate your account if wanted or needed\r\n6. The owners of the app can
-    maintain ownership of all aspects of the app\r\n7. Payments in-game are connected
-    to google play store. \r\n\r\n\r\n\r\nSLA, Service-level agreement\r\n1. If the
-    game crashes we have a week to get it up and running again\r\n2. Forsbergs Skola,
-    Team 4, is responsible for the payments in-game\r\n3. By accepting you agree
-    to every requirement and can be held accountable if you break any of these"
+    use our game. \n\n1. You can\u2019t profit from our game and what we have made.\n2.
+    If you have downloaded the game to your phone you can play it how much as you
+    want, this is personal. You can\u2019t distribute the game to someone else.\n3.
+    You\u2019re allowed to take screenshots, picture and show them to others as long
+    as it\u2019s not in a commercial way. \n4. All updates are collected from us,
+    and not to use other plugins or other modifications. \n5. We can change the requirements
+    as time goes.\n6. Our agreements are based on the law and we can't take responsibility
+    for something outside of that. Nothing in this license limits our responsibilities
+    of the cause of death or personal injury that occurs because of our carelessness
+    and false tasks made.\n\n______________________________________________________\n\nTOS,
+    Terms of Service\n1. You will be accountable for your actions if they are under
+    the company's influence.\n2. Coins are the in-game currency.\n3. We always have
+    the right to delete your account if needed.\n4. The owners of the app can maintain
+    ownership of all aspects of the app.\n\n______________________________________________________\n\nSLA,
+    Service-level agreement\n1. If the game crashes we have a week to get it up and
+    running again.\n2. Forsbergs Skola, Team 4, is responsible for the payments in-game.\n3.
+    By accepting you agree to every requirement and can be held accountable if you
+    break any of these."
 --- !u!222 &1165413993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1013,11 +1012,11 @@ RectTransform:
   m_Father: {fileID: 2026405335}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -628}
-  m_SizeDelta: {x: 796.69, y: 76.536}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 720, y: 100}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1276318456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,7 +1034,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1174,11 +1173,11 @@ RectTransform:
   m_Father: {fileID: 721161270}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 328}
-  m_SizeDelta: {x: 861.76, y: 128.966}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 1280, y: 120}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1362707703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,7 +1191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1202,7 +1201,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 80
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 8
     m_MaxSize: 80
@@ -1271,31 +1270,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 177538010}
     m_Modifications:
-    - target: {fileID: 952796499207694930, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 952796499207694930, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 952796499207694930, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -130624531
-      objectReference: {fileID: 0}
-    - target: {fileID: 952796499207694930, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
-        type: 3}
-      propertyPath: m_MaskInteraction
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 952796499207694941, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 56.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3499904708848450010, guid: 4cb19b7c7b669ef4681fd0cb057eaa73,
         type: 3}
       propertyPath: m_Name
@@ -1523,8 +1497,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1399.592, y: 477.418}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 1600, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753383448
 MonoBehaviour:
@@ -1626,11 +1600,11 @@ RectTransform:
   m_Father: {fileID: 537199338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.001953125, y: -483.44403}
-  m_SizeDelta: {x: 1399.6, y: 1445.451}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1520, y: 3000}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2054479406
 GameObject:
   m_ObjectHideFlags: 0
