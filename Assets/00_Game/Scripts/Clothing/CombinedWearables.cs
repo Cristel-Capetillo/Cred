@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Clothing.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
+using UnityEngine.PlayerLoop;
 using Utilities;
 
 namespace Clothing {
@@ -26,9 +28,17 @@ namespace Clothing {
 
         void Start() {
             EventBroker.Instance().SubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
+            EventBroker.Instance().SubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
         }
         void OnDestroy() {
             EventBroker.Instance().UnsubscribeMessage<EventDestroyCombinedWearable>(DestroyMe);
+            EventBroker.Instance().UnsubscribeMessage<EventUpdateAmount>(UpdateZeAmount);
+        }
+
+        void UpdateZeAmount(EventUpdateAmount amount) {
+            if (amount.id == ToString()) {
+                Amount = amount.amount;
+            }
         }
 
         public override string ToString() {

@@ -63,7 +63,7 @@ namespace Clothing.Inventory {
             }
 
             wearable.Amount += wearableEvent.addOrSubtractAmount;
-
+            EventBroker.Instance().SendMessage(new EventUpdateAmount(id, wearable.Amount));
             if (CombinedWearableAmountIsZero(wearable)) {
                 if (!ValidatePredefined(id)) {
                     combinedWearableDataToSave.Remove(id);
@@ -99,7 +99,6 @@ namespace Clothing.Inventory {
 
         static void UpdateHud(CombinedWearables wearable) {
             wearable.GetComponent<IconUpdate>().UpdateImages();
-            wearable.GetComponent<IconUpdate>().UpdateInformation();
         }
 
         CombinedWearables GenerateNewCombinedWearable(CombinedWearables wearable) {
