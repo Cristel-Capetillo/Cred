@@ -17,5 +17,5 @@ MonoBehaviour:
   maxCurrencyReward: 1200
   minCurrencyReward: 900
   maxFollowersReward: 70
-  minFollowersReward: 25
+  minFollowersReward: 20
   numberOfRequirements: 3
