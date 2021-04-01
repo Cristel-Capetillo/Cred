@@ -18,11 +18,14 @@ namespace MysteryBox {
         }
 
         public void LootTable(LootTable pLootTable) {
-            this.lootTable = pLootTable;
+            lootTable = pLootTable;
         }
 
         IEnumerator StartRewardProcess(float delay){
+            //TODO: Add Sound here!!!!!
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/mysteryBoxsparkels");
             yield return new WaitForSeconds(delay);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/mysteryBox");
             var reward = lootTable.Reward();
             print(reward.name + "Test");
             reward.Amount =
