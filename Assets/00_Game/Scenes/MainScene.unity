@@ -1349,6 +1349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 985290087}
     m_Modifications:
+    - target: {fileID: 441794759323046043, guid: 9a2d8e94608f4944d8cb9db82385823e,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4848670414040645164, guid: 9a2d8e94608f4944d8cb9db82385823e,
         type: 3}
       propertyPath: sizeToDisplayReward
