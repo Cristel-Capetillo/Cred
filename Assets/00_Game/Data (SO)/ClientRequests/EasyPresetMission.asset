@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumStylePoints: 3
   maximumStylePoints: 20
-  maxCurrencyReward: 500
-  minCurrencyReward: 300
+  maxCurrencyReward: 700
+  minCurrencyReward: 450
   maxFollowersReward: 50
   minFollowersReward: 10
   numberOfRequirements: 1

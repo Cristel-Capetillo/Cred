@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27315a15ad9d25a4b90701e8b91419e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationBetweenAdWatches: 5
+  durationBetweenAdWatches: 600
 --- !u!114 &2863037569109482535
 MonoBehaviour:
   m_ObjectHideFlags: 0

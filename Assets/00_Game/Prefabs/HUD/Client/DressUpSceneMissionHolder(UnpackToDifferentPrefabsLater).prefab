@@ -396,6 +396,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f64f8ce34e860b84889b2b5cb4038a6c, type: 2}
   - {fileID: 11400000, guid: f6d6ca99127a38b41b98444ee9e43f69, type: 2}
   parentGameObject: {fileID: 8165764138338370419}
+  testBgMusic: {fileID: 0}
 --- !u!114 &4090093613947454655
 MonoBehaviour:
   m_ObjectHideFlags: 0

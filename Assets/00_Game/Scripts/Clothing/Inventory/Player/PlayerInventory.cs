@@ -14,7 +14,7 @@ namespace Clothing.Inventory {
         SaveHandler saveHandler;
 
         //value is of type Dictionary<string, object>
-        Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
+        public Dictionary<string, object> combinedWearableDataToSave = new Dictionary<string, object>();
         public Dictionary<string, Dictionary<string, object>> temporaryData = new Dictionary<string, Dictionary<string, object>>();
 
         PredefinedAssets predefinedAssets;
@@ -50,7 +50,43 @@ namespace Clothing.Inventory {
 
             return combinedWearableDataToSave.ContainsKey(id);
         }
+        public void UpdatePlayerInventory2(CombinedWearables combinedWearable, int addOrSubtractAmount) {
+            var id = GetName(combinedWearable);
+            var wearable = combinedWearable;
 
+            if (!CombinedWearableExists(id)) {
+                wearable = GenerateNewCombinedWearable(wearable);
+                combinedWearableDataToSave.Add(id, inventoryData.StatList(wearable));
+                temporaryData.Add(id, inventoryData.StatList(wearable));
+            }
+
+            wearable.Amount += addOrSubtractAmount;
+
+            EventBroker.Instance().SendMessage(new EventUpdateAmount(id, wearable.Amount));
+            if (CombinedWearableAmountIsZero(wearable)) {
+                if (!Predefined(id)) {
+                    combinedWearableDataToSave.Remove(id);
+                    temporaryData.Remove(id);
+                    UpdateHud(wearable);
+                    saveHandler.Save(this);
+                    EventBroker.Instance().SendMessage(new EventDestroyCombinedWearable(id));
+                    return;
+                }
+            }
+
+            wearable.ShouldBeInteractable();
+
+            AssignNewValues(id, wearable);
+
+            wearable.ReduceAlpha();
+
+            UpdateHud(wearable);
+
+            combinedWearableDataToSave[id] = temporaryData[id];
+            EventBroker.Instance().SendMessage(new EventSortInventory());
+            EventBroker.Instance().SendMessage(new EventUpdateAmount(id, Convert.ToInt32(temporaryData[id][InventoryData.Amount])));
+            // saveHandler.Save(this);
+        }
         void UpdatePlayerInventory(EventUpdatePlayerInventory wearableEvent) {
             var id = GetName(wearableEvent.combinedWearable);
             var wearable = wearableEvent.combinedWearable;
@@ -126,12 +162,10 @@ namespace Clothing.Inventory {
 
         public void OnLoad(Dictionary<string, object> value) {
             combinedWearableDataToSave = value;
-
             if (value == null) {
                 NoSaveFileFound();
                 return;
             }
-
             StartCoroutine(RestoreData(value));
         }
 
@@ -158,7 +192,6 @@ namespace Clothing.Inventory {
                 EventBroker.Instance().SendMessage(new EventUpdateAmount(combinedWearableInstance.ToString(),
                     Convert.ToInt32(temporaryData[combinedWearableInstance.ToString()][InventoryData.Amount])));
             }
-
             yield return CallVariousEvents();
             EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         }

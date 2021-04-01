@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3663551650879817835}
   - component: {fileID: 2942699378550030168}
   - component: {fileID: 3568788385259138851}
+  - component: {fileID: 4041870402682907065}
   m_Layer: 5
   m_Name: DefaultClothes UI
   m_TagString: Untagged
@@ -232,6 +233,18 @@ MonoBehaviour:
           m_StringArgument: MainScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4041870402682907065}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2942699378550030168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,3 +269,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726e4a7cf0e9c483c880c12edf56459e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4041870402682907065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840577824327994639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/buttonSoundMenu
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0

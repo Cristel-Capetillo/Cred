@@ -50,3 +50,6 @@ MonoBehaviour:
   clothesCategories: []
   bodyParts: []
   lastKnownClothes: {fileID: 0}
+  basic: 150
+  normal: 300
+  designer: 500

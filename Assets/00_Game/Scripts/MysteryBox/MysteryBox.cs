@@ -21,10 +21,13 @@ namespace MysteryBox {
             this.lootTable = pLootTable;
         }
 
-        IEnumerator StartRewardProcess(float delay) {
+        IEnumerator StartRewardProcess(float delay){
             yield return new WaitForSeconds(delay);
             var reward = lootTable.Reward();
-            reward.Amount = Convert.ToInt32(FindObjectOfType<PlayerInventory>().temporaryData[reward.ToString()][InventoryData.Amount]);
+            print(reward.name + "Test");
+            reward.Amount =
+                Convert.ToInt32(
+                    FindObjectOfType<PlayerInventory>().temporaryData[reward.ToString()][InventoryData.Amount]);
             ShowReward(reward);
             EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(reward, 1));
             Destroy(gameObject, destroyDelay);
