@@ -1,11 +1,9 @@
-using System;
 using Clothing.DressUp;
 using Clothing.Upgrade;
 using Clothing.Upgrade.UpCycle;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
-using Random = UnityEngine.Random;
 
 namespace Clothing.Inventory {
     public class PurchaseClothingConfirmationMenu : MonoBehaviour {

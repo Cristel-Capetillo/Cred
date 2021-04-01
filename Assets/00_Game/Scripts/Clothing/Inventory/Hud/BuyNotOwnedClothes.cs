@@ -33,17 +33,18 @@ namespace Clothing.Inventory {
   
             var coins = FindObjectOfType<Coin>();
             var price = clothingManager.GetPrice(wearable.rarity);
-            if (coins.Coins >= price) {
-                coins.Coins -= price;
-                UnityEngine.Analytics.Analytics.CustomEvent("Store", new Dictionary<string, object> {
-                    {"Purchased", wearable.ToString()}
-                });
-                EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearable, 1));
-                EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
-            }
+            if (coins.Coins < price){
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/buttonSoundMenu");
+                return;
+            } 
+                
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/purchaseNewItem");
+            coins.Coins -= price;
+            UnityEngine.Analytics.Analytics.CustomEvent("Store", new Dictionary<string, object> {
+                {"Purchased", wearable.ToString()}
+            });
+            EventBroker.Instance().SendMessage(new EventUpdatePlayerInventory(wearable, 1));
+            EventBroker.Instance().SendMessage(new EventUpdateWearableHud());
         }
-
-        //TODO: MOVE TO A MAKE SENSE PLACE
-        
     }
 }
