@@ -4,7 +4,8 @@ using UnityEngine.AddressableAssets;
 namespace Clothing.Inventory {
     [System.Serializable]
     public class InventoryData {
-        public AssetLabelReference wearablesAddress;
+        public List<Wearable> wearables;
+        //public AssetLabelReference wearablesAddress;
         
         public Rarity[] rarity;
         public ClothingType[] clothingType;

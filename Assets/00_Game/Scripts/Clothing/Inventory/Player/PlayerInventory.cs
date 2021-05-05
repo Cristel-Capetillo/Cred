@@ -176,15 +176,15 @@ namespace Clothing.Inventory {
 
         IEnumerator RestoreData(Dictionary<string, object> value) {
             print($"[PlayerInventory_RestoreData]\nDictionary size: {value.Count}");
-            var wearableList = new List<Wearable>();
-            yield return Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
+            //var wearableList = new List<Wearable>();
+            //yield return Addressables.LoadAssetsAsync<Wearable>(inventoryData.wearablesAddress, wearable => { wearableList.Add(wearable); });
 
             foreach (var combinedWearable in value) {
                 var combinedWearableInstance = InstantiateCombinedWearables();
                 combinedWearableInstance.transform.localScale = Vector3.one;
                 var combinedWearablesStatsDictionary = (Dictionary<string, object>) combinedWearable.Value;
 
-                yield return AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance, wearableList);
+                yield return AssignWearables(combinedWearablesStatsDictionary, combinedWearableInstance, this.inventoryData.wearables);
 
                 AssignCombinedWearableData(combinedWearableInstance, combinedWearablesStatsDictionary);
                 combinedWearableInstance.ShouldBeInteractable();
