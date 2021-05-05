@@ -18,13 +18,13 @@ namespace Clothing.Inventory {
         }
 
         void CalculateHeight(EventUpdateWearableHud contentHeight) {
-            var rect = thisRect.sizeDelta;
-            var tmp = 0;
-            foreach (var t in childRects) {
-                tmp += t.childCount;
-            }
-            rect.y = childRects.Sum(x => x.sizeDelta.y + tmp);
+            var rect = Vector2.zero;
 
+            //rect.y = childRects.Sum(x => x.sizeDelta.y + 10);
+
+            foreach (var childRect in this.childRects) {
+                rect.y += childRect.sizeDelta.y + 10;
+            }
 
             thisRect.sizeDelta = rect;
         }
